@@ -1,4 +1,7 @@
+"use client"
+
 import React from "react"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -9,9 +12,8 @@ interface SecondaryButtonProps extends React.ComponentProps<typeof Button> {
 }
 
 /**
- * Premium Ayurvedic Secondary Button.
- * Uses an outline border style with the brand gold/green, smooth hover transitions, 
- * and optional icon support.
+ * Premium Ayurvedic Secondary Button — editorial ghost styling
+ * with gold accents, Framer Motion hover depth, and smooth transitions.
  */
 export default function SecondaryButton({
   children,
@@ -21,27 +23,41 @@ export default function SecondaryButton({
   ...props
 }: SecondaryButtonProps) {
   return (
-    <Button
-      className={cn(
-        "relative overflow-hidden font-medium border transition-all duration-300",
-        "border-brand-gold bg-transparent text-brand-primary",
-        "hover:bg-brand-primary hover:text-white hover:border-brand-primary",
-        "px-6 py-5 rounded-md h-auto flex items-center justify-center gap-2",
-        className
-      )}
-      {...props}
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className="inline-block"
     >
-      {icon && iconPosition === "left" && (
-        <span className="transition-transform duration-300 group-hover:translate-x-[-2px]">
-          {icon}
-        </span>
-      )}
-      <span>{children}</span>
-      {icon && iconPosition === "right" && (
-        <span className="transition-transform duration-300 group-hover:translate-x-[2px]">
-          {icon}
-        </span>
-      )}
-    </Button>
+      <Button
+        className={cn(
+          /* Base layout */
+          "relative overflow-hidden font-medium",
+          "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
+          /* Ghost editorial style */
+          "bg-transparent text-brand-primary dark:text-brand-gold",
+          "border border-brand-gold/60 hover:border-brand-primary",
+          /* Hover fill */
+          "hover:bg-brand-primary hover:text-white",
+          /* Shadow & transition */
+          "shadow-none hover:shadow-lg hover:shadow-brand-primary/10",
+          "transition-all duration-500 ease-out",
+          className
+        )}
+        {...props}
+      >
+        {icon && iconPosition === "left" && (
+          <span className="transition-transform duration-300 group-hover:-translate-x-0.5">
+            {icon}
+          </span>
+        )}
+        <span className="text-sm font-semibold tracking-wide">{children}</span>
+        {icon && iconPosition === "right" && (
+          <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+            {icon}
+          </span>
+        )}
+      </Button>
+    </motion.div>
   )
 }

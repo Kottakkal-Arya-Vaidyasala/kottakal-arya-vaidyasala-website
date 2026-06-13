@@ -1,0 +1,225 @@
+"use client"
+
+import React, { useState, useEffect } from "react"
+import Image from "next/image"
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
+import Container from "@/components/common/Container"
+import AnimatedReveal from "@/components/common/AnimatedReveal"
+import PrimaryButton from "@/components/common/PrimaryButton"
+import { ArrowRight, Clock, CheckCircle2 } from "lucide-react"
+import { treatments } from "@/data/treatments"
+import { useWhatsApp } from "@/hooks/useWhatsApp"
+
+/**
+ * ═══════════════════════════════════════════════════
+ * Our Treatments Page — Redesigned Premium Layout
+ * ═══════════════════════════════════════════════════
+ */
+export default function OurTreatmentsPage() {
+  const { openWhatsApp } = useWhatsApp()
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+
+  // Auto-switch background carousel logic
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % treatments.length)
+    }, 6000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const activeTreatment = treatments[currentIndex]
+
+  return (
+    <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
+      
+      {/* ── 1. Immersive Hero Background Carousel ──────── */}
+      <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center">
+        {/* Background Image Carousel */}
+        <div className="absolute inset-0 z-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTreatment.id}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={activeTreatment.imagePath}
+                alt={activeTreatment.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+          {/* Muted dark overlay for text readability */}
+          <div className="absolute inset-0 bg-brand-dark/70 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90" />
+        </div>
+
+        <Container className="relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Highlighted Text Content */}
+            <div className="flex flex-col">
+              <AnimatedReveal direction="up">
+                <span className="inline-block py-1.5 px-4 rounded-full bg-brand-gold/20 backdrop-blur-sm border border-brand-gold/30 text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-6">
+                  Signature Therapies
+                </span>
+              </AnimatedReveal>
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTreatment.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <h1 className="text-5xl md:text-6xl lg:text-8xl font-heading font-bold text-white mb-4 leading-[1.1] drop-shadow-lg">
+                    {activeTreatment.title}
+                  </h1>
+                  <p className="text-xl md:text-2xl font-serif italic text-brand-gold mb-6 drop-shadow-md">
+                    {activeTreatment.subtitle}
+                  </p>
+                  <p className="text-lg text-gray-200 leading-relaxed max-w-lg mb-8 font-light">
+                    {activeTreatment.description}
+                  </p>
+                  
+                  <PrimaryButton
+                    onClick={() => {
+                      const el = document.getElementById(`treatment-${activeTreatment.id}`)
+                      if (el) {
+                        const y = el.getBoundingClientRect().top + window.scrollY - 100
+                        window.scrollTo({ top: y, behavior: "smooth" })
+                      }
+                    }}
+                    className="w-fit"
+                  >
+                    View Details
+                  </PrimaryButton>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            
+            {/* Carousel Navigation Indicators */}
+            <div className="hidden lg:flex flex-col items-end justify-center gap-4">
+              {treatments.map((t, idx) => (
+                <button
+                  key={t.id}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`group flex items-center gap-4 transition-all duration-300 ${
+                    currentIndex === idx ? 'opacity-100' : 'opacity-40 hover:opacity-70'
+                  }`}
+                >
+                  <span className={`text-sm font-bold tracking-widest uppercase transition-colors ${
+                    currentIndex === idx ? 'text-brand-gold' : 'text-white'
+                  }`}>
+                    {t.title}
+                  </span>
+                  <div className={`h-[2px] transition-all duration-500 ${
+                    currentIndex === idx ? 'w-16 bg-brand-gold' : 'w-8 bg-white group-hover:w-12'
+                  }`} />
+                </button>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 2. Comprehensive Treatment List ───────── */}
+      {/* Brand primary background to match button color, looking premium */}
+      <section className="py-24 md:py-32 bg-brand-primary relative overflow-hidden">
+        {/* Subtle decorative background elements */}
+        <div className="absolute top-0 right-0 w-full h-full grain-overlay opacity-20 pointer-events-none" />
+        <div className="absolute -left-[20%] top-[10%] w-[800px] h-[800px] bg-brand-dark/40 rounded-full filter blur-[150px] pointer-events-none" />
+        
+        <Container className="relative z-10">
+          <AnimatedReveal direction="up" className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+              Our Complete <span className="italic font-serif text-brand-gold">Menu</span>
+            </h2>
+            <p className="text-lg text-brand-sage max-w-2xl mx-auto font-light">
+              Explore our full range of authentic therapies, carefully designed to rejuvenate your body, mind, and spirit.
+            </p>
+          </AnimatedReveal>
+
+          <div className="flex flex-col gap-24">
+            {treatments.map((treatment, idx) => {
+              const isEven = idx % 2 === 0
+              
+              return (
+                <div 
+                  id={`treatment-${treatment.id}`}
+                  key={treatment.id} 
+                  className={`scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${
+                    isEven ? 'lg:direction-ltr' : 'lg:direction-rtl'
+                  }`}
+                >
+                  {/* Image Column */}
+                  <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <AnimatedReveal direction={isEven ? "right" : "left"}>
+                      <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl gold-border-reveal group">
+                        <Image
+                          src={treatment.imagePath}
+                          alt={treatment.title}
+                          fill
+                          className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-700" />
+                      </div>
+                    </AnimatedReveal>
+                  </div>
+
+                  {/* Content Column */}
+                  <div className={`lg:col-span-7 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <AnimatedReveal direction={isEven ? "left" : "right"}>
+                      <div className={`bg-brand-dark/30 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-3xl ${
+                        isEven ? 'lg:-ml-12' : 'lg:-mr-12'
+                      } relative z-10`}>
+                        <div className="flex items-center gap-3 text-brand-gold mb-6">
+                          <Clock className="w-5 h-5" />
+                          <span className="font-semibold tracking-wider text-sm uppercase">Duration: {treatment.duration}</span>
+                        </div>
+                        
+                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4">
+                          {treatment.title}
+                        </h3>
+                        <p className="text-brand-gold font-serif italic text-xl mb-6">
+                          {treatment.subtitle}
+                        </p>
+                        
+                        <p className="text-gray-300 leading-relaxed mb-8 text-lg font-light">
+                          {treatment.longDescription}
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                          {treatment.benefits.map((benefit, i) => (
+                            <div key={i} className="flex items-start gap-3">
+                              <CheckCircle2 className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
+                              <span className="text-gray-200 text-sm font-medium">{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <PrimaryButton 
+                          onClick={() => openWhatsApp({ treatment: treatment.title })}
+                          className="w-full sm:w-auto bg-brand-gold hover:bg-white text-brand-dark hover:text-brand-primary border-transparent"
+                        >
+                          Book {treatment.title}
+                        </PrimaryButton>
+                      </div>
+                    </AnimatedReveal>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </Container>
+      </section>
+    </main>
+  )
+}

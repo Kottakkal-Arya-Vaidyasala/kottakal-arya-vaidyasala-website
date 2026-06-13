@@ -1,98 +1,157 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef } from "react"
+import { motion, useInView, type Variants } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-interface AnimatedRevealProps extends React.HTMLAttributes<HTMLDivElement> {
+interface AnimatedRevealProps {
   children: React.ReactNode
+  className?: string
   direction?: "up" | "down" | "left" | "right" | "fade"
-  delay?: number // in milliseconds
-  duration?: number // in milliseconds
-  threshold?: number // 0 to 1
+  delay?: number
+  duration?: number
+  threshold?: number
   once?: boolean
+  /** Enable stagger mode — children will animate one by one */
+  stagger?: boolean
+  staggerDelay?: number
 }
 
 /**
- * AnimatedReveal utilizes IntersectionObserver to trigger smooth, premium 
- * animations as sections enter the user's viewport.
+ * AnimatedReveal — Framer Motion scroll-triggered reveal animation.
+ * Uses `useInView` for performant viewport detection and `motion.div`
+ * for silky-smooth 60fps animations with GPU acceleration.
  */
 export default function AnimatedReveal({
   children,
   className,
   direction = "up",
   delay = 0,
-  duration = 800,
-  threshold = 0.1,
+  duration = 0.7,
+  threshold = 0.15,
   once = true,
-  ...props
+  stagger = false,
+  staggerDelay = 0.1,
 }: AnimatedRevealProps) {
-  const [isRevealed, setIsRevealed] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, {
+    once,
+    amount: threshold,
+    margin: "0px 0px -60px 0px",
+  })
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsRevealed(true)
-          if (once && ref.current) {
-            observer.unobserve(ref.current)
-          }
-        } else if (!once) {
-          setIsRevealed(false)
-        }
+  /* Direction-based initial/target transform values */
+  const directionMap: Record<string, { x: number; y: number }> = {
+    up: { x: 0, y: 30 },
+    down: { x: 0, y: -30 },
+    left: { x: 30, y: 0 },
+    right: { x: -30, y: 0 },
+    fade: { x: 0, y: 0 },
+  }
+
+  const offset = directionMap[direction]
+
+  /* Stagger container variant — animates children sequentially */
+  const containerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: staggerDelay,
+        delayChildren: delay / 1000,
       },
-      {
-        threshold,
-        rootMargin: "0px 0px -50px 0px", // triggers slightly before entering to avoid page jump feel
-      }
+    },
+  }
+
+  /* Individual item variant */
+  const itemVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      x: offset.x,
+      y: offset.y,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration,
+        ease: [0.23, 1, 0.32, 1] as const, /* Luxury cubic bezier — smooth deceleration */
+      },
+    },
+  }
+
+  /* If stagger mode, wrap children in a motion container */
+  if (stagger) {
+    return (
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={containerVariants}
+        className={className}
+      >
+        {children}
+      </motion.div>
     )
-
-    const currentRef = ref.current
-    if (currentRef) {
-      observer.observe(currentRef)
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef)
-      }
-    }
-  }, [threshold, once])
-
-  // Map directions to initial translate states
-  const directionClasses = {
-    fade: "opacity-0",
-    up: "opacity-0 translate-y-12",
-    down: "opacity-0 -translate-y-12",
-    left: "opacity-0 translate-x-12",
-    right: "opacity-0 -translate-x-12",
-  }
-
-  const activeClasses = {
-    fade: "opacity-100 translate-0",
-    up: "opacity-100 translate-y-0",
-    down: "opacity-100 translate-y-0",
-    left: "opacity-100 translate-x-0",
-    right: "opacity-100 translate-x-0",
-  }
-
-  const animationStyle = {
-    transitionDuration: `${duration}ms`,
-    transitionDelay: `${delay}ms`,
   }
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      style={animationStyle}
-      className={cn(
-        "transition-all ease-out",
-        isRevealed ? activeClasses[direction] : directionClasses[direction],
-        className
-      )}
-      {...props}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={itemVariants}
+      transition={{
+        delay: delay / 1000,
+      }}
+      className={className}
     >
       {children}
-    </div>
+    </motion.div>
+  )
+}
+
+/**
+ * StaggerItem — Must be used inside an AnimatedReveal with stagger={true}.
+ * Each item will animate in sequence according to the parent's staggerDelay.
+ */
+export function StaggerItem({
+  children,
+  className,
+  direction = "up",
+  duration = 0.7,
+}: {
+  children: React.ReactNode
+  className?: string
+  direction?: "up" | "down" | "left" | "right" | "fade"
+  duration?: number
+}) {
+  const directionMap: Record<string, { x: number; y: number }> = {
+    up: { x: 0, y: 30 },
+    down: { x: 0, y: -30 },
+    left: { x: 30, y: 0 },
+    right: { x: -30, y: 0 },
+    fade: { x: 0, y: 0 },
+  }
+
+  const offset = directionMap[direction]
+
+  const variants: Variants = {
+    hidden: { opacity: 0, x: offset.x, y: offset.y },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration,
+        ease: [0.23, 1, 0.32, 1] as const,
+      },
+    },
+  }
+
+  return (
+    <motion.div variants={variants} className={className}>
+      {children}
+    </motion.div>
   )
 }

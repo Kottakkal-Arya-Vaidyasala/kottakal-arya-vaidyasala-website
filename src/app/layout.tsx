@@ -1,28 +1,36 @@
 import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Outfit, Cormorant_Garamond } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { Toaster } from "@/components/ui/sonner"
+import WhatsAppButton from "@/components/common/WhatsAppButton"
 
 import { defaultMetadata, localBusinessSchema } from "./metadata"
 
-// Set up Inter for body text
-const inter = Inter({
+/* ── Premium Typography Setup ─────────────────────── */
+
+/** Outfit — modern, clean, geometric body text */
+const outfit = Outfit({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 })
 
-// Set up Playfair Display for headers
-const playfair = Playfair_Display({
+/** Cormorant Garamond — ultra-luxury editorial serif for headings */
+const cormorant = Cormorant_Garamond({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 })
 
 export const metadata = defaultMetadata
 
+/**
+ * Root Layout — wraps every page with global providers,
+ * navigation, footer, toast system, and floating WhatsApp CTA.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${outfit.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script
@@ -48,6 +56,9 @@ export default function RootLayout({
         
         {/* Footer Navigation */}
         <Footer />
+        
+        {/* Floating WhatsApp CTA — persistent across all pages */}
+        <WhatsAppButton />
         
         {/* Sonner Toast alerts */}
         <Toaster position="top-right" richColors />
