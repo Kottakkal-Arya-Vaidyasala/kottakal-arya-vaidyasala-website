@@ -1,25 +1,24 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Container from "@/components/common/Container"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Container from "@/components/common/Container";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
 
 /**
  * ═══════════════════════════════════════════════════
  * Luxury Experience — Asymmetric Image Gallery
  * ═══════════════════════════════════════════════════
- * Full-width parallax-like gallery showcasing the
- * premium clinic environment. Asymmetric masonry
- * layout with hover zoom and gold border reveals.
+ * Full-width gallery showcasing the premium clinic environment.
+ * Asymmetric masonry layout with hover zoom and gold border reveals.
  */
 
 const galleryImages = [
   {
     src: "/images/gallery/kerala-heritage.png",
-    alt: "Traditional Kerala Ayurvedic heritage courtyard",
-    title: "Kerala Heritage",
+    alt: "Traditional Ayurvedic heritage courtyard",
+    title: "Ayurvedic Heritage",
     span: "col-span-2 row-span-2",
     aspect: "aspect-square",
   },
@@ -38,30 +37,30 @@ const galleryImages = [
     aspect: "aspect-square",
   },
   {
-    src: "/images/treatments/panchakarma.png",
+    src: "/images/treatments/panchakarma1.png",
     alt: "Panchakarma therapy session",
     title: "Healing Therapies",
     span: "col-span-2 row-span-1",
     aspect: "aspect-[2/1]",
   },
-]
+];
 
 export default function LuxuryExperience() {
   return (
-    <section className="py-24 md:py-32 bg-brand-cream dark:bg-brand-dark/40 relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-brand-cream relative overflow-hidden">
       <Container>
         {/* ── Section Header ────────────────────────── */}
         <AnimatedReveal direction="up" className="text-center mb-16 md:mb-20">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-primary dark:text-brand-secondary mb-3 block">
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-gold mb-3 block">
             Our Environment
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-gray-900 dark:text-white leading-[1.15] max-w-3xl mx-auto mb-5">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-brand-primary leading-[1.15] max-w-3xl mx-auto mb-5">
             A Sanctuary of{" "}
             <span className="italic font-serif text-brand-gold">Healing</span>
           </h2>
-          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Step into a space where traditional Kerala aesthetics meet modern comfort — 
-            designed to nurture your journey to wellness.
+          <p className="text-base md:text-lg text-brand-grey max-w-2xl mx-auto leading-[1.6] font-light">
+            Step into a space where traditional Ayurvedic aesthetics meet modern
+            comfort — designed to nurture your journey to wellness.
           </p>
           <div className="flex items-center justify-center gap-2 mt-5">
             <div className="h-[2px] w-10 rounded-full bg-brand-gold" />
@@ -81,7 +80,7 @@ export default function LuxuryExperience() {
             >
               <motion.div
                 whileHover={{ scale: 0.98 }}
-                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="relative w-full h-full rounded-xl overflow-hidden group img-zoom gold-border-reveal cursor-pointer"
               >
                 <Image
@@ -106,5 +105,5 @@ export default function LuxuryExperience() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

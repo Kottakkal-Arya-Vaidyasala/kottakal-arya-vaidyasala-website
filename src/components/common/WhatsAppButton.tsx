@@ -2,20 +2,20 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageCircle, X } from "lucide-react"
+import { MessageCircle } from "lucide-react"
 import { siteConfig } from "@/data/site"
 
 /**
  * WhatsAppButton — Floating CTA fixed at bottom-right.
- * Expands on hover to show tooltip. Uses dynamic WhatsApp
- * message generation with the professional template.
+ * Expands on hover to show tooltip. Uses the professional
+ * pre-filled consultation booking message template.
  */
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false)
 
   const whatsappNumber = siteConfig.contact.whatsapp
   const defaultMessage = encodeURIComponent(
-    `Hello,\n\nI would like to schedule a consultation with Kottakkal Arya Vaidyasala Ayurvedic Medical Center.\n\nPlease contact me regarding available consultation slots.\n\nThank you.`
+    `Hello Kottakkal Abu Dhabi, I would like to book an elite Ayurveda consultation session. Please guide me through your available slots.`
   )
 
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`
@@ -35,7 +35,7 @@ export default function WhatsAppButton() {
             <p className="text-xs font-semibold text-brand-dark leading-snug">
               Chat with us on WhatsApp
             </p>
-            <p className="text-[10px] text-gray-500 mt-0.5">
+            <p className="text-[10px] text-brand-grey mt-0.5">
               We reply within 10 minutes
             </p>
           </motion.div>

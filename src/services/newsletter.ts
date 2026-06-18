@@ -32,12 +32,12 @@ export async function subscribeToNewsletter(
       success: data.success,
       message: data.message,
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Newsletter subscription error:", error)
     return {
       success: false,
       message: "An error occurred. Please try subscribing again later.",
-      error: error?.message || String(error),
+      error: error instanceof Error ? error.message : String(error),
     }
   }
 }

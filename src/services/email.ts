@@ -14,14 +14,26 @@ export interface ContactFormInput {
 export interface EmailResponse {
   success: boolean
   message: string
-  error?: any
+  error?: unknown
 }
 
+/* ── Environment Variable Validation ────────────── */
 const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
 const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
 const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
 
 const isConfigured = !!(serviceId && templateId && publicKey)
+
+/* Runtime warning for missing configuration */
+if (typeof window !== "undefined" && !isConfigured) {
+  console.warn(
+    "[EmailJS] ⚠️ Missing environment variables. Ensure the following are set with NEXT_PUBLIC_ prefix:\n" +
+    "  - NEXT_PUBLIC_EMAILJS_SERVICE_ID\n" +
+    "  - NEXT_PUBLIC_EMAILJS_TEMPLATE_ID\n" +
+    "  - NEXT_PUBLIC_EMAILJS_PUBLIC_KEY\n" +
+    "Contact form will run in development mock mode."
+  )
+}
 
 /**
  * Dispatch contact form inputs to client email service using EmailJS.
@@ -77,12 +89,12 @@ export async function sendContactEmail(
     } else {
       throw new Error(`EmailJS API response code: ${response.status} - ${response.text}`)
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("EmailJS dispatch service failure:", error)
     return {
       success: false,
       message: "Failed to dispatch message. Please try again or contact our front office directly.",
-      error: error?.message || String(error),
+      error: error instanceof Error ? error.message : String(error),
     }
   }
 }

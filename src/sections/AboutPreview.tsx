@@ -17,7 +17,7 @@ export default function AboutPreview() {
   ]
 
   return (
-    <section className="py-20 bg-brand-primary/5 dark:bg-transparent relative overflow-hidden">
+    <section className="py-20 bg-brand-primary/5 relative overflow-hidden">
       {/* Decorative vectors */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-brand-gold/5 rounded-full filter blur-3xl pointer-events-none" />
       
@@ -47,7 +47,7 @@ export default function AboutPreview() {
           <div className="lg:col-span-7 order-1 lg:order-2">
             <AnimatedReveal direction="left">
               <SectionHeading
-                title="Pioneering Traditional Kerala Ayurveda in Abu Dhabi"
+                title="Pioneering Traditional Ayurveda in Abu Dhabi"
                 subtitle="About Our Center"
                 align="left"
                 className="mb-8"
@@ -55,10 +55,10 @@ export default function AboutPreview() {
             </AnimatedReveal>
 
             <AnimatedReveal direction="up" delay={200}>
-              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                Kottakkal Arya Vaidyasala Ayurvedic Medical Center brings the authentic, age-old healing heritage of Kerala to the United Arab Emirates. Guided by the principles of Ashtanga Hridaya, we treat the root cause of health issues, not just the symptoms.
+              <p className="text-brand-grey mb-6 leading-[1.6] font-light">
+                Kottakkal Arya Vaidyasala Ayurvedic Medical Center brings the authentic, age-old healing heritage of Ayurveda to the United Arab Emirates. Guided by the principles of Ashtanga Hridaya, we treat the root cause of health issues, not just the symptoms.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+              <p className="text-brand-grey mb-8 leading-[1.6] font-light">
                 Our customized wellness plans help address stress, weight issues, joint pain, skin disorders, and lifestyle diseases. We aim to restore physical equilibrium and mental serenity.
               </p>
             </AnimatedReveal>
@@ -67,8 +67,8 @@ export default function AboutPreview() {
             <AnimatedReveal direction="up" delay={300} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {highlights.map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-5 h-5 text-brand-primary dark:text-brand-secondary shrink-0 mt-0.5" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300 leading-normal">{item}</span>
+                  <CheckCircle2 className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
+                  <span className="text-sm text-brand-grey font-light leading-normal">{item}</span>
                 </div>
               ))}
             </AnimatedReveal>

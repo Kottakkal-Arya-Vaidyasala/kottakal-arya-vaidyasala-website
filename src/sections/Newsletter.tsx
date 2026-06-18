@@ -11,15 +11,8 @@ import { Send, Sparkles, Loader2, CheckCircle, AlertCircle, RotateCcw } from "lu
 
 /**
  * ═══════════════════════════════════════════════════
- * Newsletter — Elegant Split Layout (Production-Ready)
+ * Newsletter — Elegant Split Layout (Navy/Gold)
  * ═══════════════════════════════════════════════════
- * AUDIT FIXES (Phase 2.5):
- * ✓ Proper email validation with inline error message
- * ✓ Animated success confirmation (not just toast)
- * ✓ Error state with retry button
- * ✓ Duplicate prevention (handled by Brevo API)
- * ✓ Loading state with disabled input
- * ✓ Accessibility labels
  */
 export default function Newsletter() {
   const [email, setEmail] = useState("")
@@ -101,20 +94,22 @@ export default function Newsletter() {
           {/* ── Right: Newsletter Form ────────────────── */}
           <div className="lg:col-span-7 text-white">
             <AnimatedReveal direction="down">
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-gold text-xs font-semibold uppercase tracking-[0.15em] mb-5">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Ayurvedic Wellness Tips</span>
+              <div className="inline-flex items-center gap-2 mb-6">
+                <div className="w-8 h-[1px] bg-brand-gold" />
+                <span className="text-brand-gold text-xs font-bold uppercase tracking-[0.2em]">
+                  Ayurvedic Wellness Tips
+                </span>
               </div>
             </AnimatedReveal>
 
             <AnimatedReveal direction="up" delay={100}>
-              <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-heading font-bold mb-4 tracking-wide leading-tight">
-                Subscribe to Our{" "}
-                <span className="italic font-serif text-brand-gold-light">
+              <h2 className="text-3xl md:text-5xl lg:text-[3.25rem] font-heading font-bold mb-6 tracking-wide leading-[1.15]">
+                Subscribe to Our <br className="hidden md:block" />
+                <span className="italic font-serif text-brand-gold font-light">
                   Wellness Newsletter
                 </span>
               </h2>
-              <p className="text-sm md:text-base text-gray-200/80 mb-8 max-w-lg leading-relaxed">
+              <p className="text-base md:text-lg text-white/80 mb-10 max-w-lg leading-[1.8] font-light">
                 Stay informed about holistic healing tips, seasonal Ayurvedic
                 packages, detox recommendations, and special wellness events
                 in Abu Dhabi.
@@ -211,7 +206,7 @@ export default function Newsletter() {
                           whileTap={{ scale: 0.98 }}
                           type="submit"
                           disabled={isSubmitting}
-                          className="bg-brand-gold hover:bg-brand-gold-light text-brand-dark font-semibold text-sm px-7 py-3.5 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 shrink-0 disabled:opacity-75 disabled:cursor-not-allowed"
+                          className="bg-[#F7F4EE] hover:bg-white text-[#1F2A44] font-semibold text-sm px-7 py-3.5 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 shrink-0 disabled:opacity-75 disabled:cursor-not-allowed"
                         >
                           {isSubmitting ? (
                             <Loader2 className="w-4 h-4 animate-spin" />

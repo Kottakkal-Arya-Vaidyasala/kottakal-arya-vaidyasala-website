@@ -1,21 +1,23 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Leaf } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface LogoProps {
   /** Display variant */
-  variant?: "full" | "icon" | "text"
+  variant?: "full" | "icon" | "text";
   /** Size preset */
-  size?: "sm" | "md" | "lg" | "xl"
+  size?: "sm" | "md" | "lg" | "xl";
   /** Light mode (white text for dark backgrounds) */
-  light?: boolean
+  light?: boolean;
   /** Link to homepage on click */
-  linkToHome?: boolean
+  linkToHome?: boolean;
   /** Additional class names */
-  className?: string
+  className?: string;
 }
 
 /**
@@ -38,19 +40,19 @@ interface LogoProps {
 
 /* ── Size configuration ──────────────────────────── */
 const sizeMap = {
-  sm: { logo: { w: 120, h: 40 }, icon: { w: 32, h: 32 }, text: "text-sm" },
-  md: { logo: { w: 160, h: 50 }, icon: { w: 40, h: 40 }, text: "text-base" },
-  lg: { logo: { w: 200, h: 60 }, icon: { w: 48, h: 48 }, text: "text-lg" },
-  xl: { logo: { w: 260, h: 80 }, icon: { w: 56, h: 56 }, text: "text-xl" },
-} as const
+  sm: { logo: { w: 46, h: 46 }, icon: { w: 32, h: 32 }, text: "text-sm" },
+  md: { logo: { w: 64, h: 64 }, icon: { w: 40, h: 40 }, text: "text-base" },
+  lg: { logo: { w: 84, h: 84 }, icon: { w: 48, h: 48 }, text: "text-lg" },
+  xl: { logo: { w: 104, h: 104 }, icon: { w: 56, h: 56 }, text: "text-xl" },
+} as const;
 
 /* ── Logo file paths ─────────────────────────────── */
 const LOGO_PATHS = {
-  full: "/images/logo/logo-full.png",
-  fullWhite: "/images/logo/logo-full-white.png",
+  full: "/images/logo/navyblue-logo.png",
+  fullWhite: "/images/logo/navyblue-logo.png",
   fullSvg: "/images/logo/logo-full.svg",
   icon: "/images/logo/logo-icon.png",
-} as const
+} as const;
 
 /**
  * Checks if the SVG logo file exists by trying to load it.
@@ -60,7 +62,7 @@ function getLogoSrc(light: boolean): string {
   // Prefer SVG for crisp rendering at all sizes
   // When the official logo SVG is available, this will auto-resolve
   // For now, fallback to PNG path
-  return light ? LOGO_PATHS.fullWhite : LOGO_PATHS.full
+  return light ? LOGO_PATHS.fullWhite : LOGO_PATHS.full;
 }
 
 export default function Logo({
@@ -70,7 +72,7 @@ export default function Logo({
   linkToHome = true,
   className,
 }: LogoProps) {
-  const dimensions = sizeMap[size]
+  const dimensions = sizeMap[size];
 
   /* ── Render based on variant ───────────────────── */
   const renderLogo = () => {
@@ -90,7 +92,7 @@ export default function Logo({
               priority
             />
           </div>
-        )
+        );
 
       case "text":
         return (
@@ -99,7 +101,7 @@ export default function Logo({
               className={cn(
                 "font-heading font-bold tracking-tight leading-none",
                 dimensions.text,
-                light ? "text-white" : "text-brand-dark dark:text-white"
+                light ? "text-white" : "text-brand-dark",
               )}
             >
               KOTTAKKAL
@@ -107,35 +109,64 @@ export default function Logo({
             <span
               className={cn(
                 "font-sans font-bold tracking-[0.25em] leading-none mt-1",
-                size === "sm" ? "text-[7px]" : size === "md" ? "text-[9px]" : size === "lg" ? "text-[10px]" : "text-xs",
-                "text-brand-gold"
+                size === "sm"
+                  ? "text-[7px]"
+                  : size === "md"
+                    ? "text-[9px]"
+                    : size === "lg"
+                      ? "text-[10px]"
+                      : "text-xs",
+                "text-brand-gold",
               )}
             >
               ARYA VAIDYASALA
             </span>
           </div>
-        )
+        );
 
       case "full":
       default:
         return (
-          <div
-            className={cn("relative flex-shrink-0", className)}
-            style={{ width: dimensions.logo.w, height: dimensions.logo.h }}
-          >
-            <Image
-              src={getLogoSrc(light)}
-              alt="Kottakkal Arya Vaidyasala Ayurvedic Medical Center"
-              width={dimensions.logo.w}
-              height={dimensions.logo.h}
-              className="object-contain"
-              priority
-              // Next.js automatically handles retina/2x via srcSet
-            />
+          <div className="flex items-center gap-3.5">
+            <div
+              className={cn("relative flex-shrink-0", className)}
+              style={{ width: dimensions.logo.w, height: dimensions.logo.h }}
+            >
+              <Image
+                src={getLogoSrc(light)}
+                alt="Kottakkal Arya Vaidyasala Ayurvedic Medical Center"
+                width={dimensions.logo.w}
+                height={dimensions.logo.h}
+                className="w-full h-full object-contain"
+                style={{ objectFit: "contain", maxHeight: dimensions.logo.h }}
+                priority
+              />
+            </div>
+            <div className="flex flex-col justify-center translate-y-[2px]">
+              <span
+                className={cn(
+                  "font-bold tracking-tight leading-none",
+                  size === "sm" ? "text-lg" : size === "md" ? "text-xl" : "text-2xl",
+                  light ? "text-white" : "text-brand-primary",
+                )}
+                style={{ fontFamily: "'Avenir Next Pro', 'Avenir Next', 'Avenir', sans-serif" }}
+              >
+                KOTTAKKAL
+              </span>
+              <span
+                className={cn(
+                  "font-sans font-bold tracking-[0.25em] leading-none mt-0.5",
+                  size === "sm" ? "text-[8px]" : size === "md" ? "text-[10px]" : "text-xs",
+                  "text-brand-gold",
+                )}
+              >
+                ARYA VAIDYASALA
+              </span>
+            </div>
           </div>
-        )
+        );
     }
-  }
+  };
 
   /* ── Wrap in link if needed ────────────────────── */
   if (linkToHome) {
@@ -147,10 +178,10 @@ export default function Logo({
       >
         {renderLogo()}
       </Link>
-    )
+    );
   }
 
-  return renderLogo()
+  return renderLogo();
 }
 
 /**
@@ -163,17 +194,18 @@ export function LogoFallback({
   size = "md",
   className,
 }: {
-  light?: boolean
-  size?: "sm" | "md" | "lg"
-  className?: string
+  light?: boolean;
+  size?: "sm" | "md" | "lg";
+  className?: string;
 }) {
-  const { Leaf } = require("lucide-react")
-  const motion = require("framer-motion").motion
-
-  const iconSizes = { sm: "w-8 h-8", md: "w-10 h-10", lg: "w-12 h-12" }
-  const leafSizes = { sm: "w-4 h-4", md: "w-5 h-5", lg: "w-6 h-6" }
-  const titleSizes = { sm: "text-base", md: "text-lg md:text-xl", lg: "text-xl md:text-2xl" }
-  const subSizes = { sm: "text-[7px]", md: "text-[9px]", lg: "text-[10px]" }
+  const iconSizes = { sm: "w-8 h-8", md: "w-10 h-10", lg: "w-12 h-12" };
+  const leafSizes = { sm: "w-4 h-4", md: "w-5 h-5", lg: "w-6 h-6" };
+  const titleSizes = {
+    sm: "text-base",
+    md: "text-lg md:text-xl",
+    lg: "text-xl md:text-2xl",
+  };
+  const subSizes = { sm: "text-[7px]", md: "text-[9px]", lg: "text-[10px]" };
 
   return (
     <Link href="/" className={cn("flex items-center gap-2.5 group", className)}>
@@ -185,17 +217,22 @@ export function LogoFallback({
           "rounded-full flex items-center justify-center border transition-all duration-300",
           light
             ? "bg-white/10 border-brand-gold/40 group-hover:bg-white/20"
-            : "bg-brand-primary/10 border-brand-gold/30 group-hover:bg-brand-primary/20"
+            : "bg-brand-primary/10 border-brand-gold/30 group-hover:bg-brand-primary/20",
         )}
       >
-        <Leaf className={cn(leafSizes[size], light ? "text-brand-gold" : "text-brand-primary")} />
+        <Leaf
+          className={cn(
+            leafSizes[size],
+            light ? "text-brand-gold" : "text-brand-primary",
+          )}
+        />
       </motion.div>
       <div className="flex flex-col">
         <span
           className={cn(
             "font-heading font-bold leading-none tracking-tight",
             titleSizes[size],
-            light ? "text-white" : "text-brand-dark dark:text-white"
+            light ? "text-white" : "text-brand-dark",
           )}
         >
           KOTTAKKAL
@@ -203,12 +240,12 @@ export function LogoFallback({
         <span
           className={cn(
             subSizes[size],
-            "font-sans font-bold tracking-[0.25em] text-brand-gold leading-none mt-1"
+            "font-sans font-bold tracking-[0.25em] text-brand-gold leading-none mt-1",
           )}
         >
           ARYA VAIDYASALA
         </span>
       </div>
     </Link>
-  )
+  );
 }

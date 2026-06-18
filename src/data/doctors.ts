@@ -29,7 +29,7 @@ export const doctors: Doctor[] = [
       "Autoimmune Disorders",
     ],
     experience: "15+ Years Clinical Experience",
-    bio: "Dr. Sajitha Nair brings over 15 years of specialized clinical practice rooted in authentic Kerala Ayurvedic medicine. With advanced training in Kayachikitsa (internal medicine), she has helped thousands of patients overcome chronic pain conditions, spinal disorders, and complex autoimmune diseases through personalized herbal protocols and Panchakarma therapies.",
+    bio: "Dr. Sajitha Nair brings over 15 years of specialized clinical practice rooted in authentic Ayurvedic medicine. With advanced training in Kayachikitsa (internal medicine), she has helped thousands of patients overcome chronic pain conditions, spinal disorders, and complex autoimmune diseases through personalized herbal protocols and Panchakarma therapies.",
     imagePath: "/images/doctors/dr-sajitha.jpg",
   },
   {
@@ -44,7 +44,7 @@ export const doctors: Doctor[] = [
       "Digestive Health",
     ],
     experience: "10+ Years Clinical Experience",
-    bio: "Dr. Vineeth Kumar is a dedicated Ayurvedic physician specializing in Panchakarma detoxification and lifestyle medicine. His decade-long clinical journey spans traditional village clinics in Kerala to modern integrative practice in Abu Dhabi. Dr. Kumar excels at crafting comprehensive wellness programs that address stress, weight management, digestive issues, and metabolic disorders.",
+    bio: "Dr. Vineeth Kumar is a dedicated Ayurvedic physician specializing in Panchakarma detoxification and lifestyle medicine. His decade-long clinical journey spans traditional ancestral clinics to modern integrative practice in Abu Dhabi. Dr. Kumar excels at crafting comprehensive wellness programs that address stress, weight management, digestive issues, and metabolic disorders.",
     imagePath: "/images/doctors/dr-vineeth.jpg",
   },
 ]

@@ -36,7 +36,7 @@ export const treatments: Treatment[] = [
       "Improves mental clarity",
     ],
     duration: "7 – 21 Days",
-    imagePath: "/images/treatments/panchakarma.png",
+    imagePath: "/images/treatments/panchakarma1.png",
     iconName: "Flower",
     featured: true,
   },
@@ -85,9 +85,9 @@ export const treatments: Treatment[] = [
     title: "Njavarakizhi",
     subtitle: "Medicated Rice Bolus Therapy",
     description:
-      "A unique Kerala therapy using boluses of cooked Njavara rice dipped in warm medicated milk, applied to the body to nourish muscles, relieve pain, and rejuvenate the skin.",
+      "A unique traditional therapy using boluses of cooked Njavara rice dipped in warm medicated milk, applied to the body to nourish muscles, relieve pain, and rejuvenate the skin.",
     longDescription:
-      "Njavarakizhi is a uniquely Kerala specialty where boluses of specially prepared Njavara rice are dipped in warm herbal milk decoction and applied across the body in systematic strokes. This dual-action therapy simultaneously nourishes and detoxifies, making it invaluable for musculoskeletal and neurological conditions.",
+      "Njavarakizhi is a uniquely authentic specialty where boluses of specially prepared Njavara rice are dipped in warm herbal milk decoction and applied across the body in systematic strokes. This dual-action therapy simultaneously nourishes and detoxifies, making it invaluable for musculoskeletal and neurological conditions.",
     benefits: [
       "Nourishes muscles & joints",
       "Relieves chronic pain",
@@ -127,7 +127,7 @@ export const treatments: Treatment[] = [
     description:
       "Known as the 'King of Therapies,' Pizhichil combines warm medicated oil pouring with gentle massage strokes — historically reserved for Kerala royalty for ultimate rejuvenation.",
     longDescription:
-      "Pizhichil is among the most luxurious of Ayurvedic therapies, historically reserved for the royal families of Kerala. Warm streams of medicated oil are continuously poured across the body while therapists perform synchronized massage strokes. This dual-action therapy provides unparalleled rejuvenation for degenerative conditions and overall vitality.",
+      "Pizhichil is among the most luxurious of Ayurvedic therapies, historically reserved for the royal families of ancient India. Warm streams of medicated oil are continuously poured across the body while therapists perform synchronized massage strokes. This dual-action therapy provides unparalleled rejuvenation for degenerative conditions and overall vitality.",
     benefits: [
       "Complete body rejuvenation",
       "Treats paralysis & nerve disorders",

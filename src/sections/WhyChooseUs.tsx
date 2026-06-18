@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Container from "@/components/common/Container"
-import SectionHeading from "@/components/common/SectionHeading"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
-import { ShieldCheck, HeartPulse, Sparkles, Building } from "lucide-react"
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Container from "@/components/common/Container";
+import SectionHeading from "@/components/common/SectionHeading";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
+import { ShieldCheck, HeartPulse, Sparkles, Building } from "lucide-react";
 
 /**
  * ═══════════════════════════════════════════════════
@@ -19,9 +19,9 @@ import { ShieldCheck, HeartPulse, Sparkles, Building } from "lucide-react"
 
 const features = [
   {
-    title: "Authentic Kerala Heritage",
+    title: "Authentic Heritage",
     description:
-      "Direct legacy of genuine Ayurvedic recipes, medicines, and therapeutic techniques from the heart of Kerala, India — preserved across generations.",
+      "Direct legacy of genuine Ayurvedic recipes, medicines, and therapeutic techniques from the ancient origins of Ayurveda — preserved across generations.",
     icon: <Sparkles className="w-5 h-5" />,
   },
   {
@@ -36,20 +36,20 @@ const features = [
       "We evaluate your Prakriti (constitution) and Vikriti (imbalances) to craft customized diet, herbal formulas, and treatment plans.",
     icon: <HeartPulse className="w-5 h-5" />,
   },
-]
+];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-brand-dark/40 relative overflow-hidden">
+    <section className="pt-12 pb-24 md:pt-16 md:pb-32 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-primary/[0.03] rounded-full filter blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-primary/[0.02] rounded-full filter blur-[180px] pointer-events-none" />
 
       <Container>
         <AnimatedReveal direction="up">
           <SectionHeading
             title="A Legacy of Genuine Healing"
             subtitle="Why Choose Us"
-            description="For over a century, our tradition of authentic Kerala Ayurveda has restored health and vitality to thousands."
+            description="For over a century, our tradition of authentic Ayurveda has restored health and vitality to thousands."
             align="center"
           />
         </AnimatedReveal>
@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
           <AnimatedReveal direction="right" className="lg:col-span-5">
             <div className="relative h-full min-h-[400px] lg:min-h-0 rounded-2xl overflow-hidden img-zoom gold-border-reveal group">
               <Image
-                src="/images/hero/hero-main.png"
+                src="/images/hero/hero-carousel.png"
                 alt="Premium Ayurvedic treatment room"
                 fill
                 className="object-cover"
@@ -79,7 +79,7 @@ export default function WhyChooseUs() {
                 <h3 className="font-heading text-2xl font-bold text-white mb-2">
                   State-of-the-Art Healing Rooms
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed max-w-sm">
+                <p className="text-sm text-gray-300 leading-[1.6] max-w-sm font-light">
                   Hygienic, serene treatment environments designed for your
                   comfort and complete restoration in Abu Dhabi.
                 </p>
@@ -98,18 +98,18 @@ export default function WhyChooseUs() {
                 <motion.div
                   whileHover={{ x: 6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="flex items-start gap-6 p-7 md:p-8 rounded-xl bg-brand-primary/[0.02] dark:bg-brand-primary/5 border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 group editorial-hover"
+                  className="flex items-start gap-6 p-7 md:p-8 rounded-xl bg-brand-cream/50 border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 group editorial-hover"
                 >
                   {/* Icon circle */}
-                  <div className="w-12 h-12 shrink-0 rounded-xl bg-brand-primary/8 dark:bg-brand-primary/15 flex items-center justify-center text-brand-primary dark:text-brand-secondary border border-brand-primary/10 group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-all duration-500">
+                  <div className="w-12 h-12 shrink-0 rounded-xl bg-brand-primary/8 flex items-center justify-center text-brand-primary border border-brand-primary/10 group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-all duration-500">
                     {feature.icon}
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="font-heading text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-brand-primary dark:group-hover:text-brand-secondary transition-colors duration-300">
+                    <h3 className="font-heading text-xl font-bold text-brand-primary mb-2 group-hover:text-brand-dark transition-colors duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-sm text-brand-grey leading-[1.6] font-light">
                       {feature.description}
                     </p>
                   </div>
@@ -123,5 +123,5 @@ export default function WhyChooseUs() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

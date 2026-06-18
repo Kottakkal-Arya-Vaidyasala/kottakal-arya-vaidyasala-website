@@ -19,14 +19,7 @@ import { treatments } from "@/data/treatments"
  * ═══════════════════════════════════════════════════
  * Contact CTA — Two-Column Editorial + Contact Form
  * ═══════════════════════════════════════════════════
- * AUDIT FIXES (Phase 2.5):
- * ✓ Added proper email regex validation with error display
- * ✓ Added phone number format validation
- * ✓ Added per-field validation error states
- * ✓ Added success confirmation state (not just toast)
- * ✓ Added error recovery state
- * ✓ Fixed form data type to match ContactFormInput interface
- * ✓ Production-ready form with accessibility labels
+ * Navy/Gold palette with production-ready form validation.
  */
 
 interface FieldError {
@@ -123,10 +116,9 @@ export default function ContactCTA() {
   }
 
   return (
-    <section id="contact-cta" className="py-24 md:py-32 bg-brand-dark text-white relative overflow-hidden grain-overlay">
+    <section id="contact-cta" className="py-24 md:py-32 bg-brand-dark text-white relative overflow-hidden">
       {/* Background vectors */}
-      <div className="absolute inset-0 dot-pattern opacity-[0.04] pointer-events-none" />
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-primary/8 rounded-full filter blur-[200px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-secondary/8 rounded-full filter blur-[200px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full filter blur-[180px] pointer-events-none" />
 
       {/* Top gold line */}
@@ -134,7 +126,7 @@ export default function ContactCTA() {
 
       <Container className="relative z-10">
         <AnimatedReveal direction="up" className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-primary/25 border border-brand-gold/20 text-brand-gold text-xs font-semibold uppercase tracking-[0.15em] mb-6">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-secondary/25 border border-brand-gold/20 text-brand-gold text-xs font-semibold uppercase tracking-[0.15em] mb-6">
             <MessageCircle className="w-3.5 h-3.5" />
             <span>Connect With Us</span>
           </div>
@@ -144,7 +136,7 @@ export default function ContactCTA() {
               Holistic Health
             </span>
           </h2>
-          <p className="text-sm md:text-base text-gray-300/80 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-gray-300/80 max-w-xl mx-auto leading-[1.6] font-light">
             Reach out to schedule your consultation or inquire about our
             treatments. Our team responds within minutes.
           </p>
@@ -245,7 +237,7 @@ export default function ContactCTA() {
                     <h3 className="font-heading text-2xl font-bold text-white mb-2">
                       Message Sent Successfully!
                     </h3>
-                    <p className="text-sm text-gray-400 mb-8 max-w-sm leading-relaxed">
+                    <p className="text-sm text-gray-400 mb-8 max-w-sm leading-[1.6] font-light">
                       Thank you for reaching out. Our team will contact you
                       within 24 hours to discuss your wellness needs.
                     </p>
@@ -269,7 +261,7 @@ export default function ContactCTA() {
                     <h3 className="font-heading text-xl font-bold text-white mb-1">
                       Send Us a Message
                     </h3>
-                    <p className="text-xs text-gray-400 mb-8">
+                    <p className="text-xs text-gray-400 mb-8 font-light">
                       Fill in your details and we&apos;ll get back to you shortly.
                     </p>
 
@@ -399,7 +391,7 @@ export default function ContactCTA() {
                         <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                       </motion.button>
 
-                      <p className="text-[10px] text-gray-500 text-center">
+                      <p className="text-[10px] text-gray-500 text-center font-light">
                         By submitting, you agree to our privacy policy. We&apos;ll never share your information.
                       </p>
                     </form>

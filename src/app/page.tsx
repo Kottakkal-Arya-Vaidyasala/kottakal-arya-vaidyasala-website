@@ -1,10 +1,9 @@
 import Hero from "@/sections/Hero"
-import TrustIndicators from "@/sections/TrustIndicators"
+import TreatmentsMarquee from "@/sections/TreatmentsMarquee"
 import WhyChooseUs from "@/sections/WhyChooseUs"
 import AyurvedaPhilosophy from "@/sections/AyurvedaPhilosophy"
 import FeaturedTreatments from "@/sections/FeaturedTreatments"
 import TestimonialsPreview from "@/sections/TestimonialsPreview"
-import LuxuryExperience from "@/sections/LuxuryExperience"
 import Newsletter from "@/sections/Newsletter"
 import ConsultationCTA from "@/sections/ConsultationCTA"
 import ContactCTA from "@/sections/ContactCTA"
@@ -22,8 +21,8 @@ export default function Home() {
       {/* 1. Cinematic Hero — Full viewport with editorial typography */}
       <Hero />
 
-      {/* 2. Trust Indicators — Animated counter stats strip */}
-      <TrustIndicators />
+      {/* 2. Treatments Marquee — Infinite scrolling list with Sparkles */}
+      <TreatmentsMarquee />
 
       {/* 3. Why Choose Us — Asymmetric editorial layout */}
       <WhyChooseUs />
@@ -36,9 +35,6 @@ export default function Home() {
 
       {/* 7. Testimonials — Overlapping editorial cards */}
       <TestimonialsPreview />
-
-      {/* 8. Luxury Experience — Asymmetric image gallery */}
-      <LuxuryExperience />
 
       {/* 9. Newsletter — Split layout with Brevo integration */}
       <Newsletter />

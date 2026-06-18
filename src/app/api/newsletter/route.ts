@@ -15,7 +15,7 @@ import { NextRequest, NextResponse } from "next/server"
  */
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY || ""
-const BREVO_LIST_ID = parseInt(process.env.BREVO_LIST_ID || "0", 10)
+const BREVO_LIST_ID = parseInt(process.env.BREVO_LIST_ID || "3", 10)
 
 export async function POST(request: NextRequest) {
   try {

@@ -37,7 +37,7 @@ export default function AnimatedReveal({
   const isInView = useInView(ref, {
     once,
     amount: threshold,
-    margin: "0px 0px -60px 0px",
+    margin: "0px 0px -100px 0px",
   })
 
   /* Direction-based initial/target transform values */
@@ -75,7 +75,7 @@ export default function AnimatedReveal({
       y: 0,
       transition: {
         duration,
-        ease: [0.23, 1, 0.32, 1] as const, /* Luxury cubic bezier — smooth deceleration */
+        ease: [0.16, 1, 0.3, 1] as const, /* Luxury cubic bezier — smooth deceleration */
       },
     },
   }
@@ -144,7 +144,7 @@ export function StaggerItem({
       y: 0,
       transition: {
         duration,
-        ease: [0.23, 1, 0.32, 1] as const,
+        ease: [0.16, 1, 0.3, 1] as const,
       },
     },
   }

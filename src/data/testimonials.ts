@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
     location: "Khalidiya",
     rating: 5,
     treatment: "Panchakarma Detoxification",
-    text: "The 14-day Panchakarma detox program here was life-changing. From the initial consultation to the final day, every step was meticulously planned. I felt lighter, my digestion improved dramatically, and my energy levels surged. The authentic Kerala medicines and the clinical precision set this center apart.",
+    text: "The 14-day Panchakarma detox program here was life-changing. From the initial consultation to the final day, every step was meticulously planned. I felt lighter, my digestion improved dramatically, and my energy levels surged. The authentic Ayurvedic medicines and the clinical precision set this center apart.",
     featured: false,
   },
   {

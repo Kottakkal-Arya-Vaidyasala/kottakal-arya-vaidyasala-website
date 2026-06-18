@@ -8,7 +8,8 @@ export function useWhatsApp() {
   const whatsappNumber = siteConfig.contact.whatsapp
 
   /**
-   * Generate a WhatsApp URL with a custom message
+   * Generate a WhatsApp URL with a custom message.
+   * Default message is the elite consultation booking template.
    */
   const getWhatsAppUrl = (params?: {
     name?: string
@@ -16,8 +17,8 @@ export function useWhatsApp() {
     contactMethod?: string
   }) => {
     const message = params?.treatment
-      ? `Hello, I would like to book: ${params.treatment}.`
-      : `Hello, I would like to schedule a consultation with Kottakkal Arya Vaidyasala Ayurvedic Medical Center.`
+      ? `Hello Kottakkal Abu Dhabi, I would like to book an elite Ayurveda consultation session for ${params.treatment}. Please guide me through your available slots.`
+      : `Hello Kottakkal Abu Dhabi, I would like to book an elite Ayurveda consultation session. Please guide me through your available slots.`
 
     return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
   }

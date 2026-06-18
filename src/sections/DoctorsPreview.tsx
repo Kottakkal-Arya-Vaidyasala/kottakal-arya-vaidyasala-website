@@ -8,22 +8,20 @@ import AnimatedReveal from "@/components/common/AnimatedReveal"
 import PrimaryButton from "@/components/common/PrimaryButton"
 import { Award, Stethoscope, BookOpen, CalendarDays } from "lucide-react"
 import { doctors } from "@/data/doctors"
+import { useWhatsApp } from "@/hooks/useWhatsApp"
 
 /**
  * ═══════════════════════════════════════════════════
  * Doctors Preview — Editorial Authority Presentation
  * ═══════════════════════════════════════════════════
  * Split-screen editorial layout focusing on authority,
- * credentials, and trust — not generic profile cards.
+ * credentials, and trust. Navy/Gold palette.
  */
 export default function DoctorsPreview() {
-  const scrollToContact = () => {
-    const el = document.getElementById("contact-cta")
-    if (el) el.scrollIntoView({ behavior: "smooth" })
-  }
+  const { openWhatsApp } = useWhatsApp()
 
   return (
-    <section className="py-24 md:py-32 bg-brand-cream dark:bg-transparent relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-brand-cream relative overflow-hidden">
       {/* Subtle background */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[180px] pointer-events-none" />
 
@@ -48,23 +46,23 @@ export default function DoctorsPreview() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="bg-white dark:bg-brand-dark rounded-2xl overflow-hidden border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 editorial-hover h-full flex flex-col"
+                className="bg-white rounded-2xl overflow-hidden border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 editorial-hover h-full flex flex-col"
               >
                 {/* Top section — Avatar & Name */}
-                <div className="relative bg-gradient-to-br from-brand-primary/[0.06] to-brand-gold/[0.04] dark:from-brand-primary/10 dark:to-brand-gold/5 px-8 pt-10 pb-8 flex flex-col items-center text-center">
+                <div className="relative bg-gradient-to-br from-brand-primary/[0.06] to-brand-gold/[0.04] px-8 pt-10 pb-8 flex flex-col items-center text-center">
                   {/* Avatar circle with stethoscope */}
                   <div className="relative mb-5">
                     <div className="w-24 h-24 rounded-full bg-brand-primary/10 border-2 border-brand-gold/30 flex items-center justify-center">
                       <Stethoscope className="w-10 h-10 text-brand-gold" />
                     </div>
                     {/* Online indicator */}
-                    <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white dark:border-brand-dark" />
+                    <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white" />
                   </div>
 
-                  <h3 className="font-heading text-2xl font-bold text-gray-900 dark:text-white">
+                  <h3 className="font-heading text-2xl font-bold text-brand-primary">
                     {doctor.name}
                   </h3>
-                  <p className="text-sm font-semibold text-brand-primary dark:text-brand-secondary mt-1">
+                  <p className="text-sm font-semibold text-brand-gold mt-1">
                     {doctor.title}
                   </p>
 
@@ -80,20 +78,20 @@ export default function DoctorsPreview() {
                 {/* Bottom section — Details */}
                 <div className="px-8 py-8 flex-1 flex flex-col">
                   {/* Bio */}
-                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                  <p className="text-sm text-brand-grey leading-[1.6] font-light mb-6">
                     {doctor.bio}
                   </p>
 
                   {/* Specialties */}
                   <div className="mb-6">
-                    <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 block">
+                    <span className="text-xs font-semibold text-brand-grey uppercase tracking-wider mb-3 block">
                       Specialties
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {doctor.specialties.map((s) => (
                         <span
                           key={s}
-                          className="text-xs px-3 py-1.5 rounded-full bg-brand-primary/[0.06] dark:bg-brand-primary/10 text-brand-primary dark:text-brand-secondary font-medium border border-brand-primary/8"
+                          className="text-xs px-3 py-1.5 rounded-full bg-brand-primary/[0.06] text-brand-primary font-medium border border-brand-primary/8"
                         >
                           {s}
                         </span>
@@ -104,7 +102,7 @@ export default function DoctorsPreview() {
                   {/* Experience badge */}
                   <div className="flex items-center gap-2 mb-8 mt-auto">
                     <Award className="w-4 h-4 text-brand-gold" />
-                    <span className="text-xs font-bold text-gray-700 dark:text-gray-300">
+                    <span className="text-xs font-bold text-brand-primary">
                       {doctor.experience}
                     </span>
                   </div>
@@ -113,7 +111,7 @@ export default function DoctorsPreview() {
                   <PrimaryButton
                     className="w-full"
                     icon={<CalendarDays className="w-4 h-4" />}
-                    onClick={scrollToContact}
+                    onClick={() => openWhatsApp()}
                   >
                     Request Consultation
                   </PrimaryButton>

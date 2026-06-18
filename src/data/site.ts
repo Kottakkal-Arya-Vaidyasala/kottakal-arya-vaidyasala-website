@@ -9,7 +9,7 @@
 export const siteConfig = {
   name: "Kottakkal Arya Vaidyasala",
   fullName: "Kottakkal Arya Vaidyasala Ayurvedic Medical Center",
-  tagline: "Authentic Kerala Ayurveda in Abu Dhabi",
+  tagline: "Authentic Ayurveda in Abu Dhabi",
   description:
     "Experience premium traditional Ayurvedic healing and wellness treatments in Abu Dhabi, UAE. Expert doctor consultations, therapeutic massages, and holistic care.",
   url: "https://kottakkal-ayurveda.ae",

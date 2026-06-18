@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface SecondaryButtonProps extends React.ComponentProps<typeof Button> {
-  children: React.ReactNode
-  icon?: React.ReactNode
-  iconPosition?: "left" | "right"
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+  iconPosition?: "left" | "right";
 }
 
 /**
@@ -32,17 +32,17 @@ export default function SecondaryButton({
       <Button
         className={cn(
           /* Base layout */
-          "relative overflow-hidden font-medium",
+          "group relative overflow-hidden font-medium",
           "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
-          /* Ghost editorial style */
-          "bg-transparent text-brand-primary dark:text-brand-gold",
-          "border border-brand-gold/60 hover:border-brand-primary",
-          /* Hover fill */
-          "hover:bg-brand-primary hover:text-white",
+          /* Navy fill style */
+          "bg-brand-primary text-[#ffffff]",
+          "border border-brand-primary/80 hover:border-brand-primary",
+          /* Hover state */
+          "hover:bg-brand-primary hover:text-[#ffffff]",
           /* Shadow & transition */
-          "shadow-none hover:shadow-lg hover:shadow-brand-primary/10",
+          "shadow-md hover:shadow-2xl hover:shadow-brand-primary/30",
           "transition-all duration-500 ease-out",
-          className
+          className,
         )}
         {...props}
       >
@@ -59,5 +59,5 @@ export default function SecondaryButton({
         )}
       </Button>
     </motion.div>
-  )
+  );
 }

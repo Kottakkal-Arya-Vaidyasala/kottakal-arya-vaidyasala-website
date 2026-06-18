@@ -1,221 +1,223 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import Container from "@/components/common/Container"
-import PrimaryButton from "@/components/common/PrimaryButton"
-import SecondaryButton from "@/components/common/SecondaryButton"
-import { Calendar, Compass, MessageCircle, ShieldCheck, Star, Award } from "lucide-react"
-import { siteConfig } from "@/data/site"
-import { useWhatsApp } from "@/hooks/useWhatsApp"
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import Container from "@/components/common/Container";
+import PrimaryButton from "@/components/common/PrimaryButton";
+import { ArrowRight, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { useWhatsApp } from "@/hooks/useWhatsApp";
 
 /**
  * ═══════════════════════════════════════════════════
- * Hero Section — Cinematic Split Layout
+ * Hero — 70vh Full-Width Cinematic Carousel
  * ═══════════════════════════════════════════════════
- * Full-viewport hero with editorial typography on the left
- * and parallax imagery with floating trust badges on the right.
- * Features word-by-word stagger animation and premium grain overlay.
  */
+
+const carouselData = [
+  {
+    image: "/images/hero/hero-carousel.png",
+    title: "The Epitome of Luxury Ayurveda in the UAE.",
+    subtitle:
+      "Escape the fast-paced city life. Discover a sanctuary of elite holistic healing and exclusive wellness therapies right here in Abu Dhabi.",
+  },
+  {
+    image: "/images/clinic/carousel2.png",
+    title: "An Unrivaled Haven of Wellness.",
+    subtitle:
+      "Experience unmatched VIP care and ancient healing therapies, flawlessly delivered by expert physicians in a state-of-the-art setting.",
+  },
+  {
+    image: "/images/gallery/kerala-heritage1.png",
+    title: "Bespoke Rejuvenation for the Elite.",
+    subtitle:
+      "Restore perfect harmony to mind and body with highly personalized detox and relaxation packages, exclusively crafted for our discerning clientele.",
+  },
+];
+
 export default function Hero() {
-  const { openWhatsApp } = useWhatsApp()
+  const { openWhatsApp } = useWhatsApp();
 
-  const scrollToContact = () => {
-    const el = document.getElementById("contact-cta")
-    if (el) el.scrollIntoView({ behavior: "smooth" })
-  }
+  const [displayedText, setDisplayedText] = useState("");
+  const [typingComplete, setTypingComplete] = useState(false);
+  const [currentImage, setCurrentImage] = useState(0);
 
-  const scrollToTreatments = () => {
-    const el = document.getElementById("featured-treatments")
-    if (el) el.scrollIntoView({ behavior: "smooth" })
-  }
+  // Auto-Carousel Effect (3 seconds) - Resets on manual navigation
+  useEffect(() => {
+    const carouselTimer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % carouselData.length);
+    }, 3000);
+    return () => clearInterval(carouselTimer);
+  }, [currentImage]);
 
-  /* Stagger animation config */
-  const container = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.12, delayChildren: 0.3 },
-    },
-  }
+  const nextSlide = () => {
+    setCurrentImage((prev) => (prev + 1) % carouselData.length);
+  };
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.23, 1, 0.32, 1] as const },
-    },
-  }
+  const prevSlide = () => {
+    setCurrentImage((prev) =>
+      prev === 0 ? carouselData.length - 1 : prev - 1,
+    );
+  };
 
-  const fadeLeft = {
-    hidden: { opacity: 0, x: 40 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 1, ease: [0.23, 1, 0.32, 1] as const, delay: 0.5 },
-    },
-  }
+  // Typewriter Effect - Triggers only on the first slide
+  useEffect(() => {
+    if (currentImage !== 0) {
+      const t = setTimeout(() => setTypingComplete(true), 0);
+      return () => clearTimeout(t);
+    }
+
+    let i = 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setDisplayedText("");
+    setTypingComplete(false);
+    const currentTitle = carouselData[0].title;
+
+    const startDelay = setTimeout(() => {
+      const timer = setInterval(() => {
+        setDisplayedText(currentTitle.slice(0, i));
+        i++;
+        if (i > currentTitle.length) {
+          clearInterval(timer);
+          setTypingComplete(true);
+        }
+      }, 40);
+      return () => clearInterval(timer);
+    }, 200);
+
+    return () => clearTimeout(startDelay);
+  }, [currentImage]);
 
   return (
-    <section className="relative min-h-screen flex items-center hero-gradient text-white overflow-hidden grain-overlay">
-      {/* ── Decorative Background Elements ────────── */}
-      <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-brand-primary/20 rounded-full filter blur-[160px] pointer-events-none" />
-      <div className="absolute -bottom-60 -left-40 w-[500px] h-[500px] bg-brand-gold/10 rounded-full filter blur-[140px] pointer-events-none" />
+    <section
+      id="hero"
+      className="relative w-full h-[70vh] min-h-[500px] flex items-center overflow-hidden bg-brand-dark group"
+    >
+      {/* ── Background Carousel Layer ──────────────── */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentImage}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src={carouselData[currentImage].image}
+            alt={carouselData[currentImage].title}
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority={currentImage === 0}
+          />
+        </motion.div>
+      </AnimatePresence>
 
-      {/* Diagonal gold accent line */}
-      <div className="absolute top-0 right-[45%] w-[1px] h-full bg-gradient-to-b from-transparent via-brand-gold/15 to-transparent pointer-events-none hidden lg:block" />
+      {/* Dark overlay to ensure text is readable */}
+      <div className="absolute inset-0 bg-brand-dark/50 z-10" />
 
-      {/* Bottom gold divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent" />
+      {/* ── Manual Navigation Arrows ────────────────── */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 rounded-full bg-white/10 hover:bg-brand-gold/80 backdrop-blur-md border border-white/20 text-white transition-all opacity-0 group-hover:opacity-100"
+        aria-label="Previous image"
+      >
+        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+      </button>
 
-      <Container className="relative z-10 py-24 lg:py-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[85vh]">
-          {/* ── Left: Editorial Typography Column (7/12) ── */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-7 flex flex-col items-center text-center lg:items-start lg:text-left"
-          >
-            {/* Eyebrow badge */}
-            <motion.div variants={fadeUp}>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-gold text-brand-gold text-xs font-semibold uppercase tracking-[0.15em] mb-8">
-                <Award className="w-3.5 h-3.5" />
-                <span>{siteConfig.tagline}</span>
-              </div>
-            </motion.div>
+      <button
+        onClick={nextSlide}
+        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 rounded-full bg-white/10 hover:bg-brand-gold/80 backdrop-blur-md border border-white/20 text-white transition-all opacity-0 group-hover:opacity-100"
+        aria-label="Next image"
+      >
+        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+      </button>
 
-            {/* Main heading — large editorial typography */}
+      {/* ── Foreground Text Layer ──────────────────── */}
+      <Container className="relative z-20 flex flex-col items-center justify-center text-center h-full pt-16">
+        {/* Title Container with AnimatePresence for smooth transitions */}
+        <div className="min-h-[140px] md:min-h-[120px] lg:min-h-[180px] mb-6 flex items-end justify-center">
+          <AnimatePresence mode="wait">
             <motion.h1
-              variants={fadeUp}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[5rem] font-bold font-heading leading-[1.08] mb-8 tracking-wide"
+              key={currentImage}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+              className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-[1.15] max-w-4xl mx-auto"
             >
-              Restore Balance
-              <br />
-              to Your{" "}
-              <span className="italic font-serif gold-text">
-                Body, Mind,
-              </span>
-              <br />
-              & Soul
-            </motion.h1>
-
-            {/* Sub-description */}
-            <motion.p
-              variants={fadeUp}
-              className="text-base md:text-lg text-gray-300/90 mb-10 max-w-xl leading-[1.75] font-light"
-            >
-              Discover time-tested Kerala Ayurvedic therapies tailored to heal
-              ailments and rejuvenate your well-being at Abu Dhabi&apos;s premier
-              Ayurvedic Medical Center.
-            </motion.p>
-
-            {/* CTA Buttons */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
-            >
-              <PrimaryButton
-                icon={<Calendar className="w-4 h-4" />}
-                iconPosition="right"
-                onClick={() => openWhatsApp()}
-              >
-                Book Consultation
-              </PrimaryButton>
-              <SecondaryButton
-                icon={<Compass className="w-4 h-4" />}
-                iconPosition="right"
-                className="border-white/30 text-white hover:bg-white hover:text-brand-dark hover:border-white"
-                onClick={scrollToTreatments}
-              >
-                Explore Treatments
-              </SecondaryButton>
-            </motion.div>
-
-            {/* Trust indicators row */}
-            <motion.div
-              variants={fadeUp}
-              className="flex flex-wrap items-center gap-6 text-xs text-gray-400"
-            >
-              {[
-                { icon: <Award className="w-4 h-4 text-brand-gold" />, text: "100+ Years Heritage" },
-                { icon: <ShieldCheck className="w-4 h-4 text-brand-gold" />, text: "Licensed in UAE" },
-                { icon: <Star className="w-4 h-4 text-brand-gold fill-brand-gold" />, text: "4.9★ Google Rating" },
-              ].map((item) => (
-                <div key={item.text} className="flex items-center gap-1.5">
-                  {item.icon}
-                  <span className="font-medium">{item.text}</span>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* ── Right: Hero Image with Floating Elements (5/12) ── */}
-          <motion.div
-            variants={fadeLeft}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-5 flex justify-center relative"
-          >
-            {/* Main image */}
-            <div className="relative w-full max-w-lg">
-              {/* Decorative gold frame corners */}
-              <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-brand-gold/40 rounded-tl-xl z-10" />
-              <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-brand-gold/40 rounded-br-xl z-10" />
-
-              {/* Image container */}
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
-                <Image
-                  src="/images/hero/hero-main.png"
-                  alt="Luxury Ayurvedic treatment room at Kottakkal Arya Vaidyasala"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 40vw"
+              {currentImage === 0
+                ? displayedText
+                : carouselData[currentImage].title}
+              {/* Blinking cursor only when typing on the first slide */}
+              {currentImage === 0 && !typingComplete && (
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{
+                    duration: 0.8,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="inline-block w-[3px] h-[1em] bg-brand-gold ml-1 align-middle translate-y-[-2px]"
                 />
-                {/* Subtle overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/10" />
-              </div>
+              )}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
 
-              {/* Floating trust badge — bottom left */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.7 }}
-                className="absolute -bottom-5 -left-5 glass rounded-xl px-5 py-3.5 shadow-xl z-20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
-                    <Star className="w-5 h-5 text-brand-gold fill-brand-gold" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-white">5,000+</div>
-                    <div className="text-[10px] text-gray-400 font-medium">Patients Healed</div>
-                  </div>
-                </div>
-              </motion.div>
+        {/* Subtitle Container (Fixed height prevents buttons from jumping) */}
+        <div className="min-h-[100px] mb-10 flex items-start justify-center">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={currentImage}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+              className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light"
+            >
+              {carouselData[currentImage].subtitle}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
-              {/* Floating badge — top right */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 0.7 }}
-                className="absolute -top-4 -right-4 glass rounded-xl px-4 py-3 shadow-xl z-20"
-              >
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-brand-gold" />
-                  <div>
-                    <div className="text-xs font-bold text-white">DHA Licensed</div>
-                    <div className="text-[10px] text-gray-400">Abu Dhabi, UAE</div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+        {/* Buttons (Static to prevent jumpiness) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="flex flex-wrap items-center justify-center gap-4"
+        >
+          <PrimaryButton
+            onClick={() => openWhatsApp()}
+            icon={<Calendar className="w-4 h-4" />}
+          >
+            Book Consultation
+          </PrimaryButton>
+          <Link href="/our-treatments">
+            <PrimaryButton icon={<ArrowRight className="w-4 h-4" />}>
+              Explore Therapies
+            </PrimaryButton>
+          </Link>
+        </motion.div>
+
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full glass bg-white/10 backdrop-blur-md">
+          {carouselData.map((_, idx) => (
+            <div
+              key={idx}
+              className={`transition-all duration-500 rounded-full cursor-pointer ${
+                idx === currentImage
+                  ? "w-6 h-1.5 bg-brand-gold"
+                  : "w-1.5 h-1.5 bg-white/40 hover:bg-white/60"
+              }`}
+              onClick={() => setCurrentImage(idx)}
+            />
+          ))}
         </div>
       </Container>
     </section>
-  )
+  );
 }
