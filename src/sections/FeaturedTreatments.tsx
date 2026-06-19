@@ -236,23 +236,6 @@ export default function FeaturedTreatments() {
             }}
           />
 
-          {/* Navigation Arrows */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={scrollLeft}
-              className="w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-white transition-all shadow-sm hover:shadow-md"
-              aria-label="Previous treatment"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={scrollRight}
-              className="w-12 h-12 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-white transition-all shadow-sm hover:shadow-md"
-              aria-label="Next treatment"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
         </div>
       </Container>
     </section>
