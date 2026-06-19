@@ -1,19 +1,28 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Container from "@/components/common/Container"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
-import PrimaryButton from "@/components/common/PrimaryButton"
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Container from "@/components/common/Container";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
+import PrimaryButton from "@/components/common/PrimaryButton";
 import {
-  Phone, Mail, MapPin, CalendarDays, MessageCircle,
-  Send, Loader2, CheckCircle, User, FileText, AlertCircle,
-} from "lucide-react"
-import { siteConfig } from "@/data/site"
-import { sendContactEmail, type ContactFormInput } from "@/services/email"
-import { useWhatsApp } from "@/hooks/useWhatsApp"
-import { toast } from "sonner"
-import { treatments } from "@/data/treatments"
+  Phone,
+  Mail,
+  MapPin,
+  CalendarDays,
+  MessageCircle,
+  Send,
+  Loader2,
+  CheckCircle,
+  User,
+  FileText,
+  AlertCircle,
+} from "lucide-react";
+import { siteConfig } from "@/data/site";
+import { sendContactEmail, type ContactFormInput } from "@/services/email";
+import { useWhatsApp } from "@/hooks/useWhatsApp";
+import { toast } from "sonner";
+import { treatments } from "@/data/treatments";
 
 /**
  * ═══════════════════════════════════════════════════
@@ -23,17 +32,17 @@ import { treatments } from "@/data/treatments"
  */
 
 interface FieldError {
-  name?: string
-  email?: string
-  phone?: string
-  message?: string
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
 }
 
 export default function ContactCTA() {
-  const { openWhatsApp } = useWhatsApp()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [errors, setErrors] = useState<FieldError>({})
+  const { openWhatsApp } = useWhatsApp();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errors, setErrors] = useState<FieldError>({});
 
   const [formData, setFormData] = useState<ContactFormInput>({
     name: "",
@@ -41,82 +50,94 @@ export default function ContactCTA() {
     phone: "",
     treatment: "",
     message: "",
-  })
+  });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear field error on change
     if (errors[name as keyof FieldError]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }))
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
-  }
+  };
 
   /** Validate all fields before submission */
   const validateForm = (): boolean => {
-    const newErrors: FieldError = {}
+    const newErrors: FieldError = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
+      newErrors.name = "Name is required";
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Please enter a valid name"
+      newErrors.name = "Please enter a valid name";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email.trim())) {
-      newErrors.email = "Please enter a valid email address"
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (formData.phone && !/^[\d\s+\-()]{7,20}$/.test(formData.phone.trim())) {
-      newErrors.phone = "Please enter a valid phone number"
+      newErrors.phone = "Please enter a valid phone number";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
+      newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Please provide more details (at least 10 characters)"
+      newErrors.message =
+        "Please provide more details (at least 10 characters)";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validateForm()) {
-      toast.error("Please fix the highlighted errors.")
-      return
+      toast.error("Please fix the highlighted errors.");
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      const response = await sendContactEmail(formData)
+      const response = await sendContactEmail(formData);
       if (response.success) {
-        toast.success(response.message)
-        setFormData({ name: "", email: "", phone: "", treatment: "", message: "" })
-        setIsSuccess(true)
+        toast.success(response.message);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          treatment: "",
+          message: "",
+        });
+        setIsSuccess(true);
       } else {
-        toast.error(response.message)
+        toast.error(response.message);
       }
     } catch {
-      toast.error("An unexpected error occurred. Please try again later.")
+      toast.error("An unexpected error occurred. Please try again later.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   /** Reset form after success */
   const handleReset = () => {
-    setIsSuccess(false)
-    setErrors({})
-  }
+    setIsSuccess(false);
+    setErrors({});
+  };
 
   return (
-    <section id="contact-cta" className="py-24 md:py-32 bg-brand-dark text-white relative overflow-hidden">
+    <section
+      id="contact-cta"
+      className="py-24 md:py-32 bg-brand-dark text-white relative overflow-hidden"
+    >
       {/* Background vectors */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-secondary/8 rounded-full filter blur-[200px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-gold/[0.06] rounded-full filter blur-[180px] pointer-events-none" />
@@ -132,9 +153,7 @@ export default function ContactCTA() {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-wide leading-tight">
             Begin Your Journey to{" "}
-            <span className="italic font-serif gold-text">
-              Holistic Health
-            </span>
+            <span className="italic font-serif gold-text">Holistic Health</span>
           </h2>
           <p className="text-sm md:text-base text-gray-300/80 max-w-xl mx-auto leading-[1.6] font-light">
             Reach out to schedule your consultation or inquire about our
@@ -145,10 +164,16 @@ export default function ContactCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* ── Left: Contact Info ────────────────────── */}
           <div className="flex flex-col bg-white/[0.04] backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.08] shadow-xl h-full justify-between">
-            <h3 className="text-2xl font-heading font-bold text-white mb-8">Get In Touch</h3>
+            <h3 className="text-2xl font-heading font-bold text-white mb-8">
+              Get In Touch
+            </h3>
 
             {/* Contact details */}
-            <AnimatedReveal direction="up" delay={200} className="flex flex-col gap-4 mb-8">
+            <AnimatedReveal
+              direction="up"
+              delay={200}
+              className="flex flex-col gap-4 mb-8"
+            >
               {[
                 {
                   icon: <MapPin className="w-5 h-5 text-brand-gold" />,
@@ -174,7 +199,9 @@ export default function ContactCTA() {
                 >
                   <div className="shrink-0 mt-0.5">{item.icon}</div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">{item.title}</h4>
+                    <h4 className="text-sm font-semibold text-white">
+                      {item.title}
+                    </h4>
                     {item.href ? (
                       <a
                         href={item.href}
@@ -183,7 +210,9 @@ export default function ContactCTA() {
                         {item.detail}
                       </a>
                     ) : (
-                      <p className="text-xs text-gray-400 mt-0.5">{item.detail}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">
+                        {item.detail}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -191,13 +220,17 @@ export default function ContactCTA() {
             </AnimatedReveal>
 
             {/* Quick action buttons */}
-            <AnimatedReveal direction="up" delay={300} className="flex flex-col sm:flex-row gap-3">
+            <AnimatedReveal
+              direction="up"
+              delay={300}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <PrimaryButton
                 icon={<Phone className="w-4 h-4" />}
                 onClick={() => {
-                  window.location.href = `tel:${siteConfig.contact.phoneRaw}`
+                  window.location.href = `tel:${siteConfig.contact.phoneRaw}`;
                 }}
-                className="flex-1"
+                className="flex-1 bg-white text-brand-primary hover:bg-white/90 border-transparent shadow-xl hover:shadow-white/20"
               >
                 Call Now
               </PrimaryButton>
@@ -229,7 +262,11 @@ export default function ContactCTA() {
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        delay: 0.1,
+                      }}
                       className="w-20 h-20 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mb-6"
                     >
                       <CheckCircle className="w-10 h-10 text-emerald-400" />
@@ -262,10 +299,15 @@ export default function ContactCTA() {
                       Send Us a Message
                     </h3>
                     <p className="text-xs text-gray-400 mb-8 font-light">
-                      Fill in your details and we&apos;ll get back to you shortly.
+                      Fill in your details and we&apos;ll get back to you
+                      shortly.
                     </p>
 
-                    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+                    <form
+                      onSubmit={handleSubmit}
+                      noValidate
+                      className="flex flex-col gap-5"
+                    >
                       {/* Row: Name + Email */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -345,11 +387,18 @@ export default function ContactCTA() {
                               Select Treatment
                             </option>
                             {treatments.map((t) => (
-                              <option key={t.id} value={t.title} className="bg-brand-dark">
+                              <option
+                                key={t.id}
+                                value={t.title}
+                                className="bg-brand-dark"
+                              >
                                 {t.title}
                               </option>
                             ))}
-                            <option value="General Consultation" className="bg-brand-dark">
+                            <option
+                              value="General Consultation"
+                              className="bg-brand-dark"
+                            >
                               General Consultation
                             </option>
                           </select>
@@ -388,11 +437,14 @@ export default function ContactCTA() {
                         ) : (
                           <Send className="w-4 h-4" />
                         )}
-                        <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                        <span>
+                          {isSubmitting ? "Sending..." : "Send Message"}
+                        </span>
                       </motion.button>
 
                       <p className="text-[10px] text-gray-500 text-center font-light">
-                        By submitting, you agree to our privacy policy. We&apos;ll never share your information.
+                        By submitting, you agree to our privacy policy.
+                        We&apos;ll never share your information.
                       </p>
                     </form>
                   </motion.div>
@@ -403,5 +455,5 @@ export default function ContactCTA() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

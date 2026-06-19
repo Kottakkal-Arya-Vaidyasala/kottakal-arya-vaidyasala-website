@@ -1,13 +1,20 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import Container from "@/components/common/Container"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
-import { subscribeToNewsletter } from "@/services/newsletter"
-import { toast } from "sonner"
-import { Send, Sparkles, Loader2, CheckCircle, AlertCircle, RotateCcw } from "lucide-react"
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import Container from "@/components/common/Container";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
+import { subscribeToNewsletter } from "@/services/newsletter";
+import { toast } from "sonner";
+import {
+  Send,
+  Sparkles,
+  Loader2,
+  CheckCircle,
+  AlertCircle,
+  RotateCcw,
+} from "lucide-react";
 
 /**
  * ═══════════════════════════════════════════════════
@@ -15,58 +22,60 @@ import { Send, Sparkles, Loader2, CheckCircle, AlertCircle, RotateCcw } from "lu
  * ═══════════════════════════════════════════════════
  */
 export default function Newsletter() {
-  const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
-  const [errorMessage, setErrorMessage] = useState("")
-  const [validationError, setValidationError] = useState("")
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [validationError, setValidationError] = useState("");
 
   const validateEmail = (value: string): boolean => {
     if (!value.trim()) {
-      setValidationError("Email address is required")
-      return false
+      setValidationError("Email address is required");
+      return false;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim())) {
-      setValidationError("Please enter a valid email address")
-      return false
+      setValidationError("Please enter a valid email address");
+      return false;
     }
-    setValidationError("")
-    return true
-  }
+    setValidationError("");
+    return true;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!validateEmail(email)) return
+    if (!validateEmail(email)) return;
 
-    setIsSubmitting(true)
-    setStatus("idle")
-    setErrorMessage("")
+    setIsSubmitting(true);
+    setStatus("idle");
+    setErrorMessage("");
 
     try {
-      const response = await subscribeToNewsletter(email)
+      const response = await subscribeToNewsletter(email);
       if (response.success) {
-        toast.success(response.message)
-        setEmail("")
-        setStatus("success")
+        setSuccessMessage(response.message);
+        toast.success(response.message);
+        setEmail("");
+        setStatus("success");
       } else {
-        setErrorMessage(response.message)
-        setStatus("error")
-        toast.error(response.message)
+        setErrorMessage(response.message);
+        setStatus("error");
+        toast.error(response.message);
       }
     } catch {
-      setErrorMessage("An unexpected error occurred. Please try again later.")
-      setStatus("error")
-      toast.error("An unexpected error occurred. Please try again later.")
+      setErrorMessage("An unexpected error occurred. Please try again later.");
+      setStatus("error");
+      toast.error("An unexpected error occurred. Please try again later.");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleRetry = () => {
-    setStatus("idle")
-    setErrorMessage("")
-  }
+    setStatus("idle");
+    setErrorMessage("");
+  };
 
   return (
     <section className="py-20 md:py-24 bg-brand-primary relative overflow-hidden grain-overlay">
@@ -78,7 +87,10 @@ export default function Newsletter() {
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* ── Left: Decorative Image ────────────────── */}
-          <AnimatedReveal direction="right" className="lg:col-span-5 hidden lg:block">
+          <AnimatedReveal
+            direction="right"
+            className="lg:col-span-5 hidden lg:block"
+          >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/about/herbs.png"
@@ -111,8 +123,8 @@ export default function Newsletter() {
               </h2>
               <p className="text-base md:text-lg text-white/80 mb-10 max-w-lg leading-[1.8] font-light">
                 Stay informed about holistic healing tips, seasonal Ayurvedic
-                packages, detox recommendations, and special wellness events
-                in Abu Dhabi.
+                packages, detox recommendations, and special wellness events in
+                Abu Dhabi.
               </p>
             </AnimatedReveal>
 
@@ -133,10 +145,10 @@ export default function Newsletter() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">
-                        Successfully Subscribed!
+                        {successMessage.includes("already") ? "Already Subscribed" : "Successfully Subscribed!"}
                       </p>
                       <p className="text-xs text-gray-300 mt-0.5">
-                        You&apos;ll receive our next wellness newsletter. Welcome aboard!
+                        {successMessage || "You'll receive our next wellness newsletter. Welcome aboard!"}
                       </p>
                     </div>
                   </motion.div>
@@ -190,8 +202,8 @@ export default function Newsletter() {
                             placeholder="Enter your email address"
                             value={email}
                             onChange={(e) => {
-                              setEmail(e.target.value)
-                              if (validationError) setValidationError("")
+                              setEmail(e.target.value);
+                              if (validationError) setValidationError("");
                             }}
                             disabled={isSubmitting}
                             aria-label="Email address for newsletter"
@@ -213,7 +225,9 @@ export default function Newsletter() {
                           ) : (
                             <Send className="w-4 h-4" />
                           )}
-                          <span>{isSubmitting ? "Subscribing..." : "Subscribe"}</span>
+                          <span>
+                            {isSubmitting ? "Subscribing..." : "Subscribe"}
+                          </span>
                         </motion.button>
                       </div>
 
@@ -229,7 +243,8 @@ export default function Newsletter() {
                       )}
 
                       <p className="text-[11px] text-white/40 mt-1">
-                        We respect your privacy. Unsubscribe at any time. No spam, ever.
+                        We respect your privacy. Unsubscribe at any time. No
+                        spam, ever.
                       </p>
                     </form>
                   </motion.div>
@@ -240,5 +255,5 @@ export default function Newsletter() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

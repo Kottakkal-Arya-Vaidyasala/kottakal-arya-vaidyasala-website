@@ -42,6 +42,7 @@ export default function Hero() {
   const [displayedText, setDisplayedText] = useState("");
   const [typingComplete, setTypingComplete] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const hasTyped = React.useRef(false);
 
   // Auto-Carousel Effect (3 seconds) - Resets on manual navigation
   useEffect(() => {
@@ -68,6 +69,12 @@ export default function Hero() {
       return () => clearTimeout(t);
     }
 
+    if (hasTyped.current) {
+      setDisplayedText(carouselData[0].title);
+      setTypingComplete(true);
+      return;
+    }
+
     let i = 0;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setDisplayedText("");
@@ -81,6 +88,7 @@ export default function Hero() {
         if (i > currentTitle.length) {
           clearInterval(timer);
           setTypingComplete(true);
+          hasTyped.current = true;
         }
       }, 40);
       return () => clearInterval(timer);
@@ -136,7 +144,7 @@ export default function Hero() {
       </button>
 
       {/* ── Foreground Text Layer ──────────────────── */}
-      <Container className="relative z-20 flex flex-col items-center justify-center text-center h-full pt-16">
+      <Container className="relative z-20 flex flex-col items-center justify-center text-center h-full pt-16 pb-24">
         {/* Title Container with AnimatePresence for smooth transitions */}
         <div className="min-h-[140px] md:min-h-[120px] lg:min-h-[180px] mb-6 flex items-end justify-center">
           <AnimatePresence mode="wait">

@@ -66,26 +66,10 @@ export default function AboutUsPage() {
                   className="object-cover"
                 />
               </div>
-              {/* Floating Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="absolute -bottom-8 -right-8 bg-brand-dark text-white p-8 rounded-full w-48 h-48 flex flex-col items-center justify-center text-center shadow-2xl border-4 border-white"
-              >
-                <span className="text-4xl font-heading font-bold text-brand-gold mb-1">
-                  100+
-                </span>
-                <span className="text-xs tracking-wider uppercase font-semibold text-gray-300">
-                  Years of
-                  <br />
-                  Heritage
-                </span>
-              </motion.div>
+              {/* Floating Badge removed as requested */}
             </AnimatedReveal>
 
-            <AnimatedReveal direction="left" className="lg:pl-8">
+            <AnimatedReveal direction="left" className="px-4 md:px-8 lg:px-0 lg:pl-12">
               <SectionHeading
                 subtitle="Who We Are"
                 title={
@@ -132,12 +116,12 @@ export default function AboutUsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
             {/* Mission */}
             <AnimatedReveal direction="up" delay={0}>
-              <div className="bg-white/5 backdrop-blur-sm p-12 rounded-3xl border border-brand-gold/20 h-full flex flex-col relative overflow-hidden group hover:border-brand-gold/50 transition-colors duration-500">
+              <div className="bg-white/5 backdrop-blur-sm p-6 md:p-12 rounded-3xl border border-brand-gold/20 h-full flex flex-col relative overflow-hidden group hover:border-brand-gold/50 transition-colors duration-500">
 
-                <h3 className="text-3xl font-heading font-bold text-brand-gold mb-6 relative z-10">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-brand-gold mb-4 md:mb-6 relative z-10">
                   Our Mission
                 </h3>
-                <p className="text-gray-300 leading-relaxed text-lg relative z-10 flex-grow">
+                <p className="text-gray-300 leading-relaxed text-base md:text-lg relative z-10 flex-grow">
                   To promote holistic health and well-being by delivering
                   authentic Ayurvedic treatments, personalized care, and natural
                   therapies. We are dedicated to restoring balance in body,
@@ -149,12 +133,12 @@ export default function AboutUsPage() {
 
             {/* Vision */}
             <AnimatedReveal direction="up" delay={100}>
-              <div className="bg-white/5 backdrop-blur-sm p-12 rounded-3xl border border-brand-gold/20 h-full flex flex-col relative overflow-hidden group hover:border-brand-gold/50 transition-colors duration-500">
+              <div className="bg-white/5 backdrop-blur-sm p-6 md:p-12 rounded-3xl border border-brand-gold/20 h-full flex flex-col relative overflow-hidden group hover:border-brand-gold/50 transition-colors duration-500">
 
-                <h3 className="text-3xl font-heading font-bold text-brand-gold mb-6 relative z-10">
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-brand-gold mb-4 md:mb-6 relative z-10">
                   Our Vision
                 </h3>
-                <p className="text-gray-300 leading-relaxed text-lg relative z-10 flex-grow">
+                <p className="text-gray-300 leading-relaxed text-base md:text-lg relative z-10 flex-grow">
                   To be a globally trusted destination for Ayurvedic healing and
                   wellness—spreading the timeless wisdom of Ayurveda across
                   communities and empowering people of all ages to embrace
@@ -208,14 +192,14 @@ export default function AboutUsPage() {
                 direction="up"
                 delay={idx * 100}
               >
-                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center h-full hover:shadow-xl transition-shadow duration-300">
-                  <div className="w-16 h-16 bg-brand-cream rounded-full flex items-center justify-center mx-auto mb-6">
-                    {feature.icon}
+                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 text-center h-full hover:shadow-xl transition-shadow duration-300">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-brand-cream rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                    {React.cloneElement(feature.icon as React.ReactElement<any>, { className: "w-6 h-6 md:w-8 md:h-8 text-brand-gold" })}
                   </div>
-                  <h4 className="text-xl font-bold text-brand-dark mb-4">
+                  <h4 className="text-lg md:text-xl font-bold text-brand-dark mb-2 md:mb-4">
                     {feature.title}
                   </h4>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>

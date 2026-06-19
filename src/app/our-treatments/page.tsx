@@ -170,16 +170,24 @@ export default function OurTreatmentsPage() {
               const isNavy = idx % 2 === 0;
 
               return (
-                <AnimatedReveal key={treatment.id} direction="up" delay={idx * 100}>
+                <AnimatedReveal
+                  key={treatment.id}
+                  direction="up"
+                  delay={idx * 100}
+                >
                   <div
                     id={`treatment-${treatment.id}`}
-                    className={`scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center p-8 md:p-12 lg:p-16 rounded-[2.5rem] shadow-xl border ${
-                      isNavy ? "bg-brand-primary border-white/10" : "bg-white border-gray-100"
+                    className={`scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center p-6 md:p-12 lg:p-16 rounded-[2rem] lg:rounded-[2.5rem] shadow-xl border ${
+                      isNavy
+                        ? "bg-brand-primary border-white/10"
+                        : "bg-white border-gray-100"
                     } ${isEven ? "lg:direction-ltr" : "lg:direction-rtl"}`}
                   >
                     {/* Image Column */}
-                    <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-                      <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl gold-border-reveal group">
+                    <div
+                      className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}
+                    >
+                      <div className="relative aspect-[16/9] sm:aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl gold-border-reveal group">
                         <Image
                           src={treatment.imagePath}
                           alt={treatment.title}
@@ -189,32 +197,48 @@ export default function OurTreatmentsPage() {
                         <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-700" />
                         <div className="absolute top-5 left-5 glass rounded-full px-4 py-1.5 flex items-center gap-1.5 z-10">
                           <Clock className="w-3.5 h-3.5 text-brand-gold" />
-                          <span className="text-xs font-semibold text-white">{treatment.duration}</span>
+                          <span className="text-xs font-semibold text-white">
+                            {treatment.duration}
+                          </span>
                         </div>
                       </div>
                     </div>
 
                     {/* Content Column */}
-                    <div className={`lg:col-span-7 flex flex-col ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                      <span className={`text-xs font-semibold tracking-[0.15em] uppercase mb-4 block ${isNavy ? "text-brand-gold" : "text-brand-gold"} lg:-ml-4 lg:pl-4 lg:border-l-2 lg:border-brand-gold/40`}>
+                    <div
+                      className={`lg:col-span-7 flex flex-col ${isEven ? "lg:order-2" : "lg:order-1"}`}
+                    >
+                      <span
+                        className={`text-[10px] lg:text-xs font-semibold tracking-[0.15em] uppercase mb-2 lg:mb-4 block ${isNavy ? "text-brand-gold" : "text-brand-gold"} lg:-ml-4 lg:pl-4 lg:border-l-2 lg:border-brand-gold/40`}
+                      >
                         Signature Therapy
                       </span>
-                      <h3 className={`text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-4 leading-tight ${isNavy ? "text-white" : "text-brand-primary"}`}>
+                      <h3
+                        className={`text-2xl md:text-4xl lg:text-5xl font-heading font-bold mb-2 lg:mb-4 leading-tight ${isNavy ? "text-white" : "text-brand-primary"}`}
+                      >
                         {treatment.title}
                       </h3>
-                      <p className={`font-serif italic text-xl mb-6 ${isNavy ? "text-brand-gold" : "text-brand-primary/80"}`}>
+                      <p
+                        className={`font-serif italic text-lg lg:text-xl mb-4 lg:mb-6 ${isNavy ? "text-brand-gold" : "text-brand-primary/80"}`}
+                      >
                         {treatment.subtitle}
                       </p>
 
-                      <p className={`leading-relaxed mb-8 text-lg font-light ${isNavy ? "text-gray-300" : "text-brand-grey"}`}>
+                      <p
+                        className={`leading-relaxed mb-6 lg:mb-8 text-sm sm:text-base lg:text-lg font-light ${isNavy ? "text-gray-300" : "text-brand-grey"}`}
+                      >
                         {treatment.longDescription}
                       </p>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 mb-6 lg:mb-10">
                         {treatment.benefits.map((benefit, i) => (
                           <div key={i} className="flex items-start gap-3">
-                            <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`} />
-                            <span className={`text-sm font-medium ${isNavy ? "text-gray-200" : "text-brand-dark"}`}>
+                            <CheckCircle2
+                              className={`w-5 h-5 shrink-0 mt-0.5 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}
+                            />
+                            <span
+                              className={`text-sm font-medium ${isNavy ? "text-gray-200" : "text-brand-dark"}`}
+                            >
                               {benefit}
                             </span>
                           </div>
@@ -222,7 +246,9 @@ export default function OurTreatmentsPage() {
                       </div>
 
                       <PrimaryButton
-                        onClick={() => openWhatsApp({ treatment: treatment.title })}
+                        onClick={() =>
+                          openWhatsApp({ treatment: treatment.title })
+                        }
                         className={`w-full sm:w-auto ${isNavy ? "bg-brand-gold hover:bg-white text-brand-dark" : "bg-brand-primary hover:bg-brand-gold text-white"}`}
                       >
                         Book {treatment.title}

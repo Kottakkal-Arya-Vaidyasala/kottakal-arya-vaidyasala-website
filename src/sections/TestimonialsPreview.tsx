@@ -1,25 +1,38 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion } from "framer-motion"
-import Container from "@/components/common/Container"
-import SectionHeading from "@/components/common/SectionHeading"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
-import { Star, Quote } from "lucide-react"
-import { featuredTestimonial, supportingTestimonials } from "@/data/testimonials"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Container from "@/components/common/Container";
+import SectionHeading from "@/components/common/SectionHeading";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
+import { Star, Quote } from "lucide-react";
+import { testimonials } from "@/data/testimonials";
 
 /**
  * ═══════════════════════════════════════════════════
- * Testimonials Preview — Overlapping Editorial Cards
+ * Testimonials Preview — Auto-Sliding Single Card
  * ═══════════════════════════════════════════════════
- * A large hero-style featured quote alongside smaller
- * supporting testimonials. Navy/Gold palette.
+ * A luxury auto-playing carousel displaying one large
+ * patient review at a time with smooth crossfades.
  */
 export default function TestimonialsPreview() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Auto-slide every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const review = testimonials[activeIndex];
+
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="pt-4 pb-20 md:pt-16 md:pb-32 bg-white relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-gold/[0.03] rounded-full filter blur-[180px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-brand-primary/[0.02] rounded-full filter blur-[120px] pointer-events-none" />
 
       <Container>
         <AnimatedReveal direction="up">
@@ -31,102 +44,81 @@ export default function TestimonialsPreview() {
           />
         </AnimatedReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-          {/* ── Featured Hero Testimonial (Large) ────── */}
-          <AnimatedReveal direction="right" className="lg:col-span-7">
-            <div className="relative h-full bg-gradient-to-br from-brand-primary/[0.04] to-brand-gold/[0.03] rounded-2xl p-8 md:p-12 border border-brand-primary/8 hover:border-brand-gold/25 transition-all duration-500 flex flex-col justify-between">
-              {/* Large decorative quote */}
-              <Quote className="absolute top-6 right-6 w-20 h-20 text-brand-gold/[0.07]" />
+        <AnimatedReveal
+          direction="fade"
+          className="max-w-4xl mx-auto mt-12 md:mt-16 relative"
+        >
+          {/* Main Card Container */}
+          <div className="relative bg-gradient-to-br from-brand-primary/[0.03] to-brand-gold/[0.04] rounded-[2.5rem] p-8 md:p-16 lg:p-20 border border-brand-primary/10 shadow-xl overflow-hidden min-h-[450px] md:min-h-[400px] flex items-center justify-center">
+            {/* Decorative Quotes */}
+            <Quote className="absolute top-6 left-6 md:top-10 md:left-10 w-16 h-16 md:w-24 md:h-24 text-brand-gold/[0.07]" />
+            <Quote className="absolute bottom-6 right-6 md:bottom-10 md:right-10 w-16 h-16 md:w-24 md:h-24 text-brand-gold/[0.07] rotate-180" />
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-6">
-                {[...Array(featuredTestimonial.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-brand-gold text-brand-gold"
-                  />
-                ))}
-              </div>
-
-              {/* Quote text */}
-              <blockquote className="relative z-10 mb-8">
-                <p className="font-heading text-xl md:text-2xl lg:text-[1.65rem] font-medium text-brand-primary leading-[1.6] italic">
-                  &ldquo;{featuredTestimonial.text}&rdquo;
-                </p>
-              </blockquote>
-
-              {/* Author */}
-              <div className="flex items-center gap-4 pt-6 border-t border-brand-primary/10">
-                {/* Initial avatar */}
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-primary to-brand-gold flex items-center justify-center text-white font-heading font-bold text-lg">
-                  {featuredTestimonial.name.charAt(0)}
-                </div>
-                <div>
-                  <div className="font-heading text-base font-bold text-brand-primary">
-                    {featuredTestimonial.name}
-                  </div>
-                  <div className="text-xs text-brand-grey">
-                    {featuredTestimonial.location} •{" "}
-                    <span className="text-brand-gold font-semibold">
-                      {featuredTestimonial.treatment}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimatedReveal>
-
-          {/* ── Supporting Testimonials (Stacked) ────── */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            {supportingTestimonials.slice(0, 3).map((review, idx) => (
-              <AnimatedReveal
-                key={review.id}
-                direction="left"
-                delay={idx * 120}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 40, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -40, scale: 0.98 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="relative z-10 flex flex-col items-center text-center w-full"
               >
-                <motion.div
-                  whileHover={{ x: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="bg-brand-cream/50 rounded-xl p-6 md:p-7 border border-brand-primary/8 hover:border-brand-gold/25 transition-all duration-500 group"
-                >
-                  {/* Stars */}
-                  <div className="flex gap-0.5 mb-3">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-3.5 h-3.5 fill-brand-gold text-brand-gold"
-                      />
-                    ))}
-                  </div>
+                {/* Stars */}
+                <div className="flex gap-1.5 mb-8">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-6 h-6 md:w-7 md:h-7 fill-brand-gold text-brand-gold"
+                    />
+                  ))}
+                </div>
 
-                  {/* Text */}
-                  <p className="text-sm text-brand-primary/80 leading-[1.6] italic mb-4 line-clamp-3 font-light">
+                {/* Quote text */}
+                <blockquote className="mb-10 max-w-2xl mx-auto">
+                  <p className="font-heading text-xl md:text-3xl font-medium text-brand-dark leading-[1.6] italic">
                     &ldquo;{review.text}&rdquo;
                   </p>
+                </blockquote>
 
-                  {/* Author */}
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-primary/80 to-brand-gold/80 flex items-center justify-center text-white text-xs font-bold">
-                      {review.name.charAt(0)}
+                {/* Author Info */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-brand-primary to-brand-gold flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg ring-4 ring-white">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-heading text-xl md:text-2xl font-bold text-brand-primary mb-1">
+                      {review.name}
                     </div>
-                    <div>
-                      <div className="text-sm font-heading font-bold text-brand-primary">
-                        {review.name}
-                      </div>
-                      <div className="text-[10px] text-brand-grey">
-                        {review.location} •{" "}
-                        <span className="text-brand-gold font-semibold">
-                          {review.treatment}
-                        </span>
-                      </div>
+                    <div className="text-sm md:text-base text-brand-grey">
+                      {review.location}{" "}
+                      <span className="mx-2 text-brand-gold/50">•</span>{" "}
+                      <span className="text-brand-gold font-semibold">
+                        {review.treatment}
+                      </span>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatedReveal>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-3 mt-8 md:mt-10">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIndex(idx)}
+                className={`transition-all duration-500 rounded-full ${
+                  idx === activeIndex
+                    ? "w-10 h-2.5 bg-brand-gold shadow-md"
+                    : "w-2.5 h-2.5 bg-brand-gold/30 hover:bg-brand-gold/60"
+                }`}
+                aria-label={`Go to testimonial ${idx + 1}`}
+              />
             ))}
           </div>
-        </div>
+        </AnimatedReveal>
       </Container>
     </section>
-  )
+  );
 }

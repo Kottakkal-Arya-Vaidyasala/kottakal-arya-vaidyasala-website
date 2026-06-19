@@ -84,13 +84,13 @@ export default function AyurvedaPhilosophy() {
   }, []);
 
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 bg-white overflow-hidden">
+    <section className="relative pt-12 pb-16 md:pt-36 md:pb-20 bg-white overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-gold/[0.02] rounded-full filter blur-[100px] pointer-events-none" />
 
       <Container className="relative z-10">
         {/* ── Section Header ────────────────────────── */}
-        <AnimatedReveal direction="up" className="text-center mb-20 md:mb-24">
+        <AnimatedReveal direction="up" className="text-center mb-12 md:mb-24">
           <span className="text-xs font-bold tracking-[0.2em] uppercase text-brand-gold mb-4 block">
             The Science of Life
           </span>
@@ -114,7 +114,7 @@ export default function AyurvedaPhilosophy() {
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className={`relative p-6 md:p-10 lg:p-12 rounded-[2rem] border bg-brand-primary transition-all duration-500 h-full flex flex-col group ${dosha.shadow} ${dosha.borderColor}`}
+                className={`relative p-5 md:p-10 lg:p-12 rounded-[2rem] border bg-brand-primary transition-all duration-500 h-full flex flex-col group ${dosha.shadow} ${dosha.borderColor}`}
               >
                 {/* Background Gradient on Hover */}
                 <div
@@ -124,14 +124,14 @@ export default function AyurvedaPhilosophy() {
                 <div className="relative z-10 flex flex-col h-full">
                   {/* Icon */}
                   <div
-                    className={`w-16 h-16 rounded-2xl ${dosha.iconBg} flex items-center justify-center mb-8 transform group-hover:scale-110 transition-transform duration-500`}
+                    className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl ${dosha.iconBg} flex items-center justify-center mb-4 md:mb-8 transform group-hover:scale-110 transition-transform duration-500`}
                   >
-                    {dosha.icon}
+                    {React.cloneElement(dosha.icon as React.ReactElement<any>, { className: "w-6 h-6 md:w-8 md:h-8" })}
                   </div>
 
                   {/* Title & element */}
                   <div className="mb-6">
-                    <h3 className="font-heading text-3xl font-bold text-white mb-2">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-1 md:mb-2">
                       {dosha.name}
                     </h3>
                     <span className="text-xs font-bold tracking-[0.15em] text-brand-gold uppercase">
@@ -140,7 +140,7 @@ export default function AyurvedaPhilosophy() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-base text-white/80 leading-relaxed font-light flex-1">
+                  <p className="text-sm md:text-base text-white/80 leading-relaxed font-light flex-1">
                     {dosha.description}
                   </p>
                 </div>

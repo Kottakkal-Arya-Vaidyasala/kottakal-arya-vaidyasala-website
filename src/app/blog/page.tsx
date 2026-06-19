@@ -42,7 +42,7 @@ export default function BlogPage() {
       <section className="py-12 relative">
         <Container>
           <AnimatedReveal direction="up" delay={200}>
-            <Link href={`/blog/${featuredPost.slug}`} className="group block">
+            <Link href={`/blog/${featuredPost.slug}`} className="group block max-w-[340px] md:max-w-none mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
                 {/* Image */}
                 <div className="relative aspect-[4/3] lg:aspect-auto h-full overflow-hidden">
@@ -61,22 +61,22 @@ export default function BlogPage() {
                 </div>
 
                 {/* Content */}
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                <div className="p-6 lg:p-12 flex flex-col justify-center">
+                  <div className="flex items-center gap-4 text-xs md:text-sm text-gray-500 mb-4 md:mb-6">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-4 h-4 text-brand-gold" />
+                      <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
                       <span>{featuredPost.date}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-brand-gold" />
+                      <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
                       <span>{featuredPost.readTime}</span>
                     </div>
                   </div>
 
-                  <h2 className="text-3xl lg:text-4xl font-heading font-bold text-brand-dark mb-4 group-hover:text-brand-primary transition-colors">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-brand-dark mb-3 md:mb-4 group-hover:text-brand-primary transition-colors">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed mb-6 md:mb-8">
                     {featuredPost.excerpt}
                   </p>
 
@@ -99,7 +99,7 @@ export default function BlogPage() {
             </h3>
           </AnimatedReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-[340px] md:max-w-none mx-auto">
             {recentPosts.map((post, idx) => (
               <AnimatedReveal key={post.id} direction="up" delay={idx * 100}>
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
@@ -118,16 +118,16 @@ export default function BlogPage() {
                       </div>
                     </div>
 
-                    <div className="p-6 flex flex-col flex-grow">
-                      <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
+                    <div className="p-5 flex flex-col flex-grow">
+                      <div className="flex items-center justify-between text-[10px] md:text-xs text-gray-500 mb-3 md:mb-4">
                         <span>{post.date}</span>
                         <span>{post.readTime}</span>
                       </div>
 
-                      <h4 className="text-xl font-heading font-bold text-brand-dark mb-3 group-hover:text-brand-primary transition-colors">
+                      <h4 className="text-lg md:text-xl font-heading font-bold text-brand-dark mb-2 md:mb-3 group-hover:text-brand-primary transition-colors">
                         {post.title}
                       </h4>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                      <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 flex-grow">
                         {post.excerpt}
                       </p>
 

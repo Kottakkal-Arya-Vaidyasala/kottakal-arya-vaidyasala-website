@@ -69,17 +69,17 @@ export default function WhyChooseUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/30 to-transparent" />
 
               {/* Text overlay at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 z-10">
-                <div className="flex items-center gap-2 mb-3">
-                  <Building className="w-4 h-4 text-brand-gold" />
-                  <span className="text-xs font-semibold text-brand-gold tracking-[0.15em] uppercase">
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 z-10">
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <Building className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
+                  <span className="text-[10px] md:text-xs font-semibold text-brand-gold tracking-[0.15em] uppercase">
                     Premium Facility
                   </span>
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-white mb-2">
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
                   State-of-the-Art Healing Rooms
                 </h3>
-                <p className="text-sm text-gray-300 leading-[1.6] max-w-sm font-light">
+                <p className="text-xs md:text-sm text-gray-300 leading-[1.6] max-w-sm font-light">
                   Hygienic, serene treatment environments designed for your
                   comfort and complete restoration in Abu Dhabi.
                 </p>
@@ -98,18 +98,18 @@ export default function WhyChooseUs() {
                 <motion.div
                   whileHover={{ x: 6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="flex items-start gap-6 p-7 md:p-8 rounded-xl bg-brand-cream/50 border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 group editorial-hover"
+                  className="flex items-start gap-4 md:gap-6 p-5 md:p-8 rounded-xl bg-brand-cream/50 border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 group editorial-hover"
                 >
                   {/* Icon circle */}
-                  <div className="w-12 h-12 shrink-0 rounded-xl bg-brand-primary/8 flex items-center justify-center text-brand-primary border border-brand-primary/10 group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-all duration-500">
-                    {feature.icon}
+                  <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-lg md:rounded-xl bg-brand-primary/8 flex items-center justify-center text-brand-primary border border-brand-primary/10 group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-all duration-500">
+                    {React.cloneElement(feature.icon as React.ReactElement<any>, { className: "w-4 h-4 md:w-5 md:h-5" })}
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="font-heading text-xl font-bold text-brand-primary mb-2 group-hover:text-brand-dark transition-colors duration-300">
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-brand-primary mb-1 md:mb-2 group-hover:text-brand-dark transition-colors duration-300">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-brand-grey leading-[1.6] font-light">
+                    <p className="text-xs md:text-sm text-brand-grey leading-[1.6] font-light">
                       {feature.description}
                     </p>
                   </div>

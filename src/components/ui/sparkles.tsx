@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useEffect, useId, useState } from "react"
-import Particles, { initParticlesEngine } from "@tsparticles/react"
-import { loadSlim } from "@tsparticles/slim"
-import type { ISourceOptions } from "@tsparticles/engine"
+import { useEffect, useId, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import type { ISourceOptions, Engine } from "@tsparticles/engine";
 
 export function Sparkles({
   className,
@@ -32,19 +32,19 @@ export function Sparkles({
   background?: string;
   options?: Partial<ISourceOptions>;
 }) {
-  const [isReady, setIsReady] = useState(false)
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
+    initParticlesEngine(async (engine: Engine) => {
+      await loadSlim(engine);
     }).then(() => {
-      setIsReady(true)
-    })
-  }, [])
+      setIsReady(true);
+    });
+  }, []);
 
-  const id = useId()
+  const id = useId();
 
-  const defaultOptions = {
+  const defaultOptions: ISourceOptions = {
     background: {
       color: {
         value: background,
@@ -90,8 +90,15 @@ export function Sparkles({
       },
     },
     detectRetina: true,
-  }
+  };
 
-  // @ts-expect-error - The types from tsparticles can sometimes conflict with Partial<ISourceOptions>
-  return isReady && <Particles id={id} options={{ ...defaultOptions, ...options }} className={className} />
+  return (
+    isReady && (
+      <Particles
+        id={id}
+        options={{ ...defaultOptions, ...options }}
+        className={className}
+      />
+    )
+  );
 }

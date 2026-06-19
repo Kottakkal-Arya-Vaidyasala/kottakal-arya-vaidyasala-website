@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import React from "react"
-import { treatments } from "@/data/treatments"
-import { InfiniteSlider } from "@/components/ui/infinite-slider"
-import { Sparkles } from "@/components/ui/sparkles"
-import Container from "@/components/common/Container"
+import React from "react";
+import { treatments } from "@/data/treatments";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
+import { Sparkles } from "@/components/ui/sparkles";
+import Container from "@/components/common/Container";
 
 export default function TreatmentsMarquee() {
   return (
@@ -20,14 +20,14 @@ export default function TreatmentsMarquee() {
         </div>
 
         <div className="relative mt-4 h-[60px] w-full max-w-5xl mx-auto">
-          <InfiniteSlider 
-            className='flex h-full w-full items-center' 
+          <InfiniteSlider
+            className="flex h-full w-full items-center"
             duration={40}
             gap={64}
           >
             {treatments.map((treatment) => (
-              <div 
-                key={treatment.id} 
+              <div
+                key={treatment.id}
                 className="flex items-center gap-4 whitespace-nowrap"
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/60" />
@@ -44,10 +44,10 @@ export default function TreatmentsMarquee() {
       <div className="relative mt-0 h-24 md:h-32 w-full overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] z-0 pointer-events-none">
         {/* Glow */}
         <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#c9a96e,transparent_70%)] before:opacity-10" />
-        
+
         {/* Curved Border Arc */}
         <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-brand-gold/30 bg-white" />
-        
+
         {/* Particles */}
         <Sparkles
           density={800}
@@ -57,5 +57,5 @@ export default function TreatmentsMarquee() {
         />
       </div>
     </section>
-  )
+  );
 }

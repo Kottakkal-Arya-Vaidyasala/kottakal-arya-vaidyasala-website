@@ -117,11 +117,7 @@ export default function ContactUsPage() {
         </div>
 
         <Container className="relative z-10 text-center">
-          <AnimatedReveal direction="up">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-brand-gold/20 backdrop-blur-sm border border-brand-gold/30 text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-4">
-              Get In Touch
-            </span>
-          </AnimatedReveal>
+          {/* Badge removed as requested */}
           <AnimatedReveal direction="up" delay={100}>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 drop-shadow-lg">
               Begin Your Journey to <br />
@@ -149,11 +145,11 @@ export default function ContactUsPage() {
                     <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
                       <MapPin className="w-5 h-5 text-brand-primary" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                    <div className="min-w-0">
+                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
                         Visit Us
                       </h4>
-                      <p className="text-gray-600 leading-relaxed max-w-xs">
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-xs">
                         {siteConfig.address.full}
                       </p>
                     </div>
@@ -163,13 +159,13 @@ export default function ContactUsPage() {
                     <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
                       <Phone className="w-5 h-5 text-brand-primary" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                    <div className="min-w-0">
+                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
                         Call Us
                       </h4>
                       <a
                         href={`tel:${siteConfig.contact.phoneRaw}`}
-                        className="text-gray-600 hover:text-brand-primary transition-colors text-lg"
+                        className="text-gray-600 hover:text-brand-primary transition-colors text-sm md:text-lg break-words block"
                       >
                         {siteConfig.contact.phone}
                       </a>
@@ -180,13 +176,13 @@ export default function ContactUsPage() {
                     <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
                       <Mail className="w-5 h-5 text-brand-primary" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                    <div className="min-w-0">
+                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
                         Email Us
                       </h4>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-600 hover:text-brand-primary transition-colors text-lg"
+                        className="text-gray-600 hover:text-brand-primary transition-colors text-sm md:text-lg break-all block"
                       >
                         {siteConfig.contact.email}
                       </a>

@@ -102,7 +102,7 @@ export default function ServicesPage() {
             </span>
           </AnimatedReveal>
           <AnimatedReveal direction="up" delay={100}>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold mb-6">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-bold mb-4 md:mb-6">
               Discover Holistic Healing <br />
               <span className="italic font-serif text-brand-gold">
                 with Ayurveda
@@ -110,7 +110,7 @@ export default function ServicesPage() {
             </h1>
           </AnimatedReveal>
           <AnimatedReveal direction="up" delay={200}>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
               Our range of services is designed to restore balance, enhance
               vitality, and support your journey toward lasting wellness. Each
               program blends time-tested Ayurvedic wisdom with personalized care
@@ -123,21 +123,21 @@ export default function ServicesPage() {
       {/* ── Services List (Alternating) ───────────── */}
       <section className="py-24 bg-white relative">
         <Container>
-          <div className="flex flex-col gap-32">
+          <div className="flex flex-col gap-20 lg:gap-32">
             {servicesData.map((service, index) => {
               const isReversed = index % 2 !== 0;
 
               return (
                 <div
                   key={service.id}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${isReversed ? "lg:direction-rtl" : ""}`}
+                  className={`max-w-[320px] sm:max-w-[480px] lg:max-w-none mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center ${isReversed ? "lg:direction-rtl" : ""}`}
                 >
                   {/* Image Column */}
                   <AnimatedReveal
                     direction={isReversed ? "left" : "right"}
                     className={isReversed ? "lg:order-2" : "lg:order-1"}
                   >
-                    <div className="relative aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl gold-border-reveal group">
+                    <div className="relative aspect-[16/9] sm:aspect-[4/3] lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl gold-border-reveal group">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -153,21 +153,21 @@ export default function ServicesPage() {
                     className={isReversed ? "lg:order-1" : "lg:order-2"}
                   >
                     <div className={isReversed ? "lg:pr-12" : "lg:pl-12"}>
-                      <h3 className="text-sm font-bold text-brand-gold tracking-[0.15em] uppercase mb-3">
+                      <h3 className="text-xs lg:text-sm font-bold text-brand-gold tracking-[0.15em] uppercase mb-2 lg:mb-3">
                         {service.subtitle}
                       </h3>
-                      <h2 className="text-3xl lg:text-5xl font-heading font-bold text-brand-dark mb-6">
+                      <h2 className="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold text-brand-dark mb-4 lg:mb-6 leading-tight">
                         {service.title}
                       </h2>
-                      <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                      <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-6 lg:mb-8">
                         {service.description}
                       </p>
 
-                      <div className="space-y-4 mb-10">
+                      <div className="space-y-2 lg:space-y-4 mb-6 lg:mb-10">
                         {service.benefits.map((benefit, i) => (
                           <div key={i} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-6 h-6 text-brand-primary shrink-0 mt-0.5" />
-                            <span className="text-gray-700 font-medium">
+                            <CheckCircle2 className="w-4 h-4 lg:w-6 lg:h-6 text-brand-primary shrink-0 mt-0.5" />
+                            <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-medium leading-tight">
                               {benefit}
                             </span>
                           </div>
@@ -178,10 +178,9 @@ export default function ServicesPage() {
                         onClick={() =>
                           openWhatsApp({ treatment: service.title })
                         }
-                        className="group flex flex-nowrap items-center justify-center whitespace-nowrap gap-2 w-full sm:w-auto px-4"
+                        className="group flex flex-nowrap items-center justify-center whitespace-nowrap w-fit px-5 py-3 text-xs sm:text-sm"
                       >
-                        <span className="truncate">Book {service.title}</span>
-                        <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
+                        <span>Book {service.title}</span>
                       </PrimaryButton>
                     </div>
                   </AnimatedReveal>

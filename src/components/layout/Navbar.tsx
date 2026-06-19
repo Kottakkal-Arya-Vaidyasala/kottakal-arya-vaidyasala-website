@@ -121,15 +121,10 @@ export default function Navbar() {
                 className="bg-white border-brand-gold/10 p-6 flex flex-col justify-between h-full"
               >
                 <div>
-                  <SheetHeader className="text-left mb-8">
-                    <SheetTitle className="flex items-center gap-2">
-                      <Leaf className="w-5 h-5 text-brand-primary" />
-                      <span className="font-heading font-bold text-brand-primary">
-                        {siteConfig.name}
-                      </span>
-                    </SheetTitle>
+                  <SheetHeader className="sr-only">
+                    <SheetTitle>Navigation Menu</SheetTitle>
                   </SheetHeader>
-                  <div className="flex flex-col gap-4">
+                  <div className="mt-8 flex flex-col gap-4">
                     {siteConfig.navLinks.map((link) => {
                       const isActive = pathname === link.href;
                       return (

@@ -1,157 +1,130 @@
-"use client"
+"use client";
 
-import React, { useRef } from "react"
-import { motion, useInView, type Variants } from "framer-motion"
-import { cn } from "@/lib/utils"
+import React, { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "@/lib/utils";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 interface AnimatedRevealProps {
-  children: React.ReactNode
-  className?: string
-  direction?: "up" | "down" | "left" | "right" | "fade"
-  delay?: number
-  duration?: number
-  threshold?: number
-  once?: boolean
+  children: React.ReactNode;
+  className?: string;
+  direction?: "up" | "down" | "left" | "right" | "fade";
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  once?: boolean;
   /** Enable stagger mode — children will animate one by one */
-  stagger?: boolean
-  staggerDelay?: number
+  stagger?: boolean;
+  staggerDelay?: number;
 }
 
 /**
- * AnimatedReveal — Framer Motion scroll-triggered reveal animation.
- * Uses `useInView` for performant viewport detection and `motion.div`
- * for silky-smooth 60fps animations with GPU acceleration.
+ * AnimatedReveal — Re-engineered to use GSAP ScrollTrigger
+ * Provides buttery-smooth, high-performance luxury timeline animations.
  */
 export default function AnimatedReveal({
   children,
   className,
   direction = "up",
   delay = 0,
-  duration = 0.7,
+  duration = 1.2, // Luxury duration
   threshold = 0.15,
   once = true,
   stagger = false,
   staggerDelay = 0.1,
 }: AnimatedRevealProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, {
-    once,
-    amount: threshold,
-    margin: "0px 0px -100px 0px",
-  })
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  /* Direction-based initial/target transform values */
-  const directionMap: Record<string, { x: number; y: number }> = {
-    up: { x: 0, y: 30 },
-    down: { x: 0, y: -30 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 },
-    fade: { x: 0, y: 0 },
-  }
+  // Luxury physics: snappy, with zoom-out, zoom-in, and depth
+  const directionMap: Record<string, any> = {
+    up: { x: 0, y: 100, scale: 1.05 },
+    down: { x: 0, y: -100, scale: 1.05 },
+    left: { x: 100, y: 0, scale: 1.05 }, // Comes from the right
+    right: { x: -100, y: 0, scale: 1.05 }, // Comes from the left
+    fade: { x: 0, y: 0, scale: 0.9 }, // Zoom in for fade
+  };
 
-  const offset = directionMap[direction]
+  useGSAP(
+    () => {
+      if (!containerRef.current) return;
 
-  /* Stagger container variant — animates children sequentially */
-  const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: staggerDelay,
-        delayChildren: delay / 1000,
-      },
+      const offset = directionMap[direction];
+      const elements = stagger
+        ? gsap.utils.toArray(".gsap-stagger-item", containerRef.current)
+        : [containerRef.current];
+
+      // Initial state
+      gsap.set(elements, {
+        opacity: 0,
+        x: offset.x,
+        y: offset.y,
+        scale: offset.scale,
+        transformOrigin: "center center",
+      });
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: `top ${100 - threshold * 100}%`,
+        once: once,
+        onEnter: () => {
+          gsap.to(elements, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: duration,
+            delay: delay / 1000,
+            stagger: stagger ? staggerDelay : 0,
+            ease: "expo.out", // Snappy, luxury ease
+            overwrite: "auto",
+          });
+        },
+        onLeaveBack: once
+          ? undefined
+          : () => {
+              gsap.to(elements, {
+                opacity: 0,
+                x: offset.x,
+                y: offset.y,
+                scale: offset.scale,
+                duration: duration * 0.8,
+                stagger: stagger ? staggerDelay : 0,
+                ease: "power3.in",
+                overwrite: "auto",
+              });
+            },
+      });
     },
-  }
-
-  /* Individual item variant */
-  const itemVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      x: offset.x,
-      y: offset.y,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        duration,
-        ease: [0.16, 1, 0.3, 1] as const, /* Luxury cubic bezier — smooth deceleration */
-      },
-    },
-  }
-
-  /* If stagger mode, wrap children in a motion container */
-  if (stagger) {
-    return (
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    )
-  }
+    {
+      scope: containerRef,
+      dependencies: [direction, delay, duration, threshold, once, stagger, staggerDelay],
+    }
+  );
 
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={itemVariants}
-      transition={{
-        delay: delay / 1000,
-      }}
-      className={className}
-    >
+    <div ref={containerRef} className={className}>
       {children}
-    </motion.div>
-  )
+    </div>
+  );
 }
 
 /**
  * StaggerItem — Must be used inside an AnimatedReveal with stagger={true}.
- * Each item will animate in sequence according to the parent's staggerDelay.
+ * The parent's GSAP animation controls the reveal.
  */
 export function StaggerItem({
   children,
   className,
-  direction = "up",
-  duration = 0.7,
 }: {
-  children: React.ReactNode
-  className?: string
-  direction?: "up" | "down" | "left" | "right" | "fade"
-  duration?: number
+  children: React.ReactNode;
+  className?: string;
+  direction?: "up" | "down" | "left" | "right" | "fade";
+  duration?: number;
 }) {
-  const directionMap: Record<string, { x: number; y: number }> = {
-    up: { x: 0, y: 30 },
-    down: { x: 0, y: -30 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 },
-    fade: { x: 0, y: 0 },
-  }
-
-  const offset = directionMap[direction]
-
-  const variants: Variants = {
-    hidden: { opacity: 0, x: offset.x, y: offset.y },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        duration,
-        ease: [0.16, 1, 0.3, 1] as const,
-      },
-    },
-  }
-
-  return (
-    <motion.div variants={variants} className={className}>
-      {children}
-    </motion.div>
-  )
+  return <div className={cn("gsap-stagger-item", className)}>{children}</div>;
 }

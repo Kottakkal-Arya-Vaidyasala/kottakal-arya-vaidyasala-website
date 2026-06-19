@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     date: "May 15, 2026",
     author: "Dr. Ananya Nair",
     category: "Treatments",
-    imagePath: "/images/blog/panchakarma1-detox.png",
+    imagePath: "/images/blog/panchakarma-detox.png",
     readTime: "8 min read",
   }
 ]
