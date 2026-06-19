@@ -19,9 +19,10 @@ export default function AboutUsPage() {
       {/* ── 1. Hero Section ────────────────────────── */}
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/clinic/interior.png"
+          src="/images/clinic/carousel2.png"
           alt="Ayurveda Clinic Interior"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -57,12 +58,13 @@ export default function AboutUsPage() {
         <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-brand-cream/50 rounded-full filter blur-[150px] -z-10 translate-x-1/3 -translate-y-1/3" />
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedReveal direction="right" className="relative">
-              <div className="relative aspect-[4/5] rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl gold-border-reveal">
+            <AnimatedReveal direction="fade" className="relative">
+              <div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl gold-border-reveal mx-auto max-w-[400px] lg:max-w-none">
                 <Image
-                  src="/images/gallery/kerala-heritage.png"
+                  src="/images/gallery/kerala-heritage1.png"
                   alt="Ayurveda Heritage"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
