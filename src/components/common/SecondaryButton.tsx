@@ -35,12 +35,12 @@ export default function SecondaryButton({
           "group relative overflow-hidden font-medium",
           "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
           /* Navy fill style */
-          "bg-brand-primary text-[#ffffff]",
-          "border border-brand-primary/80 hover:border-brand-primary",
+          "bg-brand-primary text-white",
+          "border border-brand-primary/80 hover:border-brand-gold",
           /* Hover state */
-          "hover:bg-brand-primary hover:text-[#ffffff]",
+          "hover:bg-brand-gold hover:text-brand-dark",
           /* Shadow & transition */
-          "shadow-md hover:shadow-2xl hover:shadow-brand-primary/30",
+          "shadow-md hover:shadow-2xl hover:shadow-brand-gold/30",
           "transition-all duration-500 ease-out",
           className,
         )}

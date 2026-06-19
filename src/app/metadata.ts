@@ -3,7 +3,7 @@ import { Metadata } from "next"
 const siteConfig = {
   name: "Kottakkal Arya Vaidyasala Ayurvedic Medical Center",
   shortName: "Kottakkal Ayurveda",
-  description: "Experience premium traditional Ayurvedic healing and wellness treatments in Abu Dhabi, UAE. Expert doctor consultations, therapeutic massages, and holistic care.",
+  description: "Experience the best Ayurvedic clinic in Abu Dhabi at Kottakkal Arya Vaidyasala. We offer authentic Ayurvedic treatments, expert doctor consultations, and premium holistic healing therapies to restore your natural wellness.",
   url: "https://kottakkal-ayurveda.ae", // Replace with verified domain on production
   telephone: "+971 55 267 1598",
   email: "kottakkalaryavaidyasalaauh@gmail.com",

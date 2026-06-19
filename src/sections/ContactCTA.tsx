@@ -163,8 +163,8 @@ export default function ContactCTA() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* ── Left: Contact Info ────────────────────── */}
-          <div className="flex flex-col bg-white/[0.04] backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.08] shadow-xl h-full justify-between">
-            <h3 className="text-2xl font-heading font-bold text-white mb-8">
+          <div className="flex flex-col bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-xl h-full justify-between">
+            <h3 className="text-2xl font-heading font-bold text-brand-dark mb-8">
               Get In Touch
             </h3>
 
@@ -195,22 +195,22 @@ export default function ContactCTA() {
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-brand-gold/20 transition-all duration-300"
+                  className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 transition-all duration-300"
                 >
                   <div className="shrink-0 mt-0.5">{item.icon}</div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">
+                    <h4 className="text-sm font-semibold text-brand-dark">
                       {item.title}
                     </h4>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-xs text-gray-400 mt-0.5 hover:text-brand-gold transition-colors"
+                        className="text-xs text-gray-600 mt-0.5 hover:text-brand-primary transition-colors block"
                       >
                         {item.detail}
                       </a>
                     ) : (
-                      <p className="text-xs text-gray-400 mt-0.5">
+                      <p className="text-xs text-gray-600 mt-0.5">
                         {item.detail}
                       </p>
                     )}
@@ -230,25 +230,23 @@ export default function ContactCTA() {
                 onClick={() => {
                   window.location.href = `tel:${siteConfig.contact.phoneRaw}`;
                 }}
-                className="flex-1 bg-white text-brand-primary hover:bg-white/90 border-transparent shadow-xl hover:shadow-white/20"
+                className="flex-1 bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md"
               >
                 Call Now
               </PrimaryButton>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <PrimaryButton
+                icon={<MessageCircle className="w-4 h-4" />}
                 onClick={() => openWhatsApp()}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-md bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-sm font-semibold hover:bg-[#25D366]/25 transition-all duration-300"
+                className="flex-1 bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md"
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>WhatsApp</span>
-              </motion.button>
+                Book an Appointment
+              </PrimaryButton>
             </AnimatedReveal>
           </div>
 
           {/* ── Right: Contact Form ───────────────────── */}
           <AnimatedReveal direction="left" delay={200} className="h-full">
-            <div className="bg-white/[0.04] backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/[0.08] shadow-xl h-full">
+            <div className="bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-xl h-full">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   /* ── Success State ───────────────────── */
@@ -271,10 +269,10 @@ export default function ContactCTA() {
                     >
                       <CheckCircle className="w-10 h-10 text-emerald-400" />
                     </motion.div>
-                    <h3 className="font-heading text-2xl font-bold text-white mb-2">
+                    <h3 className="font-heading text-2xl font-bold text-brand-dark mb-2">
                       Message Sent Successfully!
                     </h3>
-                    <p className="text-sm text-gray-400 mb-8 max-w-sm leading-[1.6] font-light">
+                    <p className="text-sm text-gray-600 mb-8 max-w-sm leading-[1.6] font-light">
                       Thank you for reaching out. Our team will contact you
                       within 24 hours to discuss your wellness needs.
                     </p>
@@ -295,10 +293,10 @@ export default function ContactCTA() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <h3 className="font-heading text-xl font-bold text-white mb-1">
+                    <h3 className="font-heading text-xl font-bold text-brand-dark mb-1">
                       Send Us a Message
                     </h3>
-                    <p className="text-xs text-gray-400 mb-8 font-light">
+                    <p className="text-xs text-gray-600 mb-8 font-light">
                       Fill in your details and we&apos;ll get back to you
                       shortly.
                     </p>
@@ -321,7 +319,7 @@ export default function ContactCTA() {
                               onChange={handleChange}
                               aria-label="Your Name"
                               aria-invalid={!!errors.name}
-                              className={`w-full bg-white/[0.06] border ${errors.name ? "border-red-400/60" : "border-white/10"} text-white placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-gold/50 focus:bg-white/[0.08] transition-all duration-300`}
+                              className={`w-full bg-gray-50 border ${errors.name ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
                             />
                           </div>
                           {errors.name && (
@@ -341,7 +339,7 @@ export default function ContactCTA() {
                               onChange={handleChange}
                               aria-label="Email Address"
                               aria-invalid={!!errors.email}
-                              className={`w-full bg-white/[0.06] border ${errors.email ? "border-red-400/60" : "border-white/10"} text-white placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-gold/50 focus:bg-white/[0.08] transition-all duration-300`}
+                              className={`w-full bg-gray-50 border ${errors.email ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
                             />
                           </div>
                           {errors.email && (
@@ -365,7 +363,7 @@ export default function ContactCTA() {
                               onChange={handleChange}
                               aria-label="Phone Number"
                               aria-invalid={!!errors.phone}
-                              className={`w-full bg-white/[0.06] border ${errors.phone ? "border-red-400/60" : "border-white/10"} text-white placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-gold/50 focus:bg-white/[0.08] transition-all duration-300`}
+                              className={`w-full bg-gray-50 border ${errors.phone ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
                             />
                           </div>
                           {errors.phone && (
@@ -381,23 +379,23 @@ export default function ContactCTA() {
                             value={formData.treatment}
                             onChange={handleChange}
                             aria-label="Select Treatment"
-                            className="w-full bg-white/[0.06] border border-white/10 text-white pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-gold/50 focus:bg-white/[0.08] transition-all duration-300 appearance-none cursor-pointer"
+                            className="w-full bg-gray-50 border border-gray-200 text-brand-dark pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
                           >
-                            <option value="" className="bg-brand-dark">
+                            <option value="" className="bg-white">
                               Select Treatment
                             </option>
                             {treatments.map((t) => (
                               <option
                                 key={t.id}
                                 value={t.title}
-                                className="bg-brand-dark"
+                                className="bg-white"
                               >
                                 {t.title}
                               </option>
                             ))}
                             <option
                               value="General Consultation"
-                              className="bg-brand-dark"
+                              className="bg-white"
                             >
                               General Consultation
                             </option>
@@ -415,7 +413,7 @@ export default function ContactCTA() {
                           aria-label="Your Message"
                           aria-invalid={!!errors.message}
                           rows={4}
-                          className={`w-full bg-white/[0.06] border ${errors.message ? "border-red-400/60" : "border-white/10"} text-white placeholder-gray-500 px-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-gold/50 focus:bg-white/[0.08] transition-all duration-300 resize-none`}
+                          className={`w-full bg-gray-50 border ${errors.message ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 px-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300 resize-none`}
                         />
                         {errors.message && (
                           <p className="flex items-center gap-1 text-red-400 text-[11px] mt-1.5 ml-1">
@@ -430,7 +428,7 @@ export default function ContactCTA() {
                         whileTap={{ scale: 0.99 }}
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-brand-gold hover:bg-brand-gold-light text-brand-dark font-semibold text-sm py-4 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
+                        className="w-full bg-brand-primary hover:bg-brand-gold text-white hover:text-brand-dark font-semibold text-sm py-4 rounded-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <Loader2 className="w-4 h-4 animate-spin" />

@@ -84,7 +84,7 @@ const servicesData = [
       "Eliminates toxins and reduces excess fat",
       "Boosts energy, stamina, and overall vitality",
     ],
-    image: "/images/gallery/kerala-heritage.png", // Reusing as placeholder
+    image: "/images/gallery/kerala-heritage1.png", // Reusing as placeholder
   },
 ];
 
@@ -93,14 +93,19 @@ export default function ServicesPage() {
   return (
     <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
       {/* ── Header ────────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-brand-dark text-white relative grain-overlay">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/10 rounded-full filter blur-[200px] pointer-events-none" />
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black text-white">
+        <Image
+          src="/images/clinic/carousel2.png"
+          alt="Ayurveda Services"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-60"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/10 rounded-full filter blur-[200px] pointer-events-none z-0" />
         <Container className="relative z-10 text-center">
-          <AnimatedReveal direction="down">
-            <span className="text-brand-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">
-              Our Expertise
-            </span>
-          </AnimatedReveal>
+
           <AnimatedReveal direction="up" delay={100}>
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-bold mb-4 md:mb-6">
               Discover Holistic Healing <br />

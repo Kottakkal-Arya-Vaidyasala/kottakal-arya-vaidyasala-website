@@ -19,23 +19,19 @@ export default function AboutUsPage() {
       {/* ── 1. Hero Section ────────────────────────── */}
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/clinic/carousel2.png"
-          alt="Ayurveda Clinic Interior"
+          src="/images/treatments/abhyangam.png"
+          alt="Ayurvedic Abhyangam Massage"
           fill
           sizes="100vw"
           className="object-cover"
           priority
         />
-        {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/60 to-brand-primary" />
-        <div className="absolute inset-0 grain-overlay opacity-50" />
+        {/* Subtle dark gradient overlay for text readability without tinting */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        <div className="absolute inset-0 grain-overlay opacity-30" />
 
         <Container className="relative z-10 text-center">
-          <AnimatedReveal direction="up">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-brand-gold text-xs font-bold tracking-widest uppercase mb-6">
-              Our Story
-            </span>
-          </AnimatedReveal>
+
           <AnimatedReveal direction="up" delay={100}>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 leading-tight">
               Renew Yourself with <br />

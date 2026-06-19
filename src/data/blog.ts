@@ -19,18 +19,6 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "1",
-    slug: "principles-of-kerala-ayurveda",
-    title: "The 5 Core Principles of Authentic Kerala Ayurveda",
-    excerpt: "Discover the ancient wisdom that makes Kerala Ayurveda unique and how its holistic approach can transform your modern lifestyle.",
-    content: "Kerala Ayurveda is distinct in its profound dedication to the ancient texts of Ashtanga Hridaya. The five core principles revolve around understanding your unique Dosha (Vata, Pitta, Kapha), the importance of Agni (digestive fire), the concept of Ama (toxins), the balance of the mind (Sattva, Rajas, Tamas), and the deep connection between the individual and the universe. Embracing these principles allows for true holistic healing rather than merely treating symptoms.",
-    date: "June 12, 2026",
-    author: "Dr. Ananya Nair",
-    category: "Wellness",
-    imagePath: "/images/blog/kerala-principles.png",
-    readTime: "5 min read",
-  },
-  {
     id: "2",
     slug: "shirodhara-stress-relief",
     title: "Why Shirodhara is the Ultimate Stress Relief Therapy",

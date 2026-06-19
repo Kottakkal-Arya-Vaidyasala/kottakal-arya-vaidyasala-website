@@ -22,16 +22,25 @@ export default function BlogPage() {
     <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
       
       {/* ── Header ────────────────────────────────── */}
-      <section className="pt-24 pb-12 relative">
-        <Container className="text-center">
-          <AnimatedReveal direction="up">
-            <span className="text-brand-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">
-              Ayurvedic Insights
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-dark mb-6">
-              The Wellness <span className="italic font-serif text-brand-primary">Journal</span>
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black text-white">
+        <Image
+          src="/images/blog/kerala-principles.png"
+          alt="Ayurveda Blog and Journal"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-60"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-0" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/10 rounded-full filter blur-[200px] pointer-events-none z-0" />
+        
+        <Container className="relative z-10 text-center pt-16">
+          <AnimatedReveal direction="up" delay={100}>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold mb-6">
+              The Wellness <br />
+              <span className="italic font-serif text-brand-gold">Journal</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed font-light">
               Explore our latest articles on Ayurvedic living, holistic health tips, and deep dives into traditional therapies.
             </p>
           </AnimatedReveal>

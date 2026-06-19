@@ -49,10 +49,10 @@ export default function TestimonialsPreview() {
           className="max-w-4xl mx-auto mt-12 md:mt-16 relative"
         >
           {/* Main Card Container */}
-          <div className="relative bg-gradient-to-br from-brand-primary/[0.03] to-brand-gold/[0.04] rounded-[2.5rem] p-8 md:p-16 lg:p-20 border border-brand-primary/10 shadow-xl overflow-hidden min-h-[450px] md:min-h-[400px] flex items-center justify-center">
+          <div className="relative bg-gradient-to-br from-brand-primary/[0.03] to-brand-gold/[0.04] rounded-[2rem] p-6 md:p-10 lg:p-12 border border-brand-primary/10 shadow-xl overflow-hidden min-h-[300px] flex items-center justify-center">
             {/* Decorative Quotes */}
-            <Quote className="absolute top-6 left-6 md:top-10 md:left-10 w-16 h-16 md:w-24 md:h-24 text-brand-gold/[0.07]" />
-            <Quote className="absolute bottom-6 right-6 md:bottom-10 md:right-10 w-16 h-16 md:w-24 md:h-24 text-brand-gold/[0.07] rotate-180" />
+            <Quote className="absolute top-6 left-6 md:top-8 md:left-8 w-10 h-10 md:w-16 md:h-16 text-brand-gold/[0.07]" />
+            <Quote className="absolute bottom-6 right-6 md:bottom-8 md:right-8 w-10 h-10 md:w-16 md:h-16 text-brand-gold/[0.07] rotate-180" />
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -64,29 +64,29 @@ export default function TestimonialsPreview() {
                 className="relative z-10 flex flex-col items-center text-center w-full"
               >
                 {/* Stars */}
-                <div className="flex gap-1.5 mb-8">
+                <div className="flex gap-1 mb-6">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-6 h-6 md:w-7 md:h-7 fill-brand-gold text-brand-gold"
+                      className="w-5 h-5 md:w-6 md:h-6 fill-brand-gold text-brand-gold"
                     />
                   ))}
                 </div>
 
                 {/* Quote text */}
-                <blockquote className="mb-10 max-w-2xl mx-auto">
-                  <p className="font-heading text-xl md:text-3xl font-medium text-brand-dark leading-[1.6] italic">
+                <blockquote className="mb-8 max-w-2xl mx-auto">
+                  <p className="font-heading text-lg md:text-2xl font-medium text-brand-dark leading-[1.6] italic">
                     &ldquo;{review.text}&rdquo;
                   </p>
                 </blockquote>
 
                 {/* Author Info */}
-                <div className="flex flex-col items-center gap-4">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-brand-primary to-brand-gold flex items-center justify-center text-white font-heading font-bold text-2xl shadow-lg ring-4 ring-white">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-brand-primary to-brand-gold flex items-center justify-center text-white font-heading font-bold text-xl shadow-lg ring-2 ring-white">
                     {review.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-heading text-xl md:text-2xl font-bold text-brand-primary mb-1">
+                    <div className="font-heading text-lg md:text-xl font-bold text-brand-primary mb-1">
                       {review.name}
                     </div>
                     <div className="text-sm md:text-base text-brand-grey">

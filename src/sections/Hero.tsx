@@ -191,25 +191,7 @@ export default function Hero() {
           </AnimatePresence>
         </div>
 
-        {/* Buttons (Static to prevent jumpiness) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <PrimaryButton
-            onClick={() => openWhatsApp()}
-            icon={<Calendar className="w-4 h-4" />}
-          >
-            Book Consultation
-          </PrimaryButton>
-          <Link href="/our-treatments">
-            <PrimaryButton icon={<ArrowRight className="w-4 h-4" />}>
-              Explore Therapies
-            </PrimaryButton>
-          </Link>
-        </motion.div>
+
 
         {/* Carousel Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full glass bg-white/10 backdrop-blur-md">

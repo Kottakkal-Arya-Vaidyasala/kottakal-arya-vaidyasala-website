@@ -1,12 +1,12 @@
-import Hero from "@/sections/Hero"
-import TreatmentsMarquee from "@/sections/TreatmentsMarquee"
-import WhyChooseUs from "@/sections/WhyChooseUs"
-import AyurvedaPhilosophy from "@/sections/AyurvedaPhilosophy"
-import FeaturedTreatments from "@/sections/FeaturedTreatments"
-import TestimonialsPreview from "@/sections/TestimonialsPreview"
-import Newsletter from "@/sections/Newsletter"
-import ConsultationCTA from "@/sections/ConsultationCTA"
-import ContactCTA from "@/sections/ContactCTA"
+import Hero from "@/sections/Hero";
+import TreatmentsMarquee from "@/sections/TreatmentsMarquee";
+import WhyChooseUs from "@/sections/WhyChooseUs";
+import AyurvedaPhilosophy from "@/sections/AyurvedaPhilosophy";
+import FeaturedTreatments from "@/sections/FeaturedTreatments";
+import TestimonialsPreview from "@/sections/TestimonialsPreview";
+import Newsletter from "@/sections/Newsletter";
+import ConsultationCTA from "@/sections/ConsultationCTA";
+import ContactCTA from "@/sections/ContactCTA";
 
 /**
  * ═══════════════════════════════════════════════════
@@ -24,14 +24,14 @@ export default function Home() {
       {/* 2. Treatments Marquee — Infinite scrolling list with Sparkles */}
       <TreatmentsMarquee />
 
-      {/* 3. Why Choose Us — Asymmetric editorial layout */}
-      <WhyChooseUs />
+      {/* 5. Featured Treatments — Magazine editorial alternating rows */}
+      <FeaturedTreatments />
 
       {/* 4. Ayurveda Philosophy — Immersive dark section with Doshas */}
       <AyurvedaPhilosophy />
 
-      {/* 5. Featured Treatments — Magazine editorial alternating rows */}
-      <FeaturedTreatments />
+      {/* 3. Why Choose Us — Asymmetric editorial layout */}
+      <WhyChooseUs />
 
       {/* 7. Testimonials — Overlapping editorial cards */}
       <TestimonialsPreview />
@@ -45,5 +45,5 @@ export default function Home() {
       {/* 11. Contact — Two-column with EmailJS contact form */}
       <ContactCTA />
     </>
-  )
+  );
 }

@@ -37,10 +37,10 @@ export default function PrimaryButton({
           "group relative overflow-hidden font-medium",
           "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
           /* Colors — Midnight Navy CTA */
-          "bg-brand-primary hover:bg-brand-primary/90 text-[#ffffff]",
-          "border border-brand-primary/80 hover:border-brand-primary",
+          "bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark",
+          "border border-brand-primary/80 hover:border-brand-gold",
           /* Shadow & depth */
-          "shadow-md hover:shadow-2xl hover:shadow-brand-primary/40",
+          "shadow-md hover:shadow-2xl hover:shadow-brand-gold/40",
           /* Transition */
           "transition-all duration-500 ease-out",
           /* Pulse animation option */
