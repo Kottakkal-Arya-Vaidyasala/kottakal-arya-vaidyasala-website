@@ -42,7 +42,7 @@ export default function FeaturedTreatments() {
   return (
     <section
       id="featured-treatments"
-      className="py-24 md:py-32 bg-white relative overflow-hidden"
+      className="pt-4 pb-24 md:py-32 bg-white relative overflow-hidden"
     >
       {/* Subtle background decorations */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/[0.02] rounded-full filter blur-[200px] pointer-events-none" />

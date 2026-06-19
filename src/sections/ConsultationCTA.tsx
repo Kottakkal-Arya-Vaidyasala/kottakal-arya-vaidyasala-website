@@ -28,13 +28,6 @@ export default function ConsultationCTA() {
     <section className="relative py-24 md:py-32 overflow-hidden bg-white">
       <Container className="relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <AnimatedReveal direction="up">
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-gold text-brand-gold text-xs font-semibold uppercase tracking-[0.15em] mb-6">
-              <CalendarDays className="w-3.5 h-3.5" />
-              <span>Begin Your Healing Journey</span>
-            </span>
-          </AnimatedReveal>
-
           <AnimatedReveal direction="up" delay={100}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-bold text-brand-primary leading-[1.12] mb-6">
               Your Path to{" "}

@@ -84,7 +84,7 @@ export default function AyurvedaPhilosophy() {
   }, []);
 
   return (
-    <section className="relative pt-2 pb-16 md:pt-36 md:pb-20 bg-white overflow-hidden">
+    <section className="hidden md:block relative pt-2 pb-16 md:pt-4 md:pb-20 bg-white overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-gold/[0.02] rounded-full filter blur-[100px] pointer-events-none" />
 

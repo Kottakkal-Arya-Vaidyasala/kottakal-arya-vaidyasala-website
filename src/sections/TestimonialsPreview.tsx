@@ -18,11 +18,11 @@ import { testimonials } from "@/data/testimonials";
 export default function TestimonialsPreview() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-slide every 6 seconds
+  // Auto-slide every 3 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((current) => (current + 1) % testimonials.length);
-    }, 6000);
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 

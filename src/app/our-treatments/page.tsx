@@ -69,12 +69,6 @@ export default function OurTreatmentsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Highlighted Text Content */}
             <div className="flex flex-col">
-              <AnimatedReveal direction="up">
-                <span className="inline-block py-1.5 px-4 rounded-full bg-brand-gold/20 backdrop-blur-sm border border-brand-gold/30 text-brand-gold text-xs font-bold tracking-[0.2em] uppercase mb-6">
-                  Signature Therapies
-                </span>
-              </AnimatedReveal>
-
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTreatment.id}

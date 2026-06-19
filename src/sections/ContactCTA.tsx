@@ -147,10 +147,6 @@ export default function ContactCTA() {
 
       <Container className="relative z-10">
         <AnimatedReveal direction="up" className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-secondary/25 border border-brand-gold/20 text-brand-gold text-xs font-semibold uppercase tracking-[0.15em] mb-6">
-            <MessageCircle className="w-3.5 h-3.5" />
-            <span>Connect With Us</span>
-          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-wide leading-tight">
             Begin Your Journey to{" "}
             <span className="italic font-serif gold-text">Holistic Health</span>

@@ -19,6 +19,18 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "1",
+    slug: "healing-power-herbal-oils",
+    title: "The Healing Power of Herbal Oils in Ayurveda",
+    excerpt: "Discover how traditional Ayurvedic medicated oils nourish the skin, calm the nervous system, and restore balance to the body.",
+    content: "In Ayurveda, oil is not just a moisturizer; it is a powerful vehicle for delivering the healing properties of herbs deep into the body's tissues. Warm medicated oils, known as 'Thailam', are used extensively in therapies like Abhyangam and Pizhichil. The base oil, often sesame or coconut, is cooked with specific herbs over several days. When applied to the skin, these oils lubricate the joints, draw out toxins, and pacify the Vata dosha, bringing profound relaxation and physical rejuvenation.",
+    date: "July 12, 2026",
+    author: "Dr. Ananya Nair",
+    category: "Wellness",
+    imagePath: "/images/treatments/pizhichil.png",
+    readTime: "5 min read",
+  },
+  {
     id: "2",
     slug: "shirodhara-stress-relief",
     title: "Why Shirodhara is the Ultimate Stress Relief Therapy",

@@ -27,14 +27,14 @@ export default function Home() {
       {/* 5. Featured Treatments — Magazine editorial alternating rows */}
       <FeaturedTreatments />
 
+      {/* 7. Testimonials — Overlapping editorial cards */}
+      <TestimonialsPreview />
+
       {/* 4. Ayurveda Philosophy — Immersive dark section with Doshas */}
       <AyurvedaPhilosophy />
 
       {/* 3. Why Choose Us — Asymmetric editorial layout */}
       <WhyChooseUs />
-
-      {/* 7. Testimonials — Overlapping editorial cards */}
-      <TestimonialsPreview />
 
       {/* 9. Newsletter — Split layout with Brevo integration */}
       <Newsletter />
