@@ -18,21 +18,18 @@ import { useWhatsApp } from "@/hooks/useWhatsApp";
 const carouselData = [
   {
     image: "/images/hero/hero-carousel.png",
-    title: "The Epitome of Luxury Ayurveda in the UAE.",
-    subtitle:
-      "Escape the fast-paced city life. Discover a sanctuary of elite holistic healing and exclusive wellness therapies right here in Abu Dhabi.",
+    title: "Harmony of Body and Mind",
+    subtitle: "Experience true authentic wellness.",
   },
   {
     image: "/images/clinic/carousel2.png",
-    title: "An Unrivaled Haven of Wellness.",
-    subtitle:
-      "Experience unmatched VIP care and ancient healing therapies, flawlessly delivered by expert physicians in a state-of-the-art setting.",
+    title: "Ancient Wisdom, Modern Care",
+    subtitle: "Discover your natural balance.",
   },
   {
     image: "/images/gallery/kerala-heritage1.png",
-    title: "Bespoke Rejuvenation for the Elite.",
-    subtitle:
-      "Restore perfect harmony to mind and body with highly personalized detox and relaxation packages, exclusively crafted for our discerning clientele.",
+    title: "Awaken Your Inner Vitality",
+    subtitle: "Rejuvenate your spirit today.",
   },
 ];
 
@@ -146,7 +143,7 @@ export default function Hero() {
       {/* ── Foreground Text Layer ──────────────────── */}
       <Container className="relative z-20 flex flex-col items-center justify-center text-center h-full pt-16 pb-24">
         {/* Title Container with AnimatePresence for smooth transitions */}
-        <div className="min-h-[140px] md:min-h-[120px] lg:min-h-[180px] mb-6 flex items-end justify-center">
+        <div className="mb-1 sm:mb-2 flex items-end justify-center px-2 sm:px-4 w-full overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentImage}
@@ -154,7 +151,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-[1.15] max-w-4xl mx-auto"
+              style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white whitespace-nowrap tracking-wide"
             >
               {currentImage === 0
                 ? displayedText
@@ -175,8 +173,8 @@ export default function Hero() {
           </AnimatePresence>
         </div>
 
-        {/* Subtitle Container (Fixed height prevents buttons from jumping) */}
-        <div className="min-h-[100px] mb-10 flex items-start justify-center">
+        {/* Subtitle Container */}
+        <div className="mb-10 flex items-start justify-center px-4">
           <AnimatePresence mode="wait">
             <motion.p
               key={currentImage}
@@ -184,14 +182,13 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed font-light"
+              style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
+              className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-gray-200 font-light tracking-[0.15em] uppercase"
             >
               {carouselData[currentImage].subtitle}
             </motion.p>
           </AnimatePresence>
         </div>
-
-
 
         {/* Carousel Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full glass bg-white/10 backdrop-blur-md">
