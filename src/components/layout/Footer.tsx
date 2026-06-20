@@ -117,7 +117,7 @@ export default function Footer() {
               {siteConfig.description}
             </p>
             <div className="flex space-x-3 pt-2">
-              {siteConfig.socials.map((social) => (
+              {siteConfig.socials.map((social: any) => (
                 <a
                   key={social.label}
                   href={social.href}
