@@ -37,7 +37,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       setIsScrolled(currentScrollY > 40);
 
       if (currentScrollY > lastScrollY.current && currentScrollY > 200) {
@@ -45,7 +45,7 @@ export default function Navbar() {
       } else {
         setIsHidden(false);
       }
-      
+
       lastScrollY.current = currentScrollY;
     };
 
@@ -54,10 +54,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header 
+    <header
       className={cn(
         "w-full flex flex-col z-50 sticky top-0 transition-transform duration-300 ease-in-out bg-white",
-        isHidden ? "-translate-y-full" : "translate-y-0"
+        isHidden ? "-translate-y-full" : "translate-y-0",
       )}
     >
       {/* ── Main Navbar ──────────────────────────── */}
@@ -92,7 +92,9 @@ export default function Navbar() {
                   <span
                     className={cn(
                       "absolute -bottom-1 left-0 w-full h-[2px] bg-brand-gold rounded-full transition-transform duration-300 origin-left",
-                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      isActive
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100",
                     )}
                   />
                 </Link>

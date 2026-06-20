@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Cormorant_Garamond } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -10,17 +10,9 @@ import { defaultMetadata, localBusinessSchema } from "./metadata";
 
 /* ── Premium Typography Setup ─────────────────────── */
 
-/** Plus Jakarta Sans — clean, modern body text with editorial weight */
-const plusJakarta = Plus_Jakarta_Sans({
+/** Josefin Sans — elegant, geometric sans-serif for body text */
+const josefinSans = Josefin_Sans({
   variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-/** Cormorant Garamond — ultra-luxury editorial serif for headings */
-const cormorant = Cormorant_Garamond({
-  variable: "--font-heading",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -40,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${josefinSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script

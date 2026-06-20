@@ -148,19 +148,19 @@ export default function ContactCTA() {
       <Container className="relative z-10">
         <AnimatedReveal direction="up" className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-wide leading-tight">
-            Begin Your Journey to{" "}
-            <span className="italic font-serif gold-text">Holistic Health</span>
+            Schedule an Expert{" "}
+            <span className="italic font-serif gold-text">Consultation</span>
           </h2>
           <p className="text-sm md:text-base text-gray-300/80 max-w-xl mx-auto leading-[1.6] font-light">
-            Reach out to schedule your consultation or inquire about our
-            treatments. Our team responds within minutes.
+            Connect with our Ayurveda specialists and get a treatment plan
+            tailored to your needs.
           </p>
         </AnimatedReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* ── Left: Contact Info ────────────────────── */}
           <div className="flex flex-col bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-xl h-full justify-between">
-            <h3 className="text-2xl font-heading font-bold text-brand-dark mb-8">
+            <h3 className="text-2xl font-heading font-bold text-brand-dark mb-8 text-center">
               Get In Touch
             </h3>
 
@@ -218,22 +218,22 @@ export default function ContactCTA() {
             {/* Quick action buttons */}
             <AnimatedReveal
               direction="up"
-              delay={300}
-              className="flex flex-col sm:flex-row gap-3"
+              delay={50}
+              className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full"
             >
               <PrimaryButton
                 icon={<Phone className="w-4 h-4" />}
                 onClick={() => {
                   window.location.href = `tel:${siteConfig.contact.phoneRaw}`;
                 }}
-                className="flex-1 bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md"
+                className="w-full sm:w-auto bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md justify-center"
               >
                 Call Now
               </PrimaryButton>
               <PrimaryButton
                 icon={<MessageCircle className="w-4 h-4" />}
                 onClick={() => openWhatsApp()}
-                className="flex-1 bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md"
+                className="w-full sm:w-auto bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md justify-center"
               >
                 Book an Appointment
               </PrimaryButton>
@@ -289,13 +289,15 @@ export default function ContactCTA() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <h3 className="font-heading text-xl font-bold text-brand-dark mb-1">
-                      Send Us a Message
-                    </h3>
-                    <p className="text-xs text-gray-600 mb-8 font-light">
-                      Fill in your details and we&apos;ll get back to you
-                      shortly.
-                    </p>
+                    <div className="text-center">
+                      <h3 className="font-heading text-xl font-bold text-brand-dark mb-1">
+                        Send Us a Message
+                      </h3>
+                      <p className="text-xs text-gray-600 mb-8 font-light">
+                        Fill in your details and we&apos;ll get back to you
+                        shortly.
+                      </p>
+                    </div>
 
                     <form
                       onSubmit={handleSubmit}

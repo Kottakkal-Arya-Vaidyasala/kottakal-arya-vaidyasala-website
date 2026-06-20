@@ -1,11 +1,10 @@
 import Hero from "@/sections/Hero";
 import TreatmentsMarquee from "@/sections/TreatmentsMarquee";
 import WhyChooseUs from "@/sections/WhyChooseUs";
-import AyurvedaPhilosophy from "@/sections/AyurvedaPhilosophy";
+import MissionVision from "@/sections/MissionVision";
+import InsuranceMarquee from "@/sections/InsuranceMarquee";
 import FeaturedTreatments from "@/sections/FeaturedTreatments";
 import TestimonialsPreview from "@/sections/TestimonialsPreview";
-import Newsletter from "@/sections/Newsletter";
-import ConsultationCTA from "@/sections/ConsultationCTA";
 import ContactCTA from "@/sections/ContactCTA";
 
 /**
@@ -30,17 +29,14 @@ export default function Home() {
       {/* 7. Testimonials — Overlapping editorial cards */}
       <TestimonialsPreview />
 
-      {/* 4. Ayurveda Philosophy — Immersive dark section with Doshas */}
-      <AyurvedaPhilosophy />
-
       {/* 3. Why Choose Us — Asymmetric editorial layout */}
       <WhyChooseUs />
 
-      {/* 9. Newsletter — Split layout with Brevo integration */}
-      <Newsletter />
+      {/* 4. Mission and Vision */}
+      <MissionVision />
 
-      {/* 10. Consultation CTA — Full-width cinematic banner */}
-      <ConsultationCTA />
+      {/* 5. Insurance Marquee */}
+      <InsuranceMarquee />
 
       {/* 11. Contact — Two-column with EmailJS contact form */}
       <ContactCTA />

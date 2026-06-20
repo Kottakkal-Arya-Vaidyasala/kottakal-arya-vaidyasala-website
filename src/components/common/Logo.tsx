@@ -146,17 +146,28 @@ export default function Logo({
               <span
                 className={cn(
                   "font-bold tracking-tight leading-none",
-                  size === "sm" ? "text-lg" : size === "md" ? "text-xl" : "text-2xl",
+                  size === "sm"
+                    ? "text-lg"
+                    : size === "md"
+                      ? "text-xl"
+                      : "text-2xl",
                   light ? "text-white" : "text-brand-primary",
                 )}
-                style={{ fontFamily: "'Avenir Next Pro', 'Avenir Next', 'Avenir', sans-serif" }}
+                style={{
+                  fontFamily:
+                    "'Avenir Next Pro', 'Avenir Next', 'Avenir', sans-serif",
+                }}
               >
                 KOTTAKKAL
               </span>
               <span
                 className={cn(
                   "font-sans font-bold tracking-[0.25em] leading-none mt-0.5",
-                  size === "sm" ? "text-[8px]" : size === "md" ? "text-[10px]" : "text-xs",
+                  size === "sm"
+                    ? "text-[8px]"
+                    : size === "md"
+                      ? "text-[10px]"
+                      : "text-xs",
                   "text-brand-gold",
                 )}
               >

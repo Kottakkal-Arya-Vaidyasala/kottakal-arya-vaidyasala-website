@@ -69,77 +69,74 @@ export default function FeaturedTreatments() {
 
         {/* ── Responsive Grid Layout ────────────── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 max-w-7xl mx-auto">
-          {(showAll ? featuredTreatments.slice(0, 6) : featuredTreatments.slice(0, 3)).map(
-            (treatment, idx) => {
-              const isNavy = idx % 2 === 0;
-              return (
-                <AnimatedReveal
-                  key={treatment.id}
-                  direction="up"
-                  delay={(idx % 6) * 100}
+          {(showAll
+            ? featuredTreatments.slice(0, 6)
+            : featuredTreatments.slice(0, 3)
+          ).map((treatment, idx) => {
+            const isNavy = idx % 2 === 0;
+            return (
+              <AnimatedReveal
+                key={treatment.id}
+                direction="up"
+                delay={(idx % 6) * 100}
+              >
+                <div
+                  className={`flex flex-col h-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group ${
+                    isNavy ? "bg-[#1F2A44]" : "bg-white border border-gray-100"
+                  }`}
                 >
-                  <div
-                    className={`flex flex-col h-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group ${
-                      isNavy
-                        ? "bg-[#1F2A44]"
-                        : "bg-white border border-gray-100"
-                    }`}
-                  >
-                    <div className="relative aspect-[16/9] w-full overflow-hidden">
-                      <Image
-                        src={treatment.imagePath}
-                        alt={treatment.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-3 left-3 glass rounded-full px-2.5 py-1 flex items-center gap-1.5 border border-white/20">
-                        <Clock className="w-3 h-3 text-brand-gold" />
-                        <span className="text-[10px] font-semibold text-white tracking-wider">
-                          {treatment.duration}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                      <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-brand-gold mb-2 block">
-                        Signature Therapy
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                    <Image
+                      src={treatment.imagePath}
+                      alt={treatment.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 glass rounded-full px-2.5 py-1 flex items-center gap-1.5 border border-white/20">
+                      <Clock className="w-3 h-3 text-brand-gold" />
+                      <span className="text-[10px] font-semibold text-white tracking-wider">
+                        {treatment.duration}
                       </span>
-                      <h3
-                        className={`font-heading text-xl sm:text-2xl font-bold mb-2 leading-tight ${isNavy ? "text-white" : "text-[#1F2A44]"}`}
-                      >
-                        {treatment.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm font-semibold text-brand-gold mb-4">
-                        {treatment.subtitle}
-                      </p>
-                      <p
-                        className={`text-sm leading-relaxed mb-6 line-clamp-3 ${isNavy ? "text-gray-300" : "text-[#1F2A44]/80"}`}
-                      >
-                        {treatment.description}
-                      </p>
-                      <div className="mt-auto pt-5 border-t border-brand-gold/20">
-                        <Link
-                          href={`/our-treatments#treatment-${treatment.id}`}
-                        >
-                          <PrimaryButton
-                            icon={<ArrowRight className="w-4 h-4" />}
-                            className={`w-full py-3 text-sm ${
-                              isNavy
-                                ? "bg-white text-brand-primary hover:bg-white/90 border-transparent shadow-none"
-                                : "shadow-none"
-                            }`}
-                          >
-                            Book Now
-                          </PrimaryButton>
-                        </Link>
-                      </div>
                     </div>
                   </div>
-                </AnimatedReveal>
-              );
-            },
-          )}
+                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                    <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-brand-gold mb-2 block">
+                      Signature Therapy
+                    </span>
+                    <h3
+                      className={`font-heading text-xl sm:text-2xl font-bold mb-2 leading-tight ${isNavy ? "text-white" : "text-[#1F2A44]"}`}
+                    >
+                      {treatment.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-semibold text-brand-gold mb-4">
+                      {treatment.subtitle}
+                    </p>
+                    <p
+                      className={`text-sm leading-relaxed mb-6 line-clamp-3 ${isNavy ? "text-gray-300" : "text-[#1F2A44]/80"}`}
+                    >
+                      {treatment.description}
+                    </p>
+                    <div className="mt-auto pt-5 border-t border-brand-gold/20">
+                      <Link href={`/our-treatments#treatment-${treatment.id}`}>
+                        <PrimaryButton
+                          icon={<ArrowRight className="w-4 h-4" />}
+                          className={`w-full py-3 text-sm ${
+                            isNavy
+                              ? "bg-white text-brand-primary hover:bg-white/90 border-transparent shadow-none"
+                              : "shadow-none"
+                          }`}
+                        >
+                          Book Now
+                        </PrimaryButton>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </AnimatedReveal>
+            );
+          })}
         </div>
 
         {/* Toggle Button */}

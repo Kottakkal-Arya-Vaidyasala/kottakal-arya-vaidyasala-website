@@ -6,7 +6,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
+  --font-heading: var(--font-sans);
   --font-mono: var(--font-geist-mono);
 
   /* ── Brand Palette — Luxury Navy / Gold ────────── */
@@ -17,7 +17,7 @@
   --color-brand-gold-light: #e0cda3;
   --color-brand-cream: #ffffff;
   --color-brand-sage: #ede9e0;
-  --color-brand-grey: #a8a8a8;
+  --color-brand-grey: #333333;
 
   /* ── Shadcn Theme Tokens ───────────────────────── */
   --color-sidebar-ring: var(--sidebar-ring);

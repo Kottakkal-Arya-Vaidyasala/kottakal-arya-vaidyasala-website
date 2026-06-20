@@ -11,20 +11,22 @@ import {
 import Container from "@/components/common/Container";
 import AnimatedReveal from "@/components/common/AnimatedReveal";
 import PrimaryButton from "@/components/common/PrimaryButton";
-import { ArrowRight, Clock, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { treatments } from "@/data/treatments";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
 
-/**
- * ═══════════════════════════════════════════════════
- * Our Treatments Page — Redesigned Premium Layout
- * ═══════════════════════════════════════════════════
- */
 export default function OurTreatmentsPage() {
   const { openWhatsApp } = useWhatsApp();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      setShowAll(true);
+    }
+  }, []);
 
   // Auto-switch background carousel logic
   useEffect(() => {
@@ -38,9 +40,7 @@ export default function OurTreatmentsPage() {
 
   return (
     <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
-      {/* ── 1. Immersive Hero Background Carousel ──────── */}
-      <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center">
-        {/* Background Image Carousel */}
+      <section className="relative w-full h-screen min-h-screen flex items-center justify-center pt-16">
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
             <motion.div
@@ -60,9 +60,9 @@ export default function OurTreatmentsPage() {
               />
             </motion.div>
           </AnimatePresence>
-          {/* Muted dark overlay for text readability */}
-          <div className="absolute inset-0 bg-brand-dark/70 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90" />
+          {/* Muted dark overlay for text readability (neutral black instead of blue) */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
         </div>
 
         <Container className="relative z-10 w-full">
@@ -77,13 +77,13 @@ export default function OurTreatmentsPage() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <h1 className="text-5xl md:text-6xl lg:text-8xl font-heading font-bold text-white mb-4 leading-[1.1] drop-shadow-lg">
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white mb-4 leading-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] tracking-wide">
                     {activeTreatment.title}
                   </h1>
-                  <p className="text-xl md:text-2xl font-serif italic text-brand-gold mb-6 drop-shadow-md">
+                  <p className="inline-block px-4 py-1.5 border-l-4 border-brand-gold bg-black/30 backdrop-blur-sm text-lg md:text-xl font-semibold text-brand-gold mb-5 shadow-lg line-clamp-1 max-w-fit">
                     {activeTreatment.subtitle}
                   </p>
-                  <p className="text-lg text-gray-200 leading-relaxed max-w-lg mb-8 font-light">
+                  <p className="text-base md:text-lg text-gray-100 leading-relaxed max-w-md mb-8 font-light line-clamp-2 drop-shadow-md">
                     {activeTreatment.description}
                   </p>
 
@@ -96,6 +96,21 @@ export default function OurTreatmentsPage() {
                         const y =
                           el.getBoundingClientRect().top + window.scrollY - 100;
                         window.scrollTo({ top: y, behavior: "smooth" });
+                      } else {
+                        // If element is hidden in the collapsed list, expand first
+                        setShowAll(true);
+                        setTimeout(() => {
+                          const newEl = document.getElementById(
+                            `treatment-${activeTreatment.id}`,
+                          );
+                          if (newEl) {
+                            const newY =
+                              newEl.getBoundingClientRect().top +
+                              window.scrollY -
+                              100;
+                            window.scrollTo({ top: newY, behavior: "smooth" });
+                          }
+                        }, 100);
                       }
                     }}
                     className="w-fit"
@@ -108,7 +123,7 @@ export default function OurTreatmentsPage() {
 
             {/* Carousel Navigation Indicators */}
             <div className="hidden lg:flex flex-col items-end justify-center gap-4">
-              {treatments.map((t, idx) => (
+              {treatments.slice(0, 5).map((t, idx) => (
                 <button
                   key={t.id}
                   onClick={() => setCurrentIndex(idx)}
@@ -140,14 +155,13 @@ export default function OurTreatmentsPage() {
       </section>
 
       {/* ── 2. Comprehensive Treatment List ───────── */}
-      {/* Brand primary background to match button color, looking premium */}
-      <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <section className="pt-12 pb-24 md:pt-16 md:pb-32 bg-white relative overflow-hidden">
         {/* Subtle decorative background elements */}
         <div className="absolute top-0 right-0 w-full h-full grain-overlay opacity-20 pointer-events-none" />
         <div className="absolute -left-[20%] top-[10%] w-[800px] h-[800px] bg-brand-primary/5 rounded-full filter blur-[150px] pointer-events-none" />
 
         <Container className="relative z-10">
-          <AnimatedReveal direction="up" className="text-center mb-20">
+          <AnimatedReveal direction="up" className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-6">
               Our Complete{" "}
               <span className="italic font-serif text-brand-gold">Menu</span>
@@ -158,101 +172,91 @@ export default function OurTreatmentsPage() {
             </p>
           </AnimatedReveal>
 
-          <div className="flex flex-col gap-24">
-            {treatments.map((treatment, idx) => {
-              const isEven = idx % 2 === 0;
-              const isNavy = idx % 2 === 0;
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-12 max-w-7xl mx-auto">
+            {(showAll ? treatments : treatments.slice(0, 6)).map(
+              (treatment, idx) => {
+                const isNavy = idx % 2 === 0;
 
-              return (
-                <AnimatedReveal
-                  key={treatment.id}
-                  direction="up"
-                  delay={idx * 100}
-                >
-                  <div
-                    id={`treatment-${treatment.id}`}
-                    className={`scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center p-6 md:p-12 lg:p-16 rounded-[2rem] lg:rounded-[2.5rem] shadow-xl border ${
-                      isNavy
-                        ? "bg-brand-primary border-white/10"
-                        : "bg-white border-gray-100"
-                    } ${isEven ? "lg:direction-ltr" : "lg:direction-rtl"}`}
+                return (
+                  <AnimatedReveal
+                    key={treatment.id}
+                    direction="up"
+                    delay={(idx % 6) * 50}
                   >
-                    {/* Image Column */}
                     <div
-                      className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}
+                      id={`treatment-${treatment.id}`}
+                      className={`flex flex-col h-full rounded-2xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group scroll-mt-32 ${
+                        isNavy
+                          ? "bg-[#1F2A44]"
+                          : "bg-white border border-gray-100"
+                      }`}
                     >
-                      <div className="relative aspect-[16/9] sm:aspect-[4/3] lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl gold-border-reveal group">
+                      <div className="relative h-40 w-full overflow-hidden shrink-0">
                         <Image
                           src={treatment.imagePath}
                           alt={treatment.title}
                           fill
-                          className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
-                        <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-700" />
-                        <div className="absolute top-5 left-5 glass rounded-full px-4 py-1.5 flex items-center gap-1.5 z-10">
-                          <Clock className="w-3.5 h-3.5 text-brand-gold" />
-                          <span className="text-xs font-semibold text-white">
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3 glass rounded-full px-2 py-0.5 flex items-center gap-1.5 border border-white/20">
+                          <Clock className="w-3 h-3 text-brand-gold" />
+                          <span className="text-[10px] font-semibold text-white tracking-wider">
                             {treatment.duration}
                           </span>
                         </div>
                       </div>
-                    </div>
-
-                    {/* Content Column */}
-                    <div
-                      className={`lg:col-span-7 flex flex-col ${isEven ? "lg:order-2" : "lg:order-1"}`}
-                    >
-                      <span
-                        className={`text-[10px] lg:text-xs font-semibold tracking-[0.15em] uppercase mb-2 lg:mb-4 block ${isNavy ? "text-brand-gold" : "text-brand-gold"} lg:-ml-4 lg:pl-4 lg:border-l-2 lg:border-brand-gold/40`}
-                      >
-                        Signature Therapy
-                      </span>
-                      <h3
-                        className={`text-2xl md:text-4xl lg:text-5xl font-heading font-bold mb-2 lg:mb-4 leading-tight ${isNavy ? "text-white" : "text-brand-primary"}`}
-                      >
-                        {treatment.title}
-                      </h3>
-                      <p
-                        className={`font-serif italic text-lg lg:text-xl mb-4 lg:mb-6 ${isNavy ? "text-brand-gold" : "text-brand-primary/80"}`}
-                      >
-                        {treatment.subtitle}
-                      </p>
-
-                      <p
-                        className={`leading-relaxed mb-6 lg:mb-8 text-sm sm:text-base lg:text-lg font-light ${isNavy ? "text-gray-300" : "text-brand-grey"}`}
-                      >
-                        {treatment.longDescription}
-                      </p>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4 mb-6 lg:mb-10">
-                        {treatment.benefits.map((benefit, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <CheckCircle2
-                              className={`w-5 h-5 shrink-0 mt-0.5 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}
-                            />
-                            <span
-                              className={`text-sm font-medium ${isNavy ? "text-gray-200" : "text-brand-dark"}`}
-                            >
-                              {benefit}
-                            </span>
-                          </div>
-                        ))}
+                      <div className="p-4 sm:p-5 flex flex-col flex-grow">
+                        <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-brand-gold mb-1.5 block">
+                          Signature Therapy
+                        </span>
+                        <h3
+                          className={`font-heading text-lg font-bold mb-1 leading-tight ${isNavy ? "text-white" : "text-[#1F2A44]"}`}
+                        >
+                          {treatment.title}
+                        </h3>
+                        <p className="text-[11px] font-semibold text-brand-gold mb-2.5">
+                          {treatment.subtitle}
+                        </p>
+                        <p
+                          className={`text-xs leading-relaxed mb-4 line-clamp-2 ${isNavy ? "text-gray-300" : "text-[#1F2A44]/80"}`}
+                        >
+                          {treatment.description}
+                        </p>
+                        <div className="mt-auto pt-4 border-t border-brand-gold/20">
+                          <PrimaryButton
+                            onClick={() =>
+                              openWhatsApp({ treatment: treatment.title })
+                            }
+                            icon={<ArrowRight className="w-3.5 h-3.5" />}
+                            className={`w-full py-2.5 text-xs ${
+                              isNavy
+                                ? "bg-white text-brand-primary hover:bg-white/90 border-transparent shadow-none"
+                                : "shadow-none"
+                            }`}
+                          >
+                            Book Now
+                          </PrimaryButton>
+                        </div>
                       </div>
-
-                      <PrimaryButton
-                        onClick={() =>
-                          openWhatsApp({ treatment: treatment.title })
-                        }
-                        className={`w-full sm:w-auto ${isNavy ? "bg-brand-gold hover:bg-white text-brand-dark" : "bg-brand-primary hover:bg-brand-gold text-white"}`}
-                      >
-                        Book {treatment.title}
-                      </PrimaryButton>
                     </div>
-                  </div>
-                </AnimatedReveal>
-              );
-            })}
+                  </AnimatedReveal>
+                );
+              },
+            )}
           </div>
+
+          {treatments.length > 6 && (
+            <div className="mt-12 flex justify-center relative z-10">
+              <PrimaryButton
+                onClick={() => setShowAll(!showAll)}
+                className="px-8 py-4"
+              >
+                {showAll ? "Show Less Therapies" : "Show More Therapies"}
+              </PrimaryButton>
+            </div>
+          )}
         </Container>
       </section>
     </main>

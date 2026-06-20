@@ -37,9 +37,9 @@ export default function TestimonialsPreview() {
       <Container>
         <AnimatedReveal direction="up">
           <SectionHeading
-            title="Stories of Restored Vitality"
+            title="Lives Renewed, Balance Restored"
             subtitle="Patient Testimonials"
-            description="Real experiences from patients who rediscovered wellness through our traditional Ayurvedic therapies."
+            description="Authentic stories of individuals who rediscovered harmony and health through Ayurvedic healing."
             align="center"
           />
         </AnimatedReveal>

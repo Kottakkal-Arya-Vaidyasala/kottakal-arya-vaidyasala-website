@@ -6,50 +6,20 @@ import { motion } from "framer-motion";
 import Container from "@/components/common/Container";
 import SectionHeading from "@/components/common/SectionHeading";
 import AnimatedReveal from "@/components/common/AnimatedReveal";
-import { ShieldCheck, HeartPulse, Sparkles, Building } from "lucide-react";
-
-/**
- * ═══════════════════════════════════════════════════
- * Why Choose Us — Asymmetric Editorial Layout
- * ═══════════════════════════════════════════════════
- * Large editorial feature on the left with a full-height
- * image and text overlay, plus 3 stacked feature cards
- * on the right with unique hover depth effects.
- */
-
-const features = [
-  {
-    title: "Authentic Heritage",
-    description:
-      "Direct legacy of genuine Ayurvedic recipes, medicines, and therapeutic techniques from the ancient origins of Ayurveda — preserved across generations.",
-    icon: <Sparkles className="w-5 h-5" />,
-  },
-  {
-    title: "Certified Vaidyas",
-    description:
-      "Consult with highly trained BAMS/MD physicians skilled in traditional pulse analysis (Nadi Pariksha) and personalized treatment protocols.",
-    icon: <ShieldCheck className="w-5 h-5" />,
-  },
-  {
-    title: "Personalized Wellness",
-    description:
-      "We evaluate your Prakriti (constitution) and Vikriti (imbalances) to craft customized diet, herbal formulas, and treatment plans.",
-    icon: <HeartPulse className="w-5 h-5" />,
-  },
-];
+import { Leaf } from "lucide-react";
 
 export default function WhyChooseUs() {
   return (
-    <section className="pt-12 pb-24 md:pt-16 md:pb-32 bg-white relative overflow-hidden">
+    <section className="pt-12 pb-12 md:pt-16 md:pb-16 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-primary/[0.02] rounded-full filter blur-[180px] pointer-events-none" />
 
       <Container>
         <AnimatedReveal direction="up">
           <SectionHeading
-            title="A Legacy of Genuine Healing"
-            subtitle="Why Choose Us"
-            description="For over a century, our tradition of authentic Ayurveda has restored health and vitality to thousands."
+            title="Who We Are"
+            subtitle="Kottakkal Arya Vaidyasala"
+            description="Where Ancient Wisdom Restores Vitality"
             align="center"
           />
         </AnimatedReveal>
@@ -59,8 +29,8 @@ export default function WhyChooseUs() {
           <AnimatedReveal direction="right" className="lg:col-span-5">
             <div className="relative h-full min-h-[400px] lg:min-h-0 rounded-2xl overflow-hidden img-zoom gold-border-reveal group">
               <Image
-                src="/images/hero/hero-carousel.png"
-                alt="Premium Ayurvedic treatment room"
+                src="/images/about/herbs.png"
+                alt="Ayurvedic herbs and holistic healing"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -71,54 +41,36 @@ export default function WhyChooseUs() {
               {/* Text overlay at bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-8 z-10">
                 <div className="flex items-center gap-2 mb-2 md:mb-3">
-                  <Building className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
+                  <Leaf className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
                   <span className="text-[10px] md:text-xs font-semibold text-brand-gold tracking-[0.15em] uppercase">
-                    Premium Facility
+                    Authentic Ingredients
                   </span>
                 </div>
                 <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">
-                  State-of-the-Art Healing Rooms
+                  Pure Herbal Formulations
                 </h3>
                 <p className="text-xs md:text-sm text-gray-300 leading-[1.6] max-w-sm font-light">
-                  Hygienic, serene treatment environments designed for your
-                  comfort and complete restoration in Abu Dhabi.
+                  We use carefully selected, traditional Ayurvedic herbs to craft potent natural medicines tailored precisely for your holistic healing journey.
                 </p>
               </div>
             </div>
           </AnimatedReveal>
 
-          {/* ── Right: 3 stacked editorial feature cards ── */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            {features.map((feature, idx) => (
-              <AnimatedReveal
-                key={feature.title}
-                direction="left"
-                delay={idx * 120}
-              >
-                <motion.div
-                  whileHover={{ x: 6 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="flex items-start gap-4 md:gap-6 p-5 md:p-8 rounded-xl bg-brand-cream/50 border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 group editorial-hover"
-                >
-                  {/* Icon circle */}
-                  <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-lg md:rounded-xl bg-brand-primary/8 flex items-center justify-center text-brand-primary border border-brand-primary/10 group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-all duration-500">
-                    {React.cloneElement(feature.icon as React.ReactElement<any>, { className: "w-4 h-4 md:w-5 md:h-5" })}
-                  </div>
-
-                  <div className="flex-1">
-                    <h3 className="font-heading text-lg md:text-xl font-bold text-brand-primary mb-1 md:mb-2 group-hover:text-brand-dark transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-brand-grey leading-[1.6] font-light">
-                      {feature.description}
-                    </p>
-                  </div>
-
-                  {/* Decorative gold accent on hover */}
-                  <div className="w-1 self-stretch rounded-full bg-transparent group-hover:bg-brand-gold/40 transition-colors duration-500" />
-                </motion.div>
-              </AnimatedReveal>
-            ))}
+          {/* ── Right: Who We Are Text Content ── */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <AnimatedReveal direction="left" delay={100}>
+              <div className="space-y-6 text-black font-normal leading-relaxed text-base md:text-lg">
+                <p>
+                  <span className="font-semibold text-brand-primary">Kottakkal Arya Vaidyasala</span> is the premier <strong>Ayurvedic center in Abu Dhabi</strong>, bringing the authentic healing heritage of Kerala to the UAE. Our expert doctors combine ancient Ayurvedic wisdom with modern therapeutic standards to deliver personalized, holistic healing that restores your natural balance.
+                </p>
+                <p>
+                  We specialize in comprehensive <strong>Panchakarma treatments</strong>, potent herbal medicines, and natural therapies designed to treat the root cause of ailments. From managing chronic pain, arthritis, and migraines to luxurious detox programs and stress relief therapies, our customized wellness plans ensure sustainable health improvements.
+                </p>
+                <p>
+                  Experience the true essence of <strong>authentic Ayurveda in Abu Dhabi</strong>. Reconnect with your inner vitality through our time-tested rejuvenation therapies, pure herbal formulations, and expert clinical care tailored precisely to your unique constitution.
+                </p>
+              </div>
+            </AnimatedReveal>
           </div>
         </div>
       </Container>
