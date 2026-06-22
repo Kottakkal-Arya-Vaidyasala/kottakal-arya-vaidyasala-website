@@ -121,7 +121,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Dark overlay to ensure text is readable */}
-      <div className="absolute inset-0 bg-brand-dark/50 z-10" />
+      <div className="absolute inset-0 bg-brand-dark/30 z-10" />
 
       {/* ── Manual Navigation Arrows ────────────────── */}
       <button

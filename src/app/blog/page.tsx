@@ -1,6 +1,8 @@
 "use client"
 
-import React from "react"
+import React, { useRef } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -17,6 +19,18 @@ import { blogPosts } from "@/data/blog"
 export default function BlogPage() {
   const featuredPost = blogPosts[0]
   const recentPosts = blogPosts.slice(1)
+  const headerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    gsap.from(".gsap-heading", {
+      y: 50,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "power4.out",
+      delay: 0.2
+    })
+  }, { scope: headerRef })
 
   return (
     <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
@@ -35,15 +49,14 @@ export default function BlogPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/10 rounded-full filter blur-[200px] pointer-events-none z-0" />
         
         <Container className="relative z-10 text-center pt-16">
-          <AnimatedReveal direction="up" delay={100}>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold mb-6">
-              The Wellness <br />
-              <span className="text-brand-gold">Journal</span>
+          <div ref={headerRef} className="mx-auto" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
+            <h1 className="gsap-heading text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-2 text-white drop-shadow-2xl">
+              The Wellness <span className="text-brand-gold">Journal</span>
             </h1>
-            <p className="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed font-light">
-              Explore our latest articles on Ayurvedic living, holistic health tips, and deep dives into traditional therapies.
+            <p className="gsap-heading text-base md:text-lg text-gray-100 max-w-xl mx-auto font-light drop-shadow-xl">
+              Explore Ayurvedic living and holistic health.
             </p>
-          </AnimatedReveal>
+          </div>
         </Container>
       </section>
 

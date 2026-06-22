@@ -52,7 +52,7 @@ export default function FeaturedTreatments() {
     <section
       ref={sectionRef}
       id="featured-treatments"
-      className="pt-4 pb-16 md:py-32 bg-white relative overflow-hidden"
+      className="pt-4 pb-8 md:pt-8 md:pb-16 bg-white relative overflow-hidden"
     >
       {/* Subtle background decorations */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/[0.02] rounded-full filter blur-[200px] pointer-events-none" />

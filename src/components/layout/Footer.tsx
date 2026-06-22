@@ -40,32 +40,32 @@ export default function Footer() {
       });
 
       tl.from(newsletterRef.current, {
-        y: 50,
+        y: 30,
         opacity: 0,
         scale: 0.98,
-        duration: 0.8,
+        duration: 0.4,
         ease: "power3.out",
       })
       .from(".newsletter-glow", {
         scale: 0,
         opacity: 0,
-        duration: 1,
+        duration: 0.5,
         ease: "power2.out",
-        stagger: 0.2,
-      }, "-=0.4")
-      .from(".newsletter-text", {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
         stagger: 0.1,
-        ease: "power2.out",
-      }, "-=0.6")
-      .from(".newsletter-form", {
-        x: 20,
+      }, "-=0.2")
+      .from(".newsletter-text", {
+        y: 15,
         opacity: 0,
-        duration: 0.6,
+        duration: 0.4,
+        stagger: 0.05,
         ease: "power2.out",
-      }, "-=0.6");
+      }, "-=0.3")
+      .from(".newsletter-form", {
+        x: 15,
+        opacity: 0,
+        duration: 0.4,
+        ease: "power2.out",
+      }, "-=0.3");
     },
     { scope: newsletterRef }
   );

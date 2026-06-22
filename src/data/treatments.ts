@@ -52,7 +52,7 @@ export const treatments: Treatment[] = [
       "Reduces stress hormones"
     ],
     duration: "60 – 90 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/shirodhara.png",
     iconName: "Activity",
     featured: true
   },
@@ -75,21 +75,21 @@ export const treatments: Treatment[] = [
     featured: true
   },
   {
-    id: "njavarakizhi",
-    title: "Navara Kizhi (Rice Pouch Therapy)",
-    subtitle: "Medicated Rice Bolus Therapy",
-    description: "A unique traditional therapy using boluses of cooked Njavara rice dipped in warm medicated milk, applied to the body to nourish muscles, relieve pain, and rejuvenate the skin.",
-    longDescription: "Njavarakizhi is a uniquely authentic specialty where boluses of specially prepared Njavara rice are dipped in warm herbal milk decoction and applied across the body in systematic strokes. This dual-action therapy simultaneously nourishes and detoxifies, making it invaluable for musculoskeletal and neurological conditions.",
+    id: "pizhichil",
+    title: "Pizhichil",
+    subtitle: "Royal Oil Bath Therapy",
+    description: "Known as the 'King of Therapies,' Pizhichil combines warm medicated oil pouring with gentle massage strokes — historically reserved for Kerala royalty for ultimate rejuvenation.",
+    longDescription: "Pizhichil is among the most luxurious of Ayurvedic therapies, historically reserved for the royal families of ancient India. Warm streams of medicated oil are continuously poured across the body while therapists perform synchronized massage strokes. This dual-action therapy provides unparalleled rejuvenation for degenerative conditions and overall vitality.",
     benefits: [
-      "Nourishes muscles & joints",
-      "Relieves chronic pain",
-      "Rejuvenates skin texture",
-      "Strengthens nervous system",
-      "Promotes tissue regeneration"
+      "Complete body rejuvenation",
+      "Treats paralysis & nerve disorders",
+      "Improves muscle tone & vitality",
+      "Nourishes the entire body deeply",
+      "Anti-aging & longevity benefits"
     ],
     duration: "60 – 90 Minutes",
-    imagePath: "/images/treatments/njavarakizhi.png",
-    iconName: "HeartPulse",
+    imagePath: "/images/treatments/pizhichil.png",
+    iconName: "Sparkles",
     featured: true
   },
   {
@@ -111,21 +111,21 @@ export const treatments: Treatment[] = [
     featured: true
   },
   {
-    id: "pizhichil",
-    title: "Pizhichil",
-    subtitle: "Royal Oil Bath Therapy",
-    description: "Known as the 'King of Therapies,' Pizhichil combines warm medicated oil pouring with gentle massage strokes — historically reserved for Kerala royalty for ultimate rejuvenation.",
-    longDescription: "Pizhichil is among the most luxurious of Ayurvedic therapies, historically reserved for the royal families of ancient India. Warm streams of medicated oil are continuously poured across the body while therapists perform synchronized massage strokes. This dual-action therapy provides unparalleled rejuvenation for degenerative conditions and overall vitality.",
+    id: "njavarakizhi",
+    title: "Navara Kizhi (Rice Pouch Therapy)",
+    subtitle: "Medicated Rice Bolus Therapy",
+    description: "A unique traditional therapy using boluses of cooked Njavara rice dipped in warm medicated milk, applied to the body to nourish muscles, relieve pain, and rejuvenate the skin.",
+    longDescription: "Njavarakizhi is a uniquely authentic specialty where boluses of specially prepared Njavara rice are dipped in warm herbal milk decoction and applied across the body in systematic strokes. This dual-action therapy simultaneously nourishes and detoxifies, making it invaluable for musculoskeletal and neurological conditions.",
     benefits: [
-      "Complete body rejuvenation",
-      "Treats paralysis & nerve disorders",
-      "Improves muscle tone & vitality",
-      "Nourishes the entire body deeply",
-      "Anti-aging & longevity benefits"
+      "Nourishes muscles & joints",
+      "Relieves chronic pain",
+      "Rejuvenates skin texture",
+      "Strengthens nervous system",
+      "Promotes tissue regeneration"
     ],
     duration: "60 – 90 Minutes",
-    imagePath: "/images/treatments/pizhichil.png",
-    iconName: "Sparkles",
+    imagePath: "/images/treatments/njavarakizhi.png",
+    iconName: "HeartPulse",
     featured: true
   },
   {
@@ -142,7 +142,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -160,7 +160,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -178,7 +178,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -196,7 +196,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -214,7 +214,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -232,7 +232,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -250,7 +250,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -268,7 +268,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -286,7 +286,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -304,7 +304,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -322,7 +322,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -340,7 +340,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -358,7 +358,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -376,7 +376,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -394,7 +394,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -412,7 +412,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -430,7 +430,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -448,7 +448,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -466,7 +466,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -484,7 +484,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   },
@@ -502,7 +502,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam.png",
+    imagePath: "/images/treatments/abhayangam.png",
     iconName: "Leaf",
     featured: true
   }

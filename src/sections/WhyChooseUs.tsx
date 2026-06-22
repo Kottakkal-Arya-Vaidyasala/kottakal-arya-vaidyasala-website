@@ -16,17 +16,17 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="pt-12 pb-12 md:pt-24 md:pb-24 bg-white relative overflow-hidden">
+    <section className="pt-8 pb-12 md:pt-16 md:pb-24 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-primary/[0.02] rounded-full filter blur-[180px] pointer-events-none" />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* ── Left: Image ── */}
           <AnimatedReveal direction="right" className="w-full">
             <div className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden img-zoom gold-border-reveal group shadow-2xl">
               <Image
-                src="/images/about/herbs.png"
+                src="/images/about/pure-herbs.png"
                 alt="Ayurvedic herbs and holistic healing"
                 fill
                 className="object-cover"
@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
           </AnimatedReveal>
 
           {/* ── Right: Text Content ── */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-start">
             <AnimatedReveal direction="left">
               <div className="mb-6">
                 <span className="text-brand-primary text-sm md:text-base font-semibold tracking-wider uppercase mb-3 flex items-center gap-2">
