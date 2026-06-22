@@ -10,9 +10,7 @@ import { Leaf, CheckCircle2 } from "lucide-react";
 export default function WhyChooseUs() {
   const highlights = [
     "100% Organic Herbal Medicines",
-    "Hereditary & Traditional Ayurvedic Formulations",
     "Certified Professional Therapists",
-    "24/7 Patient Support & Guidance",
   ];
 
   return (
