@@ -16,6 +16,7 @@ import {
   Loader2,
   CheckCircle,
   AlertCircle,
+  Clock,
 } from "lucide-react";
 import { sendContactEmail, type ContactFormInput } from "@/services/email";
 import { toast } from "sonner";
@@ -71,8 +72,6 @@ export default function ContactUsPage() {
     }
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Please provide more details";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -116,32 +115,37 @@ export default function ContactUsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40 opacity-90" />
         </div>
 
-        <Container className="relative z-10 text-center">
-          {/* Badge removed as requested */}
+        <Container className="relative z-10 text-center mt-12 md:mt-16">
           <AnimatedReveal direction="up" delay={100}>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 drop-shadow-lg">
-              Begin Your Journey to <br />
-              <span className="italic font-serif text-brand-gold">
-                Holistic Health
-              </span>
+            <h1 
+              style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white max-w-5xl mx-auto leading-tight mb-1 sm:mb-2 text-center"
+            >
+              Restore Your Harmony
             </h1>
+            <p 
+              style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
+              className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-white font-bold tracking-[0.15em] uppercase"
+            >
+              We're Here To Help
+            </p>
           </AnimatedReveal>
         </Container>
       </section>
 
       {/* ── 2. Contact Info & Map (Split Layout) ──── */}
-      <section className="py-16 md:py-24 relative -mt-16 z-20">
+      <section className="py-12 md:py-24 relative mt-4 md:-mt-16 z-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
             {/* Left: Get in Touch Card */}
             <AnimatedReveal direction="right" className="h-full">
-              <div className="bg-white p-6 md:p-14 rounded-3xl shadow-xl border border-gray-100 h-full flex flex-col justify-center">
-                <h2 className="text-3xl font-heading font-bold text-brand-dark mb-8">
+              <div className="bg-white p-6 sm:p-8 md:p-14 rounded-3xl shadow-xl border border-gray-100 h-full flex flex-col justify-center">
+                <h2 className="text-2xl sm:text-3xl font-heading font-bold text-brand-dark mb-6 md:mb-8 text-center">
                   Get in Touch
                 </h2>
 
-                <div className="flex flex-col gap-8">
-                  <div className="flex items-start gap-5">
+                <div className="flex flex-col gap-6 md:gap-8">
+                  <div className="flex items-start gap-4 md:gap-5">
                     <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
                       <MapPin className="w-5 h-5 text-brand-primary" />
                     </div>
@@ -188,15 +192,30 @@ export default function ContactUsPage() {
                       </a>
                     </div>
                   </div>
+
+                  <div className="flex items-start gap-5">
+                    <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
+                      <Clock className="w-5 h-5 text-brand-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                        Clinic Timings
+                      </h4>
+                      <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                        <p>Sat - Thu: 9:00 AM – 11:00 PM</p>
+                        <p>Fri: 9:00 AM – 11:55 AM, 2:00 PM – 11:00 PM</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </AnimatedReveal>
 
             {/* Right: Google Map */}
             <AnimatedReveal direction="left" className="h-full">
-              <div className="w-full h-[400px] lg:h-full min-h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-gray-100">
+              <div className="w-full h-[300px] sm:h-[400px] lg:h-full min-h-[300px] sm:min-h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-gray-100">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115681.47551065672!2d54.345864115456226!3d24.451079366479632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e440f723ef2b9%3A0xc7cc2e934a983fb0!2sAbu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1718285514088!5m2!1sen!2sus"
+                  src="https://maps.google.com/maps?q=Kottakkal+Arya+vaidyasala+Ayurvedic+medical+center,+Ground+floor,+Hamed+center,+Al+danah+zone+1,+Electra+street,+Abudhabi&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

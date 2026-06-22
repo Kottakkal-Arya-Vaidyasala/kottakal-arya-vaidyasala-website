@@ -77,13 +77,13 @@ export default function OurTreatmentsPage() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white mb-4 leading-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] tracking-wide">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-extrabold text-white mb-3 sm:mb-4 leading-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] tracking-wide">
                     {activeTreatment.title}
                   </h1>
-                  <p className="inline-block px-4 py-1.5 border-l-4 border-brand-gold bg-black/30 backdrop-blur-sm text-lg md:text-xl font-semibold text-brand-gold mb-5 shadow-lg line-clamp-1 max-w-fit">
+                  <p className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 border-l-4 border-brand-gold bg-black/30 backdrop-blur-sm text-sm sm:text-base md:text-xl font-semibold text-brand-gold mb-4 sm:mb-5 shadow-lg line-clamp-2 max-w-fit">
                     {activeTreatment.subtitle}
                   </p>
-                  <p className="text-base md:text-lg text-gray-100 leading-relaxed max-w-md mb-8 font-light line-clamp-2 drop-shadow-md">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-100 leading-relaxed max-w-md mb-6 sm:mb-8 font-light line-clamp-3 md:line-clamp-2 drop-shadow-md">
                     {activeTreatment.description}
                   </p>
 
@@ -164,7 +164,7 @@ export default function OurTreatmentsPage() {
           <AnimatedReveal direction="up" className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-6">
               Our Complete{" "}
-              <span className="italic font-serif text-brand-gold">Menu</span>
+              <span className="text-brand-gold">Menu</span>
             </h2>
             <p className="text-lg text-brand-grey max-w-2xl mx-auto font-light">
               Explore our full range of authentic therapies, carefully designed

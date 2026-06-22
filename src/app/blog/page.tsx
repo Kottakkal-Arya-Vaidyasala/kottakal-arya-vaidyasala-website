@@ -38,7 +38,7 @@ export default function BlogPage() {
           <AnimatedReveal direction="up" delay={100}>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold mb-6">
               The Wellness <br />
-              <span className="italic font-serif text-brand-gold">Journal</span>
+              <span className="text-brand-gold">Journal</span>
             </h1>
             <p className="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed font-light">
               Explore our latest articles on Ayurvedic living, holistic health tips, and deep dives into traditional therapies.

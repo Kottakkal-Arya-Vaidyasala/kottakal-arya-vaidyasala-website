@@ -17,17 +17,17 @@ import { useWhatsApp } from "@/hooks/useWhatsApp";
 
 const carouselData = [
   {
-    image: "/images/hero/hero-carousel.png",
+    image: "/images/hero/home-carousel1.png",
     title: "Harmony of Body and Mind",
     subtitle: "Experience true authentic wellness.",
   },
   {
-    image: "/images/clinic/carousel2.png",
+    image: "/images/hero/home-carousel2.png",
     title: "Ancient Wisdom, Modern Care",
     subtitle: "Discover your natural balance.",
   },
   {
-    image: "/images/gallery/kerala-heritage1.png",
+    image: "/images/hero/home-carousel3.png",
     title: "Awaken Your Inner Vitality",
     subtitle: "Rejuvenate your spirit today.",
   },
@@ -147,12 +147,12 @@ export default function Hero() {
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentImage}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white whitespace-nowrap tracking-wide"
+              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white whitespace-normal sm:whitespace-nowrap tracking-wide leading-tight px-2"
             >
               {currentImage === 0
                 ? displayedText
@@ -178,10 +178,10 @@ export default function Hero() {
           <AnimatePresence mode="wait">
             <motion.p
               key={currentImage}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
               className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-gray-200 font-light tracking-[0.15em] uppercase"
             >

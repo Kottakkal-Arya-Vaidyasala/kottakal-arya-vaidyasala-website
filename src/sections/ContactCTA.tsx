@@ -17,6 +17,7 @@ import {
   User,
   FileText,
   AlertCircle,
+  Clock,
 } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { sendContactEmail, type ContactFormInput } from "@/services/email";
@@ -87,9 +88,6 @@ export default function ContactCTA() {
 
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message =
-        "Please provide more details (at least 10 characters)";
     }
 
     setErrors(newErrors);
@@ -146,23 +144,35 @@ export default function ContactCTA() {
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-gold/25 to-transparent" />
 
       <Container className="relative z-10">
-        <AnimatedReveal direction="up" className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-5 tracking-wide leading-tight">
-            Schedule an Expert{" "}
-            <span className="italic font-serif gold-text">Consultation</span>
+        <AnimatedReveal direction="up" className="text-center mb-16 md:mb-20">
+          <h2 
+            style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-1 sm:mb-2 whitespace-nowrap tracking-wide"
+          >
+            Book Your <span className="text-brand-gold">Consultation</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-300/80 max-w-xl mx-auto leading-[1.6] font-light">
-            Connect with our Ayurveda specialists and get a treatment plan
-            tailored to your needs.
+          <p 
+            style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
+            className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-white font-bold tracking-[0.15em] uppercase mb-6"
+          >
+            Begin Your Healing
+          </p>
+          <p className="text-sm md:text-base text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
+            Connect with our Ayurveda specialists and receive a holistic treatment plan tailored specifically to your unique needs.
           </p>
         </AnimatedReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start">
           {/* ── Left: Contact Info ────────────────────── */}
-          <div className="flex flex-col bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-xl h-full justify-between">
-            <h3 className="text-2xl font-heading font-bold text-brand-dark mb-8 text-center">
-              Get In Touch
-            </h3>
+          <div className="flex flex-col bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-xl h-full justify-between">
+            <div className="mb-8 text-center">
+              <h3 className="text-2xl font-heading font-bold text-brand-dark mb-2">
+                Get In Touch
+              </h3>
+              <p className="text-sm text-gray-500 font-light">
+                We're here to assist with your Ayurvedic journey
+              </p>
+            </div>
 
             {/* Contact details */}
             <AnimatedReveal
@@ -188,10 +198,20 @@ export default function ContactCTA() {
                   detail: siteConfig.contact.email,
                   href: `mailto:${siteConfig.contact.email}`,
                 },
+                {
+                  icon: <Clock className="w-5 h-5 text-brand-gold" />,
+                  title: "Clinic Timings",
+                  detail: (
+                    <div className="flex flex-col gap-0.5">
+                      <span>Sat - Thu: 9:00 AM – 11:00 PM</span>
+                      <span>Fri: 9:00 AM – 11:55 AM, 2:00 PM – 11:00 PM</span>
+                    </div>
+                  ),
+                },
               ].map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand-gold/30 transition-all duration-300"
+                  className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-brand-gold/5 hover:border-brand-gold/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300 cursor-pointer"
                 >
                   <div className="shrink-0 mt-0.5">{item.icon}</div>
                   <div>
@@ -201,14 +221,14 @@ export default function ContactCTA() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-xs text-gray-600 mt-0.5 hover:text-brand-primary transition-colors block"
+                        className="text-xs text-gray-600 mt-0.5 hover:text-brand-primary transition-colors block break-words break-all sm:break-normal"
                       >
                         {item.detail}
                       </a>
                     ) : (
-                      <p className="text-xs text-gray-600 mt-0.5">
+                      <div className="text-xs text-gray-600 mt-0.5">
                         {item.detail}
-                      </p>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -242,7 +262,7 @@ export default function ContactCTA() {
 
           {/* ── Right: Contact Form ───────────────────── */}
           <AnimatedReveal direction="left" delay={200} className="h-full">
-            <div className="bg-white rounded-2xl p-8 md:p-10 border border-gray-100 shadow-xl h-full">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-xl h-full">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   /* ── Success State ───────────────────── */
@@ -438,9 +458,8 @@ export default function ContactCTA() {
                         </span>
                       </motion.button>
 
-                      <p className="text-[10px] text-gray-500 text-center font-light">
-                        By submitting, you agree to our privacy policy.
-                        We&apos;ll never share your information.
+                      <p className="text-[10px] text-gray-500 text-center font-light mt-1">
+                        Your privacy is our priority. All medical inquiries are kept strictly confidential.
                       </p>
                     </form>
                   </motion.div>

@@ -16,27 +16,27 @@ export const siteConfig = {
 
   /** Contact details */
   contact: {
-    phone: "+971 55 267 1598",
-    phoneRaw: "+971552671598",
+    phone: "+971 56 818 8976",
+    phoneRaw: "+971568188976",
     email: "kottakkalaryavaidyasalaauh@gmail.com",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971552671598",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971568188976",
   },
 
   /** Physical address */
   address: {
-    street: "Airport Road, Near Al Wahda Mall",
+    street: "Ground floor, Hamed center, Al danah zone 1, Electra street",
     city: "Abu Dhabi",
     country: "UAE",
-    full: "Airport Road, Near Al Wahda Mall, Abu Dhabi, UAE",
+    full: "Ground floor, Hamed center, Al danah zone 1, Electra street, Abu Dhabi",
     mapUrl: "https://maps.google.com/?q=Kottakkal+Arya+Vaidyasala+Abu+Dhabi",
   },
 
   /** Operating hours */
   hours: {
-    display: "Daily: 9:00 AM – 9:00 PM",
+    display: "9:00 AM – 11:00 PM",
     days: "Monday – Sunday",
-    time: "9:00 AM – 9:00 PM",
-    note: "Doctor consultations require prior booking.",
+    time: "9:00 AM – 11:00 PM",
+    note: "Friday: 9:00 AM – 11:55 AM, 2:00 PM – 11:00 PM",
   },
 
   /** Social media links */

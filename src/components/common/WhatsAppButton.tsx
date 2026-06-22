@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { MessageCircle } from "lucide-react"
 import { siteConfig } from "@/data/site"
 
 /**
@@ -50,13 +50,22 @@ export default function WhatsAppButton() {
         aria-label="Chat on WhatsApp"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        whileHover={{ scale: 1.08 }}
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.1, y: 0 }}
         whileTap={{ scale: 0.95 }}
-        className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-shadow duration-300"
+        className="relative flex items-center justify-center w-[64px] h-[64px] outline-none z-50 group"
       >
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
-        <MessageCircle className="w-6 h-6 fill-current relative z-10" />
+        {/* Icon Container */}
+        <div className="relative w-full h-full drop-shadow-[0_4px_12px_rgba(37,211,102,0.3)] group-hover:drop-shadow-[0_8px_20px_rgba(37,211,102,0.5)] group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-300">
+          <Image
+            src="/images/whatsapp-icon.png"
+            alt="WhatsApp"
+            fill
+            sizes="64px"
+            className="object-contain"
+          />
+        </div>
       </motion.a>
     </div>
   )

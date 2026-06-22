@@ -26,9 +26,6 @@ export default function Home() {
       {/* 5. Featured Treatments — Magazine editorial alternating rows */}
       <FeaturedTreatments />
 
-      {/* 7. Testimonials — Overlapping editorial cards */}
-      <TestimonialsPreview />
-
       {/* 3. Why Choose Us — Asymmetric editorial layout */}
       <WhyChooseUs />
 
@@ -37,6 +34,9 @@ export default function Home() {
 
       {/* 5. Insurance Marquee */}
       <InsuranceMarquee />
+
+      {/* 7. Testimonials — Overlapping editorial cards */}
+      <TestimonialsPreview />
 
       {/* 11. Contact — Two-column with EmailJS contact form */}
       <ContactCTA />

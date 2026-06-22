@@ -56,7 +56,7 @@ export default function LuxuryExperience() {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-brand-primary leading-[1.15] max-w-3xl mx-auto mb-5">
             A Sanctuary of{" "}
-            <span className="italic font-serif text-brand-gold">Healing</span>
+            <span className="text-brand-gold">Healing</span>
           </h2>
           <p className="text-base md:text-lg text-brand-grey max-w-2xl mx-auto leading-[1.6] font-light">
             Step into a space where traditional Ayurvedic aesthetics meet modern

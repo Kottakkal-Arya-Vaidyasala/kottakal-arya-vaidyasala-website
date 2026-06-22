@@ -84,7 +84,7 @@ export default function AyurvedaPhilosophy() {
   }, []);
 
   return (
-    <section className="hidden md:block relative pt-2 pb-16 md:pt-4 md:pb-20 bg-white overflow-hidden">
+    <section className="block relative pt-12 pb-16 md:pt-4 md:pb-20 bg-white overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-gold/[0.02] rounded-full filter blur-[100px] pointer-events-none" />
 
@@ -96,7 +96,7 @@ export default function AyurvedaPhilosophy() {
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-heading text-brand-primary leading-[1.15] max-w-3xl mx-auto mb-6">
             Ancient Wisdom,{" "}
-            <span className="italic font-serif text-brand-gold">
+            <span className="text-brand-gold">
               Modern Healing
             </span>
           </h2>
@@ -108,13 +108,13 @@ export default function AyurvedaPhilosophy() {
         </AnimatedReveal>
 
         {/* ── Three Doshas ───────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 mb-24 md:mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mb-16 md:mb-32">
           {doshas.map((dosha, idx) => (
             <AnimatedReveal key={dosha.name} direction="up" delay={idx * 150}>
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className={`relative p-5 md:p-10 lg:p-12 rounded-[2rem] border bg-brand-primary transition-all duration-500 h-full flex flex-col group ${dosha.shadow} ${dosha.borderColor}`}
+                className={`relative p-6 sm:p-8 md:p-10 lg:p-12 rounded-3xl md:rounded-[2rem] border bg-brand-primary transition-all duration-500 h-full flex flex-col group ${dosha.shadow} ${dosha.borderColor}`}
               >
                 {/* Background Gradient on Hover */}
                 <div
@@ -153,7 +153,7 @@ export default function AyurvedaPhilosophy() {
         <AnimatedReveal direction="up" delay={200}>
           <div className="relative max-w-5xl mx-auto text-center px-4 py-12 md:px-6 md:py-20 rounded-[2.5rem] bg-brand-primary border border-white/10 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.15)] overflow-hidden min-h-[380px] flex flex-col justify-center">
             {/* Large decorative quote marks */}
-            <div className="absolute -top-6 -left-2 text-brand-gold/10 font-serif text-[240px] leading-none select-none pointer-events-none">
+            <div className="absolute -top-6 -left-2 text-brand-gold/10 text-[240px] leading-none select-none pointer-events-none">
               &ldquo;
             </div>
 

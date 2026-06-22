@@ -19,7 +19,7 @@ export default function Container({
   return (
     <Component
       className={cn(
-        "mx-auto w-full max-w-[1440px] px-3 sm:px-4 lg:px-6 xl:px-8",
+        "mx-auto w-full max-w-[1440px] px-5 sm:px-6 md:px-8 lg:px-10",
         className,
       )}
       {...props}

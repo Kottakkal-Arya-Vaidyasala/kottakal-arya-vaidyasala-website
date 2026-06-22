@@ -17,12 +17,12 @@ export default function AboutPreview() {
   ];
 
   return (
-    <section className="py-20 bg-brand-primary/5 relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-brand-primary/5 relative overflow-hidden">
       {/* Decorative vectors */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-brand-gold/5 rounded-full filter blur-3xl pointer-events-none" />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Column: Image Box Placeholder */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <AnimatedReveal direction="right" className="relative">
@@ -30,7 +30,7 @@ export default function AboutPreview() {
               <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-brand-gold" />
               <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-brand-gold" />
 
-              <div className="relative aspect-video lg:aspect-[4/5] rounded-xl overflow-hidden shadow-xl border border-brand-primary/10 bg-brand-primary/10 flex flex-col items-center justify-center p-8 text-center text-brand-dark">
+              <div className="relative aspect-video lg:aspect-[4/5] rounded-xl overflow-hidden shadow-xl border border-brand-primary/10 bg-brand-primary/10 flex flex-col items-center justify-center p-6 lg:p-8 text-center text-brand-dark">
                 <Leaf className="w-10 h-10 text-brand-primary mb-4" />
                 <span className="font-heading text-lg font-bold">
                   Genuine Healing Space

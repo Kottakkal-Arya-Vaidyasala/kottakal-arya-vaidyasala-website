@@ -31,7 +31,7 @@ export default function ConsultationCTA() {
           <AnimatedReveal direction="up" delay={100}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-bold text-brand-primary leading-[1.12] mb-6">
               Your Path to{" "}
-              <span className="italic font-serif gold-text">
+              <span className="gold-text">
                 Holistic Wellness
               </span>{" "}
               Starts Here

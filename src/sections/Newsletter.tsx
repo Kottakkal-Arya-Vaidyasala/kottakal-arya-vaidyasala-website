@@ -117,7 +117,7 @@ export default function Newsletter() {
             <AnimatedReveal direction="up" delay={100}>
               <h2 className="text-3xl md:text-5xl lg:text-[3.25rem] font-heading font-bold mb-6 tracking-wide leading-[1.15]">
                 Subscribe to Our <br className="hidden md:block" />
-                <span className="italic font-serif text-brand-gold font-light">
+                <span className="text-brand-gold font-light">
                   Wellness Newsletter
                 </span>
               </h2>
