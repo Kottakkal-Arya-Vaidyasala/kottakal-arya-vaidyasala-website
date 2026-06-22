@@ -145,26 +145,27 @@ export default function ContactCTA() {
 
       <Container className="relative z-10">
         <AnimatedReveal direction="up" className="text-center mb-16 md:mb-20">
-          <h2 
+          <h2
             style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
             className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-1 sm:mb-2 whitespace-nowrap tracking-wide"
           >
             Book Your <span className="text-brand-gold">Consultation</span>
           </h2>
-          <p 
+          <p
             style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
             className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-white font-bold tracking-[0.15em] uppercase mb-6"
           >
             Begin Your Healing
           </p>
           <p className="text-sm md:text-base text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
-            Connect with our Ayurveda specialists and receive a holistic treatment plan tailored specifically to your unique needs.
+            Connect with our Ayurveda specialists and receive a holistic
+            treatment plan tailored specifically to your unique needs.
           </p>
         </AnimatedReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-stretch">
           {/* ── Left: Contact Info ────────────────────── */}
-          <div className="flex flex-col bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-xl h-full justify-between">
+          <div className="flex flex-col bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-gray-100 shadow-xl h-full">
             <div className="mb-8 text-center">
               <h3 className="text-2xl font-heading font-bold text-brand-dark mb-2">
                 Get In Touch
@@ -198,16 +199,6 @@ export default function ContactCTA() {
                   detail: siteConfig.contact.email,
                   href: `mailto:${siteConfig.contact.email}`,
                 },
-                {
-                  icon: <Clock className="w-5 h-5 text-brand-gold" />,
-                  title: "Clinic Timings",
-                  detail: (
-                    <div className="flex flex-col gap-0.5">
-                      <span>Sat - Thu: 9:00 AM – 11:00 PM</span>
-                      <span>Fri: 9:00 AM – 11:55 AM, 2:00 PM – 11:00 PM</span>
-                    </div>
-                  ),
-                },
               ].map((item) => (
                 <div
                   key={item.title}
@@ -236,28 +227,30 @@ export default function ContactCTA() {
             </AnimatedReveal>
 
             {/* Quick action buttons */}
-            <AnimatedReveal
-              direction="up"
-              delay={50}
-              className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full"
-            >
-              <PrimaryButton
-                icon={<Phone className="w-4 h-4" />}
-                onClick={() => {
-                  window.location.href = `tel:${siteConfig.contact.phoneRaw}`;
-                }}
-                className="w-full sm:w-auto bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md justify-center"
+            <div className="mt-auto pt-6">
+              <AnimatedReveal
+                direction="up"
+                delay={50}
+                className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full"
               >
-                Call Now
-              </PrimaryButton>
-              <PrimaryButton
-                icon={<MessageCircle className="w-4 h-4" />}
-                onClick={() => openWhatsApp()}
-                className="w-full sm:w-auto bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md justify-center"
-              >
-                Book an Appointment
-              </PrimaryButton>
-            </AnimatedReveal>
+                <PrimaryButton
+                  icon={<Phone className="w-4 h-4" />}
+                  onClick={() => {
+                    window.location.href = `tel:${siteConfig.contact.phoneRaw}`;
+                  }}
+                  className="w-full sm:w-auto bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md justify-center"
+                >
+                  Call Now
+                </PrimaryButton>
+                <PrimaryButton
+                  icon={<MessageCircle className="w-4 h-4" />}
+                  onClick={() => openWhatsApp()}
+                  className="w-full sm:w-auto bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark border-transparent shadow-md justify-center"
+                >
+                  Book an Appointment
+                </PrimaryButton>
+              </AnimatedReveal>
+            </div>
           </div>
 
           {/* ── Right: Contact Form ───────────────────── */}
@@ -308,6 +301,7 @@ export default function ContactCTA() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
+                    className="flex flex-col h-full"
                   >
                     <div className="text-center">
                       <h3 className="font-heading text-xl font-bold text-brand-dark mb-1">
@@ -322,7 +316,7 @@ export default function ContactCTA() {
                     <form
                       onSubmit={handleSubmit}
                       noValidate
-                      className="flex flex-col gap-5"
+                      className="flex flex-col gap-5 flex-grow"
                     >
                       {/* Row: Name + Email */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -441,26 +435,29 @@ export default function ContactCTA() {
                       </div>
 
                       {/* Submit */}
-                      <motion.button
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-brand-primary hover:bg-brand-gold text-white hover:text-brand-dark font-semibold text-sm py-4 rounded-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? (
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <Send className="w-4 h-4" />
-                        )}
-                        <span>
-                          {isSubmitting ? "Sending..." : "Send Message"}
-                        </span>
-                      </motion.button>
+                      <div className="mt-auto pt-4">
+                        <motion.button
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full bg-brand-primary hover:bg-brand-gold text-white hover:text-brand-dark font-semibold text-sm py-4 rounded-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
+                        >
+                          {isSubmitting ? (
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                          ) : (
+                            <Send className="w-4 h-4" />
+                          )}
+                          <span>
+                            {isSubmitting ? "Sending..." : "Send Message"}
+                          </span>
+                        </motion.button>
 
-                      <p className="text-[10px] text-gray-500 text-center font-light mt-1">
-                        Your privacy is our priority. All medical inquiries are kept strictly confidential.
-                      </p>
+                        <p className="text-[10px] text-gray-500 text-center font-light mt-2">
+                          Your privacy is our priority. All medical inquiries are
+                          kept strictly confidential.
+                        </p>
+                      </div>
                     </form>
                   </motion.div>
                 )}
