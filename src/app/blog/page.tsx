@@ -50,7 +50,7 @@ export default function BlogPage() {
         
         <Container className="relative z-10 text-center pt-16">
           <div ref={headerRef} className="mx-auto" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
-            <h1 className="gsap-heading text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-2 text-white drop-shadow-2xl">
+            <h1 className="gsap-heading text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold mb-2 text-white drop-shadow-2xl">
               The Wellness <span className="text-brand-gold">Journal</span>
             </h1>
             <p className="gsap-heading text-base md:text-lg text-gray-100 max-w-xl mx-auto font-light drop-shadow-xl">
@@ -64,7 +64,7 @@ export default function BlogPage() {
       <section className="py-12 relative">
         <Container>
           <AnimatedReveal direction="up" delay={200}>
-            <Link href={`/blog/${featuredPost.slug}`} className="group block max-w-[340px] md:max-w-none mx-auto">
+            <Link href={`/blog/${featuredPost.slug}`} className="group block max-w-sm md:max-w-none mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
                 {/* Image */}
                 <div className="relative aspect-[4/3] lg:aspect-auto h-full overflow-hidden">
@@ -121,7 +121,7 @@ export default function BlogPage() {
             </h3>
           </AnimatedReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-[340px] md:max-w-none mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 max-w-sm md:max-w-none mx-auto">
             {recentPosts.map((post, idx) => (
               <AnimatedReveal key={post.id} direction="up" delay={idx * 100}>
                 <Link href={`/blog/${post.slug}`} className="group block h-full">

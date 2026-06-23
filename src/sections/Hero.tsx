@@ -97,7 +97,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-[70vh] min-h-[500px] flex items-center overflow-hidden bg-brand-dark group"
+      className="relative w-full h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-brand-dark group"
     >
       {/* ── Background Carousel Layer ──────────────── */}
       <AnimatePresence mode="wait">
@@ -152,7 +152,7 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white whitespace-normal sm:whitespace-nowrap tracking-wide leading-tight px-2"
+              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-heading font-bold text-white whitespace-normal sm:whitespace-nowrap tracking-wide leading-tight px-2"
             >
               {currentImage === 0
                 ? displayedText

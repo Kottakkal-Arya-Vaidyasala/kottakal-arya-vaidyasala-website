@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
                   <span className="w-8 h-0.5 bg-brand-primary rounded-full"></span>
                   Who We Are
                 </span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-black mb-6 leading-tight">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold text-black mb-6 leading-tight">
                   The Natural Path to Balanced Health and Lasting Wellness
                 </h2>
               </div>

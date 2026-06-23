@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Mail,
   MapPin,
@@ -25,6 +26,7 @@ if (typeof window !== "undefined") {
 }
 
 export default function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [isSubscribing, setIsSubscribing] = useState(false);
@@ -247,6 +249,12 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    onClick={(e) => {
+                      if (pathname === link.href) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
                     className="text-black hover:text-brand-primary text-sm font-light transition-colors flex items-center group"
                   >
                     <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300" />

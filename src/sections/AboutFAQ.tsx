@@ -89,7 +89,7 @@ export default function AboutFAQ() {
             <h4 className="faq-title-element text-sm font-bold tracking-widest uppercase text-brand-gold mb-3">
               We're Here To Help
             </h4>
-            <h2 className="faq-title-element text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-dark mb-6">
+            <h2 className="faq-title-element text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-dark mb-6">
               Frequently Asked <span className="gold-text">Questions</span>
             </h2>
             <p className="faq-title-element text-sm md:text-base text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">

@@ -48,13 +48,13 @@ export default function OurTreatmentsPage() {
     <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center pt-16">
         <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
             <motion.div
               key={activeTreatment.id}
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
               className="absolute inset-0"
             >
               <Image
@@ -85,7 +85,7 @@ export default function OurTreatmentsPage() {
                 <p className="text-white tracking-[0.2em] uppercase text-xs sm:text-sm md:text-base font-semibold mb-3 sm:mb-4 drop-shadow-md text-center">
                   {activeTreatment.subtitle}
                 </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white mb-8 sm:mb-10 leading-tight drop-shadow-[0_8px_12px_rgba(0,0,0,0.9)] tracking-wide text-center">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-extrabold text-white mb-8 sm:mb-10 leading-tight drop-shadow-[0_8px_12px_rgba(0,0,0,0.9)] tracking-wide text-center">
                   {activeTreatment.title}
                 </h1>
 
@@ -97,7 +97,7 @@ export default function OurTreatmentsPage() {
       </section>
 
       {/* ── 2. Featured Therapies — Split Layout ───────── */}
-      <section id="complete-menu" className="pt-16 pb-20 md:pt-20 md:pb-24 bg-white relative overflow-hidden">
+      <section id="complete-menu" className="pt-8 pb-16 md:pt-12 md:pb-20 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-full grain-overlay opacity-10 pointer-events-none" />
         <div className="absolute -right-[20%] top-[5%] w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none" />
 
@@ -107,10 +107,10 @@ export default function OurTreatmentsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-12 md:mb-16 flex flex-col items-center text-center"
+            className="mb-8 md:mb-12 flex flex-col items-center text-center"
           >
             <p className="text-brand-gold tracking-[0.2em] uppercase text-xs font-semibold mb-3 text-center">Signature Collection</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-primary text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold text-brand-primary text-center">
               Kottakkal&apos;s{" "}
               <span className="text-brand-gold relative inline-block">
                 Featured Therapies
@@ -231,7 +231,7 @@ export default function OurTreatmentsPage() {
       </section>
 
       {/* ── 3. Complete Therapy Menu — Premium Accordion ───────── */}
-      <section id="all-therapies-section" className="py-20 md:py-28 bg-brand-cream relative overflow-hidden">
+      <section id="all-therapies-section" className="pt-10 pb-20 md:pt-16 md:pb-28 bg-brand-cream relative overflow-hidden">
         <div className="absolute -left-[15%] top-[20%] w-[600px] h-[600px] bg-brand-primary/[0.03] rounded-full filter blur-[150px] pointer-events-none" />
         <div className="absolute right-[-10%] bottom-[10%] w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[120px] pointer-events-none" />
 
@@ -241,13 +241,13 @@ export default function OurTreatmentsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center mb-14 md:mb-20 flex flex-col items-center"
+            className="text-center mb-8 md:mb-12 flex flex-col items-center"
           >
             <div className="inline-flex items-center gap-2 bg-brand-primary/5 border border-brand-primary/10 rounded-full px-4 py-1.5 mb-5">
               <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
               <p className="text-brand-primary tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold">Complete Menu</p>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-primary mb-5 text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold text-brand-primary mb-5 text-center">
               All Our{" "}
               <span className="text-brand-gold relative inline-block">
                 Therapies

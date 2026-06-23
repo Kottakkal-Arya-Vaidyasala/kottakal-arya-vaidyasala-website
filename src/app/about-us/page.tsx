@@ -89,7 +89,7 @@ export default function AboutUsPage() {
           <AnimatedReveal direction="up" delay={100}>
             <h1
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white sm:whitespace-nowrap tracking-wide mb-3"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-heading font-bold text-white sm:whitespace-nowrap tracking-wide mb-3"
             >
               Our <span className="text-brand-gold">Healing</span> Heritage
             </h1>
@@ -114,7 +114,7 @@ export default function AboutUsPage() {
               direction="fade"
               className="relative h-full flex items-center order-2 lg:order-1"
             >
-              <div className="relative w-full max-w-[400px] md:max-w-[450px] mx-auto lg:max-w-none lg:pr-8 lg:pb-8">
+              <div className="relative w-full max-w-[400px] md:max-w-[450px] mx-auto md:max-w-none lg:pr-8 lg:pb-8">
                 {/* Elegant Gold Offset Frame */}
                 <div className="absolute top-4 left-4 lg:top-8 lg:left-8 w-full h-full border-[3px] border-brand-gold/40 rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl -z-10 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2" />
                 

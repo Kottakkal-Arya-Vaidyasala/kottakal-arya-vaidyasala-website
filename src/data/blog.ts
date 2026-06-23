@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 12, 2026",
     author: "Dr. Ananya Nair",
     category: "Wellness",
-    imagePath: "/images/treatments/pizhichil.png",
+    imagePath: "/images/treatments/pizhichil-v2.png",
     readTime: "5 min read",
   },
   {

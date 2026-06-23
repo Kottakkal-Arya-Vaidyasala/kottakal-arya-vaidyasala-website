@@ -90,7 +90,9 @@ export default function FeaturedTreatments() {
                       src={treatment.imagePath}
                       alt={treatment.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
+                        treatment.id === "njavarakizhi" ? "object-[center_70%]" : ""
+                      }`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />

@@ -51,7 +51,7 @@ export default function PageHeader({
             </p>
           )}
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 tracking-wide drop-shadow-md">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading mb-6 tracking-wide drop-shadow-md">
             {title}
           </h1>
 

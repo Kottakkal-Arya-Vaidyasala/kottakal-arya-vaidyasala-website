@@ -147,7 +147,7 @@ export default function ContactCTA() {
         <AnimatedReveal direction="up" className="text-center mb-16 md:mb-20">
           <h2
             style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-1 sm:mb-2 whitespace-nowrap tracking-wide"
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-white mb-1 sm:mb-2 whitespace-nowrap tracking-wide"
           >
             Book Your <span className="text-brand-gold">Consultation</span>
           </h2>
