@@ -117,7 +117,7 @@ export default function AboutUsPage() {
               <div className="relative w-full max-w-[400px] md:max-w-[450px] mx-auto md:max-w-none lg:pr-8 lg:pb-8">
                 {/* Elegant Gold Offset Frame */}
                 <div className="absolute top-4 left-4 lg:top-8 lg:left-8 w-full h-full border-[3px] border-brand-gold/40 rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl -z-10 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2" />
-                
+
                 {/* Main Image Container (Leaf Shape) */}
                 <div className="relative w-full aspect-[4/5] rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl group">
                   <div className="absolute inset-0 w-full h-[120%] -top-[10%]">

@@ -48,8 +48,8 @@ const sizeMap = {
 
 /* ── Logo file paths ─────────────────────────────── */
 const LOGO_PATHS = {
-  full: "/images/logo/navyblue-logo.png",
-  fullWhite: "/images/logo/navyblue-logo.png",
+  full: "/images/logo/gold-logo.png",
+  fullWhite: "/images/logo/gold-logo.png",
   fullSvg: "/images/logo/logo-full.svg",
   icon: "/images/logo/logo-icon.png",
 } as const;

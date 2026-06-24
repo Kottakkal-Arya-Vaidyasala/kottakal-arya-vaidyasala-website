@@ -145,10 +145,13 @@ export default function Newsletter() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">
-                        {successMessage.includes("already") ? "Already Subscribed" : "Successfully Subscribed!"}
+                        {successMessage.includes("already")
+                          ? "Already Subscribed"
+                          : "Successfully Subscribed!"}
                       </p>
                       <p className="text-xs text-gray-300 mt-0.5">
-                        {successMessage || "You'll receive our next wellness newsletter. Welcome aboard!"}
+                        {successMessage ||
+                          "You'll receive our next wellness newsletter. Welcome aboard!"}
                       </p>
                     </div>
                   </motion.div>

@@ -65,13 +65,12 @@ function SheetContent({
             render={
               <Button
                 variant="ghost"
-                className="absolute top-3 right-3"
+                className="absolute top-3 right-3 text-white hover:text-white/80 hover:bg-white/10"
                 size="icon-sm"
               />
             }
           >
-            <XIcon
-            />
+            <XIcon className="w-5 h-5" />
             <span className="sr-only">Close</span>
           </SheetPrimitive.Close>
         )}

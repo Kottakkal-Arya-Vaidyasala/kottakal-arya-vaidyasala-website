@@ -49,12 +49,12 @@ const servicesData = [
     description: "Restore your natural glow with our signature herbal facial.",
   },
   {
-    id: "facial-navara",
+    id: "facial-njavara",
     category: "Our Facials - Shine Bright",
-    title: "Navara Facial",
+    title: "Njavara Facial",
     duration: "60 min",
     image: "/images/treatments/njavarakizhi-v2.png",
-    description: "A deeply nourishing facial using traditional Navara rice.",
+    description: "A deeply nourishing facial using traditional Njavara rice.",
   },
 
   // Ease Your Mind
@@ -94,15 +94,6 @@ const servicesData = [
   },
 
   // Our Programs
-  {
-    id: "prog-panchakarma",
-    category: "Our Programs",
-    title: "Panchakarma",
-    duration: "Custom",
-    image: "/images/treatments/panchakarma-v2.png",
-    description:
-      "The ultimate Ayurvedic detoxification and purification therapy.",
-  },
   {
     id: "prog-skin",
     category: "Our Programs",
@@ -188,17 +179,17 @@ const servicesData = [
       "Warm herbal powder poultice massage for joint and muscle pain.",
   },
   {
-    id: "ayr-avi",
+    id: "ayr-aavi",
     category: "Ayurveda Therapies",
-    title: "Avi kizhi (Aromatic herbal pouch)",
+    title: "Aavi Kizhi (Aromatic herbal pouch)",
     duration: "60 min",
     image: "/images/treatments/njavarakizhi-v2.png",
     description: "Aromatic herbal pouch therapy for deep relaxation.",
   },
   {
-    id: "ayr-navara",
+    id: "ayr-njavara",
     category: "Ayurveda Therapies",
-    title: "Navara Kizhi (Rice pouch therapy)",
+    title: "Njavara Kizhi (Rice pouch therapy)",
     duration: "60 min",
     image: "/images/treatments/njavarakizhi-v2.png",
     description: "Nourishing rice pouch therapy to strengthen muscles.",
@@ -456,7 +447,7 @@ export default function ServicesPage() {
           </motion.div>
 
           {/* Our Exclusive Packages Section */}
-          <div className="max-w-7xl mx-auto mb-16">
+          <div className="max-w-7xl min-[2500px]:max-w-[1400px] mx-auto mb-16">
             <div className="bg-brand-cream/30 rounded-3xl p-6 sm:p-8 md:p-10 border border-brand-gold/20 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
@@ -556,17 +547,19 @@ export default function ServicesPage() {
 
           {/* Featured Treatments (Most Wanted) */}
           <div className="mb-12">
-            <h3 id="featured-treatments-mobile" className="text-2xl md:text-3xl font-heading font-bold text-brand-primary mb-8 text-center scroll-mt-24">
+            <h3
+              id="featured-treatments-mobile"
+              className="text-2xl md:text-3xl font-heading font-bold text-brand-primary mb-8 text-center scroll-mt-24"
+            >
               Featured Treatments
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 min-[2500px]:grid-cols-3 gap-4 lg:gap-6 max-w-7xl min-[2500px]:max-w-[1400px] mx-auto">
               {servicesData
                 .filter((s) =>
                   [
                     "ayr-abhyangam",
                     "ayr-shirodhara",
-                    "prog-panchakarma",
-                    "ayr-navara",
+                    "ayr-njavara",
                     "ayr-pizhichil",
                     "facial-herbal",
                   ].includes(s.id),
@@ -580,7 +573,11 @@ export default function ServicesPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{ duration: 0.6, delay: idx * 0.1 }}
-                      className={!showAllFeatured && idx >= 3 ? "hidden sm:block" : "block"}
+                      className={
+                        !showAllFeatured && idx >= 3
+                          ? "hidden sm:block"
+                          : "block"
+                      }
                     >
                       <div
                         id={`service-${service.id}`}
@@ -596,7 +593,9 @@ export default function ServicesPage() {
                             alt={service.title}
                             fill
                             className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                              service.id === "ayr-navara" ? "object-[center_70%]" : ""
+                              service.id === "ayr-njavara"
+                                ? "object-[center_70%]"
+                                : ""
                             }`}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
@@ -649,7 +648,9 @@ export default function ServicesPage() {
               <PrimaryButton
                 onClick={() => {
                   if (showAllFeatured) {
-                    document.getElementById('featured-treatments-mobile')?.scrollIntoView({ behavior: 'smooth' });
+                    document
+                      .getElementById("featured-treatments-mobile")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }
                   setShowAllFeatured(!showAllFeatured);
                 }}
@@ -661,7 +662,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Comprehensive Treatments List (Accordion Style) */}
-          <div className="max-w-4xl mx-auto mt-20">
+          <div className="max-w-4xl min-[2500px]:max-w-[1200px] mx-auto mt-20">
             <h3 className="text-2xl md:text-3xl font-heading font-bold text-brand-primary mb-8 text-center">
               Explore All Offerings
             </h3>
@@ -675,8 +676,7 @@ export default function ServicesPage() {
                       ![
                         "ayr-abhyangam",
                         "ayr-shirodhara",
-                        "prog-panchakarma",
-                        "ayr-navara",
+                        "ayr-njavara",
                         "well-deep",
                         "facial-herbal",
                       ].includes(s.id),
@@ -762,7 +762,7 @@ export default function ServicesPage() {
       </section>
       {/* ── Who Needs Our Therapies? (Advantages) ───────────── */}
       <section className="pt-16 pb-24 bg-brand-cream relative">
-        <Container className="relative z-10 max-w-5xl mx-auto">
+        <Container className="relative z-10 max-w-5xl min-[2500px]:max-w-[1400px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -802,7 +802,7 @@ export default function ServicesPage() {
                   "Individuals feeling sluggish, recovering from illness, or seeking systemic balance.",
                 advantages:
                   "Flushes out deep-seated toxins (Ama), boosts immunity, and balances Doshas.",
-                therapies: "Panchakarma, Detox, Exclusive Packages",
+                therapies: "Detox, Exclusive Packages",
               },
               {
                 icon: <Waves className="w-6 h-6" strokeWidth={1.5} />,

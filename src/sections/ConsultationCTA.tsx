@@ -30,10 +30,7 @@ export default function ConsultationCTA() {
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedReveal direction="up" delay={100}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl xl:text-[3.5rem] font-heading font-bold text-brand-primary leading-[1.12] mb-6">
-              Your Path to{" "}
-              <span className="gold-text">
-                Holistic Wellness
-              </span>{" "}
+              Your Path to <span className="gold-text">Holistic Wellness</span>{" "}
               Starts Here
             </h2>
           </AnimatedReveal>

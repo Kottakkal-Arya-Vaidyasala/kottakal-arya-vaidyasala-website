@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import React, { useRef } from "react"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import Container from "@/components/common/Container"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
-import { blogPosts } from "@/data/blog"
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Container from "@/components/common/Container";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blog";
 
 /**
  * ═══════════════════════════════════════════════════
@@ -17,24 +17,26 @@ import { blogPosts } from "@/data/blog"
  * ═══════════════════════════════════════════════════
  */
 export default function BlogPage() {
-  const featuredPost = blogPosts[0]
-  const recentPosts = blogPosts.slice(1)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const featuredPost = blogPosts[0];
+  const recentPosts = blogPosts.slice(1);
+  const headerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    gsap.from(".gsap-heading", {
-      y: 50,
-      opacity: 0,
-      duration: 1.2,
-      stagger: 0.2,
-      ease: "power4.out",
-      delay: 0.2
-    })
-  }, { scope: headerRef })
+  useGSAP(
+    () => {
+      gsap.from(".gsap-heading", {
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power4.out",
+        delay: 0.2,
+      });
+    },
+    { scope: headerRef },
+  );
 
   return (
     <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
-      
       {/* ── Header ────────────────────────────────── */}
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black text-white">
         <Image
@@ -47,9 +49,13 @@ export default function BlogPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-0" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/10 rounded-full filter blur-[200px] pointer-events-none z-0" />
-        
+
         <Container className="relative z-10 text-center pt-16">
-          <div ref={headerRef} className="mx-auto" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}>
+          <div
+            ref={headerRef}
+            className="mx-auto"
+            style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}
+          >
             <h1 className="gsap-heading text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold mb-2 text-white drop-shadow-2xl">
               The Wellness <span className="text-brand-gold">Journal</span>
             </h1>
@@ -64,7 +70,10 @@ export default function BlogPage() {
       <section className="py-12 relative">
         <Container>
           <AnimatedReveal direction="up" delay={200}>
-            <Link href={`/blog/${featuredPost.slug}`} className="group block max-w-sm md:max-w-none mx-auto">
+            <Link
+              href={`/blog/${featuredPost.slug}`}
+              className="group block max-w-sm md:max-w-none mx-auto"
+            >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
                 {/* Image */}
                 <div className="relative aspect-[4/3] lg:aspect-auto h-full overflow-hidden">
@@ -124,7 +133,10 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 max-w-sm md:max-w-none mx-auto">
             {recentPosts.map((post, idx) => (
               <AnimatedReveal key={post.id} direction="up" delay={idx * 100}>
-                <Link href={`/blog/${post.slug}`} className="group block h-full">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group block h-full"
+                >
                   <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 h-full flex flex-col">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
@@ -164,7 +176,6 @@ export default function BlogPage() {
           </div>
         </Container>
       </section>
-
     </main>
-  )
+  );
 }

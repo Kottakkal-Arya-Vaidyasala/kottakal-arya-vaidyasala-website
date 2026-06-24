@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion } from "framer-motion"
-import Container from "@/components/common/Container"
-import SectionHeading from "@/components/common/SectionHeading"
-import AnimatedReveal from "@/components/common/AnimatedReveal"
-import PrimaryButton from "@/components/common/PrimaryButton"
-import { Award, Stethoscope, BookOpen, CalendarDays } from "lucide-react"
-import { doctors } from "@/data/doctors"
-import { useWhatsApp } from "@/hooks/useWhatsApp"
+import React from "react";
+import { motion } from "framer-motion";
+import Container from "@/components/common/Container";
+import SectionHeading from "@/components/common/SectionHeading";
+import AnimatedReveal from "@/components/common/AnimatedReveal";
+import PrimaryButton from "@/components/common/PrimaryButton";
+import { Award, Stethoscope, BookOpen, CalendarDays } from "lucide-react";
+import { doctors } from "@/data/doctors";
+import { useWhatsApp } from "@/hooks/useWhatsApp";
 
 /**
  * ═══════════════════════════════════════════════════
@@ -18,7 +18,7 @@ import { useWhatsApp } from "@/hooks/useWhatsApp"
  * credentials, and trust. Navy/Gold palette.
  */
 export default function DoctorsPreview() {
-  const { openWhatsApp } = useWhatsApp()
+  const { openWhatsApp } = useWhatsApp();
 
   return (
     <section className="py-24 md:py-32 bg-brand-cream relative overflow-hidden">
@@ -122,5 +122,5 @@ export default function DoctorsPreview() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

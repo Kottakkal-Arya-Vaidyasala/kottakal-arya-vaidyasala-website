@@ -2,10 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import {
-  motion,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/common/Container";
 import { ArrowRight, Clock, ChevronDown, Sparkles } from "lucide-react";
 import { treatments } from "@/data/treatments";
@@ -20,18 +17,23 @@ export default function OurTreatmentsPage() {
 
   const INITIAL_VISIBLE_COUNT = 13;
   const hiddenCount = Math.max(0, treatments.length - INITIAL_VISIBLE_COUNT);
-  const visibleTreatments = showAllTherapies ? treatments : treatments.slice(0, INITIAL_VISIBLE_COUNT);
+  const visibleTreatments = showAllTherapies
+    ? treatments
+    : treatments.slice(0, INITIAL_VISIBLE_COUNT);
 
   const handleShowMore = useCallback(() => {
     setShowAllTherapies(true);
     // Smooth scroll to newly revealed items after render
     setTimeout(() => {
-      showMoreRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      showMoreRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }, 100);
   }, []);
   // Filter specifically for the hero carousel
   const carouselTreatments = treatments.filter((t) =>
-    ["panchakarma", "abhyangam", "shirodhara", "pizhichil"].includes(t.id)
+    ["abhyangam", "shirodhara", "pizhichil"].includes(t.id),
   );
 
   // Auto-switch background carousel logic
@@ -88,8 +90,6 @@ export default function OurTreatmentsPage() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-extrabold text-white mb-8 sm:mb-10 leading-tight drop-shadow-[0_8px_12px_rgba(0,0,0,0.9)] tracking-wide text-center">
                   {activeTreatment.title}
                 </h1>
-
-
               </motion.div>
             </AnimatePresence>
           </div>
@@ -97,19 +97,24 @@ export default function OurTreatmentsPage() {
       </section>
 
       {/* ── 2. Featured Therapies — Split Layout ───────── */}
-      <section id="complete-menu" className="pt-8 pb-16 md:pt-12 md:pb-20 bg-white relative overflow-hidden">
+      <section
+        id="complete-menu"
+        className="pt-8 pb-16 md:pt-12 md:pb-20 bg-white relative overflow-hidden"
+      >
         <div className="absolute top-0 right-0 w-full h-full grain-overlay opacity-10 pointer-events-none" />
         <div className="absolute -right-[20%] top-[5%] w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none" />
 
         <Container className="relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mb-8 md:mb-12 flex flex-col items-center text-center"
           >
-            <p className="text-brand-gold tracking-[0.2em] uppercase text-xs font-semibold mb-3 text-center">Signature Collection</p>
+            <p className="text-brand-gold tracking-[0.2em] uppercase text-xs font-semibold mb-3 text-center">
+              Signature Collection
+            </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold text-brand-primary text-center">
               Kottakkal&apos;s{" "}
               <span className="text-brand-gold relative inline-block">
@@ -152,7 +157,9 @@ export default function OurTreatmentsPage() {
                       <h3 className="font-heading text-xl sm:text-2xl font-bold text-white leading-tight drop-shadow-md mb-1">
                         {treatment.title}
                       </h3>
-                      <p className="text-white/80 text-xs sm:text-sm font-medium">{treatment.duration}</p>
+                      <p className="text-white/80 text-xs sm:text-sm font-medium">
+                        {treatment.duration}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -192,7 +199,9 @@ export default function OurTreatmentsPage() {
                       </h3>
                       <div className="flex items-center gap-1.5 shrink-0">
                         <Clock className="w-3.5 h-3.5 text-brand-gold/70" />
-                        <span className="text-white/60 text-xs font-medium whitespace-nowrap">{treatment.duration}</span>
+                        <span className="text-white/60 text-xs font-medium whitespace-nowrap">
+                          {treatment.duration}
+                        </span>
                       </div>
                     </div>
 
@@ -215,7 +224,9 @@ export default function OurTreatmentsPage() {
                         ))}
                       </div>
                       <button
-                        onClick={() => openWhatsApp({ treatment: treatment.title })}
+                        onClick={() =>
+                          openWhatsApp({ treatment: treatment.title })
+                        }
                         className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase bg-brand-gold text-brand-primary hover:bg-brand-gold/90 transition-all duration-300 shadow-lg shadow-brand-gold/20"
                       >
                         Book Now
@@ -231,12 +242,15 @@ export default function OurTreatmentsPage() {
       </section>
 
       {/* ── 3. Complete Therapy Menu — Premium Accordion ───────── */}
-      <section id="all-therapies-section" className="pt-10 pb-20 md:pt-16 md:pb-28 bg-brand-cream relative overflow-hidden">
+      <section
+        id="all-therapies-section"
+        className="pt-10 pb-20 md:pt-16 md:pb-28 bg-brand-cream relative overflow-hidden"
+      >
         <div className="absolute -left-[15%] top-[20%] w-[600px] h-[600px] bg-brand-primary/[0.03] rounded-full filter blur-[150px] pointer-events-none" />
         <div className="absolute right-[-10%] bottom-[10%] w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[120px] pointer-events-none" />
 
         <Container className="relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -245,7 +259,9 @@ export default function OurTreatmentsPage() {
           >
             <div className="inline-flex items-center gap-2 bg-brand-primary/5 border border-brand-primary/10 rounded-full px-4 py-1.5 mb-5">
               <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-              <p className="text-brand-primary tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold">Complete Menu</p>
+              <p className="text-brand-primary tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold">
+                Complete Menu
+              </p>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold text-brand-primary mb-5 text-center">
               All Our{" "}
@@ -261,7 +277,8 @@ export default function OurTreatmentsPage() {
               </span>
             </h2>
             <p className="text-sm md:text-base text-brand-grey max-w-xl mx-auto font-light leading-relaxed">
-              A comprehensive range of authentic Ayurvedic treatments rooted in centuries of tradition, designed for total well-being.
+              A comprehensive range of authentic Ayurvedic treatments rooted in
+              centuries of tradition, designed for total well-being.
             </p>
           </motion.div>
 
@@ -275,9 +292,15 @@ export default function OurTreatmentsPage() {
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.45, delay: Math.min(idx * 0.04, 0.4), ease: "easeOut" }}
+                  transition={{
+                    duration: 0.45,
+                    delay: Math.min(idx * 0.04, 0.4),
+                    ease: "easeOut",
+                  }}
                   className="scroll-mt-32"
-                  {...(idx === INITIAL_VISIBLE_COUNT ? { ref: showMoreRef } : {})}
+                  {...(idx === INITIAL_VISIBLE_COUNT
+                    ? { ref: showMoreRef }
+                    : {})}
                 >
                   <div
                     className={`bg-white rounded-2xl border transition-all duration-400 overflow-hidden ${
@@ -288,24 +311,32 @@ export default function OurTreatmentsPage() {
                   >
                     {/* Accordion Header */}
                     <button
-                      onClick={() => setExpandedTherapy(isExpanded ? null : treatment.id)}
+                      onClick={() =>
+                        setExpandedTherapy(isExpanded ? null : treatment.id)
+                      }
                       className="w-full flex items-center gap-4 sm:gap-5 p-5 sm:p-6 text-left transition-colors duration-300 hover:bg-brand-primary/[0.015]"
                     >
                       {/* Number */}
-                      <span className={`hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 shrink-0 ${
-                        isExpanded
-                          ? "bg-brand-primary text-white shadow-md"
-                          : "bg-brand-primary/5 text-brand-primary/50"
-                      }`}>
+                      <span
+                        className={`hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 shrink-0 ${
+                          isExpanded
+                            ? "bg-brand-primary text-white shadow-md"
+                            : "bg-brand-primary/5 text-brand-primary/50"
+                        }`}
+                      >
                         {String(idx + 1).padStart(2, "0")}
                       </span>
 
                       {/* Title + Badge */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 flex-wrap">
-                          <h3 className={`font-heading text-base sm:text-lg font-bold transition-colors duration-300 ${
-                            isExpanded ? "text-brand-primary" : "text-brand-primary/80"
-                          }`}>
+                          <h3
+                            className={`font-heading text-base sm:text-lg font-bold transition-colors duration-300 ${
+                              isExpanded
+                                ? "text-brand-primary"
+                                : "text-brand-primary/80"
+                            }`}
+                          >
                             {treatment.title}
                           </h3>
                           <span className="hidden sm:inline-block text-[9px] font-bold tracking-wider uppercase text-white bg-brand-primary px-2.5 py-0.5 rounded-full whitespace-nowrap">
@@ -323,12 +354,17 @@ export default function OurTreatmentsPage() {
                       <div className="flex items-center gap-3 sm:gap-4 shrink-0">
                         <div className="hidden sm:flex items-center gap-1.5 text-brand-primary/40">
                           <Clock className="w-3.5 h-3.5" />
-                          <span className="text-xs font-medium whitespace-nowrap">{treatment.duration}</span>
+                          <span className="text-xs font-medium whitespace-nowrap">
+                            {treatment.duration}
+                          </span>
                         </div>
                         <motion.div
                           animate={{ rotate: isExpanded ? 180 : 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
-                          whileHover={{ scale: 1.15, boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
+                          whileHover={{
+                            scale: 1.15,
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                          }}
                           whileTap={{ scale: 0.95 }}
                           className={`w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300 ${
                             isExpanded
@@ -348,7 +384,10 @@ export default function OurTreatmentsPage() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.35, ease: [0.25, 0.8, 0.25, 1] }}
+                          transition={{
+                            duration: 0.35,
+                            ease: [0.25, 0.8, 0.25, 1],
+                          }}
                           className="overflow-hidden"
                         >
                           <div className="px-5 sm:px-6 pb-6 sm:pb-8 pt-0">
@@ -358,7 +397,8 @@ export default function OurTreatmentsPage() {
                             <div className="sm:pl-[60px]">
                               {/* Description */}
                               <p className="text-brand-grey text-sm sm:text-base leading-relaxed mb-6 max-w-2xl font-light">
-                                {treatment.longDescription || treatment.description}
+                                {treatment.longDescription ||
+                                  treatment.description}
                               </p>
 
                               {/* Benefits Grid */}
@@ -368,11 +408,16 @@ export default function OurTreatmentsPage() {
                                     key={i}
                                     initial={{ opacity: 0, x: -8 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ duration: 0.3, delay: i * 0.06 }}
+                                    transition={{
+                                      duration: 0.3,
+                                      delay: i * 0.06,
+                                    }}
                                     className="flex items-center gap-2.5 py-1.5"
                                   >
                                     <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
-                                    <span className="text-brand-primary/70 text-sm font-light">{benefit}</span>
+                                    <span className="text-brand-primary/70 text-sm font-light">
+                                      {benefit}
+                                    </span>
                                   </motion.div>
                                 ))}
                               </div>
@@ -381,12 +426,16 @@ export default function OurTreatmentsPage() {
                               <div className="flex flex-col sm:flex-row items-center gap-4">
                                 <div className="flex sm:hidden items-center gap-1.5 text-brand-primary/50">
                                   <Clock className="w-3.5 h-3.5" />
-                                  <span className="text-xs font-medium">{treatment.duration}</span>
+                                  <span className="text-xs font-medium">
+                                    {treatment.duration}
+                                  </span>
                                 </div>
                                 <button
                                   onClick={(e) => {
                                     e.stopPropagation();
-                                    openWhatsApp({ treatment: treatment.title });
+                                    openWhatsApp({
+                                      treatment: treatment.title,
+                                    });
                                   }}
                                   className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-primary transition-all duration-300 shadow-lg shadow-brand-primary/15 hover:shadow-brand-gold/20 w-full sm:w-auto"
                                 >
@@ -426,9 +475,14 @@ export default function OurTreatmentsPage() {
                       setShowAllTherapies(false);
                       setExpandedTherapy(null);
                       // Scroll back to the section heading
-                      const section = document.getElementById("all-therapies-section");
+                      const section = document.getElementById(
+                        "all-therapies-section",
+                      );
                       if (section) {
-                        const offset = section.getBoundingClientRect().top + window.scrollY - 100;
+                        const offset =
+                          section.getBoundingClientRect().top +
+                          window.scrollY -
+                          100;
                         window.scrollTo({ top: offset, behavior: "smooth" });
                       }
                     } else {
@@ -454,7 +508,11 @@ export default function OurTreatmentsPage() {
                       Show {hiddenCount} More Therapies
                       <motion.div
                         animate={{ y: [0, 3, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
                         className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-brand-primary/10 transition-colors duration-300"
                       >
                         <ChevronDown className="w-3.5 h-3.5" />

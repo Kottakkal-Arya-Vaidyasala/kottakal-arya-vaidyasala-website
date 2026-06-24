@@ -1,23 +1,23 @@
-import React from "react"
-import Link from "next/link"
-import Container from "./Container"
-import { ChevronRight } from "lucide-react"
+import React from "react";
+import Link from "next/link";
+import Container from "./Container";
+import { ChevronRight } from "lucide-react";
 
 interface BreadcrumbItem {
-  label: string
-  href?: string
+  label: string;
+  href?: string;
 }
 
 interface PageHeaderProps {
-  title: string
-  subtitle?: string
-  breadcrumbs?: BreadcrumbItem[]
-  bgImage?: string
+  title: string;
+  subtitle?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  bgImage?: string;
 }
 
 /**
  * Premium Page Header for subpages.
- * Provides a rich background gradient/pattern overlay, heading styling, 
+ * Provides a rich background gradient/pattern overlay, heading styling,
  * and custom breadcrumb trail component.
  */
 export default function PageHeader({
@@ -29,16 +29,16 @@ export default function PageHeader({
   return (
     <div className="relative overflow-hidden bg-brand-dark py-16 md:py-24 text-white">
       {/* Background patterns */}
-      <div 
+      <div
         className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay"
-        style={{ 
+        style={{
           backgroundImage: bgImage ? `url(${bgImage})` : "none",
-          backgroundColor: bgImage ? "transparent" : "#084F2A"
+          backgroundColor: bgImage ? "transparent" : "#084F2A",
         }}
       />
       {/* Golden top decorative gradient line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold via-brand-secondary to-brand-gold" />
-      
+
       {/* Subtly animated background glow elements */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-brand-primary/20 rounded-full filter blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full filter blur-3xl pointer-events-none" />
@@ -50,7 +50,7 @@ export default function PageHeader({
               {subtitle}
             </p>
           )}
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading mb-6 tracking-wide drop-shadow-md">
             {title}
           </h1>
@@ -58,8 +58,8 @@ export default function PageHeader({
           {/* Breadcrumbs Navigation */}
           {breadcrumbs.length > 0 && (
             <nav className="flex items-center gap-2 text-sm text-gray-300 bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/5">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="hover:text-brand-gold transition-colors duration-200"
               >
                 Home
@@ -75,7 +75,9 @@ export default function PageHeader({
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="text-brand-gold font-medium">{item.label}</span>
+                    <span className="text-brand-gold font-medium">
+                      {item.label}
+                    </span>
                   )}
                 </React.Fragment>
               ))}
@@ -84,5 +86,5 @@ export default function PageHeader({
         </div>
       </Container>
     </div>
-  )
+  );
 }

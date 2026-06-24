@@ -36,9 +36,9 @@ export default function PrimaryButton({
           /* Base layout */
           "group relative overflow-hidden font-medium",
           "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
-          /* Colors — Midnight Navy CTA */
-          "bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-dark",
-          "border border-brand-primary/80 hover:border-brand-gold",
+          /* Colors — Custom Light Theme */
+          "bg-[#f7f4ee] text-brand-dark hover:bg-brand-gold hover:text-white",
+          "border border-[#f7f4ee] hover:border-brand-gold",
           /* Shadow & depth */
           "shadow-md hover:shadow-2xl hover:shadow-brand-gold/40",
           /* Transition */

@@ -117,13 +117,13 @@ export default function ContactUsPage() {
 
         <Container className="relative z-10 text-center mt-12 md:mt-16">
           <AnimatedReveal direction="up" delay={100}>
-            <h1 
+            <h1
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white max-w-5xl mx-auto leading-tight mb-1 sm:mb-2 text-center"
             >
               Restore Your Harmony
             </h1>
-            <p 
+            <p
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
               className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-white font-bold tracking-[0.15em] uppercase"
             >

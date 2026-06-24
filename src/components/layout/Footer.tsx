@@ -48,28 +48,40 @@ export default function Footer() {
         duration: 0.4,
         ease: "power3.out",
       })
-      .from(".newsletter-glow", {
-        scale: 0,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.1,
-      }, "-=0.2")
-      .from(".newsletter-text", {
-        y: 15,
-        opacity: 0,
-        duration: 0.4,
-        stagger: 0.05,
-        ease: "power2.out",
-      }, "-=0.3")
-      .from(".newsletter-form", {
-        x: 15,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power2.out",
-      }, "-=0.3");
+        .from(
+          ".newsletter-glow",
+          {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+            stagger: 0.1,
+          },
+          "-=0.2",
+        )
+        .from(
+          ".newsletter-text",
+          {
+            y: 15,
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: "power2.out",
+          },
+          "-=0.3",
+        )
+        .from(
+          ".newsletter-form",
+          {
+            x: 15,
+            opacity: 0,
+            duration: 0.4,
+            ease: "power2.out",
+          },
+          "-=0.3",
+        );
     },
-    { scope: newsletterRef }
+    { scope: newsletterRef },
   );
 
   const renderSocialIcon = (iconName: string) => {
@@ -164,7 +176,10 @@ export default function Footer() {
 
       <Container className="relative z-10">
         {/* Newsletter Section - Premium Banner */}
-        <div ref={newsletterRef} className="bg-brand-primary rounded-[2rem] p-6 sm:p-8 md:p-12 mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-10 relative overflow-hidden shadow-[0_20px_50px_rgba(31,42,68,0.2)] border border-brand-gold/20">
+        <div
+          ref={newsletterRef}
+          className="bg-brand-primary rounded-[2rem] p-6 sm:p-8 md:p-12 mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-10 relative overflow-hidden shadow-[0_20px_50px_rgba(31,42,68,0.2)] border border-brand-gold/20"
+        >
           {/* Luxury background glows */}
           <div className="newsletter-glow absolute -right-20 -top-20 w-64 h-64 bg-brand-gold/30 rounded-full filter blur-[80px] pointer-events-none" />
           <div className="newsletter-glow absolute -left-20 -bottom-20 w-64 h-64 bg-brand-sage/20 rounded-full filter blur-[80px] pointer-events-none" />
@@ -175,10 +190,12 @@ export default function Footer() {
               Stay Connected
             </div>
             <h3 className="newsletter-text text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 md:mb-4">
-              Join our <span className="text-brand-gold">Ayurvedic</span> community
+              Join our <span className="text-brand-gold">Ayurvedic</span>{" "}
+              community
             </h3>
-            <p className="newsletter-text text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-md">
-              Get holistic health tips, exclusive offers, and ancient Ayurvedic insights delivered directly to your inbox.
+            <p className="newsletter-text text-gray-300 text-sm md:text-base font-medium leading-relaxed max-w-md">
+              Get holistic health tips, exclusive offers, and ancient Ayurvedic
+              insights delivered directly to your inbox.
             </p>
           </div>
 
@@ -219,7 +236,7 @@ export default function Footer() {
             <div className="-ml-1.5 md:-ml-2 mb-2">
               <Logo size="sm" />
             </div>
-            <p className="text-black text-sm leading-relaxed font-light pr-4 md:pr-12">
+            <p className="text-black text-base leading-relaxed font-medium pr-4 md:pr-12">
               {siteConfig.description}
             </p>
             <div className="flex space-x-3 pt-2">
@@ -255,10 +272,12 @@ export default function Footer() {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
-                    className="text-black hover:text-brand-primary text-sm font-light transition-colors flex items-center group"
+                    className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
                   >
                     <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -276,10 +295,12 @@ export default function Footer() {
                 <li key={treatment.id}>
                   <Link
                     href={`/our-treatments#${treatment.id}`}
-                    className="text-black hover:text-brand-primary text-sm font-light transition-colors flex items-center group"
+                    className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
                   >
                     <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">{treatment.title}</span>
+                    <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
+                      {treatment.title}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -293,7 +314,7 @@ export default function Footer() {
               <span className="w-12 h-0.5 bg-brand-gold ml-4 rounded-full opacity-50"></span>
             </h4>
             <ul className="flex flex-col space-y-5">
-              <li className="flex items-start text-black text-sm font-light group cursor-pointer">
+              <li className="flex items-start text-black text-base font-medium group cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <MapPin className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
                 </div>
@@ -301,7 +322,7 @@ export default function Footer() {
                   {siteConfig.address.full}
                 </span>
               </li>
-              <li className="flex items-center text-black text-sm font-light group cursor-pointer">
+              <li className="flex items-center text-black text-base font-medium group cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Phone className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
                 </div>
@@ -312,7 +333,7 @@ export default function Footer() {
                   {siteConfig.contact.phone}
                 </a>
               </li>
-              <li className="flex items-center text-black text-sm font-light group cursor-pointer">
+              <li className="flex items-center text-black text-base font-medium group cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Mail className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
                 </div>
@@ -323,7 +344,7 @@ export default function Footer() {
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-start text-black text-sm font-light group pt-1 cursor-pointer">
+              <li className="flex items-start text-black text-base font-medium group pt-1 cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Clock className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
                 </div>
@@ -337,10 +358,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-brand-primary/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-black font-light text-center md:text-left">
+          <p className="text-base text-black font-medium text-center md:text-left">
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-black font-light">
+          <div className="flex flex-wrap justify-center gap-6 text-base text-black font-medium">
             <Link
               href="#"
               className="hover:text-brand-primary transition-colors"

@@ -21,24 +21,6 @@ export interface Treatment {
 
 export const treatments: Treatment[] = [
   {
-    id: "panchakarma",
-    title: "Panchakarma",
-    subtitle: "Five-Step Purification Therapy",
-    description: "A comprehensive five-step purificatory therapy aimed at removing deep-seated toxins, restoring physiological balance, and strengthening immunity through time-tested detoxification protocols.",
-    longDescription: "Panchakarma represents the cornerstone of Ayurvedic rejuvenation — a systematic, five-fold purification process that cleanses the body at the deepest cellular level. Our physicians customize each stage (Vamana, Virechana, Basti, Nasya, and Raktamokshana) based on your unique constitution and current health needs.",
-    benefits: [
-      "Expels accumulated toxins (Ama)",
-      "Restores metabolic balance",
-      "Strengthens natural immunity",
-      "Slows the aging process",
-      "Improves mental clarity"
-    ],
-    duration: "7 – 21 Days",
-    imagePath: "/images/treatments/panchakarma-v2.png",
-    iconName: "Flower",
-    featured: true
-  },
-  {
     id: "abhyangam",
     title: "Abhyangam",
     subtitle: "Warm Herbal Oil Massage",
@@ -112,7 +94,7 @@ export const treatments: Treatment[] = [
   },
   {
     id: "njavarakizhi",
-    title: "Navara Kizhi (Rice Pouch Therapy)",
+    title: "Njavara Kizhi (Rice Pouch Therapy)",
     subtitle: "Medicated Rice Bolus Therapy",
     description: "A unique traditional therapy using boluses of cooked Njavara rice dipped in warm medicated milk, applied to the body to nourish muscles, relieve pain, and rejuvenate the skin.",
     longDescription: "Njavarakizhi is a uniquely authentic specialty where boluses of specially prepared Njavara rice are dipped in warm herbal milk decoction and applied across the body in systematic strokes. This dual-action therapy simultaneously nourishes and detoxifies, making it invaluable for musculoskeletal and neurological conditions.",
@@ -165,15 +147,15 @@ export const treatments: Treatment[] = [
     featured: true
   },
   {
-    id: "avizhi-kizhi-aromatic-herbal-pouch",
-    title: "Avizhi Kizhi (Aromatic Herbal Pouch)",
-    subtitle: "Authentic Ayurvedic Therapy",
-    description: "Experience the profound healing benefits of Avizhi Kizhi (Aromatic Herbal Pouch), traditionally formulated to restore balance and harmony to the body and mind.",
-    longDescription: "Avizhi Kizhi (Aromatic Herbal Pouch) is a deeply therapeutic Ayurvedic treatment designed to address specific imbalances. Our expert practitioners customize this therapy to your unique constitution.",
+    id: "aavi-kizhi-aromatic-herbal-pouch",
+    title: "Aavi Kizhi (Aromatic Herbal Pouch)",
+    subtitle: "Rejuvenating & Restorative Ayurvedic Care",
+    description: "Experience the profound healing benefits of Aavi Kizhi (Aromatic Herbal Pouch), traditionally formulated to restore balance and harmony to the body and mind.",
+    longDescription: "Aavi Kizhi (Aromatic Herbal Pouch) is a deeply therapeutic Ayurvedic treatment designed to address specific imbalances. Our expert practitioners customize this therapy to your unique constitution.",
     benefits: [
-      "Restores physical and mental balance",
-      "Promotes deep relaxation",
-      "Enhances natural immunity",
+      "Promotes deep physical and mental relaxation",
+      "Restores natural balance and vitality",
+      "Tailored specifically to your unique dosha profile",
       "Improves circulation and vitality",
       "Relieves accumulated stress"
     ],

@@ -454,8 +454,8 @@ export default function ContactCTA() {
                         </motion.button>
 
                         <p className="text-[10px] text-gray-500 text-center font-light mt-2">
-                          Your privacy is our priority. All medical inquiries are
-                          kept strictly confidential.
+                          Your privacy is our priority. All medical inquiries
+                          are kept strictly confidential.
                         </p>
                       </div>
                     </form>

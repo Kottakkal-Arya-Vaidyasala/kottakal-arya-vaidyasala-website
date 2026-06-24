@@ -96,9 +96,7 @@ export default function AyurvedaPhilosophy() {
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-heading text-brand-primary leading-[1.15] max-w-3xl mx-auto mb-6">
             Ancient Wisdom,{" "}
-            <span className="text-brand-gold">
-              Modern Healing
-            </span>
+            <span className="text-brand-gold">Modern Healing</span>
           </h2>
           <p className="text-base md:text-lg text-brand-grey max-w-2xl mx-auto leading-[1.7] font-light">
             Ayurveda — the 5,000-year-old science of life — teaches that true
@@ -126,7 +124,9 @@ export default function AyurvedaPhilosophy() {
                   <div
                     className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl ${dosha.iconBg} flex items-center justify-center mb-4 md:mb-8 transform group-hover:scale-110 transition-transform duration-500`}
                   >
-                    {React.cloneElement(dosha.icon as React.ReactElement<any>, { className: "w-6 h-6 md:w-8 md:h-8" })}
+                    {React.cloneElement(dosha.icon as React.ReactElement<any>, {
+                      className: "w-6 h-6 md:w-8 md:h-8",
+                    })}
                   </div>
 
                   {/* Title & element */}

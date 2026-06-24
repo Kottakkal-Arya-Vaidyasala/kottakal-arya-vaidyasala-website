@@ -91,7 +91,9 @@ export default function FeaturedTreatments() {
                       alt={treatment.title}
                       fill
                       className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                        treatment.id === "njavarakizhi" ? "object-[center_70%]" : ""
+                        treatment.id === "njavarakizhi"
+                          ? "object-[center_70%]"
+                          : ""
                       }`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
@@ -126,8 +128,8 @@ export default function FeaturedTreatments() {
                           icon={<ArrowRight className="w-4 h-4" />}
                           className={`w-full py-3 text-sm ${
                             isNavy
-                              ? "bg-white text-brand-primary hover:bg-white/90 border-transparent shadow-none"
-                              : "shadow-none"
+                              ? "bg-white text-brand-primary hover:bg-brand-gold hover:text-white border-transparent shadow-none"
+                              : "shadow-none hover:text-white"
                           }`}
                         >
                           Book Now
