@@ -59,7 +59,7 @@ export default function WhatsAppButton() {
         {/* Icon Container */}
         <div className="relative w-full h-full drop-shadow-[0_4px_12px_rgba(37,211,102,0.3)] group-hover:drop-shadow-[0_8px_20px_rgba(37,211,102,0.5)] group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-300">
           <Image
-            src="/images/whatsapp-icon.png"
+            src="/images/logo/whatsapp-icon.png"
             alt="WhatsApp"
             fill
             sizes="64px"
