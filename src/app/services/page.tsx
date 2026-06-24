@@ -195,9 +195,17 @@ const servicesData = [
     description: "Nourishing rice pouch therapy to strengthen muscles.",
   },
   {
-    id: "ayr-udvarthnam",
+    id: "ayr-nasya",
     category: "Ayurveda Therapies",
-    title: "Udvarthnam (Herbal powder massage)",
+    title: "Nasyam",
+    duration: "30 min",
+    image: "/images/treatments/nasyam-v2.png",
+    description: "Nasal administration of medicated oils or liquids for cleansing and sinus health.",
+  },
+  {
+    id: "ayr-udwarthanam",
+    category: "Ayurveda Therapies",
+    title: "Udwarthanam (Herbal powder massage)",
     duration: "60 min",
     image: "/images/treatments/abhyangam-v2.png",
     description:
@@ -291,14 +299,6 @@ const servicesData = [
     duration: "60 min",
     image: "/images/treatments/abhyangam-v2.png",
     description: "Cooling herbal paste applied to the head for stress relief.",
-  },
-  {
-    id: "ayr-nasya",
-    category: "Ayurveda Therapies",
-    title: "Nasya shodhana",
-    duration: "30 min",
-    image: "/images/treatments/njavarakizhi-v2.png",
-    description: "Nasal administration of medicated oils for sinus health.",
   },
   {
     id: "ayr-lepam",
@@ -561,6 +561,7 @@ export default function ServicesPage() {
                     "ayr-shirodhara",
                     "ayr-njavara",
                     "ayr-pizhichil",
+                    "ayr-nasya",
                     "facial-herbal",
                   ].includes(s.id),
                 )

@@ -52,7 +52,7 @@ export default function FeaturedTreatments() {
     <section
       ref={sectionRef}
       id="featured-treatments"
-      className="pt-4 pb-8 md:pt-8 md:pb-16 bg-white relative overflow-hidden"
+      className="pt-4 pb-8 md:pt-8 md:pb-16 bg-white relative overflow-hidden scroll-mt-24"
     >
       {/* Subtle background decorations */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/[0.02] rounded-full filter blur-[200px] pointer-events-none" />
@@ -114,7 +114,7 @@ export default function FeaturedTreatments() {
                     >
                       {treatment.title}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-brand-gold mb-4">
+                    <p className={`text-xs sm:text-sm font-semibold mb-4 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}>
                       {treatment.subtitle}
                     </p>
                     <p
@@ -122,14 +122,14 @@ export default function FeaturedTreatments() {
                     >
                       {treatment.description}
                     </p>
-                    <div className="mt-auto pt-5 border-t border-brand-gold/20">
-                      <Link href={`/our-treatments#treatment-${treatment.id}`}>
+                    <div className="mt-auto pt-5 border-t border-brand-gold/20 flex justify-center">
+                      <Link href={`/our-treatments#treatment-${treatment.id}`} className="flex justify-center">
                         <PrimaryButton
                           icon={<ArrowRight className="w-4 h-4" />}
-                          className={`w-full py-3 text-sm ${
+                          className={`px-8 py-3 text-sm transition-all duration-300 shadow-none ${
                             isNavy
-                              ? "bg-white text-brand-primary hover:bg-brand-gold hover:text-white border-transparent shadow-none"
-                              : "shadow-none hover:text-white"
+                              ? "bg-brand-gold text-brand-dark border-brand-gold hover:bg-white hover:text-brand-dark hover:border-white"
+                              : "bg-brand-primary text-white border-brand-primary hover:bg-brand-gold hover:text-white hover:border-brand-gold"
                           }`}
                         >
                           Book Now
@@ -147,8 +147,19 @@ export default function FeaturedTreatments() {
         {featuredTreatments.length > 3 && (
           <div className="mt-8 lg:mt-16 flex justify-center relative z-10">
             <PrimaryButton
-              onClick={() => setShowAll(!showAll)}
-              className="px-8 py-4"
+              onClick={() => {
+                if (showAll) {
+                  setShowAll(false);
+                  setTimeout(() => {
+                    document
+                      .getElementById("featured-treatments")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }, 50);
+                } else {
+                  setShowAll(true);
+                }
+              }}
+              className="px-8 py-4 bg-brand-primary text-white border border-brand-primary hover:bg-brand-gold hover:text-brand-dark hover:border-brand-gold transition-all duration-300 shadow-none"
             >
               {showAll ? "Show Less Therapies" : "Show More Therapies"}
             </PrimaryButton>

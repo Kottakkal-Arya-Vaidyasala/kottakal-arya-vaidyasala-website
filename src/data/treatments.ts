@@ -57,6 +57,42 @@ export const treatments: Treatment[] = [
     featured: true
   },
   {
+    id: "nasyam",
+    title: "Nasyam",
+    subtitle: "Nasal Administration Therapy",
+    description: "An essential Panchakarma therapy involving the administration of medicated oils or powders through the nasal passages to cleanse the head and neck region.",
+    longDescription: "Nasyam is a powerful Ayurvedic therapy focused on the head and neck. By administering medicated oils, juices, or powders through the nasal passages, it clears blockages, relieves sinus congestion, and calms the mind. It is highly effective for migraines, sinusitis, and hormonal imbalances.",
+    benefits: [
+      "Clears sinus congestion",
+      "Relieves chronic migraines",
+      "Balances hormones",
+      "Improves memory & vision",
+      "Strengthens the neck and shoulders"
+    ],
+    duration: "30 – 45 Minutes",
+    imagePath: "/images/treatments/nasyam-v2.png",
+    iconName: "Wind",
+    featured: true
+  },
+  {
+    id: "facial-herbal",
+    title: "Herbal Facial",
+    subtitle: "Ayurvedic Skin Rejuvenation",
+    description: "Restore your natural glow with our signature herbal facial using traditional Ayurvedic ingredients.",
+    longDescription: "Our Herbal Facial is a completely natural, chemical-free skin treatment that uses a bespoke blend of Ayurvedic herbs, fresh fruit extracts, and healing muds. It deeply cleanses, exfoliates, and nourishes the skin, leaving a radiant, youthful glow.",
+    benefits: [
+      "Restores natural skin glow",
+      "Removes dead skin cells",
+      "Deeply hydrates and nourishes",
+      "Reduces blemishes and pigmentation",
+      "100% chemical-free ingredients"
+    ],
+    duration: "60 Minutes",
+    imagePath: "/images/treatments/herbal-facial-v2.png",
+    iconName: "Sparkles",
+    featured: true
+  },
+  {
     id: "pizhichil",
     title: "Pizhichil",
     subtitle: "Royal Oil Bath Therapy",
@@ -94,7 +130,7 @@ export const treatments: Treatment[] = [
   },
   {
     id: "njavarakizhi",
-    title: "Njavara Kizhi (Rice Pouch Therapy)",
+    title: "Njavara Kizhi",
     subtitle: "Medicated Rice Bolus Therapy",
     description: "A unique traditional therapy using boluses of cooked Njavara rice dipped in warm medicated milk, applied to the body to nourish muscles, relieve pain, and rejuvenate the skin.",
     longDescription: "Njavarakizhi is a uniquely authentic specialty where boluses of specially prepared Njavara rice are dipped in warm herbal milk decoction and applied across the body in systematic strokes. This dual-action therapy simultaneously nourishes and detoxifies, making it invaluable for musculoskeletal and neurological conditions.",

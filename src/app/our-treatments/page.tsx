@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/common/Container";
 import { ArrowRight, Clock, ChevronDown, Sparkles } from "lucide-react";
 import { treatments } from "@/data/treatments";
+import { cn } from "@/lib/utils";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
 
 export default function OurTreatmentsPage() {
@@ -33,7 +34,12 @@ export default function OurTreatmentsPage() {
   }, []);
   // Filter specifically for the hero carousel
   const carouselTreatments = treatments.filter((t) =>
-    ["abhyangam", "shirodhara", "pizhichil"].includes(t.id),
+    ["njavarakizhi", "nasyam", "shirodhara", "facial-herbal"].includes(t.id),
+  );
+
+  console.log(
+    "CAROUSEL DEBUG:",
+    carouselTreatments.map((t) => t.id),
   );
 
   // Auto-switch background carousel logic
@@ -53,23 +59,23 @@ export default function OurTreatmentsPage() {
           <AnimatePresence>
             <motion.div
               key={activeTreatment.id}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
               className="absolute inset-0"
             >
               <Image
                 src={activeTreatment.imagePath}
                 alt={activeTreatment.title}
                 fill
-                className="object-cover"
+                className="object-cover blur-[2px] relative z-10 scale-110 md:scale-105 lg:scale-100 object-center"
                 priority
               />
             </motion.div>
           </AnimatePresence>
           {/* Muted dark overlay for text readability (neutral black instead of blue) */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
         </div>
 
@@ -87,7 +93,7 @@ export default function OurTreatmentsPage() {
                 <p className="text-white tracking-[0.2em] uppercase text-xs sm:text-sm md:text-base font-semibold mb-3 sm:mb-4 drop-shadow-md text-center">
                   {activeTreatment.subtitle}
                 </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-extrabold text-white mb-8 sm:mb-10 leading-tight drop-shadow-[0_8px_12px_rgba(0,0,0,0.9)] tracking-wide text-center">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-extrabold text-white mb-8 sm:mb-10 leading-tight drop-shadow-[0_8px_12px_rgba(0,0,0,0.9)] tracking-wide text-center">
                   {activeTreatment.title}
                 </h1>
               </motion.div>

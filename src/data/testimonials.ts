@@ -30,8 +30,8 @@ export const testimonials: Testimonial[] = [
     name: "Rajesh K.",
     location: "Khalidiya",
     rating: 5,
-    treatment: "Panchakarma Detoxification",
-    text: "The 14-day Panchakarma detox program here was life-changing. From the initial consultation to the final day, every step was meticulously planned. I felt lighter, my digestion improved dramatically, and my energy levels surged. The authentic Ayurvedic medicines and the clinical precision set this center apart.",
+    treatment: "Nasyam (Nasal Therapy)",
+    text: "The Nasyam treatment at this center was highly effective for my chronic sinus issues and migraines. After completing my sessions, my breathing is clear and I feel completely rejuvenated. The authentic Ayurvedic care and professional staff here are outstanding.",
     featured: false,
   },
   {

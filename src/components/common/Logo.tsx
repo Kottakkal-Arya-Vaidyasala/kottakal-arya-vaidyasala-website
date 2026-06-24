@@ -48,7 +48,7 @@ const sizeMap = {
 
 /* ── Logo file paths ─────────────────────────────── */
 const LOGO_PATHS = {
-  full: "/images/logo/gold-logo.png",
+  full: "/images/logo/navy-logo.png",
   fullWhite: "/images/logo/gold-logo.png",
   fullSvg: "/images/logo/logo-full.svg",
   icon: "/images/logo/logo-icon.png",
@@ -106,20 +106,32 @@ export default function Logo({
             >
               KOTTAKKAL
             </span>
-            <span
+             <span
               className={cn(
-                "font-sans font-bold tracking-[0.25em] leading-none mt-1",
+                "w-full flex justify-between font-sans font-bold leading-none mt-1",
+                light ? "text-brand-gold" : "text-brand-primary",
                 size === "sm"
-                  ? "text-[7px]"
+                  ? "text-[6.5px]"
                   : size === "md"
-                    ? "text-[9px]"
-                    : size === "lg"
-                      ? "text-[10px]"
-                      : "text-xs",
-                "text-brand-gold",
+                    ? "text-[8px]"
+                    : "text-[9.5px]"
               )}
             >
-              ARYA VAIDYASALA
+              <span>A</span>
+              <span>R</span>
+              <span>Y</span>
+              <span>A</span>
+              <span className="w-[2px] inline-block"></span>
+              <span>V</span>
+              <span>A</span>
+              <span>I</span>
+              <span>D</span>
+              <span>Y</span>
+              <span>A</span>
+              <span>S</span>
+              <span>A</span>
+              <span>L</span>
+              <span>A</span>
             </span>
           </div>
         );
@@ -162,16 +174,30 @@ export default function Logo({
               </span>
               <span
                 className={cn(
-                  "font-sans font-bold tracking-[0.25em] leading-none mt-0.5",
+                  "w-full flex justify-between font-sans font-bold leading-none mt-0.5",
+                  light ? "text-brand-gold" : "text-brand-primary",
                   size === "sm"
-                    ? "text-[8px]"
+                    ? "text-[6.5px]"
                     : size === "md"
-                      ? "text-[10px]"
-                      : "text-xs",
-                  "text-brand-gold",
+                      ? "text-[8px]"
+                      : "text-[9.5px]"
                 )}
               >
-                ARYA VAIDYASALA
+                <span>A</span>
+                <span>R</span>
+                <span>Y</span>
+                <span>A</span>
+                <span className="w-[2px] inline-block"></span>
+                <span>V</span>
+                <span>A</span>
+                <span>I</span>
+                <span>D</span>
+                <span>Y</span>
+                <span>A</span>
+                <span>S</span>
+                <span>A</span>
+                <span>L</span>
+                <span>A</span>
               </span>
             </div>
           </div>
@@ -250,11 +276,30 @@ export function LogoFallback({
         </span>
         <span
           className={cn(
-            subSizes[size],
-            "font-sans font-bold tracking-[0.25em] text-brand-gold leading-none mt-1",
+            "w-full flex justify-between font-sans font-bold leading-none mt-1",
+            light ? "text-brand-gold" : "text-brand-primary",
+            size === "sm"
+              ? "text-[6.5px]"
+              : size === "md"
+                ? "text-[8px]"
+                : "text-[9.5px]"
           )}
         >
-          ARYA VAIDYASALA
+          <span>A</span>
+          <span>R</span>
+          <span>Y</span>
+          <span>A</span>
+          <span className="w-[2px] inline-block"></span>
+          <span>V</span>
+          <span>A</span>
+          <span>I</span>
+          <span>D</span>
+          <span>Y</span>
+          <span>A</span>
+          <span>S</span>
+          <span>A</span>
+          <span>L</span>
+          <span>A</span>
         </span>
       </div>
     </Link>

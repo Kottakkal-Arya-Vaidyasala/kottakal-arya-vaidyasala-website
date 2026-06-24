@@ -18,28 +18,25 @@ import { useWhatsApp } from "@/hooks/useWhatsApp";
 const carouselData = [
   {
     image: "/images/hero/home-carousel1.png",
-    title: "Harmony of Body and Mind",
-    subtitle: "Experience true authentic wellness.",
+    title: "Awaken Your Inner Vitality",
+    subtitle: "REJUVENATE YOUR SPIRIT TODAY.",
   },
   {
     image: "/images/hero/home-carousel2.png",
-    title: "Ancient Wisdom, Modern Care",
-    subtitle: "Discover your natural balance.",
+    title: "Our Healing Heritage",
+    subtitle: "AUTHENTIC AYURVEDA IN ABU DHABI",
   },
   {
     image: "/images/hero/home-carousel3.png",
-    title: "Awaken Your Inner Vitality",
-    subtitle: "Rejuvenate your spirit today.",
+    title: "Heal naturally. Live fully.",
+    subtitle: "PURE AYURVEDIC CARE.",
   },
 ];
 
 export default function Hero() {
   const { openWhatsApp } = useWhatsApp();
 
-  const [displayedText, setDisplayedText] = useState("");
-  const [typingComplete, setTypingComplete] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const hasTyped = React.useRef(false);
 
   // Auto-Carousel Effect (3 seconds) - Resets on manual navigation
   useEffect(() => {
@@ -58,41 +55,6 @@ export default function Hero() {
       prev === 0 ? carouselData.length - 1 : prev - 1,
     );
   };
-
-  // Typewriter Effect - Triggers only on the first slide
-  useEffect(() => {
-    if (currentImage !== 0) {
-      const t = setTimeout(() => setTypingComplete(true), 0);
-      return () => clearTimeout(t);
-    }
-
-    if (hasTyped.current) {
-      setDisplayedText(carouselData[0].title);
-      setTypingComplete(true);
-      return;
-    }
-
-    let i = 0;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setDisplayedText("");
-    setTypingComplete(false);
-    const currentTitle = carouselData[0].title;
-
-    const startDelay = setTimeout(() => {
-      const timer = setInterval(() => {
-        setDisplayedText(currentTitle.slice(0, i));
-        i++;
-        if (i > currentTitle.length) {
-          clearInterval(timer);
-          setTypingComplete(true);
-          hasTyped.current = true;
-        }
-      }, 40);
-      return () => clearInterval(timer);
-    }, 200);
-
-    return () => clearTimeout(startDelay);
-  }, [currentImage]);
 
   return (
     <section
@@ -152,23 +114,9 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-heading font-bold text-white whitespace-normal sm:whitespace-nowrap tracking-wide leading-tight px-2"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white whitespace-normal sm:whitespace-nowrap tracking-wide leading-tight px-2 text-center"
             >
-              {currentImage === 0
-                ? displayedText
-                : carouselData[currentImage].title}
-              {/* Blinking cursor only when typing on the first slide */}
-              {currentImage === 0 && !typingComplete && (
-                <motion.span
-                  animate={{ opacity: [1, 0] }}
-                  transition={{
-                    duration: 0.8,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="inline-block w-[3px] h-[1em] bg-brand-gold ml-1 align-middle translate-y-[-2px]"
-                />
-              )}
+              {carouselData[currentImage].title}
             </motion.h1>
           </AnimatePresence>
         </div>
@@ -183,7 +131,7 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
-              className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-gray-200 font-light tracking-[0.15em] uppercase"
+              className="text-[8px] sm:text-xs md:text-sm lg:text-base text-gray-200 font-light tracking-[0.15em] uppercase text-center"
             >
               {carouselData[currentImage].subtitle}
             </motion.p>

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Mail,
@@ -169,7 +170,7 @@ export default function Footer() {
   const quickLinks = siteConfig.navLinks;
 
   return (
-    <footer className="bg-white pt-12 pb-8 border-t border-brand-primary/10 relative overflow-hidden text-black">
+    <footer className="bg-[#f7f4ee] pt-12 pb-8 border-t border-brand-primary/10 relative overflow-hidden text-black">
       {/* Background vector accents (light theme) */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-sage/20 rounded-full filter blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3" />
