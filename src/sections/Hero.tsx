@@ -24,12 +24,12 @@ const carouselData = [
   {
     image: "/images/hero/home-carousel2.png",
     title: "Our Healing Heritage",
-    subtitle: "AUTHENTIC AYURVEDA IN ABU DHABI",
+    subtitle: "AUTHENTIC AYURVEDA & HOMEOPATHY IN ABU DHABI",
   },
   {
     image: "/images/hero/home-carousel3.png",
     title: "Heal naturally. Live fully.",
-    subtitle: "PURE AYURVEDIC CARE.",
+    subtitle: "PURE AYURVEDIC & HOMEOPATHIC CARE.",
   },
 ];
 

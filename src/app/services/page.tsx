@@ -15,8 +15,10 @@ import {
   Gem,
   ChevronDown,
   Plus,
+  Sparkles,
 } from "lucide-react";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
+import HomeopathyContent from "@/components/sections/HomeopathyContent";
 
 const servicesData = [
   // Body Scrubs & Wraps
@@ -365,6 +367,7 @@ export default function ServicesPage() {
 
   const [visibleCount, setVisibleCount] = useState(6); // Default to 6 for SSR matching desktop
   const [stepSize, setStepSize] = useState(6);
+  const [treatmentType, setTreatmentType] = useState<"ayurveda" | "homeopathy">("ayurveda");
   const [activeTab, setActiveTab] = useState(0);
   const [openCategory, setOpenCategory] = useState<string | null>(
     "Ayurveda Therapies",
@@ -427,6 +430,48 @@ export default function ServicesPage() {
         </Container>
       </section>
 
+      {/* ── Treatment Type Tabs ─────────────────────── */}
+      <section className="bg-brand-cream/90 backdrop-blur-md border-b border-brand-primary/10 sticky top-0 md:top-[80px] z-40 py-4 md:py-6 shadow-[0_4px_30px_rgba(0,0,0,0.03)] transition-all duration-300">
+        <Container>
+          <div className="flex items-center justify-center">
+            <div className="relative p-1.5 md:p-2 bg-white rounded-full border border-brand-primary/10 inline-flex shadow-inner">
+              {(["ayurveda", "homeopathy"] as const).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setTreatmentType(type)}
+                  className={`relative px-6 py-2.5 md:px-12 md:py-3.5 rounded-full text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.2em] uppercase transition-colors duration-500 z-10 group overflow-hidden ${
+                    treatmentType === type
+                      ? "text-white"
+                      : "text-brand-primary/60 hover:text-brand-primary"
+                  }`}
+                >
+                  {treatmentType === type && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-brand-primary rounded-full z-[-1] shadow-lg shadow-brand-primary/20"
+                      transition={{ type: "spring", bounce: 0.15, duration: 0.6 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center gap-2">
+                    {type === "ayurveda" ? (
+                      <Flower2 className={`w-3.5 h-3.5 md:w-4 md:h-4 ${treatmentType === type ? "text-brand-gold" : ""}`} />
+                    ) : (
+                      <Sparkles className={`w-3.5 h-3.5 md:w-4 md:h-4 ${treatmentType === type ? "text-brand-gold" : ""}`} />
+                    )}
+                    {type}
+                  </span>
+                  {treatmentType !== type && (
+                    <span className="absolute inset-0 bg-brand-gold/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[-1]" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {treatmentType === "ayurveda" ? (
+        <>
       {/* ── Services List (Compact Cards) ───────────── */}
       <section id="offerings" className="pt-12 pb-24 bg-white relative">
         <div className="absolute top-0 right-0 w-full h-full grain-overlay opacity-20 pointer-events-none" />
@@ -899,6 +944,10 @@ export default function ServicesPage() {
           </div>
         </Container>
       </section>
+        </>
+      ) : (
+        <HomeopathyContent />
+      )}
     </main>
   );
 }

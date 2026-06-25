@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/common/Container";
@@ -17,7 +17,9 @@ import {
   CheckCircle,
   AlertCircle,
   Clock,
+  ChevronDown,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { sendContactEmail, type ContactFormInput } from "@/services/email";
 import { toast } from "sonner";
 import { treatments } from "@/data/treatments";
@@ -38,6 +40,8 @@ interface FieldError {
 export default function ContactUsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [errors, setErrors] = useState<FieldError>({});
   const [formData, setFormData] = useState<ContactFormInput>({
     name: "",
@@ -58,6 +62,18 @@ export default function ContactUsPage() {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: FieldError = {};
@@ -105,10 +121,10 @@ export default function ContactUsPage() {
       <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/contact-hero2.png"
+            src="/images/contact/contact-carousel.png"
             alt="Luxury Clinic Reception"
             fill
-            className="object-cover"
+            className="object-cover object-top md:object-[center_20%]"
             priority
           />
           <div className="absolute inset-0 bg-brand-dark/40 backdrop-blur-[1px]" />
@@ -119,13 +135,13 @@ export default function ContactUsPage() {
           <AnimatedReveal direction="up" delay={100}>
             <h1
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-white max-w-5xl mx-auto leading-tight mb-1 sm:mb-2 text-center"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white max-w-5xl mx-auto leading-tight mb-1 sm:mb-2 text-center"
             >
               Restore Your Harmony
             </h1>
             <p
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
-              className="text-[10px] sm:text-sm md:text-lg lg:text-xl text-white font-bold tracking-[0.15em] uppercase"
+              className="text-[8px] sm:text-xs md:text-sm lg:text-base text-white font-bold tracking-[0.15em] uppercase"
             >
               We're Here To Help
             </p>
@@ -342,36 +358,75 @@ export default function ContactUsPage() {
                             className={`w-full bg-white/5 border ${errors.phone ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors`}
                           />
                         </div>
-                        <div className="relative">
+                        <div className="relative" ref={dropdownRef}>
                           <FileText className="absolute left-4 top-[18px] w-5 h-5 text-gray-400 z-10 pointer-events-none" />
-                          <select
-                            name="treatment"
-                            value={formData.treatment}
-                            onChange={handleChange}
-                            className="w-full bg-white/5 border border-white/10 text-white pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors appearance-none cursor-pointer"
+                          <button
+                            type="button"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className={cn(
+                              "w-full flex items-center justify-between text-left pl-12 pr-4 py-4 rounded-xl transition-all duration-300 border bg-white/5",
+                              isDropdownOpen 
+                                ? "border-brand-gold shadow-[0_0_15px_rgba(201,169,110,0.1)] text-white" 
+                                : "border-white/10 hover:border-brand-gold/50"
+                            )}
                           >
-                            <option
-                              value=""
-                              className="bg-brand-dark text-gray-300"
+                            <span className={formData.treatment ? "text-white" : "text-gray-400"}>
+                              {formData.treatment || "Select Treatment"}
+                            </span>
+                            <motion.div 
+                              animate={{ rotate: isDropdownOpen ? 180 : 0 }} 
+                              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                             >
-                              Select Treatment
-                            </option>
-                            {treatments.map((t) => (
-                              <option
-                                key={t.id}
-                                value={t.title}
-                                className="bg-brand-dark text-white"
+                              <ChevronDown className="w-5 h-5 text-gray-400" />
+                            </motion.div>
+                          </button>
+
+                          <AnimatePresence>
+                            {isDropdownOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.95, filter: "blur(8px)" }}
+                                animate={{ opacity: 1, y: 8, scale: 1, filter: "blur(0px)" }}
+                                exit={{ opacity: 0, y: -5, scale: 0.95, filter: "blur(4px)" }}
+                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                className="absolute top-full left-0 w-full bg-brand-dark/80 backdrop-blur-2xl border border-brand-gold/20 rounded-2xl p-2 shadow-2xl z-50 overflow-hidden"
                               >
-                                {t.title}
-                              </option>
-                            ))}
-                            <option
-                              value="General Consultation"
-                              className="bg-brand-dark text-white"
-                            >
-                              General Consultation
-                            </option>
-                          </select>
+                                <div className="max-h-64 overflow-y-auto custom-scrollbar flex flex-col gap-1 pr-1">
+                                  {[{ id: 'default', title: 'Select Treatment' }, ...treatments, { id: 'general', title: 'General Consultation' }].map((t, idx) => {
+                                    const isSelected = formData.treatment === t.title || (!formData.treatment && t.id === 'default');
+                                    return (
+                                      <motion.div
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.03, duration: 0.3 }}
+                                        key={t.id}
+                                        onClick={() => {
+                                          setFormData(prev => ({ ...prev, treatment: t.id === 'default' ? "" : t.title }));
+                                          setIsDropdownOpen(false);
+                                        }}
+                                        className={cn(
+                                          "group relative flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-300 overflow-hidden",
+                                          isSelected 
+                                            ? "bg-brand-gold/10 text-brand-gold font-medium" 
+                                            : "text-gray-300 hover:text-white hover:bg-white/5"
+                                        )}
+                                      >
+                                        <div className="absolute inset-0 bg-gradient-to-r from-brand-gold/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                                        <span className="relative z-10 text-sm tracking-wide">
+                                          {t.title}
+                                        </span>
+                                        
+                                        {isSelected && (
+                                          <motion.div className="relative z-10" layoutId="dropdown-check">
+                                            <CheckCircle className="w-4 h-4 text-brand-gold" />
+                                          </motion.div>
+                                        )}
+                                      </motion.div>
+                                    );
+                                  })}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       </div>
 

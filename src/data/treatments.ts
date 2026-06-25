@@ -60,7 +60,7 @@ export const treatments: Treatment[] = [
     id: "nasyam",
     title: "Nasyam",
     subtitle: "Nasal Administration Therapy",
-    description: "An essential Panchakarma therapy involving the administration of medicated oils or powders through the nasal passages to cleanse the head and neck region.",
+    description: "An essential Ayurvedic therapy involving the administration of medicated oils or powders through the nasal passages to cleanse the head and neck region.",
     longDescription: "Nasyam is a powerful Ayurvedic therapy focused on the head and neck. By administering medicated oils, juices, or powders through the nasal passages, it clears blockages, relieves sinus congestion, and calms the mind. It is highly effective for migraines, sinusitis, and hormonal imbalances.",
     benefits: [
       "Clears sinus congestion",
@@ -219,11 +219,11 @@ export const treatments: Treatment[] = [
     featured: true
   },
   {
-    id: "udvarthanam-herbal-powder-massage",
-    title: "Udvarthanam (Herbal Powder Massage)",
+    id: "udwarthanam-herbal-powder-massage",
+    title: "Udwarthanam (Herbal Powder Massage)",
     subtitle: "Authentic Ayurvedic Therapy",
-    description: "Experience the profound healing benefits of Udvarthanam (Herbal Powder Massage), traditionally formulated to restore balance and harmony to the body and mind.",
-    longDescription: "Udvarthanam (Herbal Powder Massage) is a deeply therapeutic Ayurvedic treatment designed to address specific imbalances. Our expert practitioners customize this therapy to your unique constitution.",
+    description: "Experience the profound healing benefits of Udwarthanam (Herbal Powder Massage), traditionally formulated to restore balance and harmony to the body and mind.",
+    longDescription: "Udwarthanam (Herbal Powder Massage) is a deeply therapeutic Ayurvedic treatment designed to address specific imbalances. Our expert practitioners customize this therapy to your unique constitution.",
     benefits: [
       "Restores physical and mental balance",
       "Promotes deep relaxation",

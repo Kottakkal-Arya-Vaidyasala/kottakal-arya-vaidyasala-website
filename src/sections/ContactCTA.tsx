@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/common/Container";
 import AnimatedReveal from "@/components/common/AnimatedReveal";
@@ -18,7 +18,9 @@ import {
   FileText,
   AlertCircle,
   Clock,
+  ChevronDown,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { siteConfig } from "@/data/site";
 import { sendContactEmail, type ContactFormInput } from "@/services/email";
 import { useWhatsApp } from "@/hooks/useWhatsApp";
@@ -43,6 +45,8 @@ export default function ContactCTA() {
   const { openWhatsApp } = useWhatsApp();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [errors, setErrors] = useState<FieldError>({});
 
   const [formData, setFormData] = useState<ContactFormInput>({
@@ -65,6 +69,18 @@ export default function ContactCTA() {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   /** Validate all fields before submission */
   const validateForm = (): boolean => {
@@ -384,34 +400,75 @@ export default function ContactCTA() {
                             </p>
                           )}
                         </div>
-                        <div className="relative">
-                          <FileText className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 z-10" />
-                          <select
-                            name="treatment"
-                            value={formData.treatment}
-                            onChange={handleChange}
-                            aria-label="Select Treatment"
-                            className="w-full bg-gray-50 border border-gray-200 text-brand-dark pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300 appearance-none cursor-pointer"
+                        <div className="relative" ref={dropdownRef}>
+                          <FileText className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 z-10 pointer-events-none" />
+                          <button
+                            type="button"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className={cn(
+                              "w-full flex items-center justify-between text-left pl-10 pr-4 py-3.5 rounded-lg transition-all duration-300 border text-sm",
+                              isDropdownOpen 
+                                ? "border-brand-primary bg-white shadow-[0_0_10px_rgba(20,53,68,0.05)] text-brand-dark" 
+                                : "border-gray-200 bg-gray-50 hover:bg-white hover:border-brand-primary/50 text-brand-dark"
+                            )}
                           >
-                            <option value="" className="bg-white">
-                              Select Treatment
-                            </option>
-                            {treatments.map((t) => (
-                              <option
-                                key={t.id}
-                                value={t.title}
-                                className="bg-white"
-                              >
-                                {t.title}
-                              </option>
-                            ))}
-                            <option
-                              value="General Consultation"
-                              className="bg-white"
+                            <span className={formData.treatment ? "text-brand-dark" : "text-gray-500"}>
+                              {formData.treatment || "Select Treatment"}
+                            </span>
+                            <motion.div 
+                              animate={{ rotate: isDropdownOpen ? 180 : 0 }} 
+                              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                             >
-                              General Consultation
-                            </option>
-                          </select>
+                              <ChevronDown className="w-4 h-4 text-gray-500" />
+                            </motion.div>
+                          </button>
+
+                          <AnimatePresence>
+                            {isDropdownOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.95, filter: "blur(8px)" }}
+                                animate={{ opacity: 1, y: 8, scale: 1, filter: "blur(0px)" }}
+                                exit={{ opacity: 0, y: -5, scale: 0.95, filter: "blur(4px)" }}
+                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                className="absolute top-full left-0 w-full bg-white/90 backdrop-blur-xl border border-gray-100 rounded-xl p-1.5 shadow-2xl z-50 overflow-hidden"
+                              >
+                                <div className="max-h-60 overflow-y-auto custom-scrollbar flex flex-col gap-1">
+                                  {[{ id: 'default', title: 'Select Treatment' }, ...treatments, { id: 'general', title: 'General Consultation' }].map((t, idx) => {
+                                    const isSelected = formData.treatment === t.title || (!formData.treatment && t.id === 'default');
+                                    return (
+                                      <motion.div
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.03, duration: 0.3 }}
+                                        key={t.id}
+                                        onClick={() => {
+                                          setFormData(prev => ({ ...prev, treatment: t.id === 'default' ? "" : t.title }));
+                                          setIsDropdownOpen(false);
+                                        }}
+                                        className={cn(
+                                          "group relative flex items-center justify-between px-3.5 py-2.5 rounded-lg cursor-pointer transition-all duration-300 overflow-hidden text-sm",
+                                          isSelected 
+                                            ? "bg-brand-gold/10 text-brand-dark font-semibold" 
+                                            : "text-gray-600 hover:text-brand-dark hover:bg-gray-50"
+                                        )}
+                                      >
+                                        <div className="absolute inset-0 bg-gradient-to-r from-brand-gold/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                                        <span className="relative z-10 tracking-wide">
+                                          {t.title}
+                                        </span>
+                                        
+                                        {isSelected && (
+                                          <motion.div className="relative z-10" layoutId="cta-dropdown-check">
+                                            <CheckCircle className="w-4 h-4 text-brand-gold" />
+                                          </motion.div>
+                                        )}
+                                      </motion.div>
+                                    );
+                                  })}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       </div>
 

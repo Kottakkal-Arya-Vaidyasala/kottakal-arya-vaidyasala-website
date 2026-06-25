@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/treatments",
+    "/homeopathy",
     "/doctors",
     "/gallery",
     "/testimonials",

@@ -38,7 +38,7 @@ export default function Footer() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: newsletterRef.current,
-          start: "top 85%",
+          start: "top 95%",
         },
       });
 
@@ -170,7 +170,7 @@ export default function Footer() {
   const quickLinks = siteConfig.navLinks;
 
   return (
-    <footer className="bg-[#f7f4ee] pt-12 pb-8 border-t border-brand-primary/10 relative overflow-hidden text-black">
+    <footer className="bg-[#f7f4ee] pt-12 pb-4 border-t border-brand-primary/10 relative overflow-hidden text-black">
       {/* Background vector accents (light theme) */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-sage/20 rounded-full filter blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3" />
@@ -191,11 +191,11 @@ export default function Footer() {
               Stay Connected
             </div>
             <h3 className="newsletter-text text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 md:mb-4">
-              Join our <span className="text-brand-gold">Ayurvedic</span>{" "}
+              Join our <span className="text-brand-gold">Ayurvedic & Homeopathic</span>{" "}
               community
             </h3>
             <p className="newsletter-text text-gray-300 text-sm md:text-base font-medium leading-relaxed max-w-md">
-              Get holistic health tips, exclusive offers, and ancient Ayurvedic
+              Get holistic health tips, exclusive offers, and ancient Ayurvedic & Homeopathic
               insights delivered directly to your inbox.
             </p>
           </div>

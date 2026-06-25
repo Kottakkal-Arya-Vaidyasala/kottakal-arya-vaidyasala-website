@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Container from "./Container";
 import { ChevronRight } from "lucide-react";
 
@@ -9,7 +10,7 @@ interface BreadcrumbItem {
 }
 
 interface PageHeaderProps {
-  title: string;
+  title: React.ReactNode | string;
   subtitle?: string;
   breadcrumbs?: BreadcrumbItem[];
   bgImage?: string;
@@ -17,8 +18,8 @@ interface PageHeaderProps {
 
 /**
  * Premium Page Header for subpages.
- * Provides a rich background gradient/pattern overlay, heading styling,
- * and custom breadcrumb trail component.
+ * Full-bleed hero matching h-[60vh] min-h-[500px] — same size as
+ * the About Us, Services, and Treatments page heroes.
  */
 export default function PageHeader({
   title,
@@ -27,37 +28,47 @@ export default function PageHeader({
   bgImage,
 }: PageHeaderProps) {
   return (
-    <div className="relative overflow-hidden bg-brand-dark py-16 md:py-24 text-white">
-      {/* Background patterns */}
-      <div
-        className="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay"
-        style={{
-          backgroundImage: bgImage ? `url(${bgImage})` : "none",
-          backgroundColor: bgImage ? "transparent" : "#084F2A",
-        }}
-      />
-      {/* Golden top decorative gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold via-brand-secondary to-brand-gold" />
+    <section className="relative w-full h-[50vh] md:h-[60vh] min-h-[400px] md:min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-dark pt-16 md:pt-20 text-white">
+      {/* Background image */}
+      {bgImage && (
+        <Image
+          src={bgImage}
+          alt={typeof title === "string" ? title : "Page Header Image"}
+          fill
+          className="object-cover object-center scale-105"
+          priority
+        />
+      )}
 
-      {/* Subtly animated background glow elements */}
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+
+      {/* Glow accents */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-brand-primary/20 rounded-full filter blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-gold/10 rounded-full filter blur-3xl pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="flex flex-col items-center text-center">
+          <h1
+            style={{ textShadow: "0px 4px 12px rgba(0,0,0,0.9)" }}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold font-heading mb-2 tracking-wide leading-tight px-2 text-center"
+          >
+            {title}
+          </h1>
+
           {subtitle && (
-            <p className="text-xs md:text-sm font-semibold uppercase tracking-widest text-brand-gold mb-3">
+            <p
+              style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
+              className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-200 font-light tracking-[0.15em] uppercase mx-auto drop-shadow-md mb-8"
+            >
               {subtitle}
             </p>
           )}
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold font-heading mb-6 tracking-wide drop-shadow-md">
-            {title}
-          </h1>
-
           {/* Breadcrumbs Navigation */}
           {breadcrumbs.length > 0 && (
-            <nav className="flex items-center gap-2 text-sm text-gray-300 bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/5">
+            <nav className="flex items-center gap-2 text-sm text-gray-300 bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
               <Link
                 href="/"
                 className="hover:text-brand-gold transition-colors duration-200"
@@ -85,6 +96,6 @@ export default function PageHeader({
           )}
         </div>
       </Container>
-    </div>
+    </section>
   );
 }

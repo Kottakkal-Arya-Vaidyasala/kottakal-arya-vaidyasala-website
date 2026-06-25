@@ -99,7 +99,7 @@ export default function AboutUsPage() {
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
               className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-200 font-light tracking-[0.15em] uppercase mx-auto"
             >
-              Authentic Ayurveda In Abu Dhabi
+              Authentic Ayurveda & Homeopathy In Abu Dhabi
             </p>
           </AnimatedReveal>
         </Container>
@@ -152,8 +152,8 @@ export default function AboutUsPage() {
               <div className="prose prose-lg text-gray-800 mt-6 space-y-5">
                 <p>
                   At <strong>Kottakkal Arya Vaidyasala</strong>, we bring the
-                  ancient healing wisdom of Ayurveda to the heart of Abu Dhabi.
-                  Guided by a legacy of authentic Ayurvedic practice, our center
+                  ancient healing wisdom of Ayurveda and Homeopathy to the heart of Abu Dhabi.
+                  Guided by a legacy of authentic Ayurvedic and Homeopathic practice, our center
                   is devoted to nurturing holistic health and well-being through
                   natural, personalized treatments.
                 </p>
@@ -167,7 +167,7 @@ export default function AboutUsPage() {
                 <p>
                   Whether you are seeking relief from chronic ailments, looking
                   to deeply cleanse through comprehensive{" "}
-                  <strong>Panchakarma</strong> therapies, or simply wishing to
+                  <strong>Homeopathic</strong> therapies, or simply wishing to
                   rejuvenate your body and mind from daily stress, we provide a
                   dedicated sanctuary of healing.
                 </p>
@@ -334,7 +334,7 @@ export default function AboutUsPage() {
                 className="space-y-6 flex-grow"
               >
                 {[
-                  "Traditional Kerala Panchakarma therapies.",
+                  "Authentic Homeopathic therapies.",
                   "Pure herbal oils and medicines.",
                   "Personalized treatment plans.",
                   "Experienced Ayurvedic doctors & expert therapists.",

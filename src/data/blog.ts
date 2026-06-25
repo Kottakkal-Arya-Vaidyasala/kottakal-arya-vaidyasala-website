@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 12, 2026",
     author: "Dr. Ananya Nair",
     category: "Wellness",
-    imagePath: "/images/treatments/pizhichil-v2.png",
+    imagePath: "/images/blog/herbal-oil.png",
     readTime: "5 min read",
   },
   {
@@ -56,14 +56,14 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "4",
-    slug: "panchakarma-detox",
-    title: "Panchakarma: The Ultimate Ayurvedic Detoxification",
-    excerpt: "Cleanse your body of deep-rooted toxins and restore your natural state of health with the profound Panchakarma therapy.",
-    content: "Panchakarma, meaning 'five actions', is the most potent detoxification process in Ayurveda. It is designed to safely and effectively clear toxins (Ama) from the deep tissues of the body. The process begins with preparation (Purvakarma) involving oil massage and sweating therapies. This is followed by the main cleansing procedures, tailored to individual doshic imbalances. Regular Panchakarma not only prevents disease but actively reverses the aging process, boosts immunity, and brings unparalleled mental clarity.",
-    date: "May 15, 2026",
+    slug: "homeopathy-healing",
+    title: "The Ultimate Guide to Homeopathic Healing",
+    excerpt: "Restore your natural state of health and balance with profound, holistic Homeopathic therapies.",
+    content: "Homeopathy is a gentle yet potent healing system. It is designed to safely and effectively clear imbalances from the deep tissues of the body. The process begins with a careful evaluation, tailored to individual constitutional needs. Regular Homeopathic treatment not only prevents disease but actively boosts immunity, restores vitality, and brings unparalleled mental clarity.",
+    date: "February 22, 2024",
     author: "Dr. Ananya Nair",
     category: "Treatments",
-    imagePath: "/images/blog/panchakarma-detox.png",
+    imagePath: "/images/homeopathy/homeopathy.png",
     readTime: "8 min read",
   }
 ]

@@ -10,7 +10,7 @@ import { CheckCircle2, ChevronRight, Leaf } from "lucide-react";
 
 export default function AboutPreview() {
   const highlights = [
-    "Traditional Panchakarma detoxification treatments",
+    "Traditional Homeopathic treatments",
     "Therapeutic massages for pain management and spine care",
     "100% natural, authentic herbal preparations",
     "Expert consultation by seasoned Ayurvedic physicians",

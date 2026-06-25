@@ -37,8 +37,8 @@ const galleryImages = [
     aspect: "aspect-square",
   },
   {
-    src: "/images/treatments/panchakarma-v2.png",
-    alt: "Panchakarma therapy session",
+    src: "/images/homeopathy/homeopathy.png",
+    alt: "Homeopathic therapy session",
     title: "Healing Therapies",
     span: "col-span-2 row-span-1",
     aspect: "aspect-[2/1]",

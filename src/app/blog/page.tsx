@@ -40,7 +40,7 @@ export default function BlogPage() {
       {/* ── Header ────────────────────────────────── */}
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black text-white">
         <Image
-          src="/images/blog/kerala-principles.png"
+          src="/images/blog/blog-page.png"
           alt="Ayurveda Blog and Journal"
           fill
           sizes="100vw"

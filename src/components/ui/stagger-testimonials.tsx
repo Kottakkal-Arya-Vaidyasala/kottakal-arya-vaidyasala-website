@@ -224,7 +224,7 @@ export const StaggerTestimonials: React.FC = () => {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
-      className="relative w-full overflow-hidden bg-brand-cream/40 py-10 rounded-[2.5rem] border border-brand-gold/10 h-[380px] sm:h-[480px] select-none"
+      className="relative w-full overflow-hidden bg-brand-cream/40 py-10 rounded-[2.5rem] border border-brand-gold/10 h-[320px] sm:h-[380px] select-none"
     >
       {/* Premium ambient gold backlighting glow behind active card */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-64 h-64 bg-brand-gold/15 rounded-full filter blur-[70px] pointer-events-none z-0" />
@@ -246,29 +246,6 @@ export const StaggerTestimonials: React.FC = () => {
         );
       })}
 
-      {/* Navigation Buttons (Hidden on mobile view, shown on desktop/tablets) */}
-      <div className="absolute bottom-4 left-1/2 hidden sm:flex -translate-x-1/2 gap-3 z-20">
-        <button
-          onClick={() => handleMove(-1)}
-          className={cn(
-            "flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300",
-            "bg-white border border-brand-primary/10 text-brand-primary hover:bg-brand-primary hover:text-white shadow-md hover:shadow-lg",
-          )}
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() => handleMove(1)}
-          className={cn(
-            "flex h-11 w-11 items-center justify-center rounded-full transition-all duration-300",
-            "bg-white border border-brand-primary/10 text-brand-primary hover:bg-brand-primary hover:text-white shadow-md hover:shadow-lg",
-          )}
-          aria-label="Next testimonial"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
     </div>
   );
 };

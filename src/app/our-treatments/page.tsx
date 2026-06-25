@@ -139,7 +139,7 @@ export default function OurTreatmentsPage() {
           {/* Split Layout: Cards Left, Highlights Right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-stretch">
             {/* Left — 4 Featured Image Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+            <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
               {treatments.slice(0, 4).map((treatment, idx) => (
                 <motion.div
                   key={treatment.id}
