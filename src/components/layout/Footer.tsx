@@ -167,7 +167,10 @@ export default function Footer() {
     }
   };
 
-  const quickLinks = siteConfig.navLinks;
+  const quickLinks = [
+    ...siteConfig.navLinks,
+    { label: "About Homeopathy", href: "/homeopathy" }
+  ];
 
   return (
     <footer className="bg-[#f7f4ee] pt-12 pb-4 border-t border-brand-primary/10 relative overflow-hidden text-black">
@@ -191,12 +194,13 @@ export default function Footer() {
               Stay Connected
             </div>
             <h3 className="newsletter-text text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 md:mb-4">
-              Join our <span className="text-brand-gold">Ayurvedic & Homeopathic</span>{" "}
+              Join our{" "}
+              <span className="text-brand-gold">Ayurvedic & Homeopathic</span>{" "}
               community
             </h3>
             <p className="newsletter-text text-gray-300 text-sm md:text-base font-medium leading-relaxed max-w-md">
-              Get holistic health tips, exclusive offers, and ancient Ayurvedic & Homeopathic
-              insights delivered directly to your inbox.
+              Get holistic health tips, exclusive offers, and ancient Ayurvedic
+              & Homeopathic insights delivered directly to your inbox.
             </p>
           </div>
 
@@ -258,9 +262,9 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="lg:col-span-2 flex flex-col space-y-6">
-            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center">
+            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center whitespace-nowrap">
               Quick Links
-              <span className="w-12 h-0.5 bg-brand-gold ml-4 rounded-full opacity-50"></span>
+              <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
             </h4>
             <ul className="flex flex-col space-y-3">
               {quickLinks.map((link) => (
@@ -287,9 +291,9 @@ export default function Footer() {
 
           {/* Column 3: Key Treatments */}
           <div className="lg:col-span-3 flex flex-col space-y-6">
-            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center">
+            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center whitespace-nowrap">
               Our Expertise
-              <span className="w-12 h-0.5 bg-brand-gold ml-4 rounded-full opacity-50"></span>
+              <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
             </h4>
             <ul className="flex flex-col space-y-3">
               {treatments.slice(0, 6).map((treatment) => (
@@ -298,21 +302,32 @@ export default function Footer() {
                     href={`/our-treatments#${treatment.id}`}
                     className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
                   >
-                    <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300" />
+                    <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
                     <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
                       {treatment.title}
                     </span>
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/homeopathy"
+                  className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
+                >
+                  <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
+                    Homeopathy
+                  </span>
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Column 4: Contact Info */}
           <div className="lg:col-span-3 flex flex-col space-y-6">
-            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center">
+            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center whitespace-nowrap">
               Contact Us
-              <span className="w-12 h-0.5 bg-brand-gold ml-4 rounded-full opacity-50"></span>
+              <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
             </h4>
             <ul className="flex flex-col space-y-5">
               <li className="flex items-start text-black text-base font-medium group cursor-pointer">
