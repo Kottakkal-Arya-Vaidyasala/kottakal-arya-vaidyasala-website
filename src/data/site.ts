@@ -41,7 +41,7 @@ export const siteConfig = {
 
   /** Social media links */
   socials: [
-    { label: "Instagram", href: "https://www.facebook.com/profile.php?id=61587237147375", icon: "instagram" },
+    { label: "Instagram", href: "https://www.instagram.com/kottakkalaryavaidyasala.ae/?utm_source=ig_web_button_share_sheet", icon: "instagram" },
     { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61587237147375", icon: "facebook" },
     { label: "YouTube", href: "https://www.youtube.com/@KottakkalAryaVaidyasala-auh", icon: "youtube" },
     { label: "Email", href: "mailto:kottakkalaryavaidyasalaauh@gmail.com", icon: "mail" },
