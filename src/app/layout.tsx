@@ -12,7 +12,7 @@ import { defaultMetadata, localBusinessSchema } from "./metadata";
 
 /** Josefin Sans — elegant, geometric sans-serif for body text */
 const josefinSans = Josefin_Sans({
-  variable: "--font-sans",
+  variable: "--font-josefin",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
