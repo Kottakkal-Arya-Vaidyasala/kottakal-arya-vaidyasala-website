@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Container from "@/components/common/Container";
 import {
@@ -211,59 +212,83 @@ export default function HomeopathyContent() {
   return (
     <>
       {/* ── 2. Introduction & Why Homeopathy ────────────── */}
-      <section className="pt-8 pb-8 md:pt-16 md:pb-16 bg-white relative overflow-hidden">
+      <section className="pt-16 pb-12 md:pt-24 md:pb-20 lg:pt-32 lg:pb-28 bg-white relative overflow-hidden">
         <motion.div style={{ y: y1 }} className="absolute -right-[20%] top-[5%] w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none" />
 
         <Container className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-3xl mx-auto text-center mb-10 md:mb-14"
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-primary mb-4 md:mb-6 text-center">
-              What is{" "}
-              <span className="text-brand-gold relative inline-block">
-                Homeopathy?
-                <motion.span
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.3, ease: "easeInOut" }}
-                  viewport={{ once: true }}
-                  className="absolute -bottom-1 left-0 h-[3px] bg-brand-gold rounded-full"
-                />
-              </span>
-            </h2>
-            <div className="prose prose-sm md:prose-xl text-gray-800 mx-auto space-y-5 md:space-y-8 mt-6 md:mt-8 px-4 sm:px-6 md:px-0">
-              <p className="first-letter:text-4xl md:first-letter:text-6xl first-letter:font-heading first-letter:font-bold first-letter:text-brand-gold first-letter:mr-2 md:first-letter:mr-3 first-letter:float-left first-letter:leading-none first-line:uppercase first-line:tracking-widest text-[13px] sm:text-sm md:text-xl leading-relaxed md:leading-relaxed font-light text-justify">
-                Experience the profound elegance of Homeopathy, a time-honored
-                system of natural medicine that awakens the body&apos;s
-                intrinsic healing intelligence. Rather than merely masking
-                symptoms, our ultra-diluted, gentle remedies work in harmony
-                with your natural vitality to restore balance from
-                within—offering profound, lasting relief without compromise.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 md:mb-20">
+            {/* Text Side */}
+            <motion.div
+              initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="text-left"
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-6 md:mb-8 text-left">
+                What is{" "}
+                <span className="text-brand-gold relative inline-block">
+                  Homeopathy?
+                  <motion.span
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "100%" }}
+                    transition={{ duration: 0.8, delay: 0.3, ease: "easeInOut" }}
+                    viewport={{ once: true }}
+                    className="absolute -bottom-1 left-0 h-[3px] bg-brand-gold rounded-full"
+                  />
+                </span>
+              </h2>
+              <div className="flex flex-col space-y-6 md:space-y-8">
+                <p className="first-letter:text-5xl md:first-letter:text-6xl first-letter:font-heading first-letter:font-bold first-letter:text-brand-gold first-letter:mr-2 md:first-letter:mr-3 first-letter:float-left first-letter:leading-[0.85] text-sm sm:text-base md:text-lg leading-relaxed md:leading-[1.8] font-light text-gray-600 text-left">
+                  Experience the profound elegance of Homeopathy, a time-honored
+                  system of natural medicine that awakens the body&apos;s
+                  intrinsic healing intelligence. Rather than merely masking
+                  symptoms, our ultra-diluted, gentle remedies work in harmony
+                  with your natural vitality to restore balance from
+                  within—offering profound, lasting relief without compromise.
+                </p>
 
-              <div className="relative pl-5 md:pl-10 py-4 md:py-6 border-l-4 border-brand-gold bg-gradient-to-r from-brand-gold/5 to-transparent rounded-r-xl md:rounded-r-3xl my-5 md:my-10">
-                <div className="absolute -left-3 -top-3 text-brand-gold opacity-30 text-4xl md:text-5xl font-heading">
-                  &ldquo;
+                <div className="relative pl-6 md:pl-8 py-5 border-l-[3px] border-brand-gold bg-gradient-to-r from-brand-gold/10 via-brand-gold/[0.02] to-transparent rounded-r-2xl my-2">
+                  <div className="absolute -left-[14px] -top-3 text-brand-gold opacity-60 text-5xl font-heading leading-none">
+                    &ldquo;
+                  </div>
+                  <p className="text-brand-primary font-heading font-medium italic text-lg md:text-xl m-0 leading-relaxed text-left relative z-10">
+                    True healing requires deeply personalized care. We bridge your
+                    physical, mental, and emotional well-being.
+                  </p>
                 </div>
-                <p className="text-brand-primary font-heading font-medium italic text-base sm:text-lg md:text-2xl m-0 leading-relaxed text-left">
-                  True healing requires deeply personalized care. We bridge your
-                  physical, mental, and emotional well-being.
+
+                <p className="text-sm sm:text-base md:text-lg leading-relaxed md:leading-[1.8] font-light text-gray-600 text-left">
+                  At Kottakkal Arya Vaidyasala, our expert homeopathic physicians
+                  take the time to understand your complete constitutional
+                  profile. We meticulously curate a precise, bespoke remedy
+                  tailored exclusively to your unique journey toward optimal
+                  health.
                 </p>
               </div>
+            </motion.div>
 
-              <p className="text-[13px] sm:text-sm md:text-xl leading-relaxed md:leading-relaxed text-gray-700 text-justify">
-                At Kottakkal Arya Vaidyasala, our expert homeopathic physicians
-                take the time to understand your complete constitutional
-                profile. We meticulously curate a precise, bespoke remedy
-                tailored exclusively to your unique journey toward optimal
-                health.
-              </p>
-            </div>
-          </motion.div>
+            {/* Image Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 30, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="relative w-full aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden shadow-2xl group mt-8 lg:mt-0"
+            >
+              <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <Image
+                src="/images/homeopathy/homeopathy-medicine.png"
+                alt="Homeopathy Medicine"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Decorative elements */}
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-gold/20 rounded-full blur-3xl z-20 pointer-events-none" />
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-primary/20 rounded-full blur-3xl z-20 pointer-events-none" />
+            </motion.div>
+          </div>
 
           {/* Why Homeopathy Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12 max-w-5xl mx-auto">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,80 +10,15 @@ import {
   Phone,
   Clock,
   ChevronRight,
-  Loader2,
 } from "lucide-react";
 import Logo from "@/components/common/Logo";
 import Container from "@/components/common/Container";
 import { siteConfig } from "@/data/site";
 import { treatments } from "@/data/treatments";
-import { subscribeToNewsletter } from "@/services/newsletter";
-import { toast } from "sonner";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
 
 export default function Footer() {
   const pathname = usePathname();
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [isSubscribing, setIsSubscribing] = useState(false);
-  const newsletterRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: newsletterRef.current,
-          start: "top 95%",
-        },
-      });
-
-      tl.from(newsletterRef.current, {
-        y: 30,
-        opacity: 0,
-        scale: 0.98,
-        duration: 0.4,
-        ease: "power3.out",
-      })
-        .from(
-          ".newsletter-glow",
-          {
-            scale: 0,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            stagger: 0.1,
-          },
-          "-=0.2",
-        )
-        .from(
-          ".newsletter-text",
-          {
-            y: 15,
-            opacity: 0,
-            duration: 0.4,
-            stagger: 0.05,
-            ease: "power2.out",
-          },
-          "-=0.3",
-        )
-        .from(
-          ".newsletter-form",
-          {
-            x: 15,
-            opacity: 0,
-            duration: 0.4,
-            ease: "power2.out",
-          },
-          "-=0.3",
-        );
-    },
-    { scope: newsletterRef },
-  );
 
   const renderSocialIcon = (iconName: string) => {
     switch (iconName.toLowerCase()) {
@@ -143,30 +78,6 @@ export default function Footer() {
     }
   };
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setIsSubscribing(true);
-    try {
-      const response = await subscribeToNewsletter(email);
-      if (response.success) {
-        toast.success(
-          response.message || "Successfully subscribed to the newsletter!",
-        );
-        setEmail("");
-      } else {
-        toast.error(
-          response.message || "Failed to subscribe. Please try again.",
-        );
-      }
-    } catch {
-      toast.error("An unexpected error occurred. Please try again later.");
-    } finally {
-      setIsSubscribing(false);
-    }
-  };
-
   const quickLinks = [
     ...siteConfig.navLinks,
     { label: "About Homeopathy", href: "/homeopathy" }
@@ -179,60 +90,6 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-sage/20 rounded-full filter blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3" />
 
       <Container className="relative z-10">
-        {/* Newsletter Section - Premium Banner */}
-        <div
-          ref={newsletterRef}
-          className="bg-brand-primary rounded-[2rem] p-6 sm:p-8 md:p-12 mb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-10 relative overflow-hidden shadow-[0_20px_50px_rgba(31,42,68,0.2)] border border-brand-gold/20"
-        >
-          {/* Luxury background glows */}
-          <div className="newsletter-glow absolute -right-20 -top-20 w-64 h-64 bg-brand-gold/30 rounded-full filter blur-[80px] pointer-events-none" />
-          <div className="newsletter-glow absolute -left-20 -bottom-20 w-64 h-64 bg-brand-sage/20 rounded-full filter blur-[80px] pointer-events-none" />
-
-          <div className="w-full lg:w-1/2 z-10 flex flex-col items-center text-center lg:items-start lg:text-left">
-            <div className="newsletter-text inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-xs font-bold tracking-widest uppercase mb-4">
-              <Mail className="w-3.5 h-3.5" />
-              Stay Connected
-            </div>
-            <h3 className="newsletter-text text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 md:mb-4">
-              Join our{" "}
-              <span className="text-brand-gold">Ayurvedic & Homeopathic</span>{" "}
-              community
-            </h3>
-            <p className="newsletter-text text-gray-300 text-sm md:text-base font-medium leading-relaxed max-w-md">
-              Get holistic health tips, exclusive offers, and ancient Ayurvedic
-              & Homeopathic insights delivered directly to your inbox.
-            </p>
-          </div>
-
-          <form
-            onSubmit={handleNewsletterSubmit}
-            className="newsletter-form flex flex-col sm:flex-row w-full lg:w-1/2 max-w-lg mx-auto lg:mx-0 items-stretch sm:items-center gap-3 sm:gap-0 bg-transparent sm:bg-white/5 p-0 sm:p-2 rounded-2xl sm:rounded-full border-none sm:border sm:border-white/10 backdrop-blur-md z-10"
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              required
-              disabled={isSubscribing}
-              className="flex-1 w-full bg-white/5 sm:bg-transparent text-white placeholder-gray-400 px-6 py-4 border border-white/10 sm:border-none rounded-xl sm:rounded-full text-sm focus:outline-none focus:border-brand-gold sm:focus:border-transparent transition-all duration-300"
-            />
-            <button
-              type="submit"
-              disabled={isSubscribing}
-              className="bg-brand-gold text-brand-dark hover:bg-white hover:text-brand-primary hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] font-bold px-8 py-4 rounded-xl sm:rounded-full text-sm flex items-center justify-center min-w-[140px] transition-all duration-300 disabled:opacity-70 group"
-            >
-              {isSubscribing ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <>
-                  Subscribe
-                  <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </>
-              )}
-            </button>
-          </form>
-        </div>
 
         {/* Main Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-10">
