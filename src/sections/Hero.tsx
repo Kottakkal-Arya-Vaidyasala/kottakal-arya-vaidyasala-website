@@ -17,17 +17,17 @@ import { useWhatsApp } from "@/hooks/useWhatsApp";
 
 const carouselData = [
   {
-    image: "/images/hero/home-carousel1.png",
+    image: "/images/hero/home-carousel1.webp",
     title: "Awaken Your Inner Vitality",
     subtitle: "REJUVENATE YOUR SPIRIT TODAY.",
   },
   {
-    image: "/images/hero/home-carousel2.png",
+    image: "/images/hero/home-carousel2.webp",
     title: "Our Healing Heritage",
     subtitle: "AUTHENTIC AYURVEDA & HOMEOPATHY IN ABU DHABI",
   },
   {
-    image: "/images/hero/home-carousel3.png",
+    image: "/images/hero/home-carousel3.webp",
     title: "Heal naturally. Live fully.",
     subtitle: "PURE AYURVEDIC & HOMEOPATHIC CARE.",
   },

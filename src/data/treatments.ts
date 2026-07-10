@@ -34,7 +34,7 @@ export const treatments: Treatment[] = [
       "Reduces stress hormones"
     ],
     duration: "60 – 90 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Activity",
     featured: true
   },
@@ -52,7 +52,7 @@ export const treatments: Treatment[] = [
       "Improves concentration & focus"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/shirodhara-v2.png",
+    imagePath: "/images/treatments/shirodhara-v2.webp",
     iconName: "Flame",
     featured: true
   },
@@ -70,7 +70,7 @@ export const treatments: Treatment[] = [
       "Strengthens the neck and shoulders"
     ],
     duration: "30 – 45 Minutes",
-    imagePath: "/images/treatments/nasyam-v2.png",
+    imagePath: "/images/treatments/nasyam-v2.webp",
     iconName: "Wind",
     featured: true
   },
@@ -88,7 +88,7 @@ export const treatments: Treatment[] = [
       "100% chemical-free ingredients"
     ],
     duration: "60 Minutes",
-    imagePath: "/images/treatments/herbal-facial-v2.png",
+    imagePath: "/images/treatments/herbal-facial-v2.webp",
     iconName: "Sparkles",
     featured: true
   },
@@ -106,7 +106,7 @@ export const treatments: Treatment[] = [
       "Anti-aging & longevity benefits"
     ],
     duration: "60 – 90 Minutes",
-    imagePath: "/images/treatments/pizhichil-v2.png",
+    imagePath: "/images/treatments/pizhichil-v2.webp",
     iconName: "Sparkles",
     featured: true
   },
@@ -124,7 +124,7 @@ export const treatments: Treatment[] = [
       "Alleviates arthritis symptoms"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/elakizhi-v2.png",
+    imagePath: "/images/treatments/elakizhi-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -160,7 +160,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -178,7 +178,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -196,7 +196,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -214,7 +214,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -232,7 +232,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -250,7 +250,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -268,7 +268,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -286,7 +286,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -304,7 +304,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -322,7 +322,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -340,7 +340,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -358,7 +358,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -376,7 +376,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -394,7 +394,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -412,7 +412,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -430,7 +430,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -448,7 +448,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -466,7 +466,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -484,7 +484,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -502,7 +502,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   },
@@ -520,7 +520,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.png",
+    imagePath: "/images/treatments/abhyangam-v2.webp",
     iconName: "Leaf",
     featured: true
   }

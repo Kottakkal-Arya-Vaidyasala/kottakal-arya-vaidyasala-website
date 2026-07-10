@@ -27,7 +27,7 @@ const servicesData = [
     category: "Body Scrubs & Wraps",
     title: "Aromatic moisturizing mud wrap",
     duration: "60 min",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description:
       "Deeply hydrate and nourish your skin with our aromatic mud wrap.",
   },
@@ -47,7 +47,7 @@ const servicesData = [
     category: "Our Facials - Shine Bright",
     title: "Herbal Facial",
     duration: "60 min",
-    image: "/images/treatments/herbal-facial-v2.png",
+    image: "/images/treatments/herbal-facial-v2.webp",
     description: "Restore your natural glow with our signature herbal facial.",
   },
   {
@@ -65,7 +65,7 @@ const servicesData = [
     category: "Ease Your Mind",
     title: "Vamasabhyangam (back massage)",
     duration: "30 min",
-    image: "/images/treatments/pizhichil-v2.png",
+    image: "/images/treatments/pizhichil-v2.webp",
     description:
       "Relieve tension and stiffness in your back with targeted massage therapy.",
   },
@@ -74,7 +74,7 @@ const servicesData = [
     category: "Ease Your Mind",
     title: "Padabhyangam (foot reflexology)",
     duration: "55 min",
-    image: "/images/treatments/elakizhi-v2.png",
+    image: "/images/treatments/elakizhi-v2.webp",
     description: "Relax and restore balance throughout your body.",
   },
   {
@@ -82,7 +82,7 @@ const servicesData = [
     category: "Ease Your Mind",
     title: "Shirobhyangam (Indian head massage)",
     duration: "30 min",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description:
       "A deeply calming head massage that relieves stress and improves sleep.",
   },
@@ -109,7 +109,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Detox",
     duration: "Custom",
-    image: "/images/treatments/elakizhi-v2.png",
+    image: "/images/treatments/elakizhi-v2.webp",
     description: "Programs designed to eliminate accumulated toxins.",
   },
   {
@@ -117,7 +117,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Stress Management",
     duration: "Custom",
-    image: "/images/treatments/pizhichil-v2.png",
+    image: "/images/treatments/pizhichil-v2.webp",
     description: "Holistic approaches to calm the nervous system.",
   },
   {
@@ -125,7 +125,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Rejuvenation",
     duration: "Custom",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description: "Rasayana therapies to slow aging and boost immunity.",
   },
   {
@@ -141,7 +141,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Neonatal Care for Babies",
     duration: "Custom",
-    image: "/images/treatments/shirodhara-v2.png",
+    image: "/images/treatments/shirodhara-v2.webp",
     description:
       "Gentle, traditional Ayurvedic care to support infant development.",
   },
@@ -160,7 +160,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Abhyangam",
     duration: "60 min",
-    image: "/images/treatments/shirodhara-v2.png",
+    image: "/images/treatments/shirodhara-v2.webp",
     description: "Deeply nourishing whole-body warm oil massage.",
   },
   {
@@ -176,7 +176,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Podi Kizhi",
     duration: "60 min",
-    image: "/images/treatments/elakizhi-v2.png",
+    image: "/images/treatments/elakizhi-v2.webp",
     description:
       "Warm herbal powder poultice massage for joint and muscle pain.",
   },
@@ -201,7 +201,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Nasyam",
     duration: "30 min",
-    image: "/images/treatments/nasyam-v2.png",
+    image: "/images/treatments/nasyam-v2.webp",
     description: "Nasal administration of medicated oils or liquids for cleansing and sinus health.",
   },
   {
@@ -209,7 +209,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Udwarthanam (Herbal powder massage)",
     duration: "60 min",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description:
       "Invigorating dry herbal powder massage for weight management.",
   },
@@ -218,7 +218,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Shirodhara",
     duration: "60 min",
-    image: "/images/treatments/shirodhara-v2.png",
+    image: "/images/treatments/shirodhara-v2.webp",
     description: "Continuous stream of warm medicated oil on the forehead.",
   },
   {
@@ -234,7 +234,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Kashayadhara",
     duration: "60 min",
-    image: "/images/treatments/elakizhi-v2.png",
+    image: "/images/treatments/elakizhi-v2.webp",
     description: "Continuous stream of herbal decoctions over the body.",
   },
   {
@@ -242,7 +242,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Pizhichil",
     duration: "60 min",
-    image: "/images/treatments/pizhichil-v2.png",
+    image: "/images/treatments/pizhichil-v2.webp",
     description: "Luxurious warm oil bath combined with gentle massage.",
   },
   {
@@ -250,7 +250,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Prishta vasti",
     duration: "60 min",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description: "Specialized oil pooling therapy for the entire back.",
   },
   {
@@ -266,7 +266,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Janu vasti",
     duration: "30 min",
-    image: "/images/treatments/shirodhara-v2.png",
+    image: "/images/treatments/shirodhara-v2.webp",
     description: "Targeted oil pooling therapy for knee joint health.",
   },
   {
@@ -282,7 +282,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Tharpanam",
     duration: "45 min",
-    image: "/images/treatments/elakizhi-v2.png",
+    image: "/images/treatments/elakizhi-v2.webp",
     description: "Rejuvenating therapy for the eyes using medicated ghee.",
   },
   {
@@ -290,7 +290,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Akshi dhara",
     duration: "30 min",
-    image: "/images/treatments/pizhichil-v2.png",
+    image: "/images/treatments/pizhichil-v2.webp",
     description:
       "Cleansing and cooling continuous pouring of liquids over eyes.",
   },
@@ -299,7 +299,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Thalapothichil",
     duration: "60 min",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description: "Cooling herbal paste applied to the head for stress relief.",
   },
   {
@@ -307,7 +307,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Lepam",
     duration: "30 min",
-    image: "/images/treatments/shirodhara-v2.png",
+    image: "/images/treatments/shirodhara-v2.webp",
     description: "Application of medicinal herbal paste for localized pain.",
   },
   {
@@ -323,7 +323,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Shirovasti",
     duration: "60 min",
-    image: "/images/treatments/elakizhi-v2.png",
+    image: "/images/treatments/elakizhi-v2.webp",
     description: "Warm medicated oil retained on the head using a cap.",
   },
 
@@ -333,7 +333,7 @@ const servicesData = [
     category: "Our Wellness Treatments",
     title: "Deep Tissue Massage",
     duration: "60 min",
-    image: "/images/treatments/pizhichil-v2.png",
+    image: "/images/treatments/pizhichil-v2.webp",
     description: "Intensive massage therapy targeting deep muscle layers.",
   },
   {
@@ -341,7 +341,7 @@ const servicesData = [
     category: "Our Wellness Treatments",
     title: "Prenatal and Postnatal Care",
     duration: "Custom",
-    image: "/images/treatments/abhyangam-v2.png",
+    image: "/images/treatments/abhyangam-v2.webp",
     description: "Soothing sessions dedicated to maternal well-being.",
   },
   {
@@ -349,7 +349,7 @@ const servicesData = [
     category: "Our Wellness Treatments",
     title: "Chakra balancing Hotstone massage",
     duration: "90 min",
-    image: "/images/treatments/shirodhara-v2.png",
+    image: "/images/treatments/shirodhara-v2.webp",
     description: "Energy alignment using heated stones to melt away stress.",
   },
   {
@@ -399,7 +399,7 @@ export default function ServicesPage() {
       {/* ── Header ────────────────────────────────── */}
       <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black text-white pt-16">
         <Image
-          src="/images/hero/home-carousel2.png"
+          src="/images/hero/home-carousel2.webp"
           alt="Ayurveda Services"
           fill
           sizes="100vw"

@@ -73,7 +73,7 @@ export default function AboutUsPage() {
       <section className="hero-section relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full h-[130%] -top-[15%]">
           <Image
-            src="/images/hero/home-carousel3.png"
+            src="/images/hero/home-carousel3.webp"
             alt="Ayurvedic Abhyangam Massage"
             fill
             sizes="100vw"
@@ -122,7 +122,7 @@ export default function AboutUsPage() {
                 <div className="relative w-full aspect-[4/5] rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl group">
                   <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
                     <Image
-                      src="/images/hero/home-carousel1.png"
+                      src="/images/hero/home-carousel1.webp"
                       alt="Ayurveda Heritage"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"

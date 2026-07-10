@@ -24,7 +24,7 @@ export default function WhyChooseUs() {
           <AnimatedReveal direction="right" className="w-full">
             <div className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden img-zoom gold-border-reveal group shadow-2xl">
               <Image
-                src="/images/about/pure-herbs.png"
+                src="/images/about/pure-herbs.webp"
                 alt="Ayurvedic herbs and holistic healing"
                 fill
                 className="object-cover"
