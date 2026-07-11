@@ -67,7 +67,7 @@ export default function OurTreatmentsPage() {
             >
               <Image
                 src={activeTreatment.imagePath}
-                alt={activeTreatment.title}
+                alt={`${activeTreatment.title} - Authentic Ayurvedic Treatment in Dubai`}
                 fill
                 className="object-cover blur-[2px] relative z-10 scale-110 md:scale-105 lg:scale-100 object-center"
                 priority
@@ -153,7 +153,7 @@ export default function OurTreatmentsPage() {
                   <div className="relative h-60 sm:h-64 lg:h-[280px] w-full overflow-hidden flex-1">
                     <Image
                       src={treatment.imagePath}
-                      alt={treatment.title}
+                      alt={`${treatment.title} - Authentic Ayurvedic Treatment in Dubai`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

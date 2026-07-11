@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="pt-8 pb-12 md:pt-16 md:pb-24 bg-white relative overflow-hidden">
+    <section className="pt-8 pb-10 md:pt-16 md:pb-10 bg-white relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-primary/[0.02] rounded-full filter blur-[180px] pointer-events-none" />
 
@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
             <div className="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden img-zoom gold-border-reveal group shadow-2xl">
               <Image
                 src="/images/about/pure-herbs.webp"
-                alt="Ayurvedic herbs and holistic healing"
+                alt="Traditional Ayurvedic Herbs for Holistic Healing in Dubai"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

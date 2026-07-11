@@ -9,7 +9,7 @@ import { Target, Eye } from "lucide-react";
 
 export default function MissionVision() {
   return (
-    <section className="py-16 md:py-24 bg-brand-sage/30 relative overflow-hidden">
+    <section className="pt-10 pb-16 md:pt-12 md:pb-24 bg-brand-sage/30 relative overflow-hidden">
       <Container>
         <AnimatedReveal direction="up">
           <SectionHeading

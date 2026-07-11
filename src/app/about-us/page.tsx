@@ -74,7 +74,7 @@ export default function AboutUsPage() {
         <div className="absolute inset-0 w-full h-[130%] -top-[15%]">
           <Image
             src="/images/hero/home-carousel3.webp"
-            alt="Ayurvedic Abhyangam Massage"
+            alt="Authentic Ayurvedic Abhyangam Massage Treatment in Dubai"
             fill
             sizes="100vw"
             className="object-cover hero-parallax-img scale-105"
@@ -123,7 +123,7 @@ export default function AboutUsPage() {
                   <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
                     <Image
                       src="/images/hero/home-carousel1.webp"
-                      alt="Ayurveda Heritage"
+                      alt="Traditional Kerala Ayurveda Heritage in Dubai"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover about-parallax-img group-hover:scale-110 transition-transform duration-1000"

@@ -142,7 +142,7 @@ export const treatments: Treatment[] = [
       "Promotes tissue regeneration"
     ],
     duration: "60 – 90 Minutes",
-    imagePath: "/images/treatments/njavarakizhi-v2.png",
+    imagePath: "/images/treatments/njavarakizhi-v2.webp",
     iconName: "HeartPulse",
     featured: true
   },

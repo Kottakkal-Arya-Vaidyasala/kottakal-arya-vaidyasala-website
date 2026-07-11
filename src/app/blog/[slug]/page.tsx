@@ -38,7 +38,7 @@ export default async function BlogPostPage({
       <section className="relative w-full h-[50vh] min-h-[400px]">
         <Image
           src={post.imagePath}
-          alt={post.title}
+          alt={`${post.title} - Ayurvedic Wellness Blog Kottakkal Dubai`}
           fill
           className="object-cover"
           priority

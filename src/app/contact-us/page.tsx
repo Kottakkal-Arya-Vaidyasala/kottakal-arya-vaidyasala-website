@@ -121,8 +121,8 @@ export default function ContactUsPage() {
       <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/contact/contact-carousel.png"
-            alt="Luxury Clinic Reception"
+            src="/images/contact/contact-carousel.webp"
+            alt="Luxury Ayurvedic Clinic Reception - Kottakkal Arya Vaidyasala Dubai"
             fill
             className="object-cover object-top md:object-[center_20%]"
             priority

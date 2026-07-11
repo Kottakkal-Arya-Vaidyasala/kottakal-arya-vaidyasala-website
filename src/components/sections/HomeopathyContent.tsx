@@ -278,8 +278,8 @@ export default function HomeopathyContent() {
             >
               <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
               <Image
-                src="/images/homeopathy/homeopathy-medicine.png"
-                alt="Homeopathy Medicine"
+                src="/images/homeopathy/homeopathy-medicine.webp"
+                alt="Homeopathy Medicine - Ayurvedic Treatment in Dubai"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"

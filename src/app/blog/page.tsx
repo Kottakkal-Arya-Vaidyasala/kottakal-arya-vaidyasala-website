@@ -40,8 +40,8 @@ export default function BlogPage() {
       {/* ── Header ────────────────────────────────── */}
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black text-white">
         <Image
-          src="/images/blog/blog-page.png"
-          alt="Ayurveda Blog and Journal"
+          src="/images/blog/blog-page.webp"
+          alt="Ayurveda Health Blog and Wellness Journal Dubai"
           fill
           sizes="100vw"
           className="object-cover opacity-60"
@@ -79,7 +79,7 @@ export default function BlogPage() {
                 <div className="relative aspect-[4/3] lg:aspect-auto h-full overflow-hidden">
                   <Image
                     src={featuredPost.imagePath}
-                    alt={featuredPost.title}
+                    alt={`${featuredPost.title} - Ayurvedic Wellness Blog Kottakkal Dubai`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     priority
@@ -141,7 +141,7 @@ export default function BlogPage() {
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
                         src={post.imagePath}
-                        alt={post.title}
+                        alt={`${post.title} - Ayurvedic Wellness Blog Kottakkal Dubai`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />

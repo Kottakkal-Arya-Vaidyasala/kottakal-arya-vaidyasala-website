@@ -37,7 +37,7 @@ const galleryImages = [
     aspect: "aspect-square",
   },
   {
-    src: "/images/homeopathy/homeopathy.png",
+    src: "/images/homeopathy/homeopathy.webp",
     alt: "Homeopathic therapy session",
     title: "Healing Therapies",
     span: "col-span-2 row-span-1",
@@ -84,7 +84,7 @@ export default function LuxuryExperience() {
               >
                 <Image
                   src={img.src}
-                  alt={img.alt}
+                  alt={`${img.alt} - Kottakkal Ayurveda Dubai`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 50vw, 25vw"

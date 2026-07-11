@@ -93,8 +93,8 @@ export default function Newsletter() {
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/about/herbs.png"
-                alt="Traditional Ayurvedic herbs and ingredients"
+                src="/images/blog/ayurvedic-digestion.webp"
+                alt="Ayurvedic Digestion and Wellness Practices Dubai"
                 fill
                 className="object-cover"
                 sizes="40vw"
@@ -105,14 +105,7 @@ export default function Newsletter() {
 
           {/* ── Right: Newsletter Form ────────────────── */}
           <div className="lg:col-span-7 text-white">
-            <AnimatedReveal direction="down">
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="w-8 h-[1px] bg-brand-gold" />
-                <span className="text-brand-gold text-xs font-bold uppercase tracking-[0.2em]">
-                  Ayurvedic Wellness Tips
-                </span>
-              </div>
-            </AnimatedReveal>
+
 
             <AnimatedReveal direction="up" delay={100}>
               <h2 className="text-3xl md:text-5xl lg:text-[3.25rem] font-heading font-bold mb-6 tracking-wide leading-[1.15]">

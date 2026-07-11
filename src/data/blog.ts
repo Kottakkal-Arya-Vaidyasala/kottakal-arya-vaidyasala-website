@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 12, 2026",
     author: "Dr. Ananya Nair",
     category: "Wellness",
-    imagePath: "/images/blog/herbal-oil.png",
+    imagePath: "/images/blog/herbal-oil.webp",
     readTime: "5 min read",
   },
   {
@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     date: "June 05, 2026",
     author: "Dr. Rajesh Kumar",
     category: "Treatments",
-    imagePath: "/images/blog/shirodhara-stress.png",
+    imagePath: "/images/blog/shirodhara-stress.webp",
     readTime: "4 min read",
   },
   {
@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
     date: "May 28, 2026",
     author: "Dr. Priya Sharma",
     category: "Lifestyle",
-    imagePath: "/images/blog/ayurvedic-digestion.png",
+    imagePath: "/images/blog/ayurvedic-digestion.webp",
     readTime: "6 min read",
   },
   {
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     date: "February 22, 2024",
     author: "Dr. Ananya Nair",
     category: "Treatments",
-    imagePath: "/images/homeopathy/homeopathy.png",
+    imagePath: "/images/homeopathy/homeopathy.webp",
     readTime: "8 min read",
   }
 ]

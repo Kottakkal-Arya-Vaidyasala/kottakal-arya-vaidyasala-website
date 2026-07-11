@@ -33,7 +33,7 @@ export default function PageHeader({
       {bgImage && (
         <Image
           src={bgImage}
-          alt={typeof title === "string" ? title : "Page Header Image"}
+          alt={typeof title === "string" ? `${title} - Kottakkal Arya Vaidyasala Dubai` : "Kottakkal Arya Vaidyasala Ayurvedic Center Dubai"}
           fill
           className="object-cover object-center scale-105"
           priority

@@ -11,7 +11,7 @@ export default function HomeopathyPage() {
       <PageHeader
         title="Natural Healing Journey"
         subtitle="Pure Homeopathy"
-        bgImage="/images/homeopathy/homeopathy.png"
+        bgImage="/images/homeopathy/homeopathy.webp"
       />
 
       <HomeopathyContent />

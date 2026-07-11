@@ -85,7 +85,7 @@ export default function Logo({
           >
             <Image
               src={LOGO_PATHS.icon}
-              alt="Kottakkal Arya Vaidyasala"
+              alt="Kottakkal Arya Vaidyasala - Premier Ayurvedic Clinic in Dubai"
               width={dimensions.icon.w}
               height={dimensions.icon.h}
               className="object-contain"
@@ -146,7 +146,7 @@ export default function Logo({
             >
               <Image
                 src={getLogoSrc(light)}
-                alt="Kottakkal Arya Vaidyasala Ayurvedic Medical Center"
+                alt="Kottakkal Arya Vaidyasala - Premier Ayurvedic Clinic in Dubai"
                 width={dimensions.logo.w}
                 height={dimensions.logo.h}
                 className="w-full h-full object-contain"

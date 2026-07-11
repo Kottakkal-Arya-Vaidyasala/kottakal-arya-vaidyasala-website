@@ -88,7 +88,7 @@ export default function FeaturedTreatments() {
                   <div className="relative aspect-[16/9] w-full overflow-hidden">
                     <Image
                       src={treatment.imagePath}
-                      alt={treatment.title}
+                      alt={`${treatment.title} - Authentic Ayurvedic Treatment in Dubai`}
                       fill
                       className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
                         treatment.id === "njavarakizhi"

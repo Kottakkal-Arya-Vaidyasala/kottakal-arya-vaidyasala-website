@@ -36,7 +36,7 @@ const servicesData = [
     category: "Body Scrubs & Wraps",
     title: "Herbal Scrub with aromatic massage",
     duration: "60 min",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description:
       "Exfoliate and refresh your body with a traditional herbal scrub.",
   },
@@ -55,7 +55,7 @@ const servicesData = [
     category: "Our Facials - Shine Bright",
     title: "Njavara Facial",
     duration: "60 min",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "A deeply nourishing facial using traditional Njavara rice.",
   },
 
@@ -91,7 +91,7 @@ const servicesData = [
     category: "Ease Your Mind",
     title: "Mukhabhyangam (Face care)",
     duration: "30 min",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description: "Gentle facial care and massage to relieve facial tension.",
   },
 
@@ -101,7 +101,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Skin Care",
     duration: "Custom",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "Specialized programs for chronic skin conditions.",
   },
   {
@@ -133,7 +133,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Prenatal & Post natal are for Mother",
     duration: "Custom",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description: "Specialized nurturing care supporting mothers.",
   },
   {
@@ -150,7 +150,7 @@ const servicesData = [
     category: "Our Programs",
     title: "Body Slimming",
     duration: "Custom",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "Natural, sustainable Ayurvedic weight management.",
   },
 
@@ -160,7 +160,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Abhyangam",
     duration: "60 min",
-    image: "/images/treatments/shirodhara-v2.webp",
+    image: "/images/treatments/abhyangam-v2.webp",
     description: "Deeply nourishing whole-body warm oil massage.",
   },
   {
@@ -168,7 +168,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Marma abhyangam",
     duration: "60 min",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description: "Specialized massage targeting vital energy points.",
   },
   {
@@ -185,7 +185,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Aavi Kizhi (Aromatic herbal pouch)",
     duration: "60 min",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "Aromatic herbal pouch therapy for deep relaxation.",
   },
   {
@@ -193,7 +193,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Njavara Kizhi (Rice pouch therapy)",
     duration: "60 min",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "Nourishing rice pouch therapy to strengthen muscles.",
   },
   {
@@ -226,7 +226,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Ksheeradhara",
     duration: "60 min",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description: "Continuous stream of medicated milk over the body.",
   },
   {
@@ -258,7 +258,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Kati vasti",
     duration: "30 min",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "Targeted oil pooling therapy for lower back pain.",
   },
   {
@@ -274,7 +274,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Greeva vasti",
     duration: "30 min",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description: "Targeted oil pooling therapy for neck and cervical spine.",
   },
   {
@@ -315,7 +315,7 @@ const servicesData = [
     category: "Ayurveda Therapies",
     title: "Snehavasthy",
     duration: "30 min",
-    image: "/images/treatments/panchakarma-v2.png",
+    image: "/images/treatments/panchakarma-v2.webp",
     description: "Therapeutic oil enema for detoxification and Vata balance.",
   },
   {
@@ -357,7 +357,7 @@ const servicesData = [
     category: "Our Wellness Treatments",
     title: "Manual lymphatic drainage",
     duration: "60 min",
-    image: "/images/treatments/njavarakizhi-v2.png",
+    image: "/images/treatments/njavarakizhi-v2.webp",
     description: "Gentle techniques to encourage lymph system drainage.",
   },
 ];
@@ -400,7 +400,7 @@ export default function ServicesPage() {
       <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-black text-white pt-16">
         <Image
           src="/images/hero/home-carousel2.webp"
-          alt="Ayurveda Services"
+          alt="Authentic Ayurveda Services and Therapies in Dubai"
           fill
           sizes="100vw"
           className="object-cover opacity-60"
@@ -636,7 +636,7 @@ export default function ServicesPage() {
                         <div className="relative h-48 w-full overflow-hidden shrink-0">
                           <Image
                             src={service.image}
-                            alt={service.title}
+                            alt={`${service.title} - Authentic Ayurvedic Treatment in Dubai`}
                             fill
                             className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
                               service.id === "ayr-njavara"

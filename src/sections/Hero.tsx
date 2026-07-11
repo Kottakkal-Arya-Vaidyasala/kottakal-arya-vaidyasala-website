@@ -73,7 +73,7 @@ export default function Hero() {
         >
           <Image
             src={carouselData[currentImage].image}
-            alt={carouselData[currentImage].title}
+            alt={`${carouselData[currentImage].title} - Kottakkal Arya Vaidyasala Dubai`}
             fill
             className="object-cover"
             sizes="100vw"
