@@ -152,32 +152,48 @@ export default function Footer() {
               Our Expertise
               <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
             </h4>
-            <ul className="flex flex-col space-y-3">
-              {treatments.slice(0, 6).map((treatment) => (
-                <li key={treatment.id}>
-                  <Link
-                    href={`/our-treatments#${treatment.id}`}
-                    className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
-                  >
-                    <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
-                      {treatment.title}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-              <li>
+            <div className="flex flex-col">
+              {/* 1. Homeopathy Category */}
+              <div className="mb-5">
                 <Link
                   href="/homeopathy"
-                  className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
+                  className="text-black hover:text-brand-primary text-base font-bold transition-colors flex items-center group"
                 >
-                  <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
+                  <ChevronRight className="w-4 h-4 mr-2 text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
                     Homeopathy
                   </span>
                 </Link>
-              </li>
-            </ul>
+              </div>
+
+              {/* 2. Ayurveda Category */}
+              <div>
+                <Link
+                  href="/our-treatments"
+                  className="text-black hover:text-brand-primary text-base font-bold transition-colors flex items-center group mb-4"
+                >
+                  <ChevronRight className="w-4 h-4 mr-2 text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    Ayurveda
+                  </span>
+                </Link>
+                <ul className="flex flex-col space-y-3 pl-6 border-l-2 border-brand-gold/10 ml-[7px]">
+                  {treatments.slice(0, 5).map((treatment) => (
+                    <li key={treatment.id}>
+                      <Link
+                        href={`/our-treatments#${treatment.id}`}
+                        className="text-gray-700 hover:text-brand-primary text-sm font-medium transition-colors flex items-center group"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/40 mr-3 group-hover:bg-brand-gold transition-colors shrink-0 -ml-[25px]" />
+                        <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
+                          {treatment.title}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Column 4: Contact Info */}

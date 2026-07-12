@@ -448,7 +448,7 @@ export const treatments: Treatment[] = [
       "Relieves accumulated stress"
     ],
     duration: "45 – 60 Minutes",
-    imagePath: "/images/treatments/abhyangam-v2.webp",
+    imagePath: "/images/treatments/nasyam-v2.webp",
     iconName: "Leaf",
     featured: true
   },

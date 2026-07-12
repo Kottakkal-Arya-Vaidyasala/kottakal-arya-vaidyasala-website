@@ -114,7 +114,9 @@ export default function FeaturedTreatments() {
                     >
                       {treatment.title}
                     </h3>
-                    <p className={`text-xs sm:text-sm font-semibold mb-4 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}>
+                    <p
+                      className={`text-xs sm:text-sm font-semibold mb-4 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}
+                    >
                       {treatment.subtitle}
                     </p>
                     <p
@@ -123,7 +125,10 @@ export default function FeaturedTreatments() {
                       {treatment.description}
                     </p>
                     <div className="mt-auto pt-5 border-t border-brand-gold/20 flex justify-center">
-                      <Link href={`/our-treatments#treatment-${treatment.id}`} className="flex justify-center">
+                      <Link
+                        href={`/our-treatments#treatment-${treatment.id}`}
+                        className="flex justify-center"
+                      >
                         <PrimaryButton
                           icon={<ArrowRight className="w-4 h-4" />}
                           className={`px-8 py-3 text-sm transition-all duration-300 shadow-none ${

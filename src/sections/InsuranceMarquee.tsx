@@ -12,7 +12,6 @@ const insuranceLogos = [
   "daman-logo.webp",
   "dubai-insurance.webp",
   "gig-logo.webp",
-  "idmed-logo.webp",
   "inayah-logo.webp",
   "mednet-logo.webp",
   "metlife-logo.webp",
@@ -22,9 +21,7 @@ const insuranceLogos = [
   "nextcare-logo.webp",
   "orient-logo.webp",
   "qic-logo.webp",
-  "rak-logo.webp",
   "sukoon-logo.webp",
-  "takaful-logo.webp",
 ];
 
 export default function InsuranceMarquee() {
@@ -33,8 +30,8 @@ export default function InsuranceMarquee() {
       <Container className="relative z-20 w-full mb-8">
         <SectionHeading
           title="Ayurvedic Treatments Covered by Insurance"
-          subtitle="Direct Billing & Coverage Partners"
-          description="Kottakkal Arya Vaidyasala partners with leading health insurance providers in Dubai and the UAE to ensure your authentic Ayurvedic healing journey is smooth, accessible, and fully covered."
+          subtitle="Our Insurance Partners"
+          description="Kottakkal Arya Vaidyasala is recognized by leading health insurance networks in the UAE, supporting your authentic Ayurvedic healing journey."
           align="center"
         />
       </Container>
@@ -71,8 +68,7 @@ export default function InsuranceMarquee() {
                         : filename.includes("qic") ||
                             filename.includes("mednet")
                           ? "scale-[0.85] group-hover:scale-[0.95] p-3 md:p-5"
-                          : filename.includes("idmed") ||
-                              filename.includes("metlife") ||
+                          : filename.includes("metlife") ||
                               filename.includes("gig") ||
                               filename.includes("inayah")
                             ? "scale-[1.25] group-hover:scale-[1.35] p-2 md:p-3"

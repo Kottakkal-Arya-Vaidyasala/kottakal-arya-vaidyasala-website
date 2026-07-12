@@ -2,7 +2,12 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Container from "@/components/common/Container";
 import {
   ArrowRight,
@@ -186,7 +191,9 @@ export default function HomeopathyContent() {
   const y3 = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   const { openWhatsApp } = useWhatsApp();
-  const [expandedCondition, setExpandedCondition] = useState<string | null>(null);
+  const [expandedCondition, setExpandedCondition] = useState<string | null>(
+    null,
+  );
   const [showAllConditions, setShowAllConditions] = useState(false);
   const showMoreRef = useRef<HTMLDivElement>(null);
 
@@ -212,11 +219,14 @@ export default function HomeopathyContent() {
   return (
     <>
       {/* ── 2. Introduction & Why Homeopathy ────────────── */}
-      <section className="pt-16 pb-12 md:pt-24 md:pb-20 lg:pt-32 lg:pb-28 bg-white relative overflow-hidden">
-        <motion.div style={{ y: y1 }} className="absolute -right-[20%] top-[5%] w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none" />
+      <section className="pt-12 pb-12 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28 bg-white relative overflow-hidden">
+        <motion.div
+          style={{ y: y1 }}
+          className="absolute -right-[20%] top-[5%] w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none"
+        />
 
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 md:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch mb-12 md:mb-20">
             {/* Text Side */}
             <motion.div
               initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
@@ -225,14 +235,18 @@ export default function HomeopathyContent() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-left"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-6 md:mb-8 text-left">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-10 md:mb-14 text-left">
                 What is{" "}
                 <span className="text-brand-gold relative inline-block">
                   Homeopathy?
                   <motion.span
                     initial={{ width: "0%" }}
                     whileInView={{ width: "100%" }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: "easeInOut" }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.3,
+                      ease: "easeInOut",
+                    }}
                     viewport={{ once: true }}
                     className="absolute -bottom-1 left-0 h-[3px] bg-brand-gold rounded-full"
                   />
@@ -253,17 +267,17 @@ export default function HomeopathyContent() {
                     &ldquo;
                   </div>
                   <p className="text-brand-primary font-heading font-medium italic text-lg md:text-xl m-0 leading-relaxed text-left relative z-10">
-                    True healing requires deeply personalized care. We bridge your
-                    physical, mental, and emotional well-being.
+                    True healing requires deeply personalized care. We bridge
+                    your physical, mental, and emotional well-being.
                   </p>
                 </div>
 
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed md:leading-[1.8] font-light text-gray-600 text-left">
-                  At Kottakkal Arya Vaidyasala, our expert homeopathic physicians
-                  take the time to understand your complete constitutional
-                  profile. We meticulously curate a precise, bespoke remedy
-                  tailored exclusively to your unique journey toward optimal
-                  health.
+                  At Kottakkal Arya Vaidyasala, our expert homeopathic
+                  physicians take the time to understand your complete
+                  constitutional profile. We meticulously curate a precise,
+                  bespoke remedy tailored exclusively to your unique journey
+                  toward optimal health.
                 </p>
               </div>
             </motion.div>
@@ -274,7 +288,7 @@ export default function HomeopathyContent() {
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="relative w-full aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden shadow-2xl group mt-8 lg:mt-0"
+              className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full rounded-3xl overflow-hidden shadow-2xl group mt-2 lg:mt-0 min-h-[300px]"
             >
               <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
               <Image
@@ -331,8 +345,14 @@ export default function HomeopathyContent() {
         id="homeopathy-conditions"
         className="pt-6 pb-12 md:pt-12 md:pb-28 bg-brand-cream relative overflow-hidden"
       >
-        <motion.div style={{ y: y2 }} className="absolute -left-[15%] top-[20%] w-[600px] h-[600px] bg-brand-primary/[0.03] rounded-full filter blur-[150px] pointer-events-none" />
-        <motion.div style={{ y: y3 }} className="absolute right-[-10%] bottom-[10%] w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[120px] pointer-events-none" />
+        <motion.div
+          style={{ y: y2 }}
+          className="absolute -left-[15%] top-[20%] w-[600px] h-[600px] bg-brand-primary/[0.03] rounded-full filter blur-[150px] pointer-events-none"
+        />
+        <motion.div
+          style={{ y: y3 }}
+          className="absolute right-[-10%] bottom-[10%] w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[120px] pointer-events-none"
+        />
 
         <Container className="relative z-10">
           <motion.div
@@ -602,8 +622,14 @@ export default function HomeopathyContent() {
 
       {/* ── 4. CTA Banner ───────────────────────────────── */}
       <section className="py-12 md:py-24 bg-brand-primary relative overflow-hidden">
-        <motion.div style={{ y: y1 }} className="absolute -right-20 -top-20 w-72 h-72 bg-brand-gold/20 rounded-full filter blur-[80px] pointer-events-none" />
-        <motion.div style={{ y: y2 }} className="absolute -left-20 bottom-0 w-56 h-56 bg-brand-gold/10 rounded-full filter blur-[60px] pointer-events-none" />
+        <motion.div
+          style={{ y: y1 }}
+          className="absolute -right-20 -top-20 w-72 h-72 bg-brand-gold/20 rounded-full filter blur-[80px] pointer-events-none"
+        />
+        <motion.div
+          style={{ y: y2 }}
+          className="absolute -left-20 bottom-0 w-56 h-56 bg-brand-gold/10 rounded-full filter blur-[60px] pointer-events-none"
+        />
 
         <Container className="relative z-10">
           <motion.div
