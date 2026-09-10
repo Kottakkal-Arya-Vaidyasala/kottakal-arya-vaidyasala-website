@@ -1,26 +1,41 @@
 import { Metadata } from "next"
 
+/**
+ * Resolves the correct base URL for OG images.
+ * - On Vercel: uses VERCEL_URL (automatically injected by Vercel)
+ * - In production with custom domain: uses the hardcoded production URL
+ * - Locally: falls back to localhost
+ */
+const getBaseUrl = () => {
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`
+  }
+  return "https://www.kottakkalaryavaidyasala.ae"
+}
+
+const BASE_URL = getBaseUrl()
+
 const siteConfig = {
   name: "Kottakkal Arya Vaidyasala",
   fullName: "Kottakkal Arya Vaidyasala Ayurvedic & Homeopathic Medical Center",
   shortName: "Kottakkal Ayurveda Abu Dhabi",
-  tagline: "Authentic Ayurveda & Homeopathy — Trusted by Kerala's Community in Abu Dhabi",
+  tagline: "Authentic Ayurveda & Homeopathy — Abu Dhabi's Most Trusted Wellness Destination",
 
   /**
-   * Meta description — 155 chars, keyword-rich, Trivandrum/Kerala audience targeted.
+   * Meta description — 155 chars, keyword-rich, global audience in Abu Dhabi/UAE targeted.
    * Triggers high CTR on Google Search with action-oriented language.
    */
   description:
-    "Kottakkal Arya Vaidyasala Abu Dhabi — Authentic Ayurvedic & Homeopathic treatments by expert Kerala doctors. Shirodhara, Abhyangam, Pizhichil, Kizhi therapies & more. Trusted by thousands from Trivandrum & Kerala. Book now.",
+    "Kottakkal Arya Vaidyasala Abu Dhabi — Authentic Ayurvedic & Homeopathic treatments by expert doctors. Shirodhara, Abhyangam, Pizhichil, Kizhi therapies & more. Abu Dhabi's most trusted Ayurveda & Homeopathy centre. Book now.",
 
   /**
    * Extended description — for website body copy, schema, and Google Business.
-   * Written to rank for Kerala expat + Trivandrum health tourism searches.
+   * Written to rank for global Ayurveda & wellness searches in UAE & Abu Dhabi.
    */
   longDescription:
-    "Rooted in the centuries-old healing tradition of Kottakkal, Kerala, and now proudly serving Abu Dhabi's thriving Malayali community, Kottakkal Arya Vaidyasala is the UAE's most trusted destination for authentic Ayurvedic and Homeopathic care. Our experienced Kerala-trained physicians bring the same classical healing philosophy from Trivandrum, Thrissur, and Kottakkal directly to you in Abu Dhabi. We offer a comprehensive range of classical therapies including Abhyangam, Shirodhara, Pizhichil, Elakizhi, Njavara Kizhi, Nasyam, Kati Vasti, Janu Vasti, Greeva Vasti, Ksheeradhara, Thalapothichil, Udwarthanam, Shirovasti, Tharpanam, and personalised Homeopathic consultations — every treatment rooted in time-tested Shastra-based medicine with no shortcuts and no compromises. Whether you are managing chronic pain, joint disorders, stress, skin conditions, digestive issues, or simply seeking a holistic wellness reset, our doctors create a bespoke treatment plan tailored to your prakriti (body constitution). Thousands of families from Trivandrum and across Kerala trust us for the same quality of care they would expect back home — now conveniently available in Abu Dhabi, UAE.",
+    "Rooted in the centuries-old healing tradition of Kottakkal, Kerala, Kottakkal Arya Vaidyasala is Abu Dhabi's most trusted destination for authentic Ayurvedic and Homeopathic care. Our experienced classical physicians bring time-tested healing directly to you in Abu Dhabi, UAE. We offer a comprehensive range of classical therapies including Abhyangam, Shirodhara, Pizhichil, Elakizhi, Njavara Kizhi, Nasyam, Kati Vasti, Janu Vasti, Greeva Vasti, Ksheeradhara, Thalapothichil, Udwarthanam, Shirovasti, Tharpanam, and personalised Homeopathic consultations — every treatment rooted in time-tested Shastra-based medicine with no shortcuts and no compromises. Whether you are managing chronic pain, joint disorders, stress, skin conditions, digestive issues, or simply seeking a holistic wellness reset, our doctors create a bespoke treatment plan tailored to your unique body constitution. Thousands of patients from across the globe — UAE, GCC, Europe, and beyond — trust us for world-class Ayurvedic and Homeopathic care, now conveniently available in the heart of Abu Dhabi.",
 
-  url: "https://kottakkal-ayurveda.ae",
+  url: "https://www.kottakkalaryavaidyasala.ae",
   telephone: "+971 54 200 9935",
   email: "kottakkalaryavaidyasalaauh@gmail.com",
 
@@ -35,17 +50,17 @@ const siteConfig = {
   hours: "Mo-Su 09:00-21:00",
 
   /**
-   * Target keywords — Trivandrum + Kerala + UAE Ayurveda intent signals
+   * Target keywords — global audience + UAE/Abu Dhabi Ayurveda intent signals
    */
   keywords: [
     "Kottakkal Arya Vaidyasala Abu Dhabi",
     "Ayurvedic clinic Abu Dhabi",
-    "Kerala Ayurveda UAE",
+    "Ayurveda UAE",
     "Homeopathy Abu Dhabi",
-    "Ayurveda for Trivandrum expats",
-    "Trivandrum Ayurvedic treatment UAE",
-    "Malayali doctor Abu Dhabi",
-    "Kerala doctor UAE",
+    "best Ayurveda clinic Abu Dhabi",
+    "Ayurvedic treatment Abu Dhabi",
+    "Ayurvedic doctor Abu Dhabi",
+    "Homeopathic doctor UAE",
     "Shirodhara Abu Dhabi",
     "Abhyangam Abu Dhabi",
     "Pizhichil Abu Dhabi",
@@ -57,22 +72,25 @@ const siteConfig = {
     "Ayurvedic massage Abu Dhabi",
     "classical Ayurveda UAE",
     "best Ayurveda clinic UAE",
-    "Kerala homeopathy Abu Dhabi",
+    "traditional Ayurveda Abu Dhabi",
     "Udwarthanam Abu Dhabi",
     "Shirovasti Abu Dhabi",
     "Thalapothichil Abu Dhabi",
+    "holistic wellness Abu Dhabi",
+    "natural healing Abu Dhabi",
+    "chronic pain Ayurveda UAE",
   ],
 }
 
 /**
  * ═══════════════════════════════════════════════════════════
  * Default Metadata — SEO-optimised for Google Search Console
- * Targeting: Kerala / Trivandrum community in Abu Dhabi, UAE
+ * Targeting: Global audience in Abu Dhabi & UAE
  * ═══════════════════════════════════════════════════════════
  */
 export const defaultMetadata: Metadata = {
   title: {
-    default: "Kottakkal Arya Vaidyasala Abu Dhabi | Authentic Ayurveda & Homeopathy for Kerala Community",
+    default: "Kottakkal Arya Vaidyasala Abu Dhabi | Authentic Ayurveda & Homeopathy in UAE",
     template: `%s | Kottakkal Arya Vaidyasala — Ayurveda Abu Dhabi`,
   },
 
@@ -80,7 +98,7 @@ export const defaultMetadata: Metadata = {
 
   keywords: siteConfig.keywords,
 
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(BASE_URL),
 
   icons: {
     icon: [
@@ -101,18 +119,18 @@ export const defaultMetadata: Metadata = {
   openGraph: {
     title: "Kottakkal Arya Vaidyasala | Authentic Ayurveda & Homeopathy — Abu Dhabi, UAE",
     description:
-      "Trusted by thousands from Trivandrum & Kerala. Expert Shirodhara, Abhyangam, Pizhichil, Elakizhi, Kizhi therapies & Homeopathy in Abu Dhabi. Same quality as home — Kerala doctors, classical treatments. Book now: +971 54 200 9935",
+      "Abu Dhabi's most trusted Ayurveda & Homeopathy centre. Expert Shirodhara, Abhyangam, Pizhichil, Elakizhi, Kizhi therapies & Homeopathy. Classical treatments, world-class care. Book now: +971 54 200 9935",
     url: siteConfig.url,
     siteName: siteConfig.fullName,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og.image.webp",
+        url: `${BASE_URL}/og.image.webp`,
         width: 1200,
         height: 630,
-        alt: "Kottakkal Arya Vaidyasala Abu Dhabi — Authentic Ayurveda & Homeopathy trusted by Kerala's Community",
-        type: "image/jpeg",
+        alt: "Kottakkal Arya Vaidyasala Abu Dhabi — Authentic Ayurveda & Homeopathy in UAE",
+        type: "image/webp",
       },
     ],
   },
@@ -124,8 +142,8 @@ export const defaultMetadata: Metadata = {
     card: "summary_large_image",
     title: "Kottakkal Arya Vaidyasala | Authentic Ayurveda Abu Dhabi",
     description:
-      "Kerala's most trusted Ayurvedic heritage — now in Abu Dhabi. Shirodhara, Abhyangam, Pizhichil, Kizhi therapies, classical Homeopathy & more. Trusted by the Trivandrum & Kerala community in UAE.",
-    images: ["/og.image.webp"],
+      "Abu Dhabi's most trusted classical Ayurveda & Homeopathy centre. Shirodhara, Abhyangam, Pizhichil, Kizhi therapies & more. World-class care in the heart of UAE.",
+    images: [`${BASE_URL}/og.image.webp`],
     creator: "@KottakkalAUH",
   },
 
@@ -151,7 +169,7 @@ export const defaultMetadata: Metadata = {
     "geo.placename": "Abu Dhabi",
     "geo.position": "24.4697;54.3698",
     "ICBM": "24.4697, 54.3698",
-    "audience": "Kerala community in UAE, Trivandrum expats, Malayali families in Abu Dhabi",
+    "audience": "Global wellness seekers in UAE, expatriates in Abu Dhabi, international patients UAE",
   },
 }
 
@@ -166,7 +184,7 @@ export const localBusinessSchema = {
   "@type": ["MedicalBusiness", "LocalBusiness"],
   "name": siteConfig.fullName,
   "alternateName": [siteConfig.name, siteConfig.shortName, "Kottakkal Ayurveda Abu Dhabi"],
-  "image": `${siteConfig.url}/og.image.webp`,
+  "image": `${BASE_URL}/og.image.webp`,
   "logo": `${siteConfig.url}/favicon.png`,
   "@id": `${siteConfig.url}/#local-business`,
   "url": siteConfig.url,
@@ -179,8 +197,6 @@ export const localBusinessSchema = {
   "areaServed": [
     { "@type": "City", "name": "Abu Dhabi" },
     { "@type": "Country", "name": "United Arab Emirates" },
-    { "@type": "City", "name": "Trivandrum" },
-    { "@type": "State", "name": "Kerala" },
   ],
   "address": {
     "@type": "PostalAddress",

@@ -12,7 +12,7 @@ export const siteConfig = {
   tagline: "Authentic Ayurveda & Homeopathy in Abu Dhabi",
   description:
     "Experience premium traditional Ayurvedic healing and pure Homeopathic wellness treatments in Abu Dhabi, UAE. Expert doctor consultations, therapeutic massages, and holistic care.",
-  url: "https://kottakkal-ayurveda.ae",
+  url: "https://www.kottakkalaryavaidyasala.ae",
 
   /** Contact details */
   contact: {

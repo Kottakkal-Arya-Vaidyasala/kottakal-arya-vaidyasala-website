@@ -4,7 +4,7 @@ import { MetadataRoute } from "next"
  * Dynamic Sitemap XML generator.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kottakkal-ayurveda.ae" // Replace with verified domain on production
+  const baseUrl = "https://www.kottakkalaryavaidyasala.ae"
   
   const routes = [
     "",
