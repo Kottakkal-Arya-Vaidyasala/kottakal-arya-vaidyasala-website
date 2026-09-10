@@ -16,6 +16,8 @@ interface LogoProps {
   light?: boolean;
   /** Link to homepage on click */
   linkToHome?: boolean;
+  /** Use backup icon variant */
+  useBackup?: boolean;
   /** Additional class names */
   className?: string;
 }
@@ -32,10 +34,10 @@ interface LogoProps {
  *   - Multiple size presets
  *
  * Place logo files in:
- *   /public/images/logo/logo-full.png        (full color)
- *   /public/images/logo/logo-full-white.png  (white/light version)
- *   /public/images/logo/logo-icon.png        (icon only)
- *   /public/images/logo/logo-full.svg        (SVG for crisp rendering)
+ *   /public/images/logo/navy-logo.png
+ *   /public/images/logo/gold-logo.png
+ *   /public/images/logo/icon.png
+ *   /public/images/logo/icon_backup.png
  */
 
 /* ── Size configuration ──────────────────────────── */
@@ -51,7 +53,8 @@ const LOGO_PATHS = {
   full: "/images/logo/navy-logo.png",
   fullWhite: "/images/logo/gold-logo.png",
   fullSvg: "/images/logo/logo-full.svg",
-  icon: "/images/logo/logo-icon.png",
+  icon: "/images/logo/icon.png",
+  iconBackup: "/images/logo/icon_backup.png",
 } as const;
 
 /**
@@ -70,6 +73,7 @@ export default function Logo({
   size = "md",
   light = false,
   linkToHome = true,
+  useBackup = false,
   className,
 }: LogoProps) {
   const dimensions = sizeMap[size];
@@ -84,8 +88,8 @@ export default function Logo({
             style={{ width: dimensions.icon.w, height: dimensions.icon.h }}
           >
             <Image
-              src={LOGO_PATHS.icon}
-              alt="Kottakkal Arya Vaidyasala - Premier Ayurvedic Clinic in Dubai"
+              src={useBackup ? LOGO_PATHS.iconBackup : LOGO_PATHS.icon}
+              alt="Kottakkal Arya Vaidyasala - Premier Ayurvedic Clinic in Abu Dhabi"
               width={dimensions.icon.w}
               height={dimensions.icon.h}
               className="object-contain"

@@ -16,10 +16,10 @@ export const siteConfig = {
 
   /** Contact details */
   contact: {
-    phone: "+971 56 818 8976",
-    phoneRaw: "+971568188976",
+    phone: "+971 54 200 9935",
+    phoneRaw: "+971542009935",
     email: "kottakkalaryavaidyasalaauh@gmail.com",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971568188976",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971542009935",
   },
 
   /** Physical address */
@@ -39,10 +39,18 @@ export const siteConfig = {
     note: "Friday: 9:00 AM – 11:55 AM, 2:00 PM – 11:00 PM",
   },
 
+  /** Logos & Icons */
+  logos: {
+    icon: "/images/logo/icon.png",
+    iconBackup: "/images/logo/icon_backup.png",
+    navy: "/images/logo/navy-logo.png",
+    gold: "/images/logo/gold-logo.png",
+  },
+
   /** Social media links */
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/kottakkalaryavaidyasala.ae/?utm_source=ig_web_button_share_sheet", icon: "instagram" },
-    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61587237147375", icon: "facebook" },
+    { label: "Facebook", href: "https://www.facebook.com/share/1KD26c1kan/?mibextid=wwXIfr", icon: "facebook" },
     { label: "YouTube", href: "https://www.youtube.com/@KottakkalAryaVaidyasala-auh", icon: "youtube" },
     { label: "Email", href: "mailto:kottakkalaryavaidyasalaauh@gmail.com", icon: "mail" },
   ] as const,

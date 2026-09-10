@@ -34,6 +34,11 @@ export default function RootLayout({
       lang="en"
       className={`${josefinSans.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden">
         <script
           type="application/ld+json"
