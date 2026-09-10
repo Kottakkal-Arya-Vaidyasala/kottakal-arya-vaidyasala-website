@@ -482,7 +482,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-primary mb-6">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-primary mb-6">
               Our Exclusive <span className="text-brand-gold">Offerings</span>
             </h2>
             <p className="text-lg text-brand-grey max-w-2xl mx-auto font-light">
@@ -907,7 +907,7 @@ export default function ServicesPage() {
                         transition={{ duration: 0.4, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-8 md:px-10 md:pb-10 pt-0 ml-[4.5rem] md:ml-20">
+                        <div className="px-6 pb-8 md:px-10 md:pb-10 pt-0 sm:ml-[4.5rem] md:ml-20">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-2">
                               <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary block opacity-80">

@@ -235,7 +235,7 @@ export default function HomeopathyContent() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-left"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-10 md:mb-14 text-left">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-10 md:mb-14 text-left">
                 What is{" "}
                 <span className="text-brand-gold relative inline-block">
                   Homeopathy?
@@ -368,7 +368,7 @@ export default function HomeopathyContent() {
                 Conditions We Treat
               </p>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-primary mb-4 md:mb-6 text-center">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-primary mb-4 md:mb-6 text-center">
               Homeopathic{" "}
               <span className="text-brand-gold relative inline-block">
                 Treatments

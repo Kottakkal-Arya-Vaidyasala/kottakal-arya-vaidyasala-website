@@ -318,7 +318,7 @@ export default function ContactUsPage() {
                             placeholder="Your Name *"
                             value={formData.name}
                             onChange={handleChange}
-                            className={`w-full bg-white/5 border ${errors.name ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors`}
+                            className={`w-full bg-white/5 border ${errors.name ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors`}
                           />
                           {errors.name && (
                             <p className="text-red-400 text-xs mt-1 absolute -bottom-5">
@@ -335,7 +335,7 @@ export default function ContactUsPage() {
                             placeholder="Email Address *"
                             value={formData.email}
                             onChange={handleChange}
-                            className={`w-full bg-white/5 border ${errors.email ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors`}
+                            className={`w-full bg-white/5 border ${errors.email ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors`}
                           />
                           {errors.email && (
                             <p className="text-red-400 text-xs mt-1 absolute -bottom-5">
@@ -355,7 +355,7 @@ export default function ContactUsPage() {
                             placeholder="Phone Number"
                             value={formData.phone}
                             onChange={handleChange}
-                            className={`w-full bg-white/5 border ${errors.phone ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors`}
+                            className={`w-full bg-white/5 border ${errors.phone ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors`}
                           />
                         </div>
                         <div className="relative" ref={dropdownRef}>
@@ -437,7 +437,7 @@ export default function ContactUsPage() {
                           value={formData.message}
                           onChange={handleChange}
                           rows={4}
-                          className={`w-full bg-white/5 border ${errors.message ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 px-5 py-4 rounded-xl focus:outline-none focus:border-brand-gold transition-colors resize-none`}
+                          className={`w-full bg-white/5 border ${errors.message ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 px-5 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors resize-none`}
                         />
                         {errors.message && (
                           <p className="text-red-400 text-xs mt-1 absolute -bottom-5">

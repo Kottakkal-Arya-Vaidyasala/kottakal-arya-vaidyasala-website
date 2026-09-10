@@ -77,6 +77,7 @@ export default function Hero() {
             fill
             className="object-cover"
             sizes="100vw"
+            loading="eager"
             priority={currentImage === 0}
           />
         </motion.div>

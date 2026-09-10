@@ -49,7 +49,7 @@ export default async function BlogPostPage({
       {/* ── Article Content ─────────────────────── */}
       <section className="py-16 -mt-32 relative z-10">
         <Container className="max-w-4xl">
-          <div className="bg-white rounded-3xl p-8 md:p-16 shadow-2xl">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-16 shadow-2xl">
             
             <Link 
               href="/blog"

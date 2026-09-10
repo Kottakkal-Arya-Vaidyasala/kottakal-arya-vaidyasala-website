@@ -108,7 +108,7 @@ export const defaultMetadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og.image.webp",
         width: 1200,
         height: 630,
         alt: "Kottakkal Arya Vaidyasala Abu Dhabi — Authentic Ayurveda & Homeopathy trusted by Kerala's Community",
@@ -125,7 +125,7 @@ export const defaultMetadata: Metadata = {
     title: "Kottakkal Arya Vaidyasala | Authentic Ayurveda Abu Dhabi",
     description:
       "Kerala's most trusted Ayurvedic heritage — now in Abu Dhabi. Shirodhara, Abhyangam, Pizhichil, Kizhi therapies, classical Homeopathy & more. Trusted by the Trivandrum & Kerala community in UAE.",
-    images: ["/og-image.jpg"],
+    images: ["/og.image.webp"],
     creator: "@KottakkalAUH",
   },
 
@@ -166,7 +166,7 @@ export const localBusinessSchema = {
   "@type": ["MedicalBusiness", "LocalBusiness"],
   "name": siteConfig.fullName,
   "alternateName": [siteConfig.name, siteConfig.shortName, "Kottakkal Ayurveda Abu Dhabi"],
-  "image": `${siteConfig.url}/og-image.jpg`,
+  "image": `${siteConfig.url}/og.image.webp`,
   "logo": `${siteConfig.url}/favicon.png`,
   "@id": `${siteConfig.url}/#local-business`,
   "url": siteConfig.url,

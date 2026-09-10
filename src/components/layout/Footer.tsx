@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-10">
           {/* Column 1: Brand & About (Takes up more space) */}
           <div className="lg:col-span-4 flex flex-col space-y-6">
-            <div className="-ml-1.5 md:-ml-2 mb-2">
+            <div className="mb-2">
               <Logo size="sm" />
             </div>
             <p className="text-black text-base leading-relaxed font-medium pr-4 md:pr-12">

@@ -163,7 +163,7 @@ export default function ContactCTA() {
         <AnimatedReveal direction="up" className="text-center mb-16 md:mb-20">
           <h2
             style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-white mb-1 sm:mb-2 whitespace-nowrap tracking-wide"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-white mb-1 sm:mb-2 tracking-wide"
           >
             Book Your <span className="text-brand-gold">Consultation</span>
           </h2>
@@ -347,7 +347,7 @@ export default function ContactCTA() {
                               onChange={handleChange}
                               aria-label="Your Name"
                               aria-invalid={!!errors.name}
-                              className={`w-full bg-gray-50 border ${errors.name ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
+                              className={`w-full bg-gray-50 border ${errors.name ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-base md:text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
                             />
                           </div>
                           {errors.name && (
@@ -367,7 +367,7 @@ export default function ContactCTA() {
                               onChange={handleChange}
                               aria-label="Email Address"
                               aria-invalid={!!errors.email}
-                              className={`w-full bg-gray-50 border ${errors.email ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
+                              className={`w-full bg-gray-50 border ${errors.email ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-base md:text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
                             />
                           </div>
                           {errors.email && (
@@ -391,7 +391,7 @@ export default function ContactCTA() {
                               onChange={handleChange}
                               aria-label="Phone Number"
                               aria-invalid={!!errors.phone}
-                              className={`w-full bg-gray-50 border ${errors.phone ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
+                              className={`w-full bg-gray-50 border ${errors.phone ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 pl-10 pr-4 py-3.5 rounded-lg text-base md:text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300`}
                             />
                           </div>
                           {errors.phone && (
@@ -482,7 +482,7 @@ export default function ContactCTA() {
                           aria-label="Your Message"
                           aria-invalid={!!errors.message}
                           rows={4}
-                          className={`w-full bg-gray-50 border ${errors.message ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 px-4 py-3.5 rounded-lg text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300 resize-none`}
+                          className={`w-full bg-gray-50 border ${errors.message ? "border-red-400" : "border-gray-200"} text-brand-dark placeholder-gray-500 px-4 py-3.5 rounded-lg text-base md:text-sm focus:outline-none focus:border-brand-primary focus:bg-white transition-all duration-300 resize-none`}
                         />
                         {errors.message && (
                           <p className="flex items-center gap-1 text-red-400 text-[11px] mt-1.5 ml-1">
