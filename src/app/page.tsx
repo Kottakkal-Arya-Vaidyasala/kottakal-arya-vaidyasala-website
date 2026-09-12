@@ -6,7 +6,6 @@ import InsuranceMarquee from "@/sections/InsuranceMarquee";
 import FeaturedTreatments from "@/sections/FeaturedTreatments";
 import TestimonialsPreview from "@/sections/TestimonialsPreview";
 import ContactCTA from "@/sections/ContactCTA";
-import Newsletter from "@/sections/Newsletter";
 /**
  * ═══════════════════════════════════════════════════
  * Kottakkal Arya Vaidyasala — Homepage
@@ -37,9 +36,6 @@ export default function Home() {
 
       {/* 7. Testimonials — Overlapping editorial cards */}
       <TestimonialsPreview />
-
-      {/* 8. Newsletter Subscription */}
-      <Newsletter />
 
       {/* 9. Contact Call to Action */}
       <ContactCTA />
