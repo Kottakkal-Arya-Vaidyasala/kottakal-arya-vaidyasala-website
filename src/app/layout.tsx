@@ -39,7 +39,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-hidden" suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
