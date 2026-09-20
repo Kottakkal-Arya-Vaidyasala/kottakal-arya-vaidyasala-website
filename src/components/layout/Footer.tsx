@@ -4,13 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Clock,
-  ChevronRight,
-} from "lucide-react";
+import { Mail, MapPin, Phone, Clock, ChevronRight } from "lucide-react";
 import Logo from "@/components/common/Logo";
 import Container from "@/components/common/Container";
 import { siteConfig } from "@/data/site";
@@ -74,31 +68,30 @@ export default function Footer() {
           </svg>
         );
       default:
-        return <Mail className="w-5 h-5" />;
+        return <Mail className="h-5 w-5" />;
     }
   };
 
   const quickLinks = [
     ...siteConfig.navLinks,
-    { label: "About Homeopathy", href: "/homeopathy" }
+    { label: "About Homeopathy", href: "/homeopathy" },
   ];
 
   return (
-    <footer className="bg-[#f7f4ee] pt-12 pb-4 border-t border-brand-primary/10 relative overflow-hidden text-black">
+    <footer className="border-brand-primary/10 relative overflow-hidden border-t bg-[#f7f4ee] pt-12 pb-4 text-black">
       {/* Background vector accents (light theme) */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/2" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-sage/20 rounded-full filter blur-[120px] pointer-events-none -translate-x-1/2 translate-y-1/3" />
+      <div className="bg-brand-gold/5 pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/2 rounded-full blur-[150px] filter" />
+      <div className="bg-brand-sage/20 pointer-events-none absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/2 translate-y-1/3 rounded-full blur-[120px] filter" />
 
       <Container className="relative z-10">
-
         {/* Main Footer Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-10">
+        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-12 lg:gap-6">
           {/* Column 1: Brand & About (Takes up more space) */}
-          <div className="lg:col-span-4 flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 lg:col-span-4">
             <div className="mb-2">
               <Logo size="sm" />
             </div>
-            <p className="text-black text-base leading-relaxed font-medium pr-4 md:pr-12">
+            <p className="pr-4 text-base leading-relaxed font-medium text-black md:pr-12">
               {siteConfig.description}
             </p>
             <div className="flex space-x-3 pt-2">
@@ -108,7 +101,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-brand-primary/20 flex items-center justify-center text-brand-primary hover:bg-brand-primary hover:text-brand-gold hover:border-brand-primary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 bg-white"
+                  className="border-brand-primary/20 text-brand-primary hover:bg-brand-primary hover:text-brand-gold hover:border-brand-primary flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   aria-label={social.label}
                 >
                   {renderSocialIcon(social.icon || social.label)}
@@ -118,10 +111,10 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="lg:col-span-2 flex flex-col space-y-6">
-            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center whitespace-nowrap">
+          <div className="flex flex-col space-y-6 lg:col-span-2">
+            <h4 className="font-heading flex items-center text-xl font-bold tracking-wide whitespace-nowrap text-black">
               Quick Links
-              <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
+              <span className="bg-brand-gold ml-3 h-0.5 w-12 shrink-0 rounded-full opacity-50"></span>
             </h4>
             <ul className="flex flex-col space-y-3">
               {quickLinks.map((link) => (
@@ -134,10 +127,10 @@ export default function Footer() {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
-                    className="text-black hover:text-brand-primary text-base font-medium transition-colors flex items-center group"
+                    className="hover:text-brand-primary group flex items-center text-base font-medium text-black transition-colors"
                   >
-                    <ChevronRight className="w-4 h-4 mr-2 text-brand-primary group-hover:text-brand-gold group-hover:translate-x-1 transition-all duration-300" />
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    <ChevronRight className="text-brand-primary group-hover:text-brand-gold mr-2 h-4 w-4 transition-all duration-300 group-hover:translate-x-1" />
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
                       {link.label}
                     </span>
                   </Link>
@@ -147,20 +140,20 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Key Treatments */}
-          <div className="lg:col-span-3 flex flex-col space-y-6">
-            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center whitespace-nowrap">
+          <div className="flex flex-col space-y-6 lg:col-span-3">
+            <h4 className="font-heading flex items-center text-xl font-bold tracking-wide whitespace-nowrap text-black">
               Our Expertise
-              <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
+              <span className="bg-brand-gold ml-3 h-0.5 w-12 shrink-0 rounded-full opacity-50"></span>
             </h4>
             <div className="flex flex-col">
               {/* 1. Homeopathy Category */}
               <div className="mb-5">
                 <Link
                   href="/homeopathy"
-                  className="text-black hover:text-brand-primary text-base font-bold transition-colors flex items-center group"
+                  className="hover:text-brand-primary group flex items-center text-base font-bold text-black transition-colors"
                 >
-                  <ChevronRight className="w-4 h-4 mr-2 text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                  <ChevronRight className="text-brand-gold mr-2 h-4 w-4 shrink-0 transition-all duration-300 group-hover:translate-x-1" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Homeopathy
                   </span>
                 </Link>
@@ -170,22 +163,22 @@ export default function Footer() {
               <div>
                 <Link
                   href="/our-treatments"
-                  className="text-black hover:text-brand-primary text-base font-bold transition-colors flex items-center group mb-4"
+                  className="hover:text-brand-primary group mb-4 flex items-center text-base font-bold text-black transition-colors"
                 >
-                  <ChevronRight className="w-4 h-4 mr-2 text-brand-gold group-hover:translate-x-1 transition-all duration-300 shrink-0" />
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                  <ChevronRight className="text-brand-gold mr-2 h-4 w-4 shrink-0 transition-all duration-300 group-hover:translate-x-1" />
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
                     Ayurveda
                   </span>
                 </Link>
-                <ul className="flex flex-col space-y-3 pl-6 border-l-2 border-brand-gold/10 ml-[7px]">
+                <ul className="border-brand-gold/10 ml-[7px] flex flex-col space-y-3 border-l-2 pl-6">
                   {treatments.slice(0, 5).map((treatment) => (
                     <li key={treatment.id}>
                       <Link
                         href={`/our-treatments#${treatment.id}`}
-                        className="text-gray-700 hover:text-brand-primary text-sm font-medium transition-colors flex items-center group"
+                        className="hover:text-brand-primary group flex items-center text-sm font-medium text-gray-700 transition-colors"
                       >
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/40 mr-3 group-hover:bg-brand-gold transition-colors shrink-0 -ml-[25px]" />
-                        <span className="group-hover:translate-x-1 transition-transform duration-300 line-clamp-1">
+                        <div className="bg-brand-gold/40 group-hover:bg-brand-gold mr-3 -ml-[25px] h-1.5 w-1.5 shrink-0 rounded-full transition-colors" />
+                        <span className="line-clamp-1 transition-transform duration-300 group-hover:translate-x-1">
                           {treatment.title}
                         </span>
                       </Link>
@@ -197,45 +190,45 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact Info */}
-          <div className="lg:col-span-3 flex flex-col space-y-6">
-            <h4 className="text-xl font-heading font-bold text-black tracking-wide flex items-center whitespace-nowrap">
+          <div className="flex flex-col space-y-6 lg:col-span-3">
+            <h4 className="font-heading flex items-center text-xl font-bold tracking-wide whitespace-nowrap text-black">
               Contact Us
-              <span className="w-12 h-0.5 bg-brand-gold ml-3 rounded-full opacity-50 shrink-0"></span>
+              <span className="bg-brand-gold ml-3 h-0.5 w-12 shrink-0 rounded-full opacity-50"></span>
             </h4>
             <ul className="flex flex-col space-y-5">
-              <li className="flex items-start text-black text-base font-medium group cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
-                  <MapPin className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
+              <li className="group flex cursor-pointer items-start text-base font-medium text-black">
+                <div className="bg-brand-primary/5 group-hover:bg-brand-primary mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                  <MapPin className="text-brand-primary group-hover:text-brand-gold h-5 w-5 transition-colors duration-300" />
                 </div>
                 <span className="mt-1.5 leading-relaxed">
                   {siteConfig.address.full}
                 </span>
               </li>
-              <li className="flex items-center text-black text-base font-medium group cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
-                  <Phone className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
+              <li className="group flex cursor-pointer items-center text-base font-medium text-black">
+                <div className="bg-brand-primary/5 group-hover:bg-brand-primary mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                  <Phone className="text-brand-primary group-hover:text-brand-gold h-5 w-5 transition-colors duration-300" />
                 </div>
                 <a
                   href={`tel:${siteConfig.contact.phoneRaw}`}
-                  className="hover:text-brand-primary transition-colors mt-0.5"
+                  className="hover:text-brand-primary mt-0.5 transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
               </li>
-              <li className="flex items-center text-black text-base font-medium group cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
-                  <Mail className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
+              <li className="group flex cursor-pointer items-center text-base font-medium text-black">
+                <div className="bg-brand-primary/5 group-hover:bg-brand-primary mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                  <Mail className="text-brand-primary group-hover:text-brand-gold h-5 w-5 transition-colors duration-300" />
                 </div>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="hover:text-brand-primary transition-colors mt-0.5 break-all"
+                  className="hover:text-brand-primary mt-0.5 break-all transition-colors"
                 >
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li className="flex items-start text-black text-base font-medium group pt-1 cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center mr-4 shrink-0 group-hover:bg-brand-primary group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
-                  <Clock className="w-5 h-5 text-brand-primary group-hover:text-brand-gold transition-colors duration-300" />
+              <li className="group flex cursor-pointer items-start pt-1 text-base font-medium text-black">
+                <div className="bg-brand-primary/5 group-hover:bg-brand-primary mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                  <Clock className="text-brand-primary group-hover:text-brand-gold h-5 w-5 transition-colors duration-300" />
                 </div>
                 <span className="mt-1.5 leading-relaxed">
                   {siteConfig.hours.display}
@@ -246,11 +239,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-brand-primary/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-base text-black font-medium text-center md:text-left">
+        <div className="border-brand-primary/10 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
+          <p className="text-center text-base font-medium text-black md:text-left">
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-base text-black font-medium">
+          <div className="flex flex-wrap justify-center gap-6 text-base font-medium text-black">
             <Link
               href="#"
               className="hover:text-brand-primary transition-colors"

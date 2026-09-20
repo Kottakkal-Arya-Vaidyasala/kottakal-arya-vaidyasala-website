@@ -1,0 +1,19 @@
+# Dependencies
+node_modules
+
+# Next.js build output
+.next
+out
+
+# Generated files
+tsconfig.tsbuildinfo
+
+# Env files
+.env
+.env.*
+
+# Misc scripts (one-off migration scripts)
+*.js
+
+# Package lock
+package-lock.json

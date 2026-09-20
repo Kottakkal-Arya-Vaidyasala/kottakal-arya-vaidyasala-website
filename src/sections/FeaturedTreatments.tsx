@@ -52,10 +52,10 @@ export default function FeaturedTreatments() {
     <section
       ref={sectionRef}
       id="featured-treatments"
-      className="pt-4 pb-8 md:pt-8 md:pb-16 bg-white relative overflow-hidden scroll-mt-24"
+      className="relative scroll-mt-24 overflow-hidden bg-white pt-4 pb-8 md:pt-8 md:pb-16"
     >
       {/* Subtle background decorations */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-primary/[0.02] rounded-full filter blur-[200px] pointer-events-none" />
+      <div className="bg-brand-primary/[0.02] pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] rounded-full blur-[200px] filter" />
 
       <Container>
         <AnimatedReveal direction="up">
@@ -68,7 +68,7 @@ export default function FeaturedTreatments() {
         </AnimatedReveal>
 
         {/* ── Responsive Grid Layout ────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-12 max-w-7xl mx-auto">
+        <div className="mx-auto mt-12 grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {(showAll
             ? featuredTreatments.slice(0, 6)
             : featuredTreatments.slice(0, 3)
@@ -81,8 +81,8 @@ export default function FeaturedTreatments() {
                 delay={(idx % 6) * 100}
               >
                 <div
-                  className={`flex flex-col h-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden group ${
-                    isNavy ? "bg-[#1F2A44]" : "bg-white border border-gray-100"
+                  className={`group flex h-full flex-col overflow-hidden rounded-2xl shadow-lg transition-shadow hover:shadow-xl ${
+                    isNavy ? "bg-[#1F2A44]" : "border border-gray-100 bg-white"
                   }`}
                 >
                   <div className="relative aspect-[16/9] w-full overflow-hidden">
@@ -97,44 +97,44 @@ export default function FeaturedTreatments() {
                       }`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 glass rounded-full px-2.5 py-1 flex items-center gap-1.5 border border-white/20">
-                      <Clock className="w-3 h-3 text-brand-gold" />
-                      <span className="text-[10px] font-semibold text-white tracking-wider">
+                    <div className="from-brand-dark/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
+                    <div className="glass absolute bottom-3 left-3 flex items-center gap-1.5 rounded-full border border-white/20 px-2.5 py-1">
+                      <Clock className="text-brand-gold h-3 w-3" />
+                      <span className="text-[10px] font-semibold tracking-wider text-white">
                         {treatment.duration}
                       </span>
                     </div>
                   </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                    <span className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase text-brand-gold mb-2 block">
+                  <div className="flex flex-grow flex-col p-5 sm:p-6">
+                    <span className="text-brand-gold mb-2 block text-[10px] font-semibold tracking-[0.15em] uppercase sm:text-xs">
                       Signature Therapy
                     </span>
                     <h3
-                      className={`font-heading text-xl sm:text-2xl font-bold mb-2 leading-tight ${isNavy ? "text-white" : "text-[#1F2A44]"}`}
+                      className={`font-heading mb-2 text-xl leading-tight font-bold sm:text-2xl ${isNavy ? "text-white" : "text-[#1F2A44]"}`}
                     >
                       {treatment.title}
                     </h3>
                     <p
-                      className={`text-xs sm:text-sm font-semibold mb-4 ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}
+                      className={`mb-4 text-xs font-semibold sm:text-sm ${isNavy ? "text-brand-gold" : "text-brand-primary"}`}
                     >
                       {treatment.subtitle}
                     </p>
                     <p
-                      className={`text-sm leading-relaxed mb-6 line-clamp-3 ${isNavy ? "text-gray-300" : "text-[#1F2A44]/80"}`}
+                      className={`mb-6 line-clamp-3 text-sm leading-relaxed ${isNavy ? "text-gray-300" : "text-[#1F2A44]/80"}`}
                     >
                       {treatment.description}
                     </p>
-                    <div className="mt-auto pt-5 border-t border-brand-gold/20 flex justify-center">
+                    <div className="border-brand-gold/20 mt-auto flex justify-center border-t pt-5">
                       <Link
                         href={`/our-treatments#treatment-${treatment.id}`}
                         className="flex justify-center"
                       >
                         <PrimaryButton
-                          icon={<ArrowRight className="w-4 h-4" />}
-                          className={`px-8 py-3 text-sm transition-all duration-300 shadow-none ${
+                          icon={<ArrowRight className="h-4 w-4" />}
+                          className={`px-8 py-3 text-sm shadow-none transition-all duration-300 ${
                             isNavy
-                              ? "bg-brand-gold text-brand-dark border-brand-gold hover:bg-white hover:text-brand-dark hover:border-white"
-                              : "bg-brand-primary text-white border-brand-primary hover:bg-brand-gold hover:text-white hover:border-brand-gold"
+                              ? "bg-brand-gold text-brand-dark border-brand-gold hover:text-brand-dark hover:border-white hover:bg-white"
+                              : "bg-brand-primary border-brand-primary hover:bg-brand-gold hover:border-brand-gold text-white hover:text-white"
                           }`}
                         >
                           Book Now
@@ -150,7 +150,7 @@ export default function FeaturedTreatments() {
 
         {/* Toggle Button */}
         {featuredTreatments.length > 3 && (
-          <div className="mt-8 lg:mt-16 flex justify-center relative z-10">
+          <div className="relative z-10 mt-8 flex justify-center lg:mt-16">
             <PrimaryButton
               onClick={() => {
                 if (showAll) {
@@ -164,7 +164,7 @@ export default function FeaturedTreatments() {
                   setShowAll(true);
                 }
               }}
-              className="px-8 py-4 bg-brand-primary text-white border border-brand-primary hover:bg-brand-gold hover:text-brand-dark hover:border-brand-gold transition-all duration-300 shadow-none"
+              className="bg-brand-primary border-brand-primary hover:bg-brand-gold hover:text-brand-dark hover:border-brand-gold border px-8 py-4 text-white shadow-none transition-all duration-300"
             >
               {showAll ? "Show Less Therapies" : "Show More Therapies"}
             </PrimaryButton>

@@ -35,23 +35,23 @@ export default function PrimaryButton({
         className={cn(
           /* Base layout */
           "group relative overflow-hidden font-medium",
-          "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
+          "flex h-auto items-center justify-center gap-2.5 rounded-md px-7 py-5",
           /* Colors — Custom Light Theme */
-          "bg-[#f7f4ee] text-brand-dark hover:bg-brand-gold hover:text-white",
-          "border border-[#f7f4ee] hover:border-brand-gold",
+          "text-brand-dark hover:bg-brand-gold bg-[#f7f4ee] hover:text-white",
+          "hover:border-brand-gold border border-[#f7f4ee]",
           /* Shadow & depth */
-          "shadow-md hover:shadow-2xl hover:shadow-brand-gold/40",
+          "hover:shadow-brand-gold/40 shadow-md hover:shadow-2xl",
           /* Transition */
           "transition-all duration-500 ease-out",
           /* Pulse animation option */
           pulse && "animate-pulse-glow",
-          className,
+          className
         )}
         {...props}
       >
         {/* Inner shimmer light sweep on hover */}
         <span
-          className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/[0.25] to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"
+          className="absolute inset-0 h-full w-full -translate-x-[150%] bg-gradient-to-r from-transparent via-white/[0.25] to-transparent transition-transform duration-1000 ease-in-out group-hover:translate-x-[150%]"
           aria-hidden="true"
         />
 

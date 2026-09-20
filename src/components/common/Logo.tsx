@@ -103,16 +103,16 @@ export default function Logo({
           <div className={cn("flex flex-col", className)}>
             <span
               className={cn(
-                "font-heading font-bold tracking-tight leading-none",
+                "font-heading leading-none font-bold tracking-tight",
                 dimensions.text,
-                light ? "text-white" : "text-brand-dark",
+                light ? "text-white" : "text-brand-dark"
               )}
             >
               KOTTAKKAL
             </span>
-             <span
+            <span
               className={cn(
-                "w-full flex justify-between font-sans font-bold leading-none mt-1",
+                "mt-1 flex w-full justify-between font-sans leading-none font-bold",
                 light ? "text-brand-gold" : "text-brand-primary",
                 size === "sm"
                   ? "text-[6.5px]"
@@ -125,7 +125,7 @@ export default function Logo({
               <span>R</span>
               <span>Y</span>
               <span>A</span>
-              <span className="w-[2px] inline-block"></span>
+              <span className="inline-block w-[2px]"></span>
               <span>V</span>
               <span>A</span>
               <span>I</span>
@@ -153,21 +153,21 @@ export default function Logo({
                 alt="Kottakkal Arya Vaidyasala - Premier Ayurvedic Clinic in Dubai"
                 width={dimensions.logo.w}
                 height={dimensions.logo.h}
-                className="w-full h-full object-contain"
+                className="h-full w-full object-contain"
                 style={{ objectFit: "contain", maxHeight: dimensions.logo.h }}
                 priority
               />
             </div>
-            <div className="flex flex-col justify-center translate-y-[2px]">
+            <div className="flex translate-y-[2px] flex-col justify-center">
               <span
                 className={cn(
-                  "font-bold tracking-tight leading-none",
+                  "leading-none font-bold tracking-tight",
                   size === "sm"
                     ? "text-lg"
                     : size === "md"
                       ? "text-xl"
                       : "text-2xl",
-                  light ? "text-white" : "text-brand-primary",
+                  light ? "text-white" : "text-brand-primary"
                 )}
                 style={{
                   fontFamily:
@@ -178,7 +178,7 @@ export default function Logo({
               </span>
               <span
                 className={cn(
-                  "w-full flex justify-between font-sans font-bold leading-none mt-0.5",
+                  "mt-0.5 flex w-full justify-between font-sans leading-none font-bold",
                   light ? "text-brand-gold" : "text-brand-primary",
                   size === "sm"
                     ? "text-[6.5px]"
@@ -191,7 +191,7 @@ export default function Logo({
                 <span>R</span>
                 <span>Y</span>
                 <span>A</span>
-                <span className="w-[2px] inline-block"></span>
+                <span className="inline-block w-[2px]"></span>
                 <span>V</span>
                 <span>A</span>
                 <span>I</span>
@@ -214,7 +214,7 @@ export default function Logo({
     return (
       <Link
         href="/"
-        className="inline-flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-md"
+        className="group focus-visible:ring-brand-gold inline-flex items-center gap-2.5 rounded-md focus:outline-none focus-visible:ring-2"
         aria-label="Kottakkal Arya Vaidyasala - Home"
       >
         {renderLogo()}
@@ -249,38 +249,38 @@ export function LogoFallback({
   const subSizes = { sm: "text-[7px]", md: "text-[9px]", lg: "text-[10px]" };
 
   return (
-    <Link href="/" className={cn("flex items-center gap-2.5 group", className)}>
+    <Link href="/" className={cn("group flex items-center gap-2.5", className)}>
       <motion.div
         whileHover={{ rotate: 12 }}
         transition={{ type: "spring", stiffness: 300 }}
         className={cn(
           iconSizes[size],
-          "rounded-full flex items-center justify-center border transition-all duration-300",
+          "flex items-center justify-center rounded-full border transition-all duration-300",
           light
-            ? "bg-white/10 border-brand-gold/40 group-hover:bg-white/20"
-            : "bg-brand-primary/10 border-brand-gold/30 group-hover:bg-brand-primary/20",
+            ? "border-brand-gold/40 bg-white/10 group-hover:bg-white/20"
+            : "bg-brand-primary/10 border-brand-gold/30 group-hover:bg-brand-primary/20"
         )}
       >
         <Leaf
           className={cn(
             leafSizes[size],
-            light ? "text-brand-gold" : "text-brand-primary",
+            light ? "text-brand-gold" : "text-brand-primary"
           )}
         />
       </motion.div>
       <div className="flex flex-col">
         <span
           className={cn(
-            "font-heading font-bold leading-none tracking-tight",
+            "font-heading leading-none font-bold tracking-tight",
             titleSizes[size],
-            light ? "text-white" : "text-brand-dark",
+            light ? "text-white" : "text-brand-dark"
           )}
         >
           KOTTAKKAL
         </span>
         <span
           className={cn(
-            "w-full flex justify-between font-sans font-bold leading-none mt-1",
+            "mt-1 flex w-full justify-between font-sans leading-none font-bold",
             light ? "text-brand-gold" : "text-brand-primary",
             size === "sm"
               ? "text-[6.5px]"
@@ -293,7 +293,7 @@ export function LogoFallback({
           <span>R</span>
           <span>Y</span>
           <span>A</span>
-          <span className="w-[2px] inline-block"></span>
+          <span className="inline-block w-[2px]"></span>
           <span>V</span>
           <span>A</span>
           <span>I</span>

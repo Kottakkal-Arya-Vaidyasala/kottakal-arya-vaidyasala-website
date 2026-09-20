@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
 
 /**
  * Resolves the correct base URL for OG images.
@@ -8,18 +8,19 @@ import { Metadata } from "next"
  */
 const getBaseUrl = () => {
   if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
+    return `https://${process.env.VERCEL_URL}`;
   }
-  return "https://www.kottakkalaryavaidyasala.ae"
-}
+  return "https://www.kottakkalaryavaidyasala.ae";
+};
 
-const BASE_URL = getBaseUrl()
+const BASE_URL = getBaseUrl();
 
 const siteConfig = {
   name: "Kottakkal Arya Vaidyasala",
   fullName: "Kottakkal Arya Vaidyasala Ayurvedic & Homeopathic Medical Center",
   shortName: "Kottakkal Ayurveda Abu Dhabi",
-  tagline: "Authentic Ayurveda & Homeopathy — Abu Dhabi's Most Trusted Wellness Destination",
+  tagline:
+    "Authentic Ayurveda & Homeopathy — Abu Dhabi's Most Trusted Wellness Destination",
 
   /**
    * Meta description — 155 chars, keyword-rich, global audience in Abu Dhabi/UAE targeted.
@@ -40,7 +41,8 @@ const siteConfig = {
   email: "kottakkalaryavaidyasalaauh@gmail.com",
 
   address: {
-    streetAddress: "Ground floor, Hamed Center, Al Danah Zone 1, Electra Street",
+    streetAddress:
+      "Ground floor, Hamed Center, Al Danah Zone 1, Electra Street",
     addressLocality: "Abu Dhabi",
     addressRegion: "Abu Dhabi",
     postalCode: "00000",
@@ -80,7 +82,7 @@ const siteConfig = {
     "natural healing Abu Dhabi",
     "chronic pain Ayurveda UAE",
   ],
-}
+};
 
 /**
  * ═══════════════════════════════════════════════════════════
@@ -90,7 +92,8 @@ const siteConfig = {
  */
 export const defaultMetadata: Metadata = {
   title: {
-    default: "Kottakkal Arya Vaidyasala Abu Dhabi | Authentic Ayurveda & Homeopathy in UAE",
+    default:
+      "Kottakkal Arya Vaidyasala Abu Dhabi | Authentic Ayurveda & Homeopathy in UAE",
     template: `%s | Kottakkal Arya Vaidyasala — Ayurveda Abu Dhabi`,
   },
 
@@ -101,9 +104,7 @@ export const defaultMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   icons: {
-    icon: [
-      { url: "/favicon.png", sizes: "any", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon.png", sizes: "any", type: "image/png" }],
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
@@ -117,7 +118,8 @@ export const defaultMetadata: Metadata = {
    * LinkedIn, Telegram etc. when anyone shares your link.
    */
   openGraph: {
-    title: "Kottakkal Arya Vaidyasala | Authentic Ayurveda & Homeopathy — Abu Dhabi, UAE",
+    title:
+      "Kottakkal Arya Vaidyasala | Authentic Ayurveda & Homeopathy — Abu Dhabi, UAE",
     description:
       "Abu Dhabi's most trusted Ayurveda & Homeopathy centre. Expert Shirodhara, Abhyangam, Pizhichil, Elakizhi, Kizhi therapies & Homeopathy. Classical treatments, world-class care. Book now: +971 54 200 9935",
     url: siteConfig.url,
@@ -168,10 +170,11 @@ export const defaultMetadata: Metadata = {
     "geo.region": "AE-AZ",
     "geo.placename": "Abu Dhabi",
     "geo.position": "24.4697;54.3698",
-    "ICBM": "24.4697, 54.3698",
-    "audience": "Global wellness seekers in UAE, expatriates in Abu Dhabi, international patients UAE",
+    ICBM: "24.4697, 54.3698",
+    audience:
+      "Global wellness seekers in UAE, expatriates in Abu Dhabi, international patients UAE",
   },
-}
+};
 
 /**
  * ═══════════════════════════════════════════════════════
@@ -182,50 +185,62 @@ export const defaultMetadata: Metadata = {
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["MedicalBusiness", "LocalBusiness"],
-  "name": siteConfig.fullName,
-  "alternateName": [siteConfig.name, siteConfig.shortName, "Kottakkal Ayurveda Abu Dhabi"],
-  "image": `${BASE_URL}/og.image.webp`,
-  "logo": `${siteConfig.url}/favicon.png`,
-  "@id": `${siteConfig.url}/#local-business`,
-  "url": siteConfig.url,
-  "telephone": siteConfig.telephone,
-  "email": siteConfig.email,
-  "priceRange": "$$",
-  "description": siteConfig.longDescription,
-  "slogan": siteConfig.tagline,
-  "foundingDate": "2010",
-  "areaServed": [
-    { "@type": "City", "name": "Abu Dhabi" },
-    { "@type": "Country", "name": "United Arab Emirates" },
+  name: siteConfig.fullName,
+  alternateName: [
+    siteConfig.name,
+    siteConfig.shortName,
+    "Kottakkal Ayurveda Abu Dhabi",
   ],
-  "address": {
+  image: `${BASE_URL}/og.image.webp`,
+  logo: `${siteConfig.url}/favicon.png`,
+  "@id": `${siteConfig.url}/#local-business`,
+  url: siteConfig.url,
+  telephone: siteConfig.telephone,
+  email: siteConfig.email,
+  priceRange: "$$",
+  description: siteConfig.longDescription,
+  slogan: siteConfig.tagline,
+  foundingDate: "2010",
+  areaServed: [
+    { "@type": "City", name: "Abu Dhabi" },
+    { "@type": "Country", name: "United Arab Emirates" },
+  ],
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": siteConfig.address.streetAddress,
-    "addressLocality": siteConfig.address.addressLocality,
-    "addressRegion": siteConfig.address.addressRegion,
-    "postalCode": siteConfig.address.postalCode,
-    "addressCountry": siteConfig.address.addressCountry,
+    streetAddress: siteConfig.address.streetAddress,
+    addressLocality: siteConfig.address.addressLocality,
+    addressRegion: siteConfig.address.addressRegion,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.addressCountry,
   },
-  "geo": {
+  geo: {
     "@type": "GeoCoordinates",
-    "latitude": 24.4697,
-    "longitude": 54.3698,
+    latitude: 24.4697,
+    longitude: 54.3698,
   },
-  "openingHoursSpecification": [
+  openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "09:00",
-      "closes": "21:00",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "21:00",
     },
   ],
-  "medicalSpecialty": ["Ayurvedic", "Homeopathic", "Traditional Medicine"],
-  "hasMap": "https://maps.google.com/?q=Kottakkal+Arya+Vaidyasala+Abu+Dhabi",
-  "sameAs": [
+  medicalSpecialty: ["Ayurvedic", "Homeopathic", "Traditional Medicine"],
+  hasMap: "https://maps.google.com/?q=Kottakkal+Arya+Vaidyasala+Abu+Dhabi",
+  sameAs: [
     "https://www.facebook.com/kottakkalaryavaidyasalaabudhabi",
     "https://www.instagram.com/kottakkalaryavaidyasalaabudhabi",
   ],
-  "knowsAbout": [
+  knowsAbout: [
     "Abhyangam",
     "Shirodhara",
     "Pizhichil",
@@ -260,4 +275,4 @@ export const localBusinessSchema = {
     "Ayurvedic Medicine",
     "Chronic Pain Management",
   ],
-}
+};

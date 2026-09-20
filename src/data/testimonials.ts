@@ -6,13 +6,13 @@
  */
 
 export interface Testimonial {
-  id: string
-  name: string
-  location: string
-  rating: number
-  treatment: string
-  text: string
-  featured: boolean
+  id: string;
+  name: string;
+  location: string;
+  rating: number;
+  treatment: string;
+  text: string;
+  featured: boolean;
 }
 
 export const testimonials: Testimonial[] = [
@@ -52,10 +52,10 @@ export const testimonials: Testimonial[] = [
     text: "After struggling with knee pain for over five years and being advised surgery by multiple orthopedists, Dr. Vineeth's herbal protocol and targeted Elakizhi therapy restored my mobility completely. I can now walk and exercise without pain. Traditional Ayurveda truly works when practiced by experts.",
     featured: false,
   },
-]
+];
 
 /** The primary featured testimonial for hero-style quote display */
-export const featuredTestimonial = testimonials.find((t) => t.featured)!
+export const featuredTestimonial = testimonials.find((t) => t.featured)!;
 
 /** Supporting testimonials (non-featured) */
-export const supportingTestimonials = testimonials.filter((t) => !t.featured)
+export const supportingTestimonials = testimonials.filter((t) => !t.featured);

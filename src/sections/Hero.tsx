@@ -52,14 +52,14 @@ export default function Hero() {
 
   const prevSlide = () => {
     setCurrentImage((prev) =>
-      prev === 0 ? carouselData.length - 1 : prev - 1,
+      prev === 0 ? carouselData.length - 1 : prev - 1
     );
   };
 
   return (
     <section
       id="hero"
-      className="relative w-full h-[60vh] min-h-[500px] flex items-center overflow-hidden bg-brand-dark group"
+      className="bg-brand-dark group relative flex h-[60vh] min-h-[500px] w-full items-center overflow-hidden"
     >
       {/* ── Background Carousel Layer ──────────────── */}
       <AnimatePresence mode="wait">
@@ -84,29 +84,29 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Dark overlay to ensure text is readable */}
-      <div className="absolute inset-0 bg-brand-dark/30 z-10" />
+      <div className="bg-brand-dark/30 absolute inset-0 z-10" />
 
       {/* ── Manual Navigation Arrows ────────────────── */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 rounded-full bg-white/10 hover:bg-brand-gold/80 backdrop-blur-md border border-white/20 text-white transition-all opacity-0 group-hover:opacity-100"
+        className="hover:bg-brand-gold/80 absolute top-1/2 left-2 z-30 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 text-white opacity-0 backdrop-blur-md transition-all group-hover:opacity-100 md:left-6 md:p-3"
         aria-label="Previous image"
       >
-        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+        <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 rounded-full bg-white/10 hover:bg-brand-gold/80 backdrop-blur-md border border-white/20 text-white transition-all opacity-0 group-hover:opacity-100"
+        className="hover:bg-brand-gold/80 absolute top-1/2 right-2 z-30 -translate-y-1/2 rounded-full border border-white/20 bg-white/10 p-2 text-white opacity-0 backdrop-blur-md transition-all group-hover:opacity-100 md:right-6 md:p-3"
         aria-label="Next image"
       >
-        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+        <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
       </button>
 
       {/* ── Foreground Text Layer ──────────────────── */}
-      <Container className="relative z-20 flex flex-col items-center justify-center text-center h-full pt-16 pb-24">
+      <Container className="relative z-20 flex h-full flex-col items-center justify-center pt-16 pb-24 text-center">
         {/* Title Container with AnimatePresence for smooth transitions */}
-        <div className="mb-1 sm:mb-2 flex items-end justify-center px-2 sm:px-4 w-full overflow-hidden">
+        <div className="mb-1 flex w-full items-end justify-center overflow-hidden px-2 sm:mb-2 sm:px-4">
           <AnimatePresence mode="wait">
             <motion.h1
               key={currentImage}
@@ -115,7 +115,7 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-heading font-bold text-white whitespace-normal sm:whitespace-nowrap tracking-wide leading-tight px-2 text-center"
+              className="font-heading px-2 text-center text-xl leading-tight font-bold tracking-wide whitespace-normal text-white sm:text-2xl sm:whitespace-nowrap md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl"
             >
               {carouselData[currentImage].title}
             </motion.h1>
@@ -132,7 +132,7 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
-              className="text-[8px] sm:text-xs md:text-sm lg:text-base text-gray-200 font-light tracking-[0.15em] uppercase text-center"
+              className="text-center text-[8px] font-light tracking-[0.15em] text-gray-200 uppercase sm:text-xs md:text-sm lg:text-base"
             >
               {carouselData[currentImage].subtitle}
             </motion.p>
@@ -140,14 +140,14 @@ export default function Hero() {
         </div>
 
         {/* Carousel Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full glass bg-white/10 backdrop-blur-md">
+        <div className="glass absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-md">
           {carouselData.map((_, idx) => (
             <div
               key={idx}
-              className={`transition-all duration-500 rounded-full cursor-pointer ${
+              className={`cursor-pointer rounded-full transition-all duration-500 ${
                 idx === currentImage
-                  ? "w-6 h-1.5 bg-brand-gold"
-                  : "w-1.5 h-1.5 bg-white/40 hover:bg-white/60"
+                  ? "bg-brand-gold h-1.5 w-6"
+                  : "h-1.5 w-1.5 bg-white/40 hover:bg-white/60"
               }`}
               onClick={() => setCurrentImage(idx)}
             />

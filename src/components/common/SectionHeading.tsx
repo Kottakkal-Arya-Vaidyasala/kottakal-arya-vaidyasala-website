@@ -37,7 +37,7 @@ export default function SectionHeading({
   return (
     <div
       ref={ref}
-      className={cn("flex flex-col mb-12 md:mb-20", alignmentClass, className)}
+      className={cn("mb-12 flex flex-col md:mb-20", alignmentClass, className)}
     >
       {/* Subtitle / Eyebrow */}
       {subtitle && (
@@ -46,8 +46,8 @@ export default function SectionHeading({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className={cn(
-            "text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-3",
-            light ? "text-brand-gold/80" : "text-brand-gold",
+            "mb-3 text-xs font-semibold tracking-[0.2em] uppercase md:text-sm",
+            light ? "text-brand-gold/80" : "text-brand-gold"
           )}
         >
           {subtitle}
@@ -60,9 +60,9 @@ export default function SectionHeading({
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
-          "text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] font-bold leading-[1.15] font-heading tracking-wide",
+          "font-heading text-3xl leading-[1.15] font-bold tracking-wide md:text-4xl lg:text-5xl xl:text-[3.25rem]",
           align === "center" ? "max-w-3xl" : "max-w-2xl",
-          light ? "text-white" : "text-brand-primary",
+          light ? "text-white" : "text-brand-primary"
         )}
       >
         {title}
@@ -75,9 +75,9 @@ export default function SectionHeading({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className={cn(
-            "text-base md:text-lg mt-5 leading-[1.6] font-light",
+            "mt-5 text-base leading-[1.6] font-light md:text-lg",
             align === "center" ? "max-w-2xl" : "max-w-xl",
-            light ? "text-gray-300" : "text-brand-grey",
+            light ? "text-gray-300" : "text-brand-grey"
           )}
         >
           {description}
@@ -89,14 +89,14 @@ export default function SectionHeading({
         initial={{ opacity: 0, scaleX: 0 }}
         animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="flex items-center gap-2 mt-5 origin-left"
+        className="mt-5 flex origin-left items-center gap-2"
         style={{
           originX: align === "center" ? 0.5 : align === "right" ? 1 : 0,
         }}
       >
-        <div className="h-[2px] w-10 rounded-full bg-brand-gold" />
-        <div className="h-2 w-2 rounded-full rotate-45 bg-brand-gold" />
-        <div className="h-[2px] w-10 rounded-full bg-brand-gold" />
+        <div className="bg-brand-gold h-[2px] w-10 rounded-full" />
+        <div className="bg-brand-gold h-2 w-2 rotate-45 rounded-full" />
+        <div className="bg-brand-gold h-[2px] w-10 rounded-full" />
       </motion.div>
     </div>
   );

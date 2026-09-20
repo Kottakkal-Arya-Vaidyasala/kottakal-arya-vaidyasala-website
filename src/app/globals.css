@@ -114,7 +114,7 @@
     overscroll-behavior-y: none;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply scroll-smooth font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* Disable elastic/bounce overscroll on mobile — no scrolling past footer */

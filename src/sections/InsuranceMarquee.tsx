@@ -26,8 +26,8 @@ const insuranceLogos = [
 
 export default function InsuranceMarquee() {
   return (
-    <section className="py-12 md:py-16 bg-white overflow-hidden flex flex-col items-center">
-      <Container className="relative z-20 w-full mb-8">
+    <section className="flex flex-col items-center overflow-hidden bg-white py-12 md:py-16">
+      <Container className="relative z-20 mb-8 w-full">
         <SectionHeading
           title="Ayurvedic Treatments Covered by Insurance"
           subtitle="Our Insurance Partners"
@@ -37,7 +37,7 @@ export default function InsuranceMarquee() {
       </Container>
 
       {/* Constrained scrolling marquee to create gaps on both sides */}
-      <div className="relative w-full max-w-5xl mx-auto px-4">
+      <div className="relative mx-auto w-full max-w-5xl px-4">
         <InfiniteSlider
           className="flex h-24 w-full items-center"
           duration={50}
@@ -51,28 +51,28 @@ export default function InsuranceMarquee() {
             return (
               <div
                 key={filename}
-                className="group flex items-center justify-center w-32 md:w-44 h-16 md:h-20 bg-white border border-gray-100 rounded-xl hover:border-gray-200 transition-all duration-300 shadow-sm relative overflow-hidden cursor-pointer"
+                className="group relative flex h-16 w-32 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-gray-200 md:h-20 md:w-44"
               >
                 {/* Subtle elegant gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="from-brand-gold/5 absolute inset-0 bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 <img
                   src={`/images/insurance/${filename}`}
                   alt={`${insuranceName} Health Insurance Network - Ayurvedic Clinic Dubai`}
                   title={`${insuranceName} Insurance Covered Ayurvedic Treatments`}
-                  className={`w-full h-full object-contain object-center opacity-70 group-hover:opacity-100 transition-all duration-500 mix-blend-multiply relative z-10 ${
+                  className={`relative z-10 h-full w-full object-contain object-center opacity-70 mix-blend-multiply transition-all duration-500 group-hover:opacity-100 ${
                     filename.includes("msh")
-                      ? "scale-[1.35] group-hover:scale-[1.45] p-2 md:p-3 object-center translate-y-1 md:translate-y-2"
+                      ? "translate-y-1 scale-[1.35] object-center p-2 group-hover:scale-[1.45] md:translate-y-2 md:p-3"
                       : filename.includes("dubai")
-                        ? "scale-[1.5] group-hover:scale-[1.65] p-2 md:p-3"
+                        ? "scale-[1.5] p-2 group-hover:scale-[1.65] md:p-3"
                         : filename.includes("qic") ||
                             filename.includes("mednet")
-                          ? "scale-[0.85] group-hover:scale-[0.95] p-3 md:p-5"
+                          ? "scale-[0.85] p-3 group-hover:scale-[0.95] md:p-5"
                           : filename.includes("metlife") ||
                               filename.includes("gig") ||
                               filename.includes("inayah")
-                            ? "scale-[1.25] group-hover:scale-[1.35] p-2 md:p-3"
-                            : "scale-100 group-hover:scale-110 p-3 md:p-5"
+                            ? "scale-[1.25] p-2 group-hover:scale-[1.35] md:p-3"
+                            : "scale-100 p-3 group-hover:scale-110 md:p-5"
                   }`}
                 />
               </div>

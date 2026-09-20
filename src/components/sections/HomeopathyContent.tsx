@@ -192,7 +192,7 @@ export default function HomeopathyContent() {
 
   const { openWhatsApp } = useWhatsApp();
   const [expandedCondition, setExpandedCondition] = useState<string | null>(
-    null,
+    null
   );
   const [showAllConditions, setShowAllConditions] = useState(false);
   const showMoreRef = useRef<HTMLDivElement>(null);
@@ -200,7 +200,7 @@ export default function HomeopathyContent() {
   const INITIAL_VISIBLE_COUNT = 5;
   const hiddenCount = Math.max(
     0,
-    homeopathyConditions.length - INITIAL_VISIBLE_COUNT,
+    homeopathyConditions.length - INITIAL_VISIBLE_COUNT
   );
   const visibleConditions = showAllConditions
     ? homeopathyConditions
@@ -219,14 +219,14 @@ export default function HomeopathyContent() {
   return (
     <>
       {/* ── 2. Introduction & Why Homeopathy ────────────── */}
-      <section className="pt-12 pb-12 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28 bg-white relative overflow-hidden">
+      <section className="relative overflow-hidden bg-white pt-12 pb-12 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28">
         <motion.div
           style={{ y: y1 }}
-          className="absolute -right-[20%] top-[5%] w-[600px] h-[600px] bg-brand-gold/5 rounded-full filter blur-[150px] pointer-events-none"
+          className="bg-brand-gold/5 pointer-events-none absolute top-[5%] -right-[20%] h-[600px] w-[600px] rounded-full blur-[150px] filter"
         />
 
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-stretch mb-12 md:mb-20">
+          <div className="mb-12 grid grid-cols-1 items-stretch gap-10 md:mb-20 lg:grid-cols-2 lg:gap-16">
             {/* Text Side */}
             <motion.div
               initial={{ opacity: 0, x: -30, filter: "blur(10px)" }}
@@ -235,7 +235,7 @@ export default function HomeopathyContent() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-left"
             >
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-brand-primary mb-10 md:mb-14 text-left">
+              <h2 className="font-heading text-brand-primary mb-10 text-left text-2xl font-bold sm:text-4xl md:mb-14 md:text-5xl lg:text-6xl">
                 What is{" "}
                 <span className="text-brand-gold relative inline-block">
                   Homeopathy?
@@ -248,12 +248,12 @@ export default function HomeopathyContent() {
                       ease: "easeInOut",
                     }}
                     viewport={{ once: true }}
-                    className="absolute -bottom-1 left-0 h-[3px] bg-brand-gold rounded-full"
+                    className="bg-brand-gold absolute -bottom-1 left-0 h-[3px] rounded-full"
                   />
                 </span>
               </h2>
               <div className="flex flex-col space-y-6 md:space-y-8">
-                <p className="first-letter:text-5xl md:first-letter:text-6xl first-letter:font-heading first-letter:font-bold first-letter:text-brand-gold first-letter:mr-2 md:first-letter:mr-3 first-letter:float-left first-letter:leading-[0.85] text-sm sm:text-base md:text-lg leading-relaxed md:leading-[1.8] font-light text-gray-600 text-left">
+                <p className="first-letter:font-heading first-letter:text-brand-gold text-left text-sm leading-relaxed font-light text-gray-600 first-letter:float-left first-letter:mr-2 first-letter:text-5xl first-letter:leading-[0.85] first-letter:font-bold sm:text-base md:text-lg md:leading-[1.8] md:first-letter:mr-3 md:first-letter:text-6xl">
                   Experience the profound elegance of Homeopathy, a time-honored
                   system of natural medicine that awakens the body&apos;s
                   intrinsic healing intelligence. Rather than merely masking
@@ -262,17 +262,17 @@ export default function HomeopathyContent() {
                   within—offering profound, lasting relief without compromise.
                 </p>
 
-                <div className="relative pl-6 md:pl-8 py-5 border-l-[3px] border-brand-gold bg-gradient-to-r from-brand-gold/10 via-brand-gold/[0.02] to-transparent rounded-r-2xl my-2">
-                  <div className="absolute -left-[14px] -top-3 text-brand-gold opacity-60 text-5xl font-heading leading-none">
+                <div className="border-brand-gold from-brand-gold/10 via-brand-gold/[0.02] relative my-2 rounded-r-2xl border-l-[3px] bg-gradient-to-r to-transparent py-5 pl-6 md:pl-8">
+                  <div className="text-brand-gold font-heading absolute -top-3 -left-[14px] text-5xl leading-none opacity-60">
                     &ldquo;
                   </div>
-                  <p className="text-brand-primary font-heading font-medium italic text-lg md:text-xl m-0 leading-relaxed text-left relative z-10">
+                  <p className="text-brand-primary font-heading relative z-10 m-0 text-left text-lg leading-relaxed font-medium italic md:text-xl">
                     True healing requires deeply personalized care. We bridge
                     your physical, mental, and emotional well-being.
                   </p>
                 </div>
 
-                <p className="text-sm sm:text-base md:text-lg leading-relaxed md:leading-[1.8] font-light text-gray-600 text-left">
+                <p className="text-left text-sm leading-relaxed font-light text-gray-600 sm:text-base md:text-lg md:leading-[1.8]">
                   At Kottakkal Arya Vaidyasala, our expert homeopathic
                   physicians take the time to understand your complete
                   constitutional profile. We meticulously curate a precise,
@@ -288,9 +288,9 @@ export default function HomeopathyContent() {
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full rounded-3xl overflow-hidden shadow-2xl group mt-2 lg:mt-0 min-h-[300px]"
+              className="group relative mt-2 aspect-[4/3] min-h-[300px] w-full overflow-hidden rounded-3xl shadow-2xl lg:mt-0 lg:aspect-auto lg:h-full"
             >
-              <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
+              <div className="bg-brand-primary/5 absolute inset-0 z-10 transition-colors duration-500 group-hover:bg-transparent" />
               <Image
                 src="/images/homeopathy/homeopathy-medicine.webp"
                 alt="Homeopathy Medicine - Ayurvedic Treatment in Dubai"
@@ -299,13 +299,13 @@ export default function HomeopathyContent() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               {/* Decorative elements */}
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-gold/20 rounded-full blur-3xl z-20 pointer-events-none" />
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-primary/20 rounded-full blur-3xl z-20 pointer-events-none" />
+              <div className="bg-brand-gold/20 pointer-events-none absolute -right-10 -bottom-10 z-20 h-40 w-40 rounded-full blur-3xl" />
+              <div className="bg-brand-primary/20 pointer-events-none absolute -top-10 -left-10 z-20 h-40 w-40 rounded-full blur-3xl" />
             </motion.div>
           </div>
 
           {/* Why Homeopathy Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12 max-w-5xl mx-auto">
+          <div className="mx-auto mt-8 grid max-w-5xl grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 md:gap-6">
             {whyHomeopathyPoints.map((point, idx) => (
               <motion.div
                 key={idx}
@@ -317,20 +317,20 @@ export default function HomeopathyContent() {
                   delay: idx * 0.1,
                   ease: "easeOut",
                 }}
-                className="relative flex flex-row items-start gap-4 sm:gap-5 p-4 sm:p-6 rounded-2xl transition-all duration-500 hover:bg-brand-primary/[0.02] hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] group border border-transparent hover:border-brand-gold/20 bg-white sm:bg-transparent shadow-sm sm:shadow-none"
+                className="hover:bg-brand-primary/[0.02] group hover:border-brand-gold/20 relative flex flex-row items-start gap-4 rounded-2xl border border-transparent bg-white p-4 shadow-sm transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] sm:gap-5 sm:bg-transparent sm:p-6 sm:shadow-none"
               >
                 {/* Decorative expanding line */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-brand-gold rounded-r-full transition-all duration-500 group-hover:h-1/2 opacity-0 group-hover:opacity-100" />
+                <div className="bg-brand-gold absolute top-1/2 left-0 h-0 w-1 -translate-y-1/2 rounded-r-full opacity-0 transition-all duration-500 group-hover:h-1/2 group-hover:opacity-100" />
 
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-brand-primary/5 flex items-center justify-center shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:bg-brand-gold group-hover:-rotate-6 group-hover:shadow-md">
-                  <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-brand-primary group-hover:text-white transition-colors duration-500" />
+                <div className="bg-brand-primary/5 group-hover:bg-brand-gold flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-md sm:h-14 sm:w-14 sm:rounded-2xl">
+                  <CheckCircle2 className="text-brand-primary h-5 w-5 transition-colors duration-500 group-hover:text-white sm:h-6 sm:w-6" />
                 </div>
 
                 <div className="flex-1 transition-transform duration-500 group-hover:translate-x-1 sm:group-hover:translate-x-2">
-                  <h3 className="font-heading font-bold text-brand-primary text-lg sm:text-xl mb-1.5 sm:mb-2.5 transition-colors duration-500 group-hover:text-brand-gold">
+                  <h3 className="font-heading text-brand-primary group-hover:text-brand-gold mb-1.5 text-lg font-bold transition-colors duration-500 sm:mb-2.5 sm:text-xl">
                     {point.title}
                   </h3>
-                  <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed">
+                  <p className="text-xs leading-relaxed text-gray-700 sm:text-sm md:text-base">
                     {point.desc}
                   </p>
                 </div>
@@ -343,15 +343,15 @@ export default function HomeopathyContent() {
       {/* ── 3. Conditions We Treat — Accordion ──────────── */}
       <section
         id="homeopathy-conditions"
-        className="pt-6 pb-12 md:pt-12 md:pb-28 bg-brand-cream relative overflow-hidden"
+        className="bg-brand-cream relative overflow-hidden pt-6 pb-12 md:pt-12 md:pb-28"
       >
         <motion.div
           style={{ y: y2 }}
-          className="absolute -left-[15%] top-[20%] w-[600px] h-[600px] bg-brand-primary/[0.03] rounded-full filter blur-[150px] pointer-events-none"
+          className="bg-brand-primary/[0.03] pointer-events-none absolute top-[20%] -left-[15%] h-[600px] w-[600px] rounded-full blur-[150px] filter"
         />
         <motion.div
           style={{ y: y3 }}
-          className="absolute right-[-10%] bottom-[10%] w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[120px] pointer-events-none"
+          className="bg-brand-gold/[0.04] pointer-events-none absolute right-[-10%] bottom-[10%] h-[400px] w-[400px] rounded-full blur-[120px] filter"
         />
 
         <Container className="relative z-10">
@@ -360,15 +360,15 @@ export default function HomeopathyContent() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center mb-6 md:mb-12 flex flex-col items-center"
+            className="mb-6 flex flex-col items-center text-center md:mb-12"
           >
-            <div className="inline-flex items-center gap-1.5 md:gap-2 bg-brand-primary/5 border border-brand-primary/10 rounded-full px-4 py-1.5 mb-4 md:mb-5">
-              <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
-              <p className="text-brand-primary tracking-[0.2em] uppercase text-[10px] sm:text-xs font-bold">
+            <div className="bg-brand-primary/5 border-brand-primary/10 mb-4 inline-flex items-center gap-1.5 rounded-full border px-4 py-1.5 md:mb-5 md:gap-2">
+              <Sparkles className="text-brand-gold h-3.5 w-3.5 md:h-4 md:w-4" />
+              <p className="text-brand-primary text-[10px] font-bold tracking-[0.2em] uppercase sm:text-xs">
                 Conditions We Treat
               </p>
             </div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-heading font-bold text-brand-primary mb-4 md:mb-6 text-center">
+            <h2 className="font-heading text-brand-primary mb-4 text-center text-2xl font-bold sm:text-4xl md:mb-6 md:text-5xl lg:text-6xl 2xl:text-7xl">
               Homeopathic{" "}
               <span className="text-brand-gold relative inline-block">
                 Treatments
@@ -377,18 +377,18 @@ export default function HomeopathyContent() {
                   whileInView={{ width: "100%" }}
                   transition={{ duration: 0.8, delay: 0.4, ease: "easeInOut" }}
                   viewport={{ once: true }}
-                  className="absolute -bottom-1 left-0 h-[3px] bg-brand-gold/40 rounded-full"
+                  className="bg-brand-gold/40 absolute -bottom-1 left-0 h-[3px] rounded-full"
                 />
               </span>
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-700 max-w-xl mx-auto leading-relaxed">
+            <p className="mx-auto max-w-xl text-xs leading-relaxed text-gray-700 sm:text-sm md:text-base">
               Our homeopathic physician treats a wide spectrum of acute and
               chronic conditions with individualized constitutional
               prescriptions.
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-3">
+          <div className="mx-auto max-w-4xl space-y-3">
             {visibleConditions.map((condition, idx) => {
               const isExpanded = expandedCondition === condition.id;
               return (
@@ -409,10 +409,10 @@ export default function HomeopathyContent() {
                     : {})}
                 >
                   <div
-                    className={`bg-white rounded-2xl border transition-all duration-400 overflow-hidden ${
+                    className={`overflow-hidden rounded-2xl border bg-white transition-all duration-400 ${
                       isExpanded
-                        ? "border-brand-primary/15 shadow-lg shadow-brand-primary/5"
-                        : "border-brand-primary/[0.06] shadow-sm hover:shadow-md hover:border-brand-primary/10"
+                        ? "border-brand-primary/15 shadow-brand-primary/5 shadow-lg"
+                        : "border-brand-primary/[0.06] hover:border-brand-primary/10 shadow-sm hover:shadow-md"
                     }`}
                   >
                     {/* Accordion Header */}
@@ -420,11 +420,11 @@ export default function HomeopathyContent() {
                       onClick={() =>
                         setExpandedCondition(isExpanded ? null : condition.id)
                       }
-                      className="w-full flex items-center gap-4 sm:gap-5 p-5 sm:p-6 text-left transition-colors duration-300 hover:bg-brand-primary/[0.015]"
+                      className="hover:bg-brand-primary/[0.015] flex w-full items-center gap-4 p-5 text-left transition-colors duration-300 sm:gap-5 sm:p-6"
                     >
                       {/* Number */}
                       <span
-                        className={`hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 shrink-0 ${
+                        className={`hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold tracking-wide transition-all duration-300 sm:inline-flex ${
                           isExpanded
                             ? "bg-brand-primary text-white shadow-md"
                             : "bg-brand-primary/5 text-brand-primary/50"
@@ -434,10 +434,10 @@ export default function HomeopathyContent() {
                       </span>
 
                       {/* Title + Badge */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 flex-wrap">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-3">
                           <h3
-                            className={`font-heading text-base sm:text-lg font-bold transition-colors duration-300 ${
+                            className={`font-heading text-base font-bold transition-colors duration-300 sm:text-lg ${
                               isExpanded
                                 ? "text-brand-primary"
                                 : "text-brand-primary/80"
@@ -445,21 +445,21 @@ export default function HomeopathyContent() {
                           >
                             {condition.title}
                           </h3>
-                          <span className="hidden sm:inline-block text-[9px] font-bold tracking-wider uppercase text-white bg-brand-primary px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                          <span className="bg-brand-primary hidden rounded-full px-2.5 py-0.5 text-[9px] font-bold tracking-wider whitespace-nowrap text-white uppercase sm:inline-block">
                             {condition.subtitle}
                           </span>
                         </div>
                         {!isExpanded && (
-                          <p className="text-gray-600 text-xs sm:text-sm line-clamp-1 mt-1 max-w-2xl">
+                          <p className="mt-1 line-clamp-1 max-w-2xl text-xs text-gray-600 sm:text-sm">
                             {condition.description}
                           </p>
                         )}
                       </div>
 
                       {/* Duration + Chevron */}
-                      <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-                        <div className="hidden sm:flex items-center gap-1.5 text-brand-primary/40">
-                          <Clock className="w-3.5 h-3.5" />
+                      <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+                        <div className="text-brand-primary/40 hidden items-center gap-1.5 sm:flex">
+                          <Clock className="h-3.5 w-3.5" />
                           <span className="text-xs font-medium whitespace-nowrap">
                             {condition.duration}
                           </span>
@@ -467,13 +467,13 @@ export default function HomeopathyContent() {
                         <motion.div
                           animate={{ rotate: isExpanded ? 180 : 0 }}
                           transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className={`w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition-colors duration-300 ${
+                          className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full transition-colors duration-300 ${
                             isExpanded
                               ? "bg-brand-primary text-white"
                               : "bg-brand-primary/5 text-brand-primary/40 hover:bg-brand-primary/10 hover:text-brand-primary/70"
                           }`}
                         >
-                          <ChevronDown className="w-4 h-4" />
+                          <ChevronDown className="h-4 w-4" />
                         </motion.div>
                       </div>
                     </button>
@@ -491,16 +491,16 @@ export default function HomeopathyContent() {
                           }}
                           className="overflow-hidden"
                         >
-                          <div className="px-5 sm:px-6 pb-6 sm:pb-8 pt-0">
-                            <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-primary/10 to-transparent mb-6" />
+                          <div className="px-5 pt-0 pb-6 sm:px-6 sm:pb-8">
+                            <div className="via-brand-primary/10 mb-6 h-px w-full bg-gradient-to-r from-transparent to-transparent" />
 
                             <div className="sm:pl-[60px]">
-                              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
+                              <p className="mb-6 max-w-2xl text-sm leading-relaxed text-gray-700 sm:text-base">
                                 {condition.longDescription ||
                                   condition.description}
                               </p>
 
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
+                              <div className="mb-8 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                                 {condition.benefits.map((benefit, i) => (
                                   <motion.div
                                     key={i}
@@ -512,7 +512,7 @@ export default function HomeopathyContent() {
                                     }}
                                     className="flex items-center gap-2.5 py-1.5"
                                   >
-                                    <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0" />
+                                    <div className="bg-brand-gold h-1.5 w-1.5 shrink-0 rounded-full" />
                                     <span className="text-brand-primary/80 text-sm font-medium">
                                       {benefit}
                                     </span>
@@ -520,9 +520,9 @@ export default function HomeopathyContent() {
                                 ))}
                               </div>
 
-                              <div className="flex flex-col sm:flex-row items-center gap-4">
-                                <div className="flex sm:hidden items-center gap-1.5 text-brand-primary/50">
-                                  <Clock className="w-3.5 h-3.5" />
+                              <div className="flex flex-col items-center gap-4 sm:flex-row">
+                                <div className="text-brand-primary/50 flex items-center gap-1.5 sm:hidden">
+                                  <Clock className="h-3.5 w-3.5" />
                                   <span className="text-xs font-medium">
                                     {condition.duration}
                                   </span>
@@ -534,10 +534,10 @@ export default function HomeopathyContent() {
                                       treatment: condition.title,
                                     });
                                   }}
-                                  className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full text-xs font-bold tracking-wider uppercase bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-primary transition-all duration-300 shadow-lg shadow-brand-primary/15 hover:shadow-brand-gold/20 w-full sm:w-auto"
+                                  className="bg-brand-primary hover:bg-brand-gold hover:text-brand-primary shadow-brand-primary/15 hover:shadow-brand-gold/20 inline-flex w-full items-center justify-center gap-2.5 rounded-full px-8 py-3 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-all duration-300 sm:w-auto"
                                 >
                                   Book Consultation
-                                  <ArrowRight className="w-3.5 h-3.5" />
+                                  <ArrowRight className="h-3.5 w-3.5" />
                                 </button>
                               </div>
                             </div>
@@ -558,10 +558,10 @@ export default function HomeopathyContent() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="max-w-4xl mx-auto mt-8 relative"
+              className="relative mx-auto mt-8 max-w-4xl"
             >
               {!showAllConditions && (
-                <div className="absolute -top-16 left-0 right-0 h-16 bg-gradient-to-t from-brand-cream to-transparent pointer-events-none z-10" />
+                <div className="from-brand-cream pointer-events-none absolute -top-16 right-0 left-0 z-10 h-16 bg-gradient-to-t to-transparent" />
               )}
               <div className="flex justify-center">
                 <motion.button
@@ -570,7 +570,7 @@ export default function HomeopathyContent() {
                       setShowAllConditions(false);
                       setExpandedCondition(null);
                       const section = document.getElementById(
-                        "homeopathy-conditions",
+                        "homeopathy-conditions"
                       );
                       if (section) {
                         const offset =
@@ -585,16 +585,16 @@ export default function HomeopathyContent() {
                   }}
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
-                  className="group inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase bg-brand-primary text-white hover:bg-brand-gold hover:text-brand-primary transition-all duration-400 shadow-lg shadow-brand-primary/15 hover:shadow-xl hover:shadow-brand-gold/20"
+                  className="group bg-brand-primary hover:bg-brand-gold hover:text-brand-primary shadow-brand-primary/15 hover:shadow-brand-gold/20 inline-flex items-center justify-center gap-3 rounded-full px-8 py-3.5 text-xs font-bold tracking-wider text-white uppercase shadow-lg transition-all duration-400 hover:shadow-xl sm:px-10 sm:py-4 sm:text-sm"
                 >
                   {showAllConditions ? (
                     <>
                       Show Less
                       <motion.div
                         animate={{ rotate: 180 }}
-                        className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center"
+                        className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20"
                       >
-                        <ChevronDown className="w-3.5 h-3.5" />
+                        <ChevronDown className="h-3.5 w-3.5" />
                       </motion.div>
                     </>
                   ) : (
@@ -607,9 +607,9 @@ export default function HomeopathyContent() {
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
-                        className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center"
+                        className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20"
                       >
-                        <ChevronDown className="w-3.5 h-3.5" />
+                        <ChevronDown className="h-3.5 w-3.5" />
                       </motion.div>
                     </>
                   )}
@@ -621,14 +621,14 @@ export default function HomeopathyContent() {
       </section>
 
       {/* ── 4. CTA Banner ───────────────────────────────── */}
-      <section className="py-12 md:py-24 bg-brand-primary relative overflow-hidden">
+      <section className="bg-brand-primary relative overflow-hidden py-12 md:py-24">
         <motion.div
           style={{ y: y1 }}
-          className="absolute -right-20 -top-20 w-72 h-72 bg-brand-gold/20 rounded-full filter blur-[80px] pointer-events-none"
+          className="bg-brand-gold/20 pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full blur-[80px] filter"
         />
         <motion.div
           style={{ y: y2 }}
-          className="absolute -left-20 bottom-0 w-56 h-56 bg-brand-gold/10 rounded-full filter blur-[60px] pointer-events-none"
+          className="bg-brand-gold/10 pointer-events-none absolute bottom-0 -left-20 h-56 w-56 rounded-full blur-[60px] filter"
         />
 
         <Container className="relative z-10">
@@ -637,15 +637,15 @@ export default function HomeopathyContent() {
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-center max-w-2xl mx-auto"
+            className="mx-auto max-w-2xl text-center"
           >
-            <p className="text-brand-gold tracking-[0.2em] uppercase text-[10px] md:text-xs font-semibold mb-3 md:mb-4">
+            <p className="text-brand-gold mb-3 text-[10px] font-semibold tracking-[0.2em] uppercase md:mb-4 md:text-xs">
               Begin Your Healing Journey
             </p>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 md:mb-6 leading-tight">
+            <h2 className="font-heading mb-4 text-2xl leading-tight font-bold text-white md:mb-6 md:text-4xl lg:text-5xl">
               Ready to Experience the Power of Homeopathy?
             </h2>
-            <p className="text-white/90 text-sm md:text-base lg:text-lg leading-relaxed mb-8 md:mb-10 px-4">
+            <p className="mb-8 px-4 text-sm leading-relaxed text-white/90 md:mb-10 md:text-base lg:text-lg">
               Book a consultation with our experienced homeopathic physician
               today and take the first step towards lasting natural healing.
             </p>
@@ -655,10 +655,10 @@ export default function HomeopathyContent() {
               onClick={() =>
                 openWhatsApp({ treatment: "Homeopathy Consultation" })
               }
-              className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 md:px-10 py-3.5 md:py-4 rounded-full text-[11px] md:text-sm font-bold tracking-wider uppercase bg-brand-gold text-brand-dark hover:bg-white hover:text-brand-primary transition-all duration-300 shadow-xl shadow-brand-gold/20"
+              className="bg-brand-gold text-brand-dark hover:text-brand-primary shadow-brand-gold/20 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[11px] font-bold tracking-wider uppercase shadow-xl transition-all duration-300 hover:bg-white md:gap-3 md:px-10 md:py-4 md:text-sm"
             >
               Book Consultation Now
-              <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+              <ArrowRight className="h-3.5 w-3.5 md:h-4 md:w-4" />
             </motion.button>
           </motion.div>
         </Container>

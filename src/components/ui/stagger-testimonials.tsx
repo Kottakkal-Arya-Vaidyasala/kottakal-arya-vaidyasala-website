@@ -76,10 +76,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-6 sm:p-8 transition-all duration-500 ease-in-out select-none flex flex-col justify-between rounded-2xl",
+        "absolute top-1/2 left-1/2 flex cursor-pointer flex-col justify-between rounded-2xl border-2 p-6 transition-all duration-500 ease-in-out select-none sm:p-8",
         isCenter
-          ? "z-10 bg-brand-primary text-white border-brand-gold shadow-2xl scale-100 opacity-100"
-          : "z-0 bg-white text-brand-dark border-gray-200 hover:border-brand-gold/50 opacity-0 pointer-events-none sm:opacity-40 sm:pointer-events-auto hover:opacity-75 scale-90",
+          ? "bg-brand-primary border-brand-gold z-10 scale-100 text-white opacity-100 shadow-2xl"
+          : "text-brand-dark hover:border-brand-gold/50 pointer-events-none z-0 scale-90 border-gray-200 bg-white opacity-0 hover:opacity-75 sm:pointer-events-auto sm:opacity-40"
       )}
       style={{
         width: cardWidth,
@@ -93,12 +93,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       }}
     >
       <div>
-        <div className="flex items-center mb-4">
+        <div className="mb-4 flex items-center">
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className="w-3.5 h-3.5 fill-brand-gold text-brand-gold"
+                className="fill-brand-gold text-brand-gold h-3.5 w-3.5"
               />
             ))}
           </div>
@@ -107,14 +107,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         <div className="relative">
           <Quote
             className={cn(
-              "w-8 h-8 absolute -top-2 -left-2 opacity-5",
-              isCenter ? "text-white" : "text-brand-primary",
+              "absolute -top-2 -left-2 h-8 w-8 opacity-5",
+              isCenter ? "text-white" : "text-brand-primary"
             )}
           />
           <h3
             className={cn(
-              "text-xs sm:text-base font-medium leading-relaxed italic mb-4 pl-4 relative z-10 line-clamp-5 sm:line-clamp-none",
-              isCenter ? "text-white" : "text-brand-dark",
+              "relative z-10 mb-4 line-clamp-5 pl-4 text-xs leading-relaxed font-medium italic sm:line-clamp-none sm:text-base",
+              isCenter ? "text-white" : "text-brand-dark"
             )}
           >
             "{testimonial.testimonial}"
@@ -126,7 +126,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         <h4
           className={cn(
             "text-sm font-bold",
-            isCenter ? "text-brand-gold" : "text-brand-primary",
+            isCenter ? "text-brand-gold" : "text-brand-primary"
           )}
         >
           {testimonial.by}
@@ -134,7 +134,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         <p
           className={cn(
             "text-[10px] sm:text-[11px]",
-            isCenter ? "text-white/70" : "text-gray-500",
+            isCenter ? "text-white/70" : "text-gray-500"
           )}
         >
           {testimonial.role} <span className="mx-1">•</span>{" "}
@@ -220,14 +220,14 @@ export const StaggerTestimonials: React.FC = () => {
   }, [testimonialsList]);
 
   return (
-    <div 
+    <div
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
-      className="relative w-full overflow-hidden bg-brand-cream/40 py-10 rounded-[2.5rem] border border-brand-gold/10 h-[320px] sm:h-[380px] select-none"
+      className="bg-brand-cream/40 border-brand-gold/10 relative h-[320px] w-full overflow-hidden rounded-[2.5rem] border py-10 select-none sm:h-[380px]"
     >
       {/* Premium ambient gold backlighting glow behind active card */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] w-64 h-64 bg-brand-gold/15 rounded-full filter blur-[70px] pointer-events-none z-0" />
+      <div className="bg-brand-gold/15 pointer-events-none absolute top-1/2 left-1/2 z-0 h-64 w-64 -translate-x-1/2 -translate-y-[60%] rounded-full blur-[70px] filter" />
 
       {testimonialsList.map((testimonial, index) => {
         const position =
@@ -245,7 +245,6 @@ export const StaggerTestimonials: React.FC = () => {
           />
         );
       })}
-
     </div>
   );
 };

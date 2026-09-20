@@ -47,29 +47,29 @@ const galleryImages = [
 
 export default function LuxuryExperience() {
   return (
-    <section className="py-24 md:py-32 bg-brand-cream relative overflow-hidden">
+    <section className="bg-brand-cream relative overflow-hidden py-24 md:py-32">
       <Container>
         {/* ── Section Header ────────────────────────── */}
-        <AnimatedReveal direction="up" className="text-center mb-16 md:mb-20">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase text-brand-gold mb-3 block">
+        <AnimatedReveal direction="up" className="mb-16 text-center md:mb-20">
+          <span className="text-brand-gold mb-3 block text-xs font-semibold tracking-[0.2em] uppercase">
             Our Environment
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold font-heading text-brand-primary leading-[1.15] max-w-3xl mx-auto mb-5">
+          <h2 className="font-heading text-brand-primary mx-auto mb-5 max-w-3xl text-3xl leading-[1.15] font-bold md:text-4xl lg:text-5xl 2xl:text-6xl">
             A Sanctuary of <span className="text-brand-gold">Healing</span>
           </h2>
-          <p className="text-base md:text-lg text-brand-grey max-w-2xl mx-auto leading-[1.6] font-light">
+          <p className="text-brand-grey mx-auto max-w-2xl text-base leading-[1.6] font-light md:text-lg">
             Step into a space where traditional Ayurvedic aesthetics meet modern
             comfort — designed to nurture your journey to wellness.
           </p>
-          <div className="flex items-center justify-center gap-2 mt-5">
-            <div className="h-[2px] w-10 rounded-full bg-brand-gold" />
-            <div className="h-2 w-2 rounded-full rotate-45 bg-brand-gold" />
-            <div className="h-[2px] w-10 rounded-full bg-brand-gold" />
+          <div className="mt-5 flex items-center justify-center gap-2">
+            <div className="bg-brand-gold h-[2px] w-10 rounded-full" />
+            <div className="bg-brand-gold h-2 w-2 rotate-45 rounded-full" />
+            <div className="bg-brand-gold h-[2px] w-10 rounded-full" />
           </div>
         </AnimatedReveal>
 
         {/* ── Asymmetric Image Grid ─────────────────── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 auto-rows-[200px] md:auto-rows-[220px]">
+        <div className="grid auto-rows-[200px] grid-cols-2 gap-4 md:auto-rows-[220px] md:grid-cols-4 md:gap-5">
           {galleryImages.map((img, idx) => (
             <AnimatedReveal
               key={img.title}
@@ -80,7 +80,7 @@ export default function LuxuryExperience() {
               <motion.div
                 whileHover={{ scale: 0.98 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full h-full rounded-xl overflow-hidden group img-zoom gold-border-reveal cursor-pointer"
+                className="group img-zoom gold-border-reveal relative h-full w-full cursor-pointer overflow-hidden rounded-xl"
               >
                 <Image
                   src={img.src}
@@ -91,9 +91,9 @@ export default function LuxuryExperience() {
                 />
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/50 transition-all duration-500 flex items-end justify-start p-5 md:p-6">
-                  <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <span className="text-xs font-semibold text-brand-gold tracking-wider uppercase">
+                <div className="bg-brand-dark/0 group-hover:bg-brand-dark/50 absolute inset-0 flex items-end justify-start p-5 transition-all duration-500 md:p-6">
+                  <div className="translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <span className="text-brand-gold text-xs font-semibold tracking-wider uppercase">
                       {img.title}
                     </span>
                   </div>

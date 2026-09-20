@@ -32,13 +32,13 @@ export default function BlogPage() {
         delay: 0.2,
       });
     },
-    { scope: headerRef },
+    { scope: headerRef }
   );
 
   return (
-    <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
+    <main className="bg-brand-cream flex min-h-screen flex-col overflow-hidden">
       {/* ── Header ────────────────────────────────── */}
-      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-black text-white">
+      <section className="relative flex h-[60vh] min-h-[500px] w-full items-center justify-center overflow-hidden bg-black text-white">
         <Image
           src="/images/blog/blog-page.webp"
           alt="Ayurveda Health Blog and Wellness Journal Dubai"
@@ -47,19 +47,19 @@ export default function BlogPage() {
           className="object-cover opacity-60"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-0" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/10 rounded-full filter blur-[200px] pointer-events-none z-0" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        <div className="bg-brand-gold/10 pointer-events-none absolute top-1/2 left-1/2 z-0 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[200px] filter" />
 
-        <Container className="relative z-10 text-center pt-16">
+        <Container className="relative z-10 pt-16 text-center">
           <div
             ref={headerRef}
             className="mx-auto"
             style={{ textShadow: "0 4px 20px rgba(0,0,0,0.6)" }}
           >
-            <h1 className="gsap-heading text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-heading font-bold mb-2 text-white drop-shadow-2xl">
+            <h1 className="gsap-heading font-heading mb-2 text-3xl font-bold text-white drop-shadow-2xl md:text-4xl lg:text-5xl 2xl:text-6xl">
               The Wellness <span className="text-brand-gold">Journal</span>
             </h1>
-            <p className="gsap-heading text-base md:text-lg text-gray-100 max-w-xl mx-auto font-light drop-shadow-xl">
+            <p className="gsap-heading mx-auto max-w-xl text-base font-light text-gray-100 drop-shadow-xl md:text-lg">
               Explore Ayurvedic living and holistic health.
             </p>
           </div>
@@ -67,16 +67,16 @@ export default function BlogPage() {
       </section>
 
       {/* ── Featured Post ─────────────────────────── */}
-      <section className="py-12 relative">
+      <section className="relative py-12">
         <Container>
           <AnimatedReveal direction="up" delay={200}>
             <Link
               href={`/blog/${featuredPost.slug}`}
-              className="group block max-w-sm md:max-w-none mx-auto"
+              className="group mx-auto block max-w-sm md:max-w-none"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden bg-white shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500">
+              <div className="grid grid-cols-1 gap-0 overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-xl transition-all duration-500 hover:shadow-2xl lg:grid-cols-2">
                 {/* Image */}
-                <div className="relative aspect-[4/3] lg:aspect-auto h-full overflow-hidden">
+                <div className="relative aspect-[4/3] h-full overflow-hidden lg:aspect-auto">
                   <Image
                     src={featuredPost.imagePath}
                     alt={`${featuredPost.title} - Ayurvedic Wellness Blog Kottakkal Dubai`}
@@ -85,34 +85,34 @@ export default function BlogPage() {
                     priority
                   />
                   <div className="absolute top-6 left-6">
-                    <span className="bg-brand-primary text-white text-xs font-bold tracking-widest uppercase py-1.5 px-4 rounded-full">
+                    <span className="bg-brand-primary rounded-full px-4 py-1.5 text-xs font-bold tracking-widest text-white uppercase">
                       {featuredPost.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 text-xs md:text-sm text-gray-500 mb-4 md:mb-6">
+                <div className="flex flex-col justify-center p-6 lg:p-12">
+                  <div className="mb-4 flex items-center gap-4 text-xs text-gray-500 md:mb-6 md:text-sm">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
+                      <Calendar className="text-brand-gold h-3.5 w-3.5 md:h-4 md:w-4" />
                       <span>{featuredPost.date}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-brand-gold" />
+                      <Clock className="text-brand-gold h-3.5 w-3.5 md:h-4 md:w-4" />
                       <span>{featuredPost.readTime}</span>
                     </div>
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-brand-dark mb-3 md:mb-4 group-hover:text-brand-primary transition-colors">
+                  <h2 className="font-heading text-brand-dark group-hover:text-brand-primary mb-3 text-2xl font-bold transition-colors md:mb-4 md:text-3xl lg:text-4xl">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-gray-600 text-sm md:text-lg leading-relaxed mb-6 md:mb-8">
+                  <p className="mb-6 text-sm leading-relaxed text-gray-600 md:mb-8 md:text-lg">
                     {featuredPost.excerpt}
                   </p>
 
-                  <div className="flex items-center gap-2 text-brand-primary font-semibold group-hover:gap-4 transition-all duration-300">
-                    Read Article <ArrowRight className="w-5 h-5" />
+                  <div className="text-brand-primary flex items-center gap-2 font-semibold transition-all duration-300 group-hover:gap-4">
+                    Read Article <ArrowRight className="h-5 w-5" />
                   </div>
                 </div>
               </div>
@@ -122,22 +122,22 @@ export default function BlogPage() {
       </section>
 
       {/* ── Recent Posts Grid ─────────────────────── */}
-      <section className="py-12 pb-24 relative">
+      <section className="relative py-12 pb-24">
         <Container>
           <AnimatedReveal direction="up">
-            <h3 className="text-2xl font-heading font-bold text-brand-dark mb-8 border-b border-gray-200 pb-4">
+            <h3 className="font-heading text-brand-dark mb-8 border-b border-gray-200 pb-4 text-2xl font-bold">
               Recent Articles
             </h3>
           </AnimatedReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 max-w-sm md:max-w-none mx-auto">
+          <div className="mx-auto grid max-w-sm grid-cols-1 gap-6 md:max-w-none md:grid-cols-2 lg:grid-cols-3 lg:gap-8 2xl:grid-cols-4">
             {recentPosts.map((post, idx) => (
               <AnimatedReveal key={post.id} direction="up" delay={idx * 100}>
                 <Link
                   href={`/blog/${post.slug}`}
                   className="group block h-full"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 h-full flex flex-col">
+                  <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:shadow-xl">
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <Image
                         src={post.imagePath}
@@ -146,27 +146,27 @@ export default function BlogPage() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="bg-white/90 backdrop-blur-sm text-brand-dark text-[10px] font-bold tracking-widest uppercase py-1 px-3 rounded-full">
+                        <span className="text-brand-dark rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold tracking-widest uppercase backdrop-blur-sm">
                           {post.category}
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-5 flex flex-col flex-grow">
-                      <div className="flex items-center justify-between text-[10px] md:text-xs text-gray-500 mb-3 md:mb-4">
+                    <div className="flex flex-grow flex-col p-5">
+                      <div className="mb-3 flex items-center justify-between text-[10px] text-gray-500 md:mb-4 md:text-xs">
                         <span>{post.date}</span>
                         <span>{post.readTime}</span>
                       </div>
 
-                      <h4 className="text-lg md:text-xl font-heading font-bold text-brand-dark mb-2 md:mb-3 group-hover:text-brand-primary transition-colors">
+                      <h4 className="font-heading text-brand-dark group-hover:text-brand-primary mb-2 text-lg font-bold transition-colors md:mb-3 md:text-xl">
                         {post.title}
                       </h4>
-                      <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 flex-grow">
+                      <p className="mb-4 flex-grow text-xs leading-relaxed text-gray-600 md:mb-6 md:text-sm">
                         {post.excerpt}
                       </p>
 
-                      <div className="flex items-center gap-2 text-brand-primary font-semibold text-sm group-hover:gap-3 transition-all duration-300">
-                        Read More <ArrowRight className="w-4 h-4" />
+                      <div className="text-brand-primary flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3">
+                        Read More <ArrowRight className="h-4 w-4" />
                       </div>
                     </div>
                   </div>

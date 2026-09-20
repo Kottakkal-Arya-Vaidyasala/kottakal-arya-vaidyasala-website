@@ -9,7 +9,7 @@ import { Target, Eye } from "lucide-react";
 
 export default function MissionVision() {
   return (
-    <section className="pt-10 pb-16 md:pt-12 md:pb-24 bg-brand-sage/30 relative overflow-hidden">
+    <section className="bg-brand-sage/30 relative overflow-hidden pt-10 pb-16 md:pt-12 md:pb-24">
       <Container>
         <AnimatedReveal direction="up">
           <SectionHeading
@@ -20,23 +20,23 @@ export default function MissionVision() {
           />
         </AnimatedReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-12 max-w-5xl mx-auto">
+        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
           {/* Mission Card */}
           <AnimatedReveal direction="up" delay={100}>
-            <div className="h-full bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-brand-gold/20 hover:border-brand-gold/60 transition-colors duration-500 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
-                <Target className="w-32 h-32 text-brand-gold" />
+            <div className="border-brand-gold/20 hover:border-brand-gold/60 group relative h-full overflow-hidden rounded-2xl border bg-white p-8 shadow-sm transition-colors duration-500 md:p-12">
+              <div className="pointer-events-none absolute top-0 right-0 p-8 opacity-5 transition-opacity duration-500 group-hover:opacity-10">
+                <Target className="text-brand-gold h-32 w-32" />
               </div>
 
-              <div className="w-14 h-14 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-6 border border-brand-gold/20">
-                <Target className="w-6 h-6 text-brand-gold" />
+              <div className="bg-brand-gold/10 border-brand-gold/20 mb-6 flex h-14 w-14 items-center justify-center rounded-xl border">
+                <Target className="text-brand-gold h-6 w-6" />
               </div>
 
-              <h3 className="font-heading text-2xl font-bold text-brand-primary mb-4">
+              <h3 className="font-heading text-brand-primary mb-4 text-2xl font-bold">
                 Our Mission
               </h3>
 
-              <p className="text-black leading-relaxed font-normal">
+              <p className="leading-relaxed font-normal text-black">
                 To provide authentic, highly personalized Ayurvedic care that
                 addresses the root cause of illness. We are dedicated to
                 offering holistic healing environments, utilizing the purest
@@ -48,20 +48,20 @@ export default function MissionVision() {
 
           {/* Vision Card */}
           <AnimatedReveal direction="up" delay={200}>
-            <div className="h-full bg-brand-primary p-8 md:p-12 rounded-2xl shadow-lg border border-brand-primary hover:border-brand-gold/40 transition-colors duration-500 group relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
-                <Eye className="w-32 h-32 text-brand-gold" />
+            <div className="bg-brand-primary border-brand-primary hover:border-brand-gold/40 group relative h-full overflow-hidden rounded-2xl border p-8 shadow-lg transition-colors duration-500 md:p-12">
+              <div className="pointer-events-none absolute top-0 right-0 p-8 opacity-5 transition-opacity duration-500 group-hover:opacity-10">
+                <Eye className="text-brand-gold h-32 w-32" />
               </div>
 
-              <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 border border-white/10">
-                <Eye className="w-6 h-6 text-brand-gold" />
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/10">
+                <Eye className="text-brand-gold h-6 w-6" />
               </div>
 
-              <h3 className="font-heading text-2xl font-bold text-white mb-4">
+              <h3 className="font-heading mb-4 text-2xl font-bold text-white">
                 Our Vision
               </h3>
 
-              <p className="text-gray-200 leading-relaxed font-light">
+              <p className="leading-relaxed font-light text-gray-200">
                 To be the most trusted global sanctuary for traditional
                 Ayurveda, recognized for our uncompromising commitment to
                 ancient healing sciences. We envision a world where the timeless

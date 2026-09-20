@@ -61,35 +61,35 @@ export default function AboutUsPage() {
             end: "bottom top",
             scrub: true,
           },
-        },
+        }
       );
     },
-    { scope: mainRef },
+    { scope: mainRef }
   );
 
   return (
     <main ref={mainRef} className="flex min-h-screen flex-col overflow-hidden">
       {/* ── 1. Hero Section ────────────────────────── */}
-      <section className="hero-section relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 w-full h-[130%] -top-[15%]">
+      <section className="hero-section relative flex h-[60vh] min-h-[500px] w-full items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 -top-[15%] h-[130%] w-full">
           <Image
             src="/images/hero/home-carousel3.webp"
             alt="Authentic Ayurvedic Abhyangam Massage Treatment in Dubai"
             fill
             sizes="100vw"
-            className="object-cover hero-parallax-img scale-105"
+            className="hero-parallax-img scale-105 object-cover"
             priority
           />
         </div>
         {/* Subtle dark gradient overlay for text readability without tinting */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        <div className="absolute inset-0 grain-overlay opacity-30" />
+        <div className="grain-overlay absolute inset-0 opacity-30" />
 
         <Container className="relative z-10 text-center">
           <AnimatedReveal direction="up" delay={100}>
             <h1
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-heading font-bold text-white sm:whitespace-nowrap tracking-wide mb-3"
+              className="font-heading mb-3 text-2xl font-bold tracking-wide text-white sm:text-3xl sm:whitespace-nowrap md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
             >
               Our <span className="text-brand-gold">Healing</span> Heritage
             </h1>
@@ -97,7 +97,7 @@ export default function AboutUsPage() {
           <AnimatedReveal direction="up" delay={200}>
             <p
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
-              className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-200 font-light tracking-[0.15em] uppercase mx-auto"
+              className="mx-auto text-[10px] font-light tracking-[0.15em] text-gray-200 uppercase sm:text-xs md:text-sm lg:text-base"
             >
               Authentic Ayurveda & Homeopathy In Abu Dhabi
             </p>
@@ -106,38 +106,38 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── 2. Who We Are ──────── */}
-      <section className="about-section pt-12 pb-12 lg:py-24 bg-white relative">
-        <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-brand-cream/50 rounded-full filter blur-[150px] -z-10 translate-x-1/3 -translate-y-1/3" />
+      <section className="about-section relative bg-white pt-12 pb-12 lg:py-24">
+        <div className="bg-brand-cream/50 absolute top-0 right-0 -z-10 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/3 rounded-full blur-[150px] filter" />
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-16">
             <AnimatedReveal
               direction="fade"
-              className="relative h-full flex items-center order-2 lg:order-1"
+              className="relative order-2 flex h-full items-center lg:order-1"
             >
-              <div className="relative w-full max-w-[400px] md:max-w-[450px] mx-auto md:max-w-none lg:pr-8 lg:pb-8">
+              <div className="relative mx-auto w-full max-w-[400px] md:max-w-[450px] md:max-w-none lg:pr-8 lg:pb-8">
                 {/* Elegant Gold Offset Frame */}
-                <div className="absolute top-4 left-4 lg:top-8 lg:left-8 w-full h-full border-[3px] border-brand-gold/40 rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl -z-10 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2" />
+                <div className="border-brand-gold/40 absolute top-4 left-4 -z-10 h-full w-full rounded-tl-[8rem] rounded-tr-3xl rounded-br-[8rem] rounded-bl-3xl border-[3px] transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2 lg:top-8 lg:left-8" />
 
                 {/* Main Image Container (Leaf Shape) */}
-                <div className="relative w-full aspect-[4/5] rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl group">
-                  <div className="absolute inset-0 w-full h-[120%] -top-[10%]">
+                <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-tl-[8rem] rounded-tr-3xl rounded-br-[8rem] rounded-bl-3xl shadow-2xl">
+                  <div className="absolute inset-0 -top-[10%] h-[120%] w-full">
                     <Image
                       src="/images/hero/home-carousel1.webp"
                       alt="Traditional Kerala Ayurveda Heritage in Dubai"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover about-parallax-img group-hover:scale-110 transition-transform duration-1000"
+                      className="about-parallax-img object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                   </div>
                   {/* Subtle glass overlay for a premium finish */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 via-transparent to-transparent opacity-60" />
+                  <div className="from-brand-primary/20 absolute inset-0 bg-gradient-to-tr via-transparent to-transparent opacity-60" />
                 </div>
               </div>
             </AnimatedReveal>
 
             <AnimatedReveal
               direction="left"
-              className="px-4 md:px-8 lg:px-0 lg:pl-12 order-1 lg:order-2"
+              className="order-1 px-4 md:px-8 lg:order-2 lg:px-0 lg:pl-12"
             >
               <SectionHeading
                 subtitle="Who We Are"
@@ -149,13 +149,14 @@ export default function AboutUsPage() {
                 }
                 align="left"
               />
-              <div className="prose prose-lg text-gray-800 mt-6 space-y-5">
+              <div className="prose prose-lg mt-6 space-y-5 text-gray-800">
                 <p>
                   At <strong>Kottakkal Arya Vaidyasala</strong>, we bring the
-                  ancient healing wisdom of Ayurveda and Homeopathy to the heart of Abu Dhabi.
-                  Guided by a legacy of authentic Ayurvedic and Homeopathic practice, our center
-                  is devoted to nurturing holistic health and well-being through
-                  natural, personalized treatments.
+                  ancient healing wisdom of Ayurveda and Homeopathy to the heart
+                  of Abu Dhabi. Guided by a legacy of authentic Ayurvedic and
+                  Homeopathic practice, our center is devoted to nurturing
+                  holistic health and well-being through natural, personalized
+                  treatments.
                 </p>
                 <p>
                   Our expert team of highly qualified doctors and traditionally
@@ -184,9 +185,9 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── 3. Mission & Vision ────────────────────── */}
-      <section className="py-12 lg:py-24 bg-brand-sage/20 relative">
+      <section className="bg-brand-sage/20 relative py-12 lg:py-24">
         <Container>
-          <div className="text-center mb-12">
+          <div className="mb-12 text-center">
             <AnimatedReveal direction="up">
               <SectionHeading
                 title="Our Guiding Principles"
@@ -200,24 +201,24 @@ export default function AboutUsPage() {
           <AnimatedReveal
             direction="up"
             stagger={true}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto"
+            className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12"
           >
             {/* Mission Card */}
             <StaggerItem>
-              <div className="h-full bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-brand-gold/20 hover:border-brand-gold/60 transition-colors duration-500 group relative overflow-hidden flex flex-col">
-                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
-                  <Target className="w-24 h-24 text-brand-gold" />
+              <div className="border-brand-gold/20 hover:border-brand-gold/60 group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white p-6 shadow-sm transition-colors duration-500 md:p-8">
+                <div className="pointer-events-none absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 group-hover:opacity-10">
+                  <Target className="text-brand-gold h-24 w-24" />
                 </div>
 
-                <div className="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mb-5 border border-brand-gold/20 shrink-0">
-                  <Target className="w-6 h-6 text-brand-gold" />
+                <div className="bg-brand-gold/10 border-brand-gold/20 mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border">
+                  <Target className="text-brand-gold h-6 w-6" />
                 </div>
 
-                <h3 className="font-heading text-xl md:text-2xl font-bold text-brand-primary mb-3">
+                <h3 className="font-heading text-brand-primary mb-3 text-xl font-bold md:text-2xl">
                   Our Mission
                 </h3>
 
-                <p className="text-gray-800 leading-relaxed font-normal flex-grow">
+                <p className="flex-grow leading-relaxed font-normal text-gray-800">
                   To provide authentic, highly personalized Ayurvedic care that
                   addresses the root cause of illness. We are dedicated to
                   offering holistic healing environments, utilizing the purest
@@ -229,20 +230,20 @@ export default function AboutUsPage() {
 
             {/* Vision Card */}
             <StaggerItem>
-              <div className="h-full bg-brand-primary p-6 md:p-8 rounded-2xl shadow-lg border border-brand-primary hover:border-brand-gold/40 transition-colors duration-500 group relative overflow-hidden flex flex-col">
-                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
-                  <Eye className="w-24 h-24 text-brand-gold" />
+              <div className="bg-brand-primary border-brand-primary hover:border-brand-gold/40 group relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 shadow-lg transition-colors duration-500 md:p-8">
+                <div className="pointer-events-none absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 group-hover:opacity-10">
+                  <Eye className="text-brand-gold h-24 w-24" />
                 </div>
 
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-5 border border-white/10 shrink-0">
-                  <Eye className="w-6 h-6 text-brand-gold" />
+                <div className="mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/10">
+                  <Eye className="text-brand-gold h-6 w-6" />
                 </div>
 
-                <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-3">
+                <h3 className="font-heading mb-3 text-xl font-bold text-white md:text-2xl">
                   Our Vision
                 </h3>
 
-                <p className="text-gray-100 leading-relaxed font-light flex-grow">
+                <p className="flex-grow leading-relaxed font-light text-gray-100">
                   To be the most trusted global sanctuary for traditional
                   Ayurveda, recognized for our uncompromising commitment to
                   ancient healing sciences. We envision a world where the
@@ -257,20 +258,20 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── 4. Healing Philosophy & Care ───────── */}
-      <section className="py-24 bg-brand-primary relative">
+      <section className="bg-brand-primary relative py-24">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
             {/* Our Healing Philosophy */}
-            <div className="flex flex-col h-full">
+            <div className="flex h-full flex-col">
               <AnimatedReveal direction="up">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-0.5 bg-brand-gold"></div>
-                  <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
+                <div className="mb-8 flex items-center gap-4">
+                  <div className="bg-brand-gold h-0.5 w-12"></div>
+                  <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">
                     Our Healing{" "}
                     <span className="text-brand-gold">Philosophy</span>
                   </h2>
                 </div>
-                <p className="text-gray-200 text-lg mb-8 font-light">
+                <p className="mb-8 text-lg font-light text-gray-200">
                   At Kottakkal Arya Vaidyasala, we believe:
                 </p>
               </AnimatedReveal>
@@ -279,7 +280,7 @@ export default function AboutUsPage() {
                 direction="up"
                 stagger={true}
                 staggerDelay={0.15}
-                className="space-y-6 flex-grow"
+                className="flex-grow space-y-6"
               >
                 {[
                   "True healing begins by treating the root cause.",
@@ -288,13 +289,13 @@ export default function AboutUsPage() {
                   "Prevention is as important as cure.",
                 ].map((belief, idx) => (
                   <StaggerItem key={idx}>
-                    <div className="flex items-start group">
-                      <div className="w-10 h-10 rounded-full border border-brand-gold/30 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 transition-colors mr-4">
+                    <div className="group flex items-start">
+                      <div className="border-brand-gold/30 group-hover:bg-brand-gold/20 mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors">
                         <span className="text-brand-gold font-bold">
                           {idx + 1}
                         </span>
                       </div>
-                      <p className="text-white text-lg md:text-xl font-light leading-relaxed pt-1">
+                      <p className="pt-1 text-lg leading-relaxed font-light text-white md:text-xl">
                         {belief}
                       </p>
                     </div>
@@ -303,8 +304,8 @@ export default function AboutUsPage() {
               </AnimatedReveal>
 
               <AnimatedReveal direction="up" delay={400}>
-                <div className="mt-10 p-6 border-l-2 border-brand-gold bg-white/5 rounded-r-2xl">
-                  <p className="text-gray-200 italic font-light leading-relaxed">
+                <div className="border-brand-gold mt-10 rounded-r-2xl border-l-2 bg-white/5 p-6">
+                  <p className="leading-relaxed font-light text-gray-200 italic">
                     Our treatments are designed not only to heal illnesses but
                     also to rejuvenate, detoxify, and strengthen overall
                     well-being.
@@ -314,15 +315,15 @@ export default function AboutUsPage() {
             </div>
 
             {/* Authenticity & Care */}
-            <div className="flex flex-col h-full">
+            <div className="flex h-full flex-col">
               <AnimatedReveal direction="up" delay={100}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-12 h-0.5 bg-brand-gold"></div>
-                  <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
+                <div className="mb-8 flex items-center gap-4">
+                  <div className="bg-brand-gold h-0.5 w-12"></div>
+                  <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">
                     Authenticity <span className="text-brand-gold">& Care</span>
                   </h2>
                 </div>
-                <p className="text-gray-200 text-lg mb-8 font-light">
+                <p className="mb-8 text-lg font-light text-gray-200">
                   We follow classical Ayurvedic principles using:
                 </p>
               </AnimatedReveal>
@@ -331,7 +332,7 @@ export default function AboutUsPage() {
                 direction="up"
                 stagger={true}
                 staggerDelay={0.15}
-                className="space-y-6 flex-grow"
+                className="flex-grow space-y-6"
               >
                 {[
                   "Authentic Homeopathic therapies.",
@@ -340,11 +341,11 @@ export default function AboutUsPage() {
                   "Experienced Ayurvedic doctors & expert therapists.",
                 ].map((item, idx) => (
                   <StaggerItem key={idx}>
-                    <div className="flex items-center group">
-                      <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/30 transition-colors mr-4">
-                        <Leaf className="w-5 h-5 text-brand-gold" />
+                    <div className="group flex items-center">
+                      <div className="bg-brand-gold/10 group-hover:bg-brand-gold/30 mr-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors">
+                        <Leaf className="text-brand-gold h-5 w-5" />
                       </div>
-                      <p className="text-white text-lg md:text-xl font-light leading-relaxed">
+                      <p className="text-lg leading-relaxed font-light text-white md:text-xl">
                         {item}
                       </p>
                     </div>
@@ -353,8 +354,8 @@ export default function AboutUsPage() {
               </AnimatedReveal>
 
               <AnimatedReveal direction="up" delay={500}>
-                <div className="mt-10 p-6 border-l-2 border-brand-gold bg-white/5 rounded-r-2xl">
-                  <p className="text-gray-200 italic font-light leading-relaxed">
+                <div className="border-brand-gold mt-10 rounded-r-2xl border-l-2 bg-white/5 p-6">
+                  <p className="leading-relaxed font-light text-gray-200 italic">
                     Every therapy at Kottakkal Arya Vaidyasala is performed with
                     precision, hygiene, and heartfelt care — restoring your
                     vitality naturally.

@@ -15,10 +15,10 @@ import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
  */
 export default function TestimonialsPreview() {
   return (
-    <section className="pt-4 pb-12 md:pt-12 md:pb-24 bg-white relative overflow-hidden">
+    <section className="relative overflow-hidden bg-white pt-4 pb-12 md:pt-12 md:pb-24">
       {/* Background accents */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-gold/[0.03] rounded-full filter blur-[180px] pointer-events-none" />
-      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-brand-primary/[0.02] rounded-full filter blur-[120px] pointer-events-none" />
+      <div className="bg-brand-gold/[0.03] pointer-events-none absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full blur-[180px] filter" />
+      <div className="bg-brand-primary/[0.02] pointer-events-none absolute top-0 left-0 h-[300px] w-[300px] rounded-full blur-[120px] filter" />
 
       <Container>
         <AnimatedReveal direction="up">
@@ -32,7 +32,7 @@ export default function TestimonialsPreview() {
 
         <AnimatedReveal
           direction="fade"
-          className="max-w-6xl mx-auto mt-8 md:mt-12 relative"
+          className="relative mx-auto mt-8 max-w-6xl md:mt-12"
         >
           <StaggerTestimonials />
         </AnimatedReveal>

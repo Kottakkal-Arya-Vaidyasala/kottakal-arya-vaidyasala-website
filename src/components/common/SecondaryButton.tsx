@@ -33,16 +33,16 @@ export default function SecondaryButton({
         className={cn(
           /* Base layout */
           "group relative overflow-hidden font-medium",
-          "px-7 py-5 rounded-md h-auto flex items-center justify-center gap-2.5",
+          "flex h-auto items-center justify-center gap-2.5 rounded-md px-7 py-5",
           /* Navy fill style */
           "bg-brand-primary text-white",
-          "border border-brand-primary/80 hover:border-brand-gold",
+          "border-brand-primary/80 hover:border-brand-gold border",
           /* Hover state */
           "hover:bg-brand-gold hover:text-brand-dark",
           /* Shadow & transition */
-          "shadow-md hover:shadow-2xl hover:shadow-brand-gold/30",
+          "hover:shadow-brand-gold/30 shadow-md hover:shadow-2xl",
           "transition-all duration-500 ease-out",
-          className,
+          className
         )}
         {...props}
       >

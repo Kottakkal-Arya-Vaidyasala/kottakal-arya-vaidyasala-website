@@ -54,7 +54,7 @@ export default function ContactUsPage() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -65,7 +65,10 @@ export default function ContactUsPage() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownOpen(false);
       }
     };
@@ -116,9 +119,9 @@ export default function ContactUsPage() {
   };
 
   return (
-    <main className="flex flex-col min-h-screen bg-brand-cream overflow-hidden">
+    <main className="bg-brand-cream flex min-h-screen flex-col overflow-hidden">
       {/* ── 1. Hero Section (Centered with AI Image) ── */}
-      <section className="relative w-full h-[60vh] min-h-[400px] flex items-center justify-center">
+      <section className="relative flex h-[60vh] min-h-[400px] w-full items-center justify-center">
         <div className="absolute inset-0">
           <Image
             src="/images/contact/contact-carousel.webp"
@@ -127,21 +130,21 @@ export default function ContactUsPage() {
             className="object-cover object-top md:object-[center_20%]"
             priority
           />
-          <div className="absolute inset-0 bg-brand-dark/40 backdrop-blur-[1px]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-brand-dark/40 opacity-90" />
+          <div className="bg-brand-dark/40 absolute inset-0 backdrop-blur-[1px]" />
+          <div className="from-brand-dark/80 to-brand-dark/40 absolute inset-0 bg-gradient-to-t via-transparent opacity-90" />
         </div>
 
-        <Container className="relative z-10 text-center mt-12 md:mt-16">
+        <Container className="relative z-10 mt-12 text-center md:mt-16">
           <AnimatedReveal direction="up" delay={100}>
             <h1
               style={{ textShadow: "0px 4px 12px rgba(0, 0, 0, 0.9)" }}
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white max-w-5xl mx-auto leading-tight mb-1 sm:mb-2 text-center"
+              className="font-heading mx-auto mb-1 max-w-5xl text-center text-2xl leading-tight font-bold text-white sm:mb-2 sm:text-4xl md:text-5xl lg:text-6xl"
             >
               Restore Your Harmony
             </h1>
             <p
               style={{ textShadow: "0px 2px 8px rgba(0, 0, 0, 0.9)" }}
-              className="text-[8px] sm:text-xs md:text-sm lg:text-base text-white font-bold tracking-[0.15em] uppercase"
+              className="text-[8px] font-bold tracking-[0.15em] text-white uppercase sm:text-xs md:text-sm lg:text-base"
             >
               We're Here To Help
             </p>
@@ -150,42 +153,42 @@ export default function ContactUsPage() {
       </section>
 
       {/* ── 2. Contact Info & Map (Split Layout) ──── */}
-      <section className="py-12 md:py-24 relative mt-4 md:-mt-16 z-20">
+      <section className="relative z-20 mt-4 py-12 md:-mt-16 md:py-24">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
             {/* Left: Get in Touch Card */}
             <AnimatedReveal direction="right" className="h-full">
-              <div className="bg-white p-6 sm:p-8 md:p-14 rounded-3xl shadow-xl border border-gray-100 h-full flex flex-col justify-center">
-                <h2 className="text-2xl sm:text-3xl font-heading font-bold text-brand-dark mb-6 md:mb-8 text-center">
+              <div className="flex h-full flex-col justify-center rounded-3xl border border-gray-100 bg-white p-6 shadow-xl sm:p-8 md:p-14">
+                <h2 className="font-heading text-brand-dark mb-6 text-center text-2xl font-bold sm:text-3xl md:mb-8">
                   Get in Touch
                 </h2>
 
                 <div className="flex flex-col gap-6 md:gap-8">
                   <div className="flex items-start gap-4 md:gap-5">
-                    <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
-                      <MapPin className="w-5 h-5 text-brand-primary" />
+                    <div className="bg-brand-cream flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+                      <MapPin className="text-brand-primary h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                      <h4 className="text-brand-gold mb-1 text-xs font-bold tracking-widest uppercase md:text-sm">
                         Visit Us
                       </h4>
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-xs">
+                      <p className="max-w-xs text-sm leading-relaxed text-gray-600 md:text-base">
                         {siteConfig.address.full}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
-                      <Phone className="w-5 h-5 text-brand-primary" />
+                    <div className="bg-brand-cream flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+                      <Phone className="text-brand-primary h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                      <h4 className="text-brand-gold mb-1 text-xs font-bold tracking-widest uppercase md:text-sm">
                         Call Us
                       </h4>
                       <a
                         href={`tel:${siteConfig.contact.phoneRaw}`}
-                        className="text-gray-600 hover:text-brand-primary transition-colors text-sm md:text-lg break-words block"
+                        className="hover:text-brand-primary block text-sm break-words text-gray-600 transition-colors md:text-lg"
                       >
                         {siteConfig.contact.phone}
                       </a>
@@ -193,16 +196,16 @@ export default function ContactUsPage() {
                   </div>
 
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
-                      <Mail className="w-5 h-5 text-brand-primary" />
+                    <div className="bg-brand-cream flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+                      <Mail className="text-brand-primary h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                      <h4 className="text-brand-gold mb-1 text-xs font-bold tracking-widest uppercase md:text-sm">
                         Email Us
                       </h4>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-600 hover:text-brand-primary transition-colors text-sm md:text-lg break-all block"
+                        className="hover:text-brand-primary block text-sm break-all text-gray-600 transition-colors md:text-lg"
                       >
                         {siteConfig.contact.email}
                       </a>
@@ -210,14 +213,14 @@ export default function ContactUsPage() {
                   </div>
 
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0">
-                      <Clock className="w-5 h-5 text-brand-primary" />
+                    <div className="bg-brand-cream flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+                      <Clock className="text-brand-primary h-5 w-5" />
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs md:text-sm font-bold tracking-widest uppercase text-brand-gold mb-1">
+                      <h4 className="text-brand-gold mb-1 text-xs font-bold tracking-widest uppercase md:text-sm">
                         Clinic Timings
                       </h4>
-                      <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                      <div className="text-sm leading-relaxed text-gray-600 md:text-base">
                         <p>Sat - Thu: 9:00 AM – 11:00 PM</p>
                         <p>Fri: 9:00 AM – 11:55 AM, 2:00 PM – 11:00 PM</p>
                       </div>
@@ -229,7 +232,7 @@ export default function ContactUsPage() {
 
             {/* Right: Google Map */}
             <AnimatedReveal direction="left" className="h-full">
-              <div className="w-full h-[300px] sm:h-[400px] lg:h-full min-h-[300px] sm:min-h-[400px] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-gray-100">
+              <div className="h-[300px] min-h-[300px] w-full overflow-hidden rounded-3xl border-4 border-white bg-gray-100 shadow-xl sm:h-[400px] sm:min-h-[400px] lg:h-full">
                 <iframe
                   src="https://maps.google.com/maps?q=Kottakkal+Arya+vaidyasala+Ayurvedic+medical+center,+Ground+floor,+Hamed+center,+Al+danah+zone+1,+Electra+street,+Abudhabi&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
@@ -239,7 +242,7 @@ export default function ContactUsPage() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Kottakkal Arya Vaidyasala Location"
-                  className="w-full h-full grayscale-[10%] contrast-110"
+                  className="h-full w-full contrast-110 grayscale-[10%]"
                 />
               </div>
             </AnimatedReveal>
@@ -248,11 +251,11 @@ export default function ContactUsPage() {
       </section>
 
       {/* ── 3. EmailJS Contact Form ────────────────── */}
-      <section className="pb-24 pt-8 bg-brand-cream relative">
+      <section className="bg-brand-cream relative pt-8 pb-24">
         <Container>
-          <AnimatedReveal direction="up" className="max-w-4xl mx-auto">
-            <div className="bg-brand-dark rounded-3xl p-6 md:p-14 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-primary/20 rounded-full filter blur-[100px] pointer-events-none" />
+          <AnimatedReveal direction="up" className="mx-auto max-w-4xl">
+            <div className="bg-brand-dark relative overflow-hidden rounded-3xl p-6 shadow-2xl md:p-14">
+              <div className="bg-brand-primary/20 pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] rounded-full blur-[100px] filter" />
 
               <AnimatePresence mode="wait">
                 {isSuccess ? (
@@ -260,15 +263,15 @@ export default function ContactUsPage() {
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center text-center py-16 relative z-10"
+                    className="relative z-10 flex flex-col items-center py-16 text-center"
                   >
-                    <div className="w-24 h-24 rounded-full bg-brand-gold/20 flex items-center justify-center mb-6">
-                      <CheckCircle className="w-12 h-12 text-brand-gold" />
+                    <div className="bg-brand-gold/20 mb-6 flex h-24 w-24 items-center justify-center rounded-full">
+                      <CheckCircle className="text-brand-gold h-12 w-12" />
                     </div>
-                    <h3 className="text-3xl font-heading font-bold text-white mb-4">
+                    <h3 className="font-heading mb-4 text-3xl font-bold text-white">
                       Message Sent!
                     </h3>
-                    <p className="text-gray-300 max-w-md mx-auto mb-8">
+                    <p className="mx-auto mb-8 max-w-md text-gray-300">
                       Thank you for reaching out. Our Ayurvedic experts will get
                       back to you shortly to assist with your journey.
                     </p>
@@ -283,7 +286,7 @@ export default function ContactUsPage() {
                           message: "",
                         });
                       }}
-                      className="text-brand-gold border border-brand-gold/30 px-8 py-3 rounded-xl hover:bg-brand-gold/10 transition-colors font-semibold tracking-wide"
+                      className="text-brand-gold border-brand-gold/30 hover:bg-brand-gold/10 rounded-xl border px-8 py-3 font-semibold tracking-wide transition-colors"
                     >
                       Send Another Message
                     </button>
@@ -295,8 +298,8 @@ export default function ContactUsPage() {
                     animate={{ opacity: 1 }}
                     className="relative z-10"
                   >
-                    <div className="text-center mb-10">
-                      <h3 className="text-3xl font-heading font-bold text-white mb-3">
+                    <div className="mb-10 text-center">
+                      <h3 className="font-heading mb-3 text-3xl font-bold text-white">
                         Send us a Message
                       </h3>
                       <p className="text-brand-sage font-light">
@@ -309,115 +312,165 @@ export default function ContactUsPage() {
                       noValidate
                       className="flex flex-col gap-6"
                     >
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div className="relative">
-                          <User className="absolute left-4 top-[18px] w-5 h-5 text-gray-400" />
+                          <User className="absolute top-[18px] left-4 h-5 w-5 text-gray-400" />
                           <input
                             type="text"
                             name="name"
                             placeholder="Your Name *"
                             value={formData.name}
                             onChange={handleChange}
-                            className={`w-full bg-white/5 border ${errors.name ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors`}
+                            className={`w-full border bg-white/5 ${errors.name ? "border-red-400" : "border-white/10"} focus:border-brand-gold rounded-xl py-4 pr-4 pl-12 text-base text-white placeholder-gray-400 transition-colors focus:outline-none md:text-sm`}
                           />
                           {errors.name && (
-                            <p className="text-red-400 text-xs mt-1 absolute -bottom-5">
-                              <AlertCircle className="w-3 h-3 inline mr-1" />
+                            <p className="absolute -bottom-5 mt-1 text-xs text-red-400">
+                              <AlertCircle className="mr-1 inline h-3 w-3" />
                               {errors.name}
                             </p>
                           )}
                         </div>
                         <div className="relative">
-                          <Mail className="absolute left-4 top-[18px] w-5 h-5 text-gray-400" />
+                          <Mail className="absolute top-[18px] left-4 h-5 w-5 text-gray-400" />
                           <input
                             type="email"
                             name="email"
                             placeholder="Email Address *"
                             value={formData.email}
                             onChange={handleChange}
-                            className={`w-full bg-white/5 border ${errors.email ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors`}
+                            className={`w-full border bg-white/5 ${errors.email ? "border-red-400" : "border-white/10"} focus:border-brand-gold rounded-xl py-4 pr-4 pl-12 text-base text-white placeholder-gray-400 transition-colors focus:outline-none md:text-sm`}
                           />
                           {errors.email && (
-                            <p className="text-red-400 text-xs mt-1 absolute -bottom-5">
-                              <AlertCircle className="w-3 h-3 inline mr-1" />
+                            <p className="absolute -bottom-5 mt-1 text-xs text-red-400">
+                              <AlertCircle className="mr-1 inline h-3 w-3" />
                               {errors.email}
                             </p>
                           )}
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
+                      <div className="mt-2 grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div className="relative">
-                          <Phone className="absolute left-4 top-[18px] w-5 h-5 text-gray-400" />
+                          <Phone className="absolute top-[18px] left-4 h-5 w-5 text-gray-400" />
                           <input
                             type="tel"
                             name="phone"
                             placeholder="Phone Number"
                             value={formData.phone}
                             onChange={handleChange}
-                            className={`w-full bg-white/5 border ${errors.phone ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 pl-12 pr-4 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors`}
+                            className={`w-full border bg-white/5 ${errors.phone ? "border-red-400" : "border-white/10"} focus:border-brand-gold rounded-xl py-4 pr-4 pl-12 text-base text-white placeholder-gray-400 transition-colors focus:outline-none md:text-sm`}
                           />
                         </div>
                         <div className="relative" ref={dropdownRef}>
-                          <FileText className="absolute left-4 top-[18px] w-5 h-5 text-gray-400 z-10 pointer-events-none" />
+                          <FileText className="pointer-events-none absolute top-[18px] left-4 z-10 h-5 w-5 text-gray-400" />
                           <button
                             type="button"
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             className={cn(
-                              "w-full flex items-center justify-between text-left pl-12 pr-4 py-4 rounded-xl transition-all duration-300 border bg-white/5",
-                              isDropdownOpen 
-                                ? "border-brand-gold shadow-[0_0_15px_rgba(201,169,110,0.1)] text-white" 
-                                : "border-white/10 hover:border-brand-gold/50"
+                              "flex w-full items-center justify-between rounded-xl border bg-white/5 py-4 pr-4 pl-12 text-left transition-all duration-300",
+                              isDropdownOpen
+                                ? "border-brand-gold text-white shadow-[0_0_15px_rgba(201,169,110,0.1)]"
+                                : "hover:border-brand-gold/50 border-white/10"
                             )}
                           >
-                            <span className={formData.treatment ? "text-white" : "text-gray-400"}>
+                            <span
+                              className={
+                                formData.treatment
+                                  ? "text-white"
+                                  : "text-gray-400"
+                              }
+                            >
                               {formData.treatment || "Select Treatment"}
                             </span>
-                            <motion.div 
-                              animate={{ rotate: isDropdownOpen ? 180 : 0 }} 
-                              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                            <motion.div
+                              animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                              transition={{
+                                duration: 0.4,
+                                ease: [0.22, 1, 0.36, 1],
+                              }}
                             >
-                              <ChevronDown className="w-5 h-5 text-gray-400" />
+                              <ChevronDown className="h-5 w-5 text-gray-400" />
                             </motion.div>
                           </button>
 
                           <AnimatePresence>
                             {isDropdownOpen && (
                               <motion.div
-                                initial={{ opacity: 0, y: -10, scale: 0.95, filter: "blur(8px)" }}
-                                animate={{ opacity: 1, y: 8, scale: 1, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, y: -5, scale: 0.95, filter: "blur(4px)" }}
-                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                className="absolute top-full left-0 w-full bg-brand-dark/80 backdrop-blur-2xl border border-brand-gold/20 rounded-2xl p-2 shadow-2xl z-50 overflow-hidden"
+                                initial={{
+                                  opacity: 0,
+                                  y: -10,
+                                  scale: 0.95,
+                                  filter: "blur(8px)",
+                                }}
+                                animate={{
+                                  opacity: 1,
+                                  y: 8,
+                                  scale: 1,
+                                  filter: "blur(0px)",
+                                }}
+                                exit={{
+                                  opacity: 0,
+                                  y: -5,
+                                  scale: 0.95,
+                                  filter: "blur(4px)",
+                                }}
+                                transition={{
+                                  duration: 0.4,
+                                  ease: [0.22, 1, 0.36, 1],
+                                }}
+                                className="bg-brand-dark/80 border-brand-gold/20 absolute top-full left-0 z-50 w-full overflow-hidden rounded-2xl border p-2 shadow-2xl backdrop-blur-2xl"
                               >
-                                <div className="max-h-64 overflow-y-auto custom-scrollbar flex flex-col gap-1 pr-1">
-                                  {[{ id: 'default', title: 'Select Treatment' }, ...treatments, { id: 'general', title: 'General Consultation' }].map((t, idx) => {
-                                    const isSelected = formData.treatment === t.title || (!formData.treatment && t.id === 'default');
+                                <div className="custom-scrollbar flex max-h-64 flex-col gap-1 overflow-y-auto pr-1">
+                                  {[
+                                    {
+                                      id: "default",
+                                      title: "Select Treatment",
+                                    },
+                                    ...treatments,
+                                    {
+                                      id: "general",
+                                      title: "General Consultation",
+                                    },
+                                  ].map((t, idx) => {
+                                    const isSelected =
+                                      formData.treatment === t.title ||
+                                      (!formData.treatment &&
+                                        t.id === "default");
                                     return (
                                       <motion.div
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: idx * 0.03, duration: 0.3 }}
+                                        transition={{
+                                          delay: idx * 0.03,
+                                          duration: 0.3,
+                                        }}
                                         key={t.id}
                                         onClick={() => {
-                                          setFormData(prev => ({ ...prev, treatment: t.id === 'default' ? "" : t.title }));
+                                          setFormData((prev) => ({
+                                            ...prev,
+                                            treatment:
+                                              t.id === "default" ? "" : t.title,
+                                          }));
                                           setIsDropdownOpen(false);
                                         }}
                                         className={cn(
-                                          "group relative flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-300 overflow-hidden",
-                                          isSelected 
-                                            ? "bg-brand-gold/10 text-brand-gold font-medium" 
-                                            : "text-gray-300 hover:text-white hover:bg-white/5"
+                                          "group relative flex cursor-pointer items-center justify-between overflow-hidden rounded-xl px-4 py-3 transition-all duration-300",
+                                          isSelected
+                                            ? "bg-brand-gold/10 text-brand-gold font-medium"
+                                            : "text-gray-300 hover:bg-white/5 hover:text-white"
                                         )}
                                       >
-                                        <div className="absolute inset-0 bg-gradient-to-r from-brand-gold/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                                        <div className="from-brand-gold/5 absolute inset-0 translate-x-[-100%] bg-gradient-to-r to-transparent transition-transform duration-500 ease-out group-hover:translate-x-0" />
                                         <span className="relative z-10 text-sm tracking-wide">
                                           {t.title}
                                         </span>
-                                        
+
                                         {isSelected && (
-                                          <motion.div className="relative z-10" layoutId="dropdown-check">
-                                            <CheckCircle className="w-4 h-4 text-brand-gold" />
+                                          <motion.div
+                                            className="relative z-10"
+                                            layoutId="dropdown-check"
+                                          >
+                                            <CheckCircle className="text-brand-gold h-4 w-4" />
                                           </motion.div>
                                         )}
                                       </motion.div>
@@ -437,11 +490,11 @@ export default function ContactUsPage() {
                           value={formData.message}
                           onChange={handleChange}
                           rows={4}
-                          className={`w-full bg-white/5 border ${errors.message ? "border-red-400" : "border-white/10"} text-white placeholder-gray-400 px-5 py-4 rounded-xl text-base md:text-sm focus:outline-none focus:border-brand-gold transition-colors resize-none`}
+                          className={`w-full border bg-white/5 ${errors.message ? "border-red-400" : "border-white/10"} focus:border-brand-gold resize-none rounded-xl px-5 py-4 text-base text-white placeholder-gray-400 transition-colors focus:outline-none md:text-sm`}
                         />
                         {errors.message && (
-                          <p className="text-red-400 text-xs mt-1 absolute -bottom-5">
-                            <AlertCircle className="w-3 h-3 inline mr-1" />
+                          <p className="absolute -bottom-5 mt-1 text-xs text-red-400">
+                            <AlertCircle className="mr-1 inline h-3 w-3" />
                             {errors.message}
                           </p>
                         )}
@@ -450,12 +503,12 @@ export default function ContactUsPage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-brand-gold hover:bg-white text-brand-dark font-bold tracking-widest uppercase text-sm py-5 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-colors mt-6 disabled:opacity-70"
+                        className="bg-brand-gold text-brand-dark mt-6 flex w-full items-center justify-center gap-2 rounded-xl py-5 text-sm font-bold tracking-widest uppercase shadow-lg transition-colors hover:bg-white disabled:opacity-70"
                       >
                         {isSubmitting ? (
-                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <Loader2 className="h-5 w-5 animate-spin" />
                         ) : (
-                          <Send className="w-5 h-5" />
+                          <Send className="h-5 w-5" />
                         )}
                         {isSubmitting ? "Sending..." : "Send Message"}
                       </button>

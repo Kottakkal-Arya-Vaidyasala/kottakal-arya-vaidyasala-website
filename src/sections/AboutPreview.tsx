@@ -17,30 +17,30 @@ export default function AboutPreview() {
   ];
 
   return (
-    <section className="py-12 md:py-20 bg-brand-primary/5 relative overflow-hidden">
+    <section className="bg-brand-primary/5 relative overflow-hidden py-12 md:py-20">
       {/* Decorative vectors */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-brand-gold/5 rounded-full filter blur-3xl pointer-events-none" />
+      <div className="bg-brand-gold/5 pointer-events-none absolute top-0 left-0 h-80 w-80 rounded-full blur-3xl filter" />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Image Box Placeholder */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <div className="order-2 lg:order-1 lg:col-span-5">
             <AnimatedReveal direction="right" className="relative">
               {/* Outer decorative gold element */}
-              <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-brand-gold" />
-              <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-brand-gold" />
+              <div className="border-brand-gold absolute -top-4 -left-4 h-12 w-12 border-t-2 border-l-2" />
+              <div className="border-brand-gold absolute -right-4 -bottom-4 h-12 w-12 border-r-2 border-b-2" />
 
-              <div className="relative aspect-video lg:aspect-[4/5] rounded-xl overflow-hidden shadow-xl border border-brand-primary/10 bg-brand-primary/10 flex flex-col items-center justify-center p-6 lg:p-8 text-center text-brand-dark">
-                <Leaf className="w-10 h-10 text-brand-primary mb-4" />
+              <div className="border-brand-primary/10 bg-brand-primary/10 text-brand-dark relative flex aspect-video flex-col items-center justify-center overflow-hidden rounded-xl border p-6 text-center shadow-xl lg:aspect-[4/5] lg:p-8">
+                <Leaf className="text-brand-primary mb-4 h-10 w-10" />
                 <span className="font-heading text-lg font-bold">
                   Genuine Healing Space
                 </span>
-                <p className="text-xs text-gray-500 max-w-xs mt-2 leading-relaxed">
+                <p className="mt-2 max-w-xs text-xs leading-relaxed text-gray-500">
                   Our therapeutic clinic features comfortable massage tables,
                   traditional steam rooms, and relaxing spaces dedicated to
                   natural healing.
                 </p>
-                <div className="mt-6 text-xs font-semibold text-brand-gold tracking-widest uppercase">
+                <div className="text-brand-gold mt-6 text-xs font-semibold tracking-widest uppercase">
                   ESTABLISHED 2026
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function AboutPreview() {
           </div>
 
           {/* Right Column: Content Text */}
-          <div className="lg:col-span-7 order-1 lg:order-2">
+          <div className="order-1 lg:order-2 lg:col-span-7">
             <AnimatedReveal direction="left">
               <SectionHeading
                 title="Pioneering Traditional Ayurveda in Abu Dhabi"
@@ -76,12 +76,12 @@ export default function AboutPreview() {
             <AnimatedReveal
               direction="up"
               delay={300}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
+              className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2"
             >
               {highlights.map((item) => (
                 <div key={item} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" />
-                  <span className="text-sm text-brand-grey font-light leading-normal">
+                  <CheckCircle2 className="text-brand-primary mt-0.5 h-5 w-5 shrink-0" />
+                  <span className="text-brand-grey text-sm leading-normal font-light">
                     {item}
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export default function AboutPreview() {
             <AnimatedReveal direction="up" delay={400}>
               <Link href="/about" className="inline-block">
                 <SecondaryButton
-                  icon={<ChevronRight className="w-4 h-4" />}
+                  icon={<ChevronRight className="h-4 w-4" />}
                   iconPosition="right"
                 >
                   Read Our Full Story

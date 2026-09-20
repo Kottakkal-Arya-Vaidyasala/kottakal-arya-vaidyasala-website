@@ -6,7 +6,7 @@ import HomeopathyContent from "@/components/sections/HomeopathyContent";
 
 export default function HomeopathyPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-brand-cream overflow-hidden">
+    <main className="bg-brand-cream flex min-h-screen flex-col overflow-hidden">
       {/* ── 1. Static Page Header ────────────────────────── */}
       <PageHeader
         title="Natural Healing Journey"

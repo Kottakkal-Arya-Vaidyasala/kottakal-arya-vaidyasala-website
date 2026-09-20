@@ -6,14 +6,14 @@
  */
 
 export interface Doctor {
-  id: string
-  name: string
-  title: string
-  credentials: string
-  specialties: string[]
-  experience: string
-  bio: string
-  imagePath: string
+  id: string;
+  name: string;
+  title: string;
+  credentials: string;
+  specialties: string[];
+  experience: string;
+  bio: string;
+  imagePath: string;
 }
 
 export const doctors: Doctor[] = [
@@ -47,4 +47,4 @@ export const doctors: Doctor[] = [
     bio: "Dr. Vineeth Kumar is a dedicated Ayurvedic physician specializing in Homeopathic wellness and lifestyle medicine. His decade-long clinical journey spans traditional ancestral clinics to modern integrative practice in Abu Dhabi. Dr. Kumar excels at crafting comprehensive wellness programs that address stress, weight management, digestive issues, and metabolic disorders.",
     imagePath: "/images/doctors/dr-vineeth.jpg",
   },
-]
+];

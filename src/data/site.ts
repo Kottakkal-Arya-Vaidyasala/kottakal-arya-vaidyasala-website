@@ -49,10 +49,26 @@ export const siteConfig = {
 
   /** Social media links */
   socials: [
-    { label: "Instagram", href: "https://www.instagram.com/kottakkalaryavaidyasala.ae/?utm_source=ig_web_button_share_sheet", icon: "instagram" },
-    { label: "Facebook", href: "https://www.facebook.com/share/1KD26c1kan/?mibextid=wwXIfr", icon: "facebook" },
-    { label: "YouTube", href: "https://www.youtube.com/@KottakkalAryaVaidyasala-auh", icon: "youtube" },
-    { label: "Email", href: "mailto:kottakkalaryavaidyasalaauh@gmail.com", icon: "mail" },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/kottakkalaryavaidyasala.ae/?utm_source=ig_web_button_share_sheet",
+      icon: "instagram",
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/share/1KD26c1kan/?mibextid=wwXIfr",
+      icon: "facebook",
+    },
+    {
+      label: "YouTube",
+      href: "https://www.youtube.com/@KottakkalAryaVaidyasala-auh",
+      icon: "youtube",
+    },
+    {
+      label: "Email",
+      href: "mailto:kottakkalaryavaidyasalaauh@gmail.com",
+      icon: "mail",
+    },
   ] as const,
 
   /** Navigation links */
@@ -72,7 +88,7 @@ export const siteConfig = {
     { value: "4.9", label: "Google Rating" },
     { value: "15+", label: "Expert Physicians" },
   ] as const,
-} as const
+} as const;
 
-export type NavLink = (typeof siteConfig.navLinks)[number]
-export type SocialLink = (typeof siteConfig.socials)[number]
+export type NavLink = (typeof siteConfig.navLinks)[number];
+export type SocialLink = (typeof siteConfig.socials)[number];

@@ -21,9 +21,9 @@ export default function DoctorsPreview() {
   const { openWhatsApp } = useWhatsApp();
 
   return (
-    <section className="py-24 md:py-32 bg-brand-cream relative overflow-hidden">
+    <section className="bg-brand-cream relative overflow-hidden py-24 md:py-32">
       {/* Subtle background */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-brand-gold/[0.04] rounded-full filter blur-[180px] pointer-events-none" />
+      <div className="bg-brand-gold/[0.04] pointer-events-none absolute top-0 left-0 h-[400px] w-[400px] rounded-full blur-[180px] filter" />
 
       <Container>
         <AnimatedReveal direction="up">
@@ -36,7 +36,7 @@ export default function DoctorsPreview() {
         </AnimatedReveal>
 
         {/* ── Doctors Grid — Editorial Cards ────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-10 lg:grid-cols-2">
           {doctors.map((doctor, idx) => (
             <AnimatedReveal
               key={doctor.id}
@@ -46,52 +46,52 @@ export default function DoctorsPreview() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="bg-white rounded-2xl overflow-hidden border border-brand-primary/8 hover:border-brand-gold/30 transition-all duration-500 editorial-hover h-full flex flex-col"
+                className="border-brand-primary/8 hover:border-brand-gold/30 editorial-hover flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-all duration-500"
               >
                 {/* Top section — Avatar & Name */}
-                <div className="relative bg-gradient-to-br from-brand-primary/[0.06] to-brand-gold/[0.04] px-8 pt-10 pb-8 flex flex-col items-center text-center">
+                <div className="from-brand-primary/[0.06] to-brand-gold/[0.04] relative flex flex-col items-center bg-gradient-to-br px-8 pt-10 pb-8 text-center">
                   {/* Avatar circle with stethoscope */}
                   <div className="relative mb-5">
-                    <div className="w-24 h-24 rounded-full bg-brand-primary/10 border-2 border-brand-gold/30 flex items-center justify-center">
-                      <Stethoscope className="w-10 h-10 text-brand-gold" />
+                    <div className="bg-brand-primary/10 border-brand-gold/30 flex h-24 w-24 items-center justify-center rounded-full border-2">
+                      <Stethoscope className="text-brand-gold h-10 w-10" />
                     </div>
                     {/* Online indicator */}
-                    <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white" />
+                    <div className="absolute right-1 bottom-1 h-5 w-5 rounded-full border-2 border-white bg-emerald-500" />
                   </div>
 
-                  <h3 className="font-heading text-2xl font-bold text-brand-primary">
+                  <h3 className="font-heading text-brand-primary text-2xl font-bold">
                     {doctor.name}
                   </h3>
-                  <p className="text-sm font-semibold text-brand-gold mt-1">
+                  <p className="text-brand-gold mt-1 text-sm font-semibold">
                     {doctor.title}
                   </p>
 
                   {/* Credentials badge */}
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20">
-                    <BookOpen className="w-3 h-3 text-brand-gold" />
-                    <span className="text-[11px] font-semibold text-brand-gold">
+                  <div className="bg-brand-gold/10 border-brand-gold/20 mt-3 inline-flex items-center gap-1.5 rounded-full border px-3 py-1">
+                    <BookOpen className="text-brand-gold h-3 w-3" />
+                    <span className="text-brand-gold text-[11px] font-semibold">
                       {doctor.credentials}
                     </span>
                   </div>
                 </div>
 
                 {/* Bottom section — Details */}
-                <div className="px-8 py-8 flex-1 flex flex-col">
+                <div className="flex flex-1 flex-col px-8 py-8">
                   {/* Bio */}
-                  <p className="text-sm text-brand-grey leading-[1.6] font-light mb-6">
+                  <p className="text-brand-grey mb-6 text-sm leading-[1.6] font-light">
                     {doctor.bio}
                   </p>
 
                   {/* Specialties */}
                   <div className="mb-6">
-                    <span className="text-xs font-semibold text-brand-grey uppercase tracking-wider mb-3 block">
+                    <span className="text-brand-grey mb-3 block text-xs font-semibold tracking-wider uppercase">
                       Specialties
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {doctor.specialties.map((s) => (
                         <span
                           key={s}
-                          className="text-xs px-3 py-1.5 rounded-full bg-brand-primary/[0.06] text-brand-primary font-medium border border-brand-primary/8"
+                          className="bg-brand-primary/[0.06] text-brand-primary border-brand-primary/8 rounded-full border px-3 py-1.5 text-xs font-medium"
                         >
                           {s}
                         </span>
@@ -100,9 +100,9 @@ export default function DoctorsPreview() {
                   </div>
 
                   {/* Experience badge */}
-                  <div className="flex items-center gap-2 mb-8 mt-auto">
-                    <Award className="w-4 h-4 text-brand-gold" />
-                    <span className="text-xs font-bold text-brand-primary">
+                  <div className="mt-auto mb-8 flex items-center gap-2">
+                    <Award className="text-brand-gold h-4 w-4" />
+                    <span className="text-brand-primary text-xs font-bold">
                       {doctor.experience}
                     </span>
                   </div>
@@ -110,7 +110,7 @@ export default function DoctorsPreview() {
                   {/* CTA */}
                   <PrimaryButton
                     className="w-full"
-                    icon={<CalendarDays className="w-4 h-4" />}
+                    icon={<CalendarDays className="h-4 w-4" />}
                     onClick={() => openWhatsApp()}
                   >
                     Request Consultation

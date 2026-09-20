@@ -8,18 +8,18 @@ import Container from "@/components/common/Container";
 
 export default function TreatmentsMarquee() {
   return (
-    <section className="relative w-full pt-10 pb-0 bg-white overflow-hidden flex flex-col items-center">
+    <section className="relative flex w-full flex-col items-center overflow-hidden bg-white pt-10 pb-0">
       <Container className="relative z-20 w-full">
-        <div className="text-center mb-6">
-          <p className="text-brand-gold font-medium tracking-[0.2em] uppercase text-sm mb-2">
+        <div className="mb-6 text-center">
+          <p className="text-brand-gold mb-2 text-sm font-medium tracking-[0.2em] uppercase">
             Time-Tested Healing
           </p>
-          <h2 className="text-3xl md:text-4xl font-heading text-brand-dark">
+          <h2 className="font-heading text-brand-dark text-3xl md:text-4xl">
             Our Signature Therapies
           </h2>
         </div>
 
-        <div className="relative mt-4 h-[60px] w-full max-w-5xl mx-auto">
+        <div className="relative mx-auto mt-4 h-[60px] w-full max-w-5xl">
           <InfiniteSlider
             className="flex h-full w-full items-center"
             duration={40}
@@ -30,8 +30,8 @@ export default function TreatmentsMarquee() {
                 key={treatment.id}
                 className="flex items-center gap-4 whitespace-nowrap"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/60" />
-                <span className="text-xl md:text-2xl font-light tracking-wide text-brand-dark/80">
+                <div className="bg-brand-gold/60 h-1.5 w-1.5 rounded-full" />
+                <span className="text-brand-dark/80 text-xl font-light tracking-wide md:text-2xl">
                   {treatment.title}
                 </span>
               </div>
@@ -41,12 +41,12 @@ export default function TreatmentsMarquee() {
       </Container>
 
       {/* ── Glowing Arc & Sparkles Effect ── */}
-      <div className="relative mt-0 h-24 md:h-32 w-full overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] z-0 pointer-events-none">
+      <div className="pointer-events-none relative z-0 mt-0 h-24 w-full overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] md:h-32">
         {/* Glow */}
         <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#c9a96e,transparent_70%)] before:opacity-10" />
 
         {/* Curved Border Arc */}
-        <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-brand-gold/30 bg-white" />
+        <div className="border-brand-gold/30 absolute top-1/2 -left-1/2 z-10 aspect-[1/0.7] w-[200%] rounded-[100%] border-t bg-white" />
 
         {/* Particles */}
         <Sparkles

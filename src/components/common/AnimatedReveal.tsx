@@ -102,7 +102,15 @@ export default function AnimatedReveal({
     },
     {
       scope: containerRef,
-      dependencies: [direction, delay, duration, threshold, once, stagger, staggerDelay],
+      dependencies: [
+        direction,
+        delay,
+        duration,
+        threshold,
+        once,
+        stagger,
+        staggerDelay,
+      ],
     }
   );
 
