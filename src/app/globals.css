@@ -109,11 +109,17 @@
   }
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+    /* Disable overscroll bounce on body too for full mobile coverage */
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
   }
   html {
     @apply font-sans scroll-smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Disable elastic/bounce overscroll on mobile — no scrolling past footer */
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
   }
   h1,
   h2,
